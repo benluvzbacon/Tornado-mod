@@ -50,6 +50,16 @@ public final class VehicleVisuals {
 					new DustParticleOptions(new org.joml.Vector3f(58 / 255.0F, 64 / 255.0F, 72 / 255.0F), 0.55f),
 					wx, wy, wz, 0, 0, 0);
 			}
+			// Deployed hydraulic spikes and lowered wind skirts.
+			if (v.isDeployed()) {
+				for (int side = -1; side <= 1; side += 2) {
+					for (int end = -1; end <= 1; end += 2) {
+						client.level.addParticle(new DustParticleOptions(new org.joml.Vector3f(0.72f, 0.72f, 0.74f), 0.7f),
+							v.getX() + side * rx * 0.95 + end * fx * 0.75, v.getY() + 0.05,
+							v.getZ() + side * rz * 0.95 + end * fz * 0.75, 0, -0.02, 0);
+					}
+				}
+			}
 			// Blinking research light on the roof.
 			if ((v.level().getGameTime() / 10) % 2 == 0) {
 				client.level.addParticle(ParticleTypes.ENCHANT,

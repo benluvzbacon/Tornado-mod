@@ -180,6 +180,18 @@ public final class WeatherVisuals {
 					ax, y, az,
 					0, 0.02f + RNG.nextFloat() * 0.02f, 0);
 				spawned++;
+				// Stronger/wider funnels receive additional points around each ring so
+				// EF intensity is immediately visible instead of looking like a sparse line.
+				int extra = Math.min(2 + t.ef() / 2, budget - spawned);
+				for (int ep = 0; ep < extra; ep++) {
+					double ea = angle + (ep + 1) * Math.PI * 2.0 / (extra + 1);
+					client.level.addParticle(new DustParticleOptions(new org.joml.Vector3f(r, g, b), 0.55f + fr * 1.25f),
+						t.x() + Math.cos(t.heading()) * tilt + Math.cos(ea) * radius,
+						y + RNG.nextFloat() * 1.4,
+						t.z() + Math.sin(t.heading()) * tilt + Math.sin(ea) * radius,
+						-Math.sin(ea) * (0.03 + t.ef() * 0.008), 0.025, Math.cos(ea) * (0.03 + t.ef() * 0.008));
+					spawned++;
+				}
 				// Ground debris cloud near the base.
 				if (fr < 0.25f && spawned < budget && RNG.nextInt(3) == 0) {
 					float da = RNG.nextFloat() * (float) Math.PI * 2;

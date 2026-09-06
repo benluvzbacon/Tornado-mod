@@ -1,5 +1,6 @@
 package com.tornadic.item;
 
+import com.tornadic.block.AnemometerBlock;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -28,7 +29,7 @@ public final class TornadicItems {
 
 	public static void register() {
 		ANEMOMETER_BLOCK = Registry.register(BuiltInRegistries.BLOCK, "tornadic:anemometer",
-			new Block(BlockBehaviour.Properties.of().strength(0.8f).noOcclusion()));
+			new AnemometerBlock(BlockBehaviour.Properties.of().strength(0.8f).noOcclusion()));
 		WEATHER_RADIO = Registry.register(BuiltInRegistries.ITEM, "tornadic:weather_radio",
 			new WeatherRadioItem(new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));
 		ANEMOMETER = Registry.register(BuiltInRegistries.ITEM, "tornadic:anemometer",

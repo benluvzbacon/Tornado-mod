@@ -105,11 +105,14 @@ public final class TornadoPhysics {
 				double chance = Math.min(0.35, 0.05 + excess * 0.12);
 				if (world.getRandom().nextFloat() < chance) {
 					double amount = 0.5 + state.currentEf() * 0.45 + world.getRandom().nextDouble() * 1.2;
-					// Riding a chaser vehicle halves wind damage (shelter).
-					if (e instanceof Player p && p.getVehicle() instanceof ChaserVehicleEntity) {
-						amount *= 0.5;
+					// Deployed TIV 2 is engineered for winds up to 225 mph. Above that
+					// threshold or while mobile it still reduces, but cannot erase, danger.
+					if (e instanceof Player p && p.getVehicle() instanceof ChaserVehicleEntity tiv) {
+						double mph = localWind * 2.23694;
+						if (tiv.isDeployed() && mph <= 225.0) amount = 0.0;
+						else amount *= tiv.isDeployed() ? 0.25 : 0.55;
 					}
-					e.hurt(world.damageSources().fall(), (float) Math.min(4.5, amount));
+					if (amount > 0.0) e.hurt(world.damageSources().fall(), (float) Math.min(4.5, amount));
 				}
 			}
 
@@ -118,12 +121,16 @@ public final class TornadoPhysics {
 				double chance = state.intensityScale().debrisChance() * 0.5;
 				if (world.getRandom().nextFloat() < chance) {
 					double amount = 1.5 + world.getRandom().nextDouble() * (1.0 + state.currentEf() * 0.6);
-					if (e instanceof Player p && p.getVehicle() instanceof ChaserVehicleEntity) {
-						amount *= 0.5;
+					boolean anchored = false;
+					if (e instanceof Player p && p.getVehicle() instanceof ChaserVehicleEntity tiv) {
+						anchored = tiv.isDeployed() && localWind * 2.23694 <= 225.0;
+						amount *= tiv.isDeployed() ? 0.25 : 0.55;
 					}
-					e.hurt(world.damageSources().fall(), (float) Math.min(5.0, amount));
-					e.setDeltaMovement(e.getDeltaMovement().add(
-						ix * -0.8 - tx * 0.4, 0.45 + world.getRandom().nextDouble() * 0.3, iz * -0.8 - tz * 0.4));
+					if (!anchored) {
+						e.hurt(world.damageSources().fall(), (float) Math.min(5.0, amount));
+						e.setDeltaMovement(e.getDeltaMovement().add(
+							ix * -0.8 - tx * 0.4, 0.45 + world.getRandom().nextDouble() * 0.3, iz * -0.8 - tz * 0.4));
+					}
 				}
 			}
 		}

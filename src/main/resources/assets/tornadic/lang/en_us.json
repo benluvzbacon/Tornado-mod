@@ -7,7 +7,7 @@
 	"item.tornadic.barometer": "Barometer",
 	"item.tornadic.storm_radar": "Storm Radar",
 	"item.tornadic.storm_notebook": "Storm Notebook",
-	"item.tornadic.chaser_vehicle": "Storm Chaser Vehicle",
+	"item.tornadic.chaser_vehicle": "TIV 2 Storm Intercept Vehicle",
 
 	"tooltip.tornadic.weather_radio": "Right-click to receive the current severe-weather bulletin.",
 	"tooltip.tornadic.anemometer": "Right-click to measure the local wind speed and direction.",
@@ -15,12 +15,12 @@
 	"tooltip.tornadic.barometer": "Right-click to read atmospheric pressure and its trend.",
 	"tooltip.tornadic.storm_radar": "Right-click to open the storm radar (R).",
 	"tooltip.tornadic.storm_notebook": "Right-click to open your storm notebook.",
-	"tooltip.tornadic.chaser_vehicle": "Right-click the ground to deploy the vehicle. Right-click the vehicle to drive.",
+	"tooltip.tornadic.chaser_vehicle": "Deploy on the ground. Sneak-right-click the TIV 2 to anchor for winds up to 225 mph.",
 
 	"key.tornadic.radar": "Open Storm Radar",
 	"key.tornadic.debug": "Toggle Weather Debug HUD",
 	"key.category.tornadic": "Tornadic",
 
 	"entity.tornadic.tornado": "Tornado",
-	"entity.tornadic.chaser_vehicle": "Storm Chaser Vehicle"
+	"entity.tornadic.chaser_vehicle": "TIV 2 Storm Intercept Vehicle"
 }

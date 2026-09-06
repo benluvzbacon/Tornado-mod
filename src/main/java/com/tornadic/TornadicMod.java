@@ -89,7 +89,7 @@ public class TornadicMod implements ModInitializer {
 		CHASER_VEHICLE_TYPE = (EntityType<ChaserVehicleEntity>) (EntityType<?>) net.minecraft.core.Registry.register(
 			net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE, "tornadic:chaser_vehicle",
 			EntityType.Builder.of(ChaserVehicleEntity::new, MobCategory.MISC)
-				.sized(1.6F, 1.0F)
+				.sized(2.4F, 1.5F)
 				.clientTrackingRange(8)
 				.updateInterval(3)
 				.fireImmune()
