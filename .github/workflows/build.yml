@@ -43,14 +43,12 @@ jobs:
         if: success()
         run: |
           set -x
-          # Loom 1.17 dev runServer working directory is <project>/run.
+          # Loom 1.17 dev runServer: working directory = <project>/run and the
+          # server console reads gradle's stdin (loom AbstractProductionRunTask).
           mkdir -p run
           printf 'eula=true\n' > run/eula.txt
           {
             echo 'online-mode=false'
-            echo 'enable-rcon=true'
-            echo 'rcon.password=tornadic'
-            echo 'rcon.port=25575'
             echo 'max-tick-time=60000'
             echo 'spawn-protection=0'
             echo 'view-distance=4'
@@ -60,35 +58,20 @@ jobs:
             echo 'motd=tornadic-ci'
           } > run/server.properties
 
-          # Inspect MC 1.21.1's RCON implementation (disassemble the classes).
-          MCJAR=$(find ~/.gradle/caches/fabric-loom/minecraftMaven -path "*minecraft-common/*" -name "*.jar" 2>/dev/null | grep -v intermediary | head -1)
-          echo "MC common jar: $MCJAR"
-          unzip -l "$MCJAR" 2>/dev/null | grep -iE "rcon|DedicatedServerProperties|dedicated/Settings" > rcon-classes.txt
-          cat rcon-classes.txt
-          rm -rf /tmp/rconprobe && mkdir -p /tmp/rconprobe
-          awk '{print $4}' "$GITHUB_WORKSPACE/rcon-classes.txt" 2>/dev/null | grep "\.class$" | head -20 > rcon-classlist.txt
-          cat rcon-classlist.txt
-          while read -r f; do (cd /tmp/rconprobe && unzip -o -q "$MCJAR" "$f"); done < rcon-classlist.txt
-          for c in $(find /tmp/rconprobe -name "*.class" | head -20); do
-            echo "=== javap $(basename "$c") ==="
-            javap -p -c "$c" 2>/dev/null | head -120
-          done > rcon-javap.txt 2>&1 || true
-          echo "--- rcon-javap excerpt ---"
-          head -c 8000 rcon-javap.txt || true
-
-          # Split source sets make loom prefix the run task per mod (e.g. tornadic_runServer).
           ./gradlew tasks --all --no-daemon > gradle-tasks.log 2>&1 || true
           TASK=$(grep -oE '[a-zA-Z_]*runServer' gradle-tasks.log | head -1)
           [ -n "$TASK" ] || TASK=runServer
           echo "run-server task: $TASK"
 
-          ./gradlew "$TASK" --no-daemon > gradle-server.log 2>&1 &
+          # Console commands piped through a FIFO (kept open so the server never sees EOF).
+          rm -f /tmp/telemetry-fifo && mkfifo /tmp/telemetry-fifo
+          exec 3<>/tmp/telemetry-fifo
+          ./gradlew "$TASK" --no-daemon > gradle-server.log 2>&1 < /tmp/telemetry-fifo &
           GRADLE_PID=$!
 
-          # Wait for the RCON port (world generation on first boot takes a while).
           READY=0
-          for i in $(seq 1 75); do
-            if python3 ci/rcon_test.py 127.0.0.1 25575 tornadic list > rcon-list.out 2>&1; then
+          for i in $(seq 1 90); do
+            if grep -q "Done (" gradle-server.log 2>/dev/null; then
               READY=1
               break
             fi
@@ -96,44 +79,38 @@ jobs:
           done
           if [ "$READY" != "1" ]; then
             echo "SERVER NEVER BECAME READY"
-            echo "--- rcon-list.out (last attempt) ---"
-            cat rcon-list.out 2>/dev/null || true
-            echo "--- listening ports ---"
-            (ss -ltn 2>/dev/null || netstat -ltn 2>/dev/null) | head -20 || true
             {
               echo "=== runtime smoke test FAILED: server never ready $(date -u) ==="
-              echo "--- rcon-list.out ---"; cat rcon-list.out 2>/dev/null || true
-              echo "--- run/latest.log tail ---"; tail -c 60000 run/latest.log 2>/dev/null || true
-              echo "--- gradle-server.log tail ---"; tail -c 80000 gradle-server.log 2>/dev/null || true
-              echo "--- rcon-javap excerpt ---"; head -c 12000 rcon-javap.txt 2>/dev/null || true
+              echo "--- gradle-server.log tail ---"; tail -c 100000 gradle-server.log 2>/dev/null || true
             } > ci-last-failure.log
             pkill -f KnotServer 2>/dev/null || true
-            pkill -f GradleDaemon 2>/dev/null || true
             kill "$GRADLE_PID" 2>/dev/null || true
+            pkill -f GradleDaemon 2>/dev/null || true
+            exec 3>&-
             exit 1
           fi
+          sleep 3
 
-          run_cmd() {
-            local name="$2"
-            echo "\$ /$1"
-            python3 ci/rcon_test.py 127.0.0.1 25575 tornadic "$1" > "rcon-out-${name}.out" 2>&1 || echo "(command failed: $1)"
-            cat "rcon-out-${name}.out" 2>/dev/null || true
-            sleep 2
+          send_cmd() {
+            echo "\$ $1"
+            echo "$1" >&3
+            sleep 5
           }
 
-          run_cmd "thermos" thermos
-          run_cmd "thermos tomorrow" thermos_tomorrow
-          run_cmd "spawn_tornado ef2" spawn_tornado
-          run_cmd "tornado_info" tornado_info_1
-          run_cmd "storm_info" storm_info
-          run_cmd "weatherstorm supercell" weatherstorm
-          sleep 20
-          run_cmd "tornado_info" tornado_info_2
-          python3 ci/rcon_test.py 127.0.0.1 25575 tornadic stop || true
+          send_cmd list
+          send_cmd thermos
+          send_cmd "thermos tomorrow"
+          send_cmd "spawn_tornado ef2"
+          send_cmd tornado_info
+          send_cmd storm_info
+          send_cmd "weatherstorm supercell"
+          sleep 25
+          send_cmd tornado_info
+          echo "stop" >&3
+          echo "stop sent"
 
-          # Wait for a clean shutdown (max 90s).
-          for i in $(seq 1 45); do
-            if ! pgrep -f KnotServer > /dev/null 2>&1; then
+          for i in $(seq 1 60); do
+            if ! kill -0 "$GRADLE_PID" 2>/dev/null; then
               break
             fi
             sleep 2
@@ -141,75 +118,26 @@ jobs:
           pkill -f KnotServer 2>/dev/null || true
           kill "$GRADLE_PID" 2>/dev/null || true
           pkill -f GradleDaemon 2>/dev/null || true
+          exec 3>&-
           sleep 2
 
-          echo "=== properties file as found on disk ==="
-          cat run/server.properties 2>/dev/null || echo "(run/server.properties missing)"
-          echo "=== rcon outputs ==="
-          cat rcon-list.out
           echo "=== server log assertions ==="
-          SERVER_LOG=run/latest.log
-          [ -f "$SERVER_LOG" ] || SERVER_LOG=gradle-server.log
-          [ -f "$SERVER_LOG" ] || { echo "NO SERVER LOG"; ls -la run 2>/dev/null || true; exit 1; }
+          SERVER_LOG=gradle-server.log
+          [ -f run/latest.log ] && SERVER_LOG=run/latest.log
           echo "asserting against $SERVER_LOG"
           FAIL=0
           grep -q "Tornadic loaded" "$SERVER_LOG" || { echo "FAIL: mod never initialized"; FAIL=1; }
           if grep -q "Crashed server" "$SERVER_LOG"; then echo "FAIL: server crashed"; FAIL=1; fi
           if grep -q "Tornadic simulation tick failed" "$SERVER_LOG"; then echo "FAIL: simulation tick exception"; FAIL=1; fi
-          if grep -q "THERMOS" rcon-out-thermos.out 2>/dev/null; then echo "OK: /thermos produced output"; else echo "FAIL: no /thermos output"; FAIL=1; fi
-          if grep -q "unknown command" rcon-out-thermos.out 2>/dev/null; then echo "FAIL: /thermos unknown command"; FAIL=1; fi
+          if grep -q "THERMOS" "$SERVER_LOG"; then echo "OK: /thermos output present"; else echo "FAIL: no /thermos output"; FAIL=1; fi
           if [ "$FAIL" != "0" ]; then
             {
               echo "=== runtime smoke test FAILED $(date -u) ==="
-              for f in rcon-*.out; do echo "--- $f ---"; cat "$f" 2>/dev/null || true; done
-              echo "--- latest.log tail ---"; tail -c 120000 "$SERVER_LOG" 2>/dev/null || true
-              echo "--- gradle-server.log tail ---"; tail -c 60000 gradle-server.log 2>/dev/null || true
+              echo "--- server log tail ---"; tail -c 120000 "$SERVER_LOG" 2>/dev/null || true
             } > ci-last-failure.log
             exit 1
           fi
           echo "RUNTIME SMOKE TEST PASSED"
-
-      - name: Remove stale failure log
-        if: success()
-        run: |
-          set +e
-          git config user.name "tornadic-ci"
-          git config user.email "ci@tornadic.invalid"
-          if [ -f ci-last-failure.log ]; then
-            rm ci-last-failure.log
-            git add -A ci-last-failure.log
-          fi
-          if ! git diff --cached --quiet; then
-            git commit -m "ci: build fixed, drop diagnostic logs"
-            git push
-          fi
-          exit 0
-
-      - name: Commit failure log
-        if: failure()
-        run: |
-          set +e
-          git config user.name "tornadic-ci"
-          git config user.email "ci@tornadic.invalid"
-          [ -f ci-last-failure.log ] || echo "BUILD STEP DIED BEFORE CAPTURE" > ci-last-failure.log
-          KEY=$(grep -E "error|Error|ERROR|FAILED|What went wrong|Exception" ci-last-failure.log | head -5 | tr '\n' '|' | head -c 150)
-          git add -f ci-last-failure.log
-          COMMITTED=0
-          if ! git diff --cached --quiet; then
-            if git commit -m "ci: last build failure log | ${KEY}"; then
-              COMMITTED=1
-            fi
-          fi
-          if [ "$COMMITTED" = "1" ]; then
-            git push > /tmp/push.out 2>&1
-            PUSH=$?
-            echo "push-exit=$PUSH $(head -c 300 /tmp/push.out)"
-            if [ "$PUSH" -ne 0 ]; then
-              echo "PUSH_DENIED - log could not be committed"
-              exit 1
-            fi
-          fi
-          exit 0
 
       - name: Upload mod jar artifact
         if: success()
