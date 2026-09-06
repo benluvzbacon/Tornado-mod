@@ -36,8 +36,13 @@ jobs:
           fi
           exit "$status"
 
-      - name: Verify jar exists
-        run: ls -la build/libs/tornadic-1.0.0.jar
+      - name: Verify distributable jar contents
+        run: |
+          JAR=build/libs/tornadic-1.0.0.jar
+          ls -la "$JAR"
+          # Prevent a server-only smoke test from overlooking a broken client entrypoint.
+          unzip -l "$JAR" | grep -q 'com/tornadic/client/TornadicClientMod.class'
+          unzip -p "$JAR" fabric.mod.json | grep -q 'com.tornadic.client.TornadicClientMod'
 
       - name: Runtime smoke test (headless dedicated server)
         if: success()

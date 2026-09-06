@@ -19,7 +19,7 @@
 			"com.tornadic.TornadicMod"
 		],
 		"client": [
-			"com.tornadic.TornadicClientMod"
+			"com.tornadic.client.TornadicClientMod"
 		]
 	},
 	"depends": {
