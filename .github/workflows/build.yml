@@ -36,21 +36,15 @@ jobs:
             java -version 2>&1 || true
             echo "--- ls -la ---"
             ls -la
-            echo "--- wrapper ---"
-            ls -la gradle/wrapper
-            echo "--- end header ---"
           } > build-output.log 2>&1
           set +e
           ./gradlew --version >> build-output.log 2>&1
           echo "gradlew-version-exit=$?" >> build-output.log
           ./gradlew build --no-daemon --stacktrace >> build-output.log 2>&1
           status=$?
-          set -e
           echo "gradle-build-exit=$status" >> build-output.log
-          tail -c 200000 build-output.log > ci-last-failure.log
-          if [ "$status" -ne 0 ]; then
-            exit "$status"
-          fi
+          tail -c 200000 build-output.log > ci-last-failure.log || echo "tail failed" >> ci-last-failure.log
+          exit "$status"
 
       - name: Verify jar exists
         run: ls -la build/libs/tornadic-1.0.0.jar
@@ -58,6 +52,7 @@ jobs:
       - name: Remove stale failure log
         if: success()
         run: |
+          set +e
           git config user.name "tornadic-ci"
           git config user.email "ci@tornadic.invalid"
           if [ -f ci-last-failure.log ]; then
@@ -65,29 +60,42 @@ jobs:
             git add -A
             if ! git diff --cached --quiet; then
               git commit -m "ci: build fixed, drop last failure log"
-              git push || true
+              git push
             fi
           fi
+          exit 0
 
       - name: Commit failure log
         if: failure()
         run: |
+          set +e
           git config user.name "tornadic-ci"
           git config user.email "ci@tornadic.invalid"
-          [ -f ci-last-failure.log ] || : > ci-last-failure.log
-          git add ci-last-failure.log 2>/dev/null || true
+          [ -f ci-last-failure.log ] || echo "BUILD STEP DIED BEFORE CAPTURE" > ci-last-failure.log
+          KEY=$(grep -E "error|Error|ERROR|FAILED|What went wrong|Exception" ci-last-failure.log | head -5 | tr '\n' '|' | head -c 150)
+          git add ci-last-failure.log
+          COMMITTED=0
           if ! git diff --cached --quiet; then
-            git commit -m "ci: last build failure log"
-            git push || true
+            if git commit -m "ci: last build failure log | ${KEY}"; then
+              COMMITTED=1
+            fi
           fi
-          # Fallback: also post the log as a commit comment so it is always visible.
-          if [ -f ci-last-failure.log ]; then
-            LOG_B64=$(base64 -w0 ci-last-failure.log | head -c 45000)
-            curl -sS -X POST "https://api.github.com/repos/${GITHUB_REPOSITORY}/commits/${GITHUB_SHA}/comments" \
-              -H "Authorization: Bearer ${GITHUB_TOKEN}" \
-              -H "Accept: application/vnd.github+json" \
-              -d "{\"body\": \"CI build failed. Log tail (base64): ${LOG_B64}\"}" || true
+          # Commit comment first (works even if branch push is blocked).
+          curl -sS -X POST "https://api.github.com/repos/${GITHUB_REPOSITORY}/commits/${GITHUB_SHA}/comments" \
+            -H "Authorization: Bearer ${GITHUB_TOKEN}" \
+            -H "Accept: application/vnd.github+json" \
+            -d "{\"body\": \"CI build failed. Log tail (base64): $(base64 -w0 ci-last-failure.log | head -c 45000)\"}" > /tmp/curl.out 2>&1
+          echo "curl-exit=$? result=$(head -c 300 /tmp/curl.out)"
+          if [ "$COMMITTED" = "1" ]; then
+            git push > /tmp/push.out 2>&1
+            PUSH=$?
+            echo "push-exit=$PUSH $(head -c 300 /tmp/push.out)"
+            if [ "$PUSH" -ne 0 ]; then
+              echo "PUSH_DENIED - log could not be committed"
+              exit 1
+            fi
           fi
+          exit 0
 
       - name: Upload mod jar artifact
         if: success()
