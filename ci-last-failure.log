@@ -1,4 +1,4 @@
-=== runtime smoke test FAILED: server never ready Sun Sep  6 21:13:30 UTC 2026 ===
+=== runtime smoke test FAILED: server never ready Sun Sep  6 21:17:59 UTC 2026 ===
 --- rcon-list.out ---
 AUTH-FAILED: short response (len=10 hex=ffffffff020000000000)
 --- run/latest.log tail ---
@@ -18,8 +18,8 @@ Fabric Loom: 1.17.20
 > Task :configureLaunch
 
 > Task :runServer
-[21:11:05] [main/INFO] (FabricLoader/GameProvider) Loading Minecraft 1.21.1 with Fabric Loader 0.16.5
-[21:11:05] [main/INFO] (FabricLoader) Loading 43 mods:
+[21:15:33] [main/INFO] (FabricLoader/GameProvider) Loading Minecraft 1.21.1 with Fabric Loader 0.16.5
+[21:15:33] [main/INFO] (FabricLoader) Loading 43 mods:
 	- fabric-api 0.115.6+1.21.1
 	- fabric-api-base 0.4.42+6573ed8c19
 	- fabric-api-lookup-api-v1 1.6.70+b559734419
@@ -63,167 +63,371 @@ Fabric Loom: 1.17.20
 	- minecraft 1.21.1
 	- mixinextras 0.4.1
 	- tornadic 1.0.0
-[21:11:05] [main/INFO] (FabricLoader/Mixin) SpongePowered MIXIN Subsystem Version=0.8.7 Source=file:/home/runner/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.15.3+mixin.0.8.7/51ee0a44ab05f6fddd66b09e66b3a16904f9c55d/sponge-mixin-0.15.3+mixin.0.8.7.jar Service=Knot/Fabric Env=SERVER
-[21:11:05] [main/INFO] (FabricLoader/Mixin) Loaded Fabric development mappings for mixin remapper!
-[21:11:05] [main/INFO] (FabricLoader/Mixin) Compatibility level set to JAVA_17
-[21:11:06] [main/INFO] (FabricLoader/MixinExtras|Service) Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.4.1).
-[21:11:12] [main/ERROR] (Minecraft) No data fixer registered for tornadic:chaser_vehicle
-[21:11:12] [main/INFO] (Tornadic) Tornadic loaded - may the winds be in your favor.
-[21:11:12] [main/INFO] (Minecraft) Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
-[21:11:13] [main/INFO] (Minecraft) No existing world data, creating new world
-[21:11:13] [main/INFO] (Minecraft) Loaded 1290 recipes
-[21:11:13] [main/INFO] (Minecraft) Loaded 1399 advancements
-[21:11:14] [main/INFO] (BiomeModificationImpl) Applied 0 biome modifications to 0 of 64 new biomes in 1.146 ms
-[21:11:14] [Server thread/INFO] (Minecraft) Starting minecraft server version 1.21.1
-[21:11:14] [Server thread/INFO] (Minecraft) Loading properties
-[21:11:14] [Server thread/INFO] (Minecraft) Default game type: SURVIVAL
-[21:11:14] [Server thread/INFO] (Minecraft) Generating keypair
-[21:11:14] [Server thread/INFO] (Minecraft) Starting Minecraft server on *:25565
-[21:11:14] [Server thread/INFO] (Minecraft) Using epoll channel type
-[21:11:14] [Server thread/WARN] (Minecraft) **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
-[21:11:14] [Server thread/WARN] (Minecraft) The server will make no attempt to authenticate usernames. Beware.
-[21:11:14] [Server thread/WARN] (Minecraft) While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
-[21:11:14] [Server thread/WARN] (Minecraft) To change this, set "online-mode" to "true" in the server.properties file.
-[21:11:14] [Server thread/INFO] (Minecraft) Preparing level "world"
-[21:11:18] [Server thread/INFO] (Minecraft) Preparing start region for dimension minecraft:overworld
-[21:11:18] [Worker-Main-3/INFO] (Minecraft) Preparing spawn area: 2%
-[21:11:19] [Worker-Main-1/INFO] (Minecraft) Preparing spawn area: 2%
-[21:11:19] [Worker-Main-3/INFO] (Minecraft) Preparing spawn area: 2%
-[21:11:20] [Worker-Main-2/INFO] (Minecraft) Preparing spawn area: 18%
-[21:11:20] [Worker-Main-2/INFO] (Minecraft) Preparing spawn area: 18%
-[21:11:21] [Worker-Main-1/INFO] (Minecraft) Preparing spawn area: 51%
-[21:11:21] [Worker-Main-1/INFO] (Minecraft) Preparing spawn area: 51%
-[21:11:21] [Server thread/INFO] (Minecraft) Time elapsed: 3236 ms
-[21:11:21] [Server thread/INFO] (Minecraft) Done (7.474s)! For help, type "help"
-[21:11:21] [Server thread/INFO] (Minecraft) Starting remote control listener
-[21:11:21] [Server thread/INFO] (Minecraft) Thread RCON Listener started
-[21:11:21] [Server thread/INFO] (Minecraft) RCON running on 0.0.0.0:25575
-[21:11:22] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
-[21:11:22] [RCON Client /127.0.0.1 #2/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
-[21:11:24] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
-[21:11:24] [RCON Client /127.0.0.1 #3/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
-[21:11:26] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
-[21:11:26] [RCON Client /127.0.0.1 #4/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
-[21:11:28] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
-[21:11:28] [RCON Client /127.0.0.1 #5/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
-[21:11:30] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
-[21:11:30] [RCON Client /127.0.0.1 #6/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
-[21:11:32] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
-[21:11:32] [RCON Client /127.0.0.1 #7/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
-[21:11:34] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
-[21:11:34] [RCON Client /127.0.0.1 #8/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
-[21:11:36] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
-[21:11:36] [RCON Client /127.0.0.1 #9/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
-[21:11:38] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
-[21:11:38] [RCON Client /127.0.0.1 #10/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
-[21:11:40] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
-[21:11:40] [RCON Client /127.0.0.1 #11/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
-[21:11:42] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
-[21:11:42] [RCON Client /127.0.0.1 #12/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
-[21:11:44] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
-[21:11:44] [RCON Client /127.0.0.1 #13/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
-[21:11:46] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
-[21:11:46] [RCON Client /127.0.0.1 #14/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
-[21:11:48] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
-[21:11:48] [RCON Client /127.0.0.1 #15/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
-[21:11:50] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
-[21:11:50] [RCON Client /127.0.0.1 #16/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
-[21:11:53] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
-[21:11:53] [RCON Client /127.0.0.1 #17/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
-[21:11:55] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
-[21:11:55] [RCON Client /127.0.0.1 #18/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
-[21:11:57] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
-[21:11:57] [RCON Client /127.0.0.1 #19/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
-[21:11:59] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
-[21:11:59] [RCON Client /127.0.0.1 #20/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
-[21:12:01] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
-[21:12:01] [RCON Client /127.0.0.1 #21/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
-[21:12:03] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
-[21:12:03] [RCON Client /127.0.0.1 #22/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
-[21:12:05] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
-[21:12:05] [RCON Client /127.0.0.1 #23/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
-[21:12:07] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
-[21:12:07] [RCON Client /127.0.0.1 #24/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
-[21:12:09] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
-[21:12:09] [RCON Client /127.0.0.1 #25/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
-[21:12:11] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
-[21:12:11] [RCON Client /127.0.0.1 #26/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
-[21:12:13] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
-[21:12:13] [RCON Client /127.0.0.1 #27/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
-[21:12:15] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
-[21:12:15] [RCON Client /127.0.0.1 #28/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
-[21:12:17] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
-[21:12:17] [RCON Client /127.0.0.1 #29/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
-[21:12:19] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
-[21:12:19] [RCON Client /127.0.0.1 #30/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
-[21:12:21] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
-[21:12:21] [RCON Client /127.0.0.1 #31/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
-[21:12:23] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
-[21:12:23] [RCON Client /127.0.0.1 #32/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
-[21:12:25] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
-[21:12:25] [RCON Client /127.0.0.1 #33/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
-[21:12:27] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
-[21:12:27] [RCON Client /127.0.0.1 #34/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
-[21:12:29] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
-[21:12:29] [RCON Client /127.0.0.1 #35/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
-[21:12:31] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
-[21:12:31] [RCON Client /127.0.0.1 #36/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
-[21:12:33] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
-[21:12:33] [RCON Client /127.0.0.1 #37/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
-[21:12:35] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
-[21:12:35] [RCON Client /127.0.0.1 #38/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
-[21:12:37] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
-[21:12:37] [RCON Client /127.0.0.1 #39/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
-[21:12:39] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
-[21:12:39] [RCON Client /127.0.0.1 #40/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
-[21:12:41] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
-[21:12:41] [RCON Client /127.0.0.1 #41/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
-[21:12:43] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
-[21:12:43] [RCON Client /127.0.0.1 #42/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
-[21:12:45] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
-[21:12:45] [RCON Client /127.0.0.1 #43/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
-[21:12:47] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
-[21:12:47] [RCON Client /127.0.0.1 #44/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
-[21:12:49] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
-[21:12:49] [RCON Client /127.0.0.1 #45/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
-[21:12:51] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
-[21:12:51] [RCON Client /127.0.0.1 #46/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
-[21:12:53] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
-[21:12:53] [RCON Client /127.0.0.1 #47/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
-[21:12:55] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
-[21:12:55] [RCON Client /127.0.0.1 #48/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
-[21:12:57] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
-[21:12:57] [RCON Client /127.0.0.1 #49/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
-[21:12:59] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
-[21:12:59] [RCON Client /127.0.0.1 #50/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
-[21:13:01] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
-[21:13:01] [RCON Client /127.0.0.1 #51/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
-[21:13:03] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
-[21:13:03] [RCON Client /127.0.0.1 #52/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
-[21:13:05] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
-[21:13:05] [RCON Client /127.0.0.1 #53/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
-[21:13:07] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
-[21:13:07] [RCON Client /127.0.0.1 #54/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
-[21:13:09] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
-[21:13:09] [RCON Client /127.0.0.1 #55/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
-[21:13:11] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
-[21:13:11] [RCON Client /127.0.0.1 #56/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
-[21:13:14] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
-[21:13:14] [RCON Client /127.0.0.1 #57/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
-[21:13:16] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
-[21:13:16] [RCON Client /127.0.0.1 #58/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
-[21:13:18] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
-[21:13:18] [RCON Client /127.0.0.1 #59/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
-[21:13:20] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
-[21:13:20] [RCON Client /127.0.0.1 #60/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
-[21:13:22] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
-[21:13:22] [RCON Client /127.0.0.1 #61/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
-[21:13:24] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
-[21:13:24] [RCON Client /127.0.0.1 #62/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
-[21:13:26] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
-[21:13:26] [RCON Client /127.0.0.1 #63/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
-[21:13:28] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
-[21:13:28] [RCON Client /127.0.0.1 #64/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
+[21:15:33] [main/INFO] (FabricLoader/Mixin) SpongePowered MIXIN Subsystem Version=0.8.7 Source=file:/home/runner/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.15.3+mixin.0.8.7/51ee0a44ab05f6fddd66b09e66b3a16904f9c55d/sponge-mixin-0.15.3+mixin.0.8.7.jar Service=Knot/Fabric Env=SERVER
+[21:15:34] [main/INFO] (FabricLoader/Mixin) Loaded Fabric development mappings for mixin remapper!
+[21:15:34] [main/INFO] (FabricLoader/Mixin) Compatibility level set to JAVA_17
+[21:15:34] [main/INFO] (FabricLoader/MixinExtras|Service) Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.4.1).
+[21:15:39] [main/ERROR] (Minecraft) No data fixer registered for tornadic:chaser_vehicle
+[21:15:39] [main/INFO] (Tornadic) Tornadic loaded - may the winds be in your favor.
+[21:15:39] [main/INFO] (Minecraft) Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[21:15:40] [main/INFO] (Minecraft) No existing world data, creating new world
+[21:15:41] [main/INFO] (Minecraft) Loaded 1290 recipes
+[21:15:41] [main/INFO] (Minecraft) Loaded 1399 advancements
+[21:15:42] [main/INFO] (BiomeModificationImpl) Applied 0 biome modifications to 0 of 64 new biomes in 1.247 ms
+[21:15:42] [Server thread/INFO] (Minecraft) Starting minecraft server version 1.21.1
+[21:15:42] [Server thread/INFO] (Minecraft) Loading properties
+[21:15:42] [Server thread/INFO] (Minecraft) Default game type: SURVIVAL
+[21:15:42] [Server thread/INFO] (Minecraft) Generating keypair
+[21:15:42] [Server thread/INFO] (Minecraft) Starting Minecraft server on *:25565
+[21:15:42] [Server thread/INFO] (Minecraft) Using epoll channel type
+[21:15:42] [Server thread/WARN] (Minecraft) **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
+[21:15:42] [Server thread/WARN] (Minecraft) The server will make no attempt to authenticate usernames. Beware.
+[21:15:42] [Server thread/WARN] (Minecraft) While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
+[21:15:42] [Server thread/WARN] (Minecraft) To change this, set "online-mode" to "true" in the server.properties file.
+[21:15:42] [Server thread/INFO] (Minecraft) Preparing level "world"
+[21:15:46] [Server thread/INFO] (Minecraft) Preparing start region for dimension minecraft:overworld
+[21:15:46] [Worker-Main-3/INFO] (Minecraft) Preparing spawn area: 2%
+[21:15:46] [Worker-Main-2/INFO] (Minecraft) Preparing spawn area: 2%
+[21:15:47] [Worker-Main-2/INFO] (Minecraft) Preparing spawn area: 2%
+[21:15:47] [Worker-Main-1/INFO] (Minecraft) Preparing spawn area: 18%
+[21:15:48] [Worker-Main-1/INFO] (Minecraft) Preparing spawn area: 18%
+[21:15:48] [Worker-Main-2/INFO] (Minecraft) Preparing spawn area: 51%
+[21:15:49] [Worker-Main-3/INFO] (Minecraft) Preparing spawn area: 51%
+[21:15:49] [Server thread/INFO] (Minecraft) Time elapsed: 3281 ms
+[21:15:49] [Server thread/INFO] (Minecraft) Done (7.153s)! For help, type "help"
+[21:15:49] [Server thread/INFO] (Minecraft) Starting remote control listener
+[21:15:49] [Server thread/INFO] (Minecraft) Thread RCON Listener started
+[21:15:49] [Server thread/INFO] (Minecraft) RCON running on 0.0.0.0:25575
+[21:15:51] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
+[21:15:51] [RCON Client /127.0.0.1 #2/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
+[21:15:53] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
+[21:15:53] [RCON Client /127.0.0.1 #3/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
+[21:15:55] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
+[21:15:55] [RCON Client /127.0.0.1 #4/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
+[21:15:57] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
+[21:15:57] [RCON Client /127.0.0.1 #5/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
+[21:15:59] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
+[21:15:59] [RCON Client /127.0.0.1 #6/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
+[21:16:01] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
+[21:16:01] [RCON Client /127.0.0.1 #7/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
+[21:16:03] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
+[21:16:03] [RCON Client /127.0.0.1 #8/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
+[21:16:05] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
+[21:16:05] [RCON Client /127.0.0.1 #9/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
+[21:16:07] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
+[21:16:07] [RCON Client /127.0.0.1 #10/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
+[21:16:09] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
+[21:16:09] [RCON Client /127.0.0.1 #11/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
+[21:16:11] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
+[21:16:11] [RCON Client /127.0.0.1 #12/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
+[21:16:13] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
+[21:16:13] [RCON Client /127.0.0.1 #13/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
+[21:16:15] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
+[21:16:15] [RCON Client /127.0.0.1 #14/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
+[21:16:17] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
+[21:16:17] [RCON Client /127.0.0.1 #15/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
+[21:16:19] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
+[21:16:19] [RCON Client /127.0.0.1 #16/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
+[21:16:21] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
+[21:16:21] [RCON Client /127.0.0.1 #17/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
+[21:16:23] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
+[21:16:23] [RCON Client /127.0.0.1 #18/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
+[21:16:25] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
+[21:16:25] [RCON Client /127.0.0.1 #19/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
+[21:16:27] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
+[21:16:27] [RCON Client /127.0.0.1 #20/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
+[21:16:29] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
+[21:16:29] [RCON Client /127.0.0.1 #21/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
+[21:16:31] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
+[21:16:31] [RCON Client /127.0.0.1 #22/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
+[21:16:33] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
+[21:16:33] [RCON Client /127.0.0.1 #23/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
+[21:16:35] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
+[21:16:35] [RCON Client /127.0.0.1 #24/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
+[21:16:37] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
+[21:16:37] [RCON Client /127.0.0.1 #25/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
+[21:16:40] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
+[21:16:40] [RCON Client /127.0.0.1 #26/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
+[21:16:42] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
+[21:16:42] [RCON Client /127.0.0.1 #27/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
+[21:16:44] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
+[21:16:44] [RCON Client /127.0.0.1 #28/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
+[21:16:46] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
+[21:16:46] [RCON Client /127.0.0.1 #29/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
+[21:16:48] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
+[21:16:48] [RCON Client /127.0.0.1 #30/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
+[21:16:50] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
+[21:16:50] [RCON Client /127.0.0.1 #31/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
+[21:16:52] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
+[21:16:52] [RCON Client /127.0.0.1 #32/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
+[21:16:54] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
+[21:16:54] [RCON Client /127.0.0.1 #33/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
+[21:16:56] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
+[21:16:56] [RCON Client /127.0.0.1 #34/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
+[21:16:58] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
+[21:16:58] [RCON Client /127.0.0.1 #35/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
+[21:17:00] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
+[21:17:00] [RCON Client /127.0.0.1 #36/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
+[21:17:02] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
+[21:17:02] [RCON Client /127.0.0.1 #37/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
+[21:17:04] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
+[21:17:04] [RCON Client /127.0.0.1 #38/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
+[21:17:06] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
+[21:17:06] [RCON Client /127.0.0.1 #39/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
+[21:17:08] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
+[21:17:08] [RCON Client /127.0.0.1 #40/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
+[21:17:10] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
+[21:17:10] [RCON Client /127.0.0.1 #41/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
+[21:17:12] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
+[21:17:12] [RCON Client /127.0.0.1 #42/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
+[21:17:14] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
+[21:17:14] [RCON Client /127.0.0.1 #43/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
+[21:17:16] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
+[21:17:16] [RCON Client /127.0.0.1 #44/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
+[21:17:18] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
+[21:17:18] [RCON Client /127.0.0.1 #45/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
+[21:17:20] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
+[21:17:20] [RCON Client /127.0.0.1 #46/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
+[21:17:22] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
+[21:17:22] [RCON Client /127.0.0.1 #47/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
+[21:17:24] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
+[21:17:24] [RCON Client /127.0.0.1 #48/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
+[21:17:26] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
+[21:17:26] [RCON Client /127.0.0.1 #49/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
+[21:17:28] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
+[21:17:28] [RCON Client /127.0.0.1 #50/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
+[21:17:30] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
+[21:17:30] [RCON Client /127.0.0.1 #51/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
+[21:17:32] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
+[21:17:32] [RCON Client /127.0.0.1 #52/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
+[21:17:34] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
+[21:17:34] [RCON Client /127.0.0.1 #53/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
+[21:17:36] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
+[21:17:36] [RCON Client /127.0.0.1 #54/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
+[21:17:38] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
+[21:17:38] [RCON Client /127.0.0.1 #55/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
+[21:17:40] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
+[21:17:40] [RCON Client /127.0.0.1 #56/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
+[21:17:42] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
+[21:17:42] [RCON Client /127.0.0.1 #57/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
+[21:17:44] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
+[21:17:44] [RCON Client /127.0.0.1 #58/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
+[21:17:46] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
+[21:17:46] [RCON Client /127.0.0.1 #59/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
+[21:17:48] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
+[21:17:48] [RCON Client /127.0.0.1 #60/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
+[21:17:50] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
+[21:17:50] [RCON Client /127.0.0.1 #61/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
+[21:17:52] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
+[21:17:52] [RCON Client /127.0.0.1 #62/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
+[21:17:54] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
+[21:17:54] [RCON Client /127.0.0.1 #63/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
+[21:17:56] [RCON Listener #1/INFO] (Minecraft) Thread RCON Client /127.0.0.1 started
+[21:17:56] [RCON Client /127.0.0.1 #64/INFO] (Minecraft) Thread RCON Client /127.0.0.1 shutting down
 --- rcon-javap excerpt ---
 ++ find /tmp/rconprobe -name '*.class'
 ++ head -20
++ for c in $(find /tmp/rconprobe -name "*.class" | head -20)
+++ basename /tmp/rconprobe/net/minecraft/network/chat/contents/SelectorContents.class
++ echo '=== javap SelectorContents.class ==='
+=== javap SelectorContents.class ===
++ javap -p -c /tmp/rconprobe/net/minecraft/network/chat/contents/SelectorContents.class
++ head -120
+Compiled from "SelectorContents.java"
+public class net.minecraft.network.chat.contents.SelectorContents implements net.minecraft.network.chat.ComponentContents {
+  private static final org.slf4j.Logger LOGGER;
+
+  public static final com.mojang.serialization.MapCodec<net.minecraft.network.chat.contents.SelectorContents> CODEC;
+
+  public static final net.minecraft.network.chat.ComponentContents$Type<net.minecraft.network.chat.contents.SelectorContents> TYPE;
+
+  private final java.lang.String pattern;
+
+  private final net.minecraft.commands.arguments.selector.EntitySelector selector;
+
+  protected final java.util.Optional<net.minecraft.network.chat.Component> separator;
+
+  public net.minecraft.network.chat.contents.SelectorContents(java.lang.String, java.util.Optional<net.minecraft.network.chat.Component>);
+    Code:
+       0: aload_0
+       1: invokespecial #57                 // Method java/lang/Object."<init>":()V
+       4: aload_0
+       5: aload_1
+       6: putfield      #59                 // Field pattern:Ljava/lang/String;
+       9: aload_0
+      10: aload_2
+      11: putfield      #61                 // Field separator:Ljava/util/Optional;
+      14: aload_0
+      15: aload_1
+      16: invokestatic  #65                 // Method parseSelector:(Ljava/lang/String;)Lnet/minecraft/commands/arguments/selector/EntitySelector;
+      19: putfield      #67                 // Field selector:Lnet/minecraft/commands/arguments/selector/EntitySelector;
+      22: return
+
+  private static net.minecraft.commands.arguments.selector.EntitySelector parseSelector(java.lang.String);
+    Code:
+       0: aconst_null
+       1: astore_1
+       2: new           #73                 // class net/minecraft/commands/arguments/selector/EntitySelectorParser
+       5: dup
+       6: new           #75                 // class com/mojang/brigadier/StringReader
+       9: dup
+      10: aload_0
+      11: invokespecial #78                 // Method com/mojang/brigadier/StringReader."<init>":(Ljava/lang/String;)V
+      14: iconst_1
+      15: invokespecial #81                 // Method net/minecraft/commands/arguments/selector/EntitySelectorParser."<init>":(Lcom/mojang/brigadier/StringReader;Z)V
+      18: astore_2
+      19: aload_2
+      20: invokevirtual #85                 // Method net/minecraft/commands/arguments/selector/EntitySelectorParser.parse:()Lnet/minecraft/commands/arguments/selector/EntitySelector;
+      23: astore_1
+      24: goto          43
+      27: astore_2
+      28: getstatic     #91                 // Field LOGGER:Lorg/slf4j/Logger;
+      31: ldc           #93                 // String Invalid selector component: {}: {}
+      33: aload_0
+      34: aload_2
+      35: invokevirtual #97                 // Method com/mojang/brigadier/exceptions/CommandSyntaxException.getMessage:()Ljava/lang/String;
+      38: invokeinterface #103,  4          // InterfaceMethod org/slf4j/Logger.warn:(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V
+      43: aload_1
+      44: areturn
+    Exception table:
+       from    to  target type
+           2    24    27   Class com/mojang/brigadier/exceptions/CommandSyntaxException
+
+  public net.minecraft.network.chat.ComponentContents$Type<?> type();
+    Code:
+       0: getstatic     #113                // Field TYPE:Lnet/minecraft/network/chat/ComponentContents$Type;
+       3: areturn
+
+  public java.lang.String getPattern();
+    Code:
+       0: aload_0
+       1: getfield      #59                 // Field pattern:Ljava/lang/String;
+       4: areturn
+
+  public net.minecraft.commands.arguments.selector.EntitySelector getSelector();
+    Code:
+       0: aload_0
+       1: getfield      #67                 // Field selector:Lnet/minecraft/commands/arguments/selector/EntitySelector;
+       4: areturn
+
+  public java.util.Optional<net.minecraft.network.chat.Component> getSeparator();
+    Code:
+       0: aload_0
+       1: getfield      #61                 // Field separator:Ljava/util/Optional;
+       4: areturn
+
+  public net.minecraft.network.chat.MutableComponent resolve(net.minecraft.commands.CommandSourceStack, net.minecraft.world.entity.Entity, int) throws com.mojang.brigadier.exceptions.CommandSyntaxException;
+    Code:
+       0: aload_1
+       1: ifnull        11
+       4: aload_0
+       5: getfield      #67                 // Field selector:Lnet/minecraft/commands/arguments/selector/EntitySelector;
+       8: ifnonnull     15
+      11: invokestatic  #129                // InterfaceMethod net/minecraft/network/chat/Component.empty:()Lnet/minecraft/network/chat/MutableComponent;
+      14: areturn
+      15: aload_1
+      16: aload_0
+      17: getfield      #61                 // Field separator:Ljava/util/Optional;
+      20: aload_2
+      21: iload_3
+      22: invokestatic  #139                // Method net/minecraft/network/chat/ComponentUtils.updateForEntity:(Lnet/minecraft/commands/CommandSourceStack;Ljava/util/Optional;Lnet/minecraft/world/entity/Entity;I)Ljava/util/Optional;
+      25: astore        4
+      27: aload_0
+      28: getfield      #67                 // Field selector:Lnet/minecraft/commands/arguments/selector/EntitySelector;
+      31: aload_1
+      32: invokevirtual #143                // Method net/minecraft/commands/arguments/selector/EntitySelector.findEntities:(Lnet/minecraft/commands/CommandSourceStack;)Ljava/util/List;
+      35: aload         4
+      37: invokedynamic #163,  0            // InvokeDynamic #0:apply:()Ljava/util/function/Function;
+      42: invokestatic  #167                // Method net/minecraft/network/chat/ComponentUtils.formatList:(Ljava/util/Collection;Ljava/util/Optional;Ljava/util/function/Function;)Lnet/minecraft/network/chat/MutableComponent;
+      45: areturn
+
+  public <T> java.util.Optional<T> visit(net.minecraft.network.chat.FormattedText$StyledContentConsumer<T>, net.minecraft.network.chat.Style);
+    Code:
+       0: aload_1
+       1: aload_2
+       2: aload_0
+       3: getfield      #59                 // Field pattern:Ljava/lang/String;
+       6: invokeinterface #180,  3          // InterfaceMethod net/minecraft/network/chat/FormattedText$StyledContentConsumer.accept:(Lnet/minecraft/network/chat/Style;Ljava/lang/String;)Ljava/util/Optional;
+      11: areturn
+
+  public <T> java.util.Optional<T> visit(net.minecraft.network.chat.FormattedText$ContentConsumer<T>);
+    Code:
+       0: aload_1
++ for c in $(find /tmp/rconprobe -name "*.class" | head -20)
+++ basename /tmp/rconprobe/net/minecraft/world/level/storage/loot/functions/ModifyContainerContents.class
++ echo '=== javap ModifyContainerContents.class ==='
+=== javap ModifyContainerContents.class ===
++ javap -p -c /tmp/rconprobe/net/minecraft/world/level/storage/loot/functions/ModifyContainerContents.class
++ head -120
+Compiled from "ModifyContainerContents.java"
+public class net.minecraft.world.level.storage.loot.functions.ModifyContainerContents extends net.minecraft.world.level.storage.loot.functions.LootItemConditionalFunction {
+  public static final com.mojang.serialization.MapCodec<net.minecraft.world.level.storage.loot.functions.ModifyContainerContents> CODEC;
+
+  private final net.minecraft.world.level.storage.loot.ContainerComponentManipulator<?> component;
+
+  private final net.minecraft.world.level.storage.loot.functions.LootItemFunction modifier;
+
+  private net.minecraft.world.level.storage.loot.functions.ModifyContainerContents(java.util.List<net.minecraft.world.level.storage.loot.predicates.LootItemCondition>, net.minecraft.world.level.storage.loot.ContainerComponentManipulator<?>, net.minecraft.world.level.storage.loot.functions.LootItemFunction);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokespecial #43                 // Method net/minecraft/world/level/storage/loot/functions/LootItemConditionalFunction."<init>":(Ljava/util/List;)V
+       5: aload_0
+       6: aload_2
+       7: putfield      #45                 // Field component:Lnet/minecraft/world/level/storage/loot/ContainerComponentManipulator;
+      10: aload_0
+      11: aload_3
+      12: putfield      #47                 // Field modifier:Lnet/minecraft/world/level/storage/loot/functions/LootItemFunction;
+      15: return
+
+  public net.minecraft.world.level.storage.loot.functions.LootItemFunctionType<net.minecraft.world.level.storage.loot.functions.ModifyContainerContents> getType();
+    Code:
+       0: getstatic     #60                 // Field net/minecraft/world/level/storage/loot/functions/LootItemFunctions.MODIFY_CONTENTS:Lnet/minecraft/world/level/storage/loot/functions/LootItemFunctionType;
+       3: areturn
+
+  public net.minecraft.world.item.ItemStack run(net.minecraft.world.item.ItemStack, net.minecraft.world.level.storage.loot.LootContext);
+    Code:
+       0: aload_1
+       1: invokevirtual #70                 // Method net/minecraft/world/item/ItemStack.isEmpty:()Z
+       4: ifeq          9
+       7: aload_1
+       8: areturn
+       9: aload_0
+      10: getfield      #45                 // Field component:Lnet/minecraft/world/level/storage/loot/ContainerComponentManipulator;
+      13: aload_1
+      14: aload_0
+      15: aload_2
+      16: invokedynamic #90,  0             // InvokeDynamic #0:apply:(Lnet/minecraft/world/level/storage/loot/functions/ModifyContainerContents;Lnet/minecraft/world/level/storage/loot/LootContext;)Ljava/util/function/UnaryOperator;
+      21: invokeinterface #96,  3           // InterfaceMethod net/minecraft/world/level/storage/loot/ContainerComponentManipulator.modifyItems:(Lnet/minecraft/world/item/ItemStack;Ljava/util/function/UnaryOperator;)V
+      26: aload_1
+      27: areturn
+
+  public void validate(net.minecraft.world.level.storage.loot.ValidationContext);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokespecial #103                // Method net/minecraft/world/level/storage/loot/functions/LootItemConditionalFunction.validate:(Lnet/minecraft/world/level/storage/loot/ValidationContext;)V
+       5: aload_0
+       6: getfield      #47                 // Field modifier:Lnet/minecraft/world/level/storage/loot/functions/LootItemFunction;
+       9: aload_1
+      10: ldc           #105                // String .modifier
+      12: invokevirtual #111                // Method net/minecraft/world/level/storage/loot/ValidationContext.forChild:(Ljava/lang/String;)Lnet/minecraft/world/level/storage/loot/ValidationContext;
+      15: invokeinterface #114,  2          // InterfaceMethod net/minecraft/world/level/storage/loot/functions/LootItemFunction.validate:(Lnet/minecraft/world/level/storage/loot/ValidationContext;)V
+      20: return
+
+  private net.minecraft.world.item.ItemStack method_59743(net.minecraft.world.level.storage.loot.LootContext, net.minecraft.world.item.ItemStack);
+    Code:
+       0: aload_0
+       1: getfield      #47                 // Field modifier:Lnet/minecraft/world/level/storage/loot/functions/LootItemFunction;
+       4: aload_2
+       5: aload_1
+       6: invokeinterface #118,  3          // InterfaceMethod net/minecraft/world/level/storage/loot/functions/LootItemFunction.apply:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+      11: checkcast     #66                 // class net/minecraft/world/item/ItemStack
+      14: areturn
+
+  private static com.mojang.datafixers.kinds.App method_59745(com.mojang.serialization.codecs.RecordCodecBuilder$Instance);
+    Code:
+       0: aload_0
+       1: invokestatic  #125                // Method commonFields:(Lcom/mojang/serialization/codecs/RecordCodecBuilder$Instance;)Lcom/mojang/datafixers/Products$P1;
+       4: aload_0
+       5: getstatic     #130                // Field net/minecraft/world/level/
