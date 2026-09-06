@@ -1,29 +1,29 @@
-=== tornadic-ci diagnostics Sun Sep  6 20:15:54 UTC 2026 ===
+=== tornadic-ci diagnostics Sun Sep  6 20:18:54 UTC 2026 ===
 Linux runnervmejwal 6.17.0-1022-azure #22-Ubuntu SMP Mon Jul 27 17:24:03 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux
 --- java -version ---
 openjdk version "21.0.12.1" 2026-08-18 LTS
 OpenJDK Runtime Environment Temurin-21.0.12.1+1 (build 21.0.12.1+1-LTS)
 OpenJDK 64-Bit Server VM Temurin-21.0.12.1+1 (build 21.0.12.1+1-LTS, mixed mode, sharing)
 --- ls -la ---
-total 364
-drwxr-xr-x 7 runner runner   4096 Sep  6 20:15 .
-drwxr-xr-x 3 runner runner   4096 Sep  6 20:15 ..
-drwxr-xr-x 7 runner runner   4096 Sep  6 20:15 .git
-drwxr-xr-x 3 runner runner   4096 Sep  6 20:15 .github
--rw-r--r-- 1 runner runner    217 Sep  6 20:15 .gitignore
--rw-r--r-- 1 runner runner   1070 Sep  6 20:15 LICENSE
--rw-r--r-- 1 runner runner   5730 Sep  6 20:15 README.md
-drwxr-xr-x 2 runner runner   4096 Sep  6 20:15 apidump
--rw-r--r-- 1 runner runner    416 Sep  6 20:15 build-output.log
--rw-r--r-- 1 runner runner   1078 Sep  6 20:15 build.gradle
--rw-r--r-- 1 runner runner 265502 Sep  6 20:15 ci-api-dump.txt
--rw-r--r-- 1 runner runner  27085 Sep  6 20:15 ci-last-failure.log
-drwxr-xr-x 3 runner runner   4096 Sep  6 20:15 gradle
--rw-r--r-- 1 runner runner    284 Sep  6 20:15 gradle.properties
--rwxr-xr-x 1 runner runner   8654 Sep  6 20:15 gradlew
--rw-r--r-- 1 runner runner   2846 Sep  6 20:15 gradlew.bat
--rw-r--r-- 1 runner runner    200 Sep  6 20:15 settings.gradle
-drwxr-xr-x 4 runner runner   4096 Sep  6 20:15 src
+total 412
+drwxr-xr-x 7 runner runner   4096 Sep  6 20:18 .
+drwxr-xr-x 3 runner runner   4096 Sep  6 20:18 ..
+drwxr-xr-x 7 runner runner   4096 Sep  6 20:18 .git
+drwxr-xr-x 3 runner runner   4096 Sep  6 20:18 .github
+-rw-r--r-- 1 runner runner    217 Sep  6 20:18 .gitignore
+-rw-r--r-- 1 runner runner   1070 Sep  6 20:18 LICENSE
+-rw-r--r-- 1 runner runner   5730 Sep  6 20:18 README.md
+drwxr-xr-x 2 runner runner   4096 Sep  6 20:18 apidump
+-rw-r--r-- 1 runner runner    416 Sep  6 20:18 build-output.log
+-rw-r--r-- 1 runner runner   1078 Sep  6 20:18 build.gradle
+-rw-r--r-- 1 runner runner 265502 Sep  6 20:18 ci-api-dump.txt
+-rw-r--r-- 1 runner runner  77031 Sep  6 20:18 ci-last-failure.log
+drwxr-xr-x 3 runner runner   4096 Sep  6 20:18 gradle
+-rw-r--r-- 1 runner runner    284 Sep  6 20:18 gradle.properties
+-rwxr-xr-x 1 runner runner   8654 Sep  6 20:18 gradlew
+-rw-r--r-- 1 runner runner   2846 Sep  6 20:18 gradlew.bat
+-rw-r--r-- 1 runner runner    200 Sep  6 20:18 settings.gradle
+drwxr-xr-x 4 runner runner   4096 Sep  6 20:18 src
 Fetching distribution.
 Downloading https://services.gradle.org/distributions/gradle-9.5.1-bin.zip
 .............10%.............20%..............30%.............40%.............50%..............60%.............70%..............80%.............90%.............100%
@@ -72,250 +72,10 @@ Note: Recompile with -Xlint:unchecked for details.
 > Task :classes
 
 > Task :compileClientJava FAILED
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/VehicleVisuals.java:8: error: cannot find symbol
-import net.minecraft.client.particle.DustParticleOptions;
-                                    ^
-  symbol:   class DustParticleOptions
-  location: package net.minecraft.client.particle
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/VehicleVisuals.java:9: error: cannot find symbol
-import net.minecraft.client.particle.ParticleTypes;
-                                    ^
-  symbol:   class ParticleTypes
-  location: package net.minecraft.client.particle
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/WeatherVisuals.java:12: error: cannot find symbol
-import net.minecraft.client.particle.DustParticleOptions;
-                                    ^
-  symbol:   class DustParticleOptions
-  location: package net.minecraft.client.particle
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/WeatherVisuals.java:13: error: cannot find symbol
-import net.minecraft.client.particle.ParticleTypes;
-                                    ^
-  symbol:   class ParticleTypes
-  location: package net.minecraft.client.particle
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/RadarScreen.java:37: error: render(GuiGraphics,int,int,float) in RadarScreen cannot implement render(GuiGraphics,int,int,float) in Renderable
-	protected void render(GuiGraphics g, int mouseX, int mouseY, float partialTicks) {
-	               ^
-  attempting to assign weaker access privileges; was public
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/RadarScreen.java:38: error: method renderBackground in class Screen cannot be applied to given types;
-		renderBackground(g);
-		^
-  required: GuiGraphics,int,int,float
-  found:    GuiGraphics
-  reason: actual and formal argument lists differ in length
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/RadarScreen.java:76: error: incompatible types: Stamp<StormSyncPayload> cannot be converted to StormSyncPayload
-			for (StormSyncPayload s : ClientWeatherState.storms.values()) {
-			                                                          ^
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/RadarScreen.java:95: error: incompatible types: Stamp<TornadoSyncPayload> cannot be converted to TornadoSyncPayload
-			for (TornadoSyncPayload t2 : ClientWeatherState.tornadoes.values()) {
-			                                                                ^
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/RadarScreen.java:124: error: cannot find symbol
-				g.drawTextWithShadow(f, "EF" + b.ef, b.x + 6, b.y - 8, 0xFFFF6666);
-				 ^
-  symbol:   method drawTextWithShadow(Font,String,int,int,int)
-  location: variable g of type GuiGraphics
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/RadarScreen.java:130: error: cannot find symbol
-		g.drawCenteredTextWithShadow(font, this.title, this.width / 2, oy - 22, 0xFFDDDDDD);
-		 ^
-  symbol:   method drawCenteredTextWithShadow(Font,Component,int,int,int)
-  location: variable g of type GuiGraphics
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/RadarScreen.java:131: error: cannot find symbol
-		g.drawCenteredTextWithShadow(font,
-		 ^
-  symbol:   method drawCenteredTextWithShadow(Font,String,int,int,int)
-  location: variable g of type GuiGraphics
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/RadarScreen.java:134: error: cannot find symbol
-		g.drawCenteredTextWithShadow(font, "green=cell  orange=supercell  red=tornado",
-		 ^
-  symbol:   method drawCenteredTextWithShadow(Font,String,int,int,int)
-  location: variable g of type GuiGraphics
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/RadarScreen.java:136: error: cannot find symbol
-		g.drawCenteredTextWithShadow(font, "[ESC] close", this.width / 2, oy + SCOPE + 34, 0xFF777777);
-		 ^
-  symbol:   method drawCenteredTextWithShadow(Font,String,int,int,int)
-  location: variable g of type GuiGraphics
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/DebugHud.java:29: error: cannot find symbol
-		graphics.drawTextWithShadow(font, "TORNADIC DEBUG [V]", 4, y, 0xFF55FF55);
-		        ^
-  symbol:   method drawTextWithShadow(Font,String,int,int,int)
-  location: variable graphics of type GuiGraphics
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/DebugHud.java:33: error: cannot find symbol
-			graphics.drawTextWithShadow(font, "waiting for sync...", 4, y, 0xFFAAAAAA);
-			        ^
-  symbol:   method drawTextWithShadow(Font,String,int,int,int)
-  location: variable graphics of type GuiGraphics
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/DebugHud.java:36: error: cannot find symbol
-		graphics.drawTextWithShadow(font, String.format(Locale.US,
-		        ^
-  symbol:   method drawTextWithShadow(Font,String,int,int,int)
-  location: variable graphics of type GuiGraphics
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/DebugHud.java:40: error: cannot find symbol
-		graphics.drawTextWithShadow(font, String.format(Locale.US,
-		        ^
-  symbol:   method drawTextWithShadow(Font,String,int,int,int)
-  location: variable graphics of type GuiGraphics
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/DebugHud.java:44: error: cannot find symbol
-		graphics.drawTextWithShadow(font, String.format(Locale.US,
-		        ^
-  symbol:   method drawTextWithShadow(Font,String,int,int,int)
-  location: variable graphics of type GuiGraphics
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/DebugHud.java:48: error: cannot find symbol
-		graphics.drawTextWithShadow(font, String.format(Locale.US,
-		        ^
-  symbol:   method drawTextWithShadow(Font,String,int,int,int)
-  location: variable graphics of type GuiGraphics
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/DebugHud.java:55: error: cannot find symbol
-			graphics.drawTextWithShadow(font, "Storms:", x0, y, 0xFFFFAA55);
-			        ^
-  symbol:   method drawTextWithShadow(Font,String,int,int,int)
-  location: variable graphics of type GuiGraphics
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/DebugHud.java:58: error: incompatible types: Stamp<StormSyncPayload> cannot be converted to StormSyncPayload
-			for (StormSyncPayload s : ClientWeatherState.storms.values()) {
-			                                                          ^
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/DebugHud.java:62: error: cannot find symbol
-			graphics.drawTextWithShadow(font, String.format(Locale.US,
-			        ^
-  symbol:   method drawTextWithShadow(Font,String,int,int,int)
-  location: variable graphics of type GuiGraphics
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/DebugHud.java:71: error: cannot find symbol
-			graphics.drawTextWithShadow(font, "Tornadoes:", x0, y, 0xFFFF5555);
-			        ^
-  symbol:   method drawTextWithShadow(Font,String,int,int,int)
-  location: variable graphics of type GuiGraphics
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/DebugHud.java:74: error: incompatible types: Stamp<TornadoSyncPayload> cannot be converted to TornadoSyncPayload
-			for (TornadoSyncPayload t : ClientWeatherState.tornadoes.values()) {
-			                                                               ^
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/DebugHud.java:78: error: cannot find symbol
-			graphics.drawTextWithShadow(font, String.format(Locale.US,
-			        ^
-  symbol:   method drawTextWithShadow(Font,String,int,int,int)
-  location: variable graphics of type GuiGraphics
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/DebugHud.java:85: error: cannot find symbol
-			graphics.drawTextWithShadow(font, String.format(Locale.US,
-			        ^
-  symbol:   method drawTextWithShadow(Font,String,int,int,int)
-  location: variable graphics of type GuiGraphics
 /home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/VehicleVisuals.java:37: error: incompatible types: possible lossy conversion from double to float
 			float yaw = (float) v.getYRot() * (float) Math.PI / 180.0;
 			                                                  ^
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/VehicleVisuals.java:50: error: cannot find symbol
-					new DustParticleOptions(new org.joml.Vector3f(58 / 255.0F, 64 / 255.0F, 72 / 255.0F), 0.55f),
-					    ^
-  symbol:   class DustParticleOptions
-  location: class VehicleVisuals
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/VehicleVisuals.java:55: error: cannot find symbol
-				client.level.addParticle(ParticleTypes.ENCHANT,
-				                         ^
-  symbol:   variable ParticleTypes
-  location: class VehicleVisuals
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/NotebookScreen.java:28: error: render(GuiGraphics,int,int,float) in NotebookScreen cannot implement render(GuiGraphics,int,int,float) in Renderable
-	protected void render(GuiGraphics g, int mouseX, int mouseY, float partialTicks) {
-	               ^
-  attempting to assign weaker access privileges; was public
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/NotebookScreen.java:29: error: method renderBackground in class Screen cannot be applied to given types;
-		renderBackground(g);
-		^
-  required: GuiGraphics,int,int,float
-  found:    GuiGraphics
-  reason: actual and formal argument lists differ in length
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/NotebookScreen.java:41: error: cannot find symbol
-		g.drawTextWithShadow(font, "STORM NOTEBOOK", x0 + w / 2 - font.width("STORM NOTEBOOK") / 2, y0 - 10, 0xFFFFD080);
-		 ^
-  symbol:   method drawTextWithShadow(Font,String,int,int,int)
-  location: variable g of type GuiGraphics
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/NotebookScreen.java:43: error: cannot find symbol
-			g.drawTextWithShadow(font, "waiting for weather data...", x, y, 0xFF999999);
-			 ^
-  symbol:   method drawTextWithShadow(Font,String,int,int,int)
-  location: variable g of type GuiGraphics
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/NotebookScreen.java:45: error: cannot find symbol
-			g.drawTextWithShadow(font, "stand by for a sync packet", x, y, 0xFF666666);
-			 ^
-  symbol:   method drawTextWithShadow(Font,String,int,int,int)
-  location: variable g of type GuiGraphics
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/NotebookScreen.java:47: error: cannot find symbol
-			g.drawTextWithShadow(font, "Day " + w2.day(), x, y, 0xFFEEEEEE);
-			 ^
-  symbol:   method drawTextWithShadow(Font,String,int,int,int)
-  location: variable g of type GuiGraphics
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/NotebookScreen.java:49: error: cannot find symbol
-			g.drawTextWithShadow(font, "Risk rating: " + RiskRating.fromOrdinal(w2.riskOrdinal()), x, y,
-			 ^
-  symbol:   method drawTextWithShadow(Font,String,int,int,int)
-  location: variable g of type GuiGraphics
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/NotebookScreen.java:52: error: cannot find symbol
-			g.drawTextWithShadow(font, String.format(Locale.US,
-			 ^
-  symbol:   method drawTextWithShadow(Font,String,int,int,int)
-  location: variable g of type GuiGraphics
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/NotebookScreen.java:55: error: cannot find symbol
-			g.drawTextWithShadow(font, String.format(Locale.US,
-			 ^
-  symbol:   method drawTextWithShadow(Font,String,int,int,int)
-  location: variable g of type GuiGraphics
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/NotebookScreen.java:58: error: cannot find symbol
-			g.drawTextWithShadow(font, String.format(Locale.US,
-			 ^
-  symbol:   method drawTextWithShadow(Font,String,int,int,int)
-  location: variable g of type GuiGraphics
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/NotebookScreen.java:61: error: cannot find symbol
-			g.drawTextWithShadow(font, String.format(Locale.US,
-			 ^
-  symbol:   method drawTextWithShadow(Font,String,int,int,int)
-  location: variable g of type GuiGraphics
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/NotebookScreen.java:65: error: cannot find symbol
-			g.drawTextWithShadow(font, "--- Today so far ---", x, y, 0xFF80A0FF);
-			 ^
-  symbol:   method drawTextWithShadow(Font,String,int,int,int)
-  location: variable g of type GuiGraphics
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/NotebookScreen.java:67: error: cannot find symbol
-			g.drawTextWithShadow(font, String.format(Locale.US,
-			 ^
-  symbol:   method drawTextWithShadow(Font,String,int,int,int)
-  location: variable g of type GuiGraphics
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/NotebookScreen.java:72: error: cannot find symbol
-			g.drawTextWithShadow(font, String.format(Locale.US,
-			 ^
-  symbol:   method drawTextWithShadow(Font,String,int,int,int)
-  location: variable g of type GuiGraphics
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/NotebookScreen.java:75: error: cannot find symbol
-		g.drawCenteredTextWithShadow(font, "[ESC] close", this.width / 2, y0 + h + 12, 0xFF777777);
-		 ^
-  symbol:   method drawCenteredTextWithShadow(Font,String,int,int,int)
-  location: variable g of type GuiGraphics
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/WeatherVisuals.java:111: error: incompatible types: possible lossy conversion from double to float
-				float y = t.y() + fr * height;
-				                ^
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/WeatherVisuals.java:117: error: cannot find symbol
-					new DustParticleOptions(new org.joml.Vector3f(r, g, b),
-					    ^
-  symbol:   class DustParticleOptions
-  location: class WeatherVisuals
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/WeatherVisuals.java:126: error: cannot find symbol
-						new DustParticleOptions(new org.joml.Vector3f(r * 0.78F, g * 0.78F, b * 0.78F),
-						    ^
-  symbol:   class DustParticleOptions
-  location: class WeatherVisuals
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/WeatherVisuals.java:138: error: cannot find symbol
-					client.level.addParticle(ParticleTypes.SPLASH,
-					                         ^
-  symbol:   variable ParticleTypes
-  location: class WeatherVisuals
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/WeatherVisuals.java:147: error: cannot find symbol
-				client.level.addParticle(ParticleTypes.CRIT,
-				                         ^
-  symbol:   variable ParticleTypes
-  location: class WeatherVisuals
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/WeatherVisuals.java:185: error: cannot find symbol
-				client.level.addParticle(ParticleTypes.SPLASH,
-				                         ^
-  symbol:   variable ParticleTypes
-  location: class WeatherVisuals
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/WeatherVisuals.java:196: error: cannot find symbol
-					client.level.addParticle(ParticleTypes.SNOWFLAKE,
-					                         ^
-  symbol:   variable ParticleTypes
-  location: class WeatherVisuals
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/WeatherVisuals.java:202: error: no suitable method found for playLocalSound(double,double,double,s.hailSize[...]lue(),SoundSource,float,float)
+/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/WeatherVisuals.java:202: error: no suitable method found for playLocalSound(double,double,double,s.hailSize[...]THROW,SoundSource,float,float)
 					client.level.playLocalSound(px, client.player.getY(), pz,
 					            ^
     method Level.playLocalSound(BlockPos,SoundEvent,SoundSource,float,float,boolean) is not applicable
@@ -324,22 +84,7 @@ import net.minecraft.client.particle.ParticleTypes;
       (actual and formal argument lists differ in length)
     method ClientLevel.playLocalSound(double,double,double,SoundEvent,SoundSource,float,float,boolean) is not applicable
       (actual and formal argument lists differ in length)
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/WeatherVisuals.java:203: error: cannot find symbol
-						s.hailSize() > 0.8 ? SoundEvents.ITEM_BREAK.value() : SoundEvents.SNOWBALL_THROW.value(),
-						                                           ^
-  symbol:   method value()
-  location: variable ITEM_BREAK of type SoundEvent
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/WeatherVisuals.java:203: error: cannot find symbol
-						s.hailSize() > 0.8 ? SoundEvents.ITEM_BREAK.value() : SoundEvents.SNOWBALL_THROW.value(),
-						                                                                                ^
-  symbol:   method value()
-  location: variable SNOWBALL_THROW of type SoundEvent
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/WeatherVisuals.java:233: error: cannot find symbol
-				new DustParticleOptions(new org.joml.Vector3f(235 / 255.0F, 235 / 255.0F, 235 / 255.0F), 0.35f),
-				    ^
-  symbol:   class DustParticleOptions
-  location: class WeatherVisuals
-55 errors
+2 errors
 
 [Incubating] Problems report is available at: file:///home/runner/work/Tornado-mod/Tornado-mod/build/reports/problems/problems-report.html
 
@@ -348,19 +93,7 @@ FAILURE: Build failed with an exception.
 * What went wrong:
 Execution failed for task ':compileClientJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
 > Compilation failed; see the compiler output below.
-  /home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/RadarScreen.java:38: error: method renderBackground in class Screen cannot be applied to given types;
-  		renderBackground(g);
-  		^
-    required: GuiGraphics,int,int,float
-    found:    GuiGraphics
-    reason: actual and formal argument lists differ in length
-  /home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/NotebookScreen.java:29: error: method renderBackground in class Screen cannot be applied to given types;
-  		renderBackground(g);
-  		^
-    required: GuiGraphics,int,int,float
-    found:    GuiGraphics
-    reason: actual and formal argument lists differ in length
-  /home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/WeatherVisuals.java:202: error: no suitable method found for playLocalSound(double,double,double,s.hailSize[...]lue(),SoundSource,float,float)
+  /home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/WeatherVisuals.java:202: error: no suitable method found for playLocalSound(double,double,double,s.hailSize[...]THROW,SoundSource,float,float)
   					client.level.playLocalSound(px, client.player.getY(), pz,
   					            ^
       method Level.playLocalSound(BlockPos,SoundEvent,SoundSource,float,float,boolean) is not applicable
@@ -369,253 +102,10 @@ Execution failed for task ':compileClientJava' (registered by plugin class 'org.
         (actual and formal argument lists differ in length)
       method ClientLevel.playLocalSound(double,double,double,SoundEvent,SoundSource,float,float,boolean) is not applicable
         (actual and formal argument lists differ in length)
-  /home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/RadarScreen.java:76: error: incompatible types: Stamp<StormSyncPayload> cannot be converted to StormSyncPayload
-  			for (StormSyncPayload s : ClientWeatherState.storms.values()) {
-  			                                                          ^
-  /home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/RadarScreen.java:95: error: incompatible types: Stamp<TornadoSyncPayload> cannot be converted to TornadoSyncPayload
-  			for (TornadoSyncPayload t2 : ClientWeatherState.tornadoes.values()) {
-  			                                                                ^
-  /home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/DebugHud.java:58: error: incompatible types: Stamp<StormSyncPayload> cannot be converted to StormSyncPayload
-  			for (StormSyncPayload s : ClientWeatherState.storms.values()) {
-  			                                                          ^
-  /home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/DebugHud.java:74: error: incompatible types: Stamp<TornadoSyncPayload> cannot be converted to TornadoSyncPayload
-  			for (TornadoSyncPayload t : ClientWeatherState.tornadoes.values()) {
-  			                                                               ^
   /home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/VehicleVisuals.java:37: error: incompatible types: possible lossy conversion from double to float
   			float yaw = (float) v.getYRot() * (float) Math.PI / 180.0;
   			                                                  ^
-  /home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/WeatherVisuals.java:111: error: incompatible types: possible lossy conversion from double to float
-  				float y = t.y() + fr * height;
-  				                ^
-  /home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/RadarScreen.java:37: error: render(GuiGraphics,int,int,float) in RadarScreen cannot implement render(GuiGraphics,int,int,float) in Renderable
-  	protected void render(GuiGraphics g, int mouseX, int mouseY, float partialTicks) {
-  	               ^
-    attempting to assign weaker access privileges; was public
-  /home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/NotebookScreen.java:28: error: render(GuiGraphics,int,int,float) in NotebookScreen cannot implement render(GuiGraphics,int,int,float) in Renderable
-  	protected void render(GuiGraphics g, int mouseX, int mouseY, float partialTicks) {
-  	               ^
-    attempting to assign weaker access privileges; was public
-  /home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/VehicleVisuals.java:8: error: cannot find symbol
-  import net.minecraft.client.particle.DustParticleOptions;
-                                      ^
-    symbol:   class DustParticleOptions
-    location: package net.minecraft.client.particle
-  /home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/VehicleVisuals.java:9: error: cannot find symbol
-  import net.minecraft.client.particle.ParticleTypes;
-                                      ^
-    symbol:   class ParticleTypes
-    location: package net.minecraft.client.particle
-  /home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/WeatherVisuals.java:12: error: cannot find symbol
-  import net.minecraft.client.particle.DustParticleOptions;
-                                      ^
-    symbol:   class DustParticleOptions
-    location: package net.minecraft.client.particle
-  /home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/WeatherVisuals.java:13: error: cannot find symbol
-  import net.minecraft.client.particle.ParticleTypes;
-                                      ^
-    symbol:   class ParticleTypes
-    location: package net.minecraft.client.particle
-  /home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/VehicleVisuals.java:50: error: cannot find symbol
-  					new DustParticleOptions(new org.joml.Vector3f(58 / 255.0F, 64 / 255.0F, 72 / 255.0F), 0.55f),
-  					    ^
-    symbol:   class DustParticleOptions
-    location: class VehicleVisuals
-  /home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/VehicleVisuals.java:55: error: cannot find symbol
-  				client.level.addParticle(ParticleTypes.ENCHANT,
-  				                         ^
-    symbol:   variable ParticleTypes
-    location: class VehicleVisuals
-  /home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/WeatherVisuals.java:117: error: cannot find symbol
-  					new DustParticleOptions(new org.joml.Vector3f(r, g, b),
-  					    ^
-    symbol:   class DustParticleOptions
-    location: class WeatherVisuals
-  /home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/WeatherVisuals.java:126: error: cannot find symbol
-  						new DustParticleOptions(new org.joml.Vector3f(r * 0.78F, g * 0.78F, b * 0.78F),
-  						    ^
-    symbol:   class DustParticleOptions
-    location: class WeatherVisuals
-  /home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/WeatherVisuals.java:138: error: cannot find symbol
-  					client.level.addParticle(ParticleTypes.SPLASH,
-  					                         ^
-    symbol:   variable ParticleTypes
-    location: class WeatherVisuals
-  /home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/WeatherVisuals.java:147: error: cannot find symbol
-  				client.level.addParticle(ParticleTypes.CRIT,
-  				                         ^
-    symbol:   variable ParticleTypes
-    location: class WeatherVisuals
-  /home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/WeatherVisuals.java:185: error: cannot find symbol
-  				client.level.addParticle(ParticleTypes.SPLASH,
-  				                         ^
-    symbol:   variable ParticleTypes
-    location: class WeatherVisuals
-  /home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/WeatherVisuals.java:196: error: cannot find symbol
-  					client.level.addParticle(ParticleTypes.SNOWFLAKE,
-  					                         ^
-    symbol:   variable ParticleTypes
-    location: class WeatherVisuals
-  /home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/WeatherVisuals.java:233: error: cannot find symbol
-  				new DustParticleOptions(new org.joml.Vector3f(235 / 255.0F, 235 / 255.0F, 235 / 255.0F), 0.35f),
-  				    ^
-    symbol:   class DustParticleOptions
-    location: class WeatherVisuals
-  /home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/RadarScreen.java:124: error: cannot find symbol
-  				g.drawTextWithShadow(f, "EF" + b.ef, b.x + 6, b.y - 8, 0xFFFF6666);
-  				 ^
-    symbol:   method drawTextWithShadow(Font,String,int,int,int)
-    location: variable g of type GuiGraphics
-  /home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/RadarScreen.java:130: error: cannot find symbol
-  		g.drawCenteredTextWithShadow(font, this.title, this.width / 2, oy - 22, 0xFFDDDDDD);
-  		 ^
-    symbol:   method drawCenteredTextWithShadow(Font,Component,int,int,int)
-    location: variable g of type GuiGraphics
-  /home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/RadarScreen.java:131: error: cannot find symbol
-  		g.drawCenteredTextWithShadow(font,
-  		 ^
-    symbol:   method drawCenteredTextWithShadow(Font,String,int,int,int)
-    location: variable g of type GuiGraphics
-  /home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/RadarScreen.java:134: error: cannot find symbol
-  		g.drawCenteredTextWithShadow(font, "green=cell  orange=supercell  red=tornado",
-  		 ^
-    symbol:   method drawCenteredTextWithShadow(Font,String,int,int,int)
-    location: variable g of type GuiGraphics
-  /home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/RadarScreen.java:136: error: cannot find symbol
-  		g.drawCenteredTextWithShadow(font, "[ESC] close", this.width / 2, oy + SCOPE + 34, 0xFF777777);
-  		 ^
-    symbol:   method drawCenteredTextWithShadow(Font,String,int,int,int)
-    location: variable g of type GuiGraphics
-  /home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/DebugHud.java:29: error: cannot find symbol
-  		graphics.drawTextWithShadow(font, "TORNADIC DEBUG [V]", 4, y, 0xFF55FF55);
-  		        ^
-    symbol:   method drawTextWithShadow(Font,String,int,int,int)
-    location: variable graphics of type GuiGraphics
-  /home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/DebugHud.java:33: error: cannot find symbol
-  			graphics.drawTextWithShadow(font, "waiting for sync...", 4, y, 0xFFAAAAAA);
-  			        ^
-    symbol:   method drawTextWithShadow(Font,String,int,int,int)
-    location: variable graphics of type GuiGraphics
-  /home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/DebugHud.java:36: error: cannot find symbol
-  		graphics.drawTextWithShadow(font, String.format(Locale.US,
-  		        ^
-    symbol:   method drawTextWithShadow(Font,String,int,int,int)
-    location: variable graphics of type GuiGraphics
-  /home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/DebugHud.java:40: error: cannot find symbol
-  		graphics.drawTextWithShadow(font, String.format(Locale.US,
-  		        ^
-    symbol:   method drawTextWithShadow(Font,String,int,int,int)
-    location: variable graphics of type GuiGraphics
-  /home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/DebugHud.java:44: error: cannot find symbol
-  		graphics.drawTextWithShadow(font, String.format(Locale.US,
-  		        ^
-    symbol:   method drawTextWithShadow(Font,String,int,int,int)
-    location: variable graphics of type GuiGraphics
-  /home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/DebugHud.java:48: error: cannot find symbol
-  		graphics.drawTextWithShadow(font, String.format(Locale.US,
-  		        ^
-    symbol:   method drawTextWithShadow(Font,String,int,int,int)
-    location: variable graphics of type GuiGraphics
-  /home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/DebugHud.java:55: error: cannot find symbol
-  			graphics.drawTextWithShadow(font, "Storms:", x0, y, 0xFFFFAA55);
-  			        ^
-    symbol:   method drawTextWithShadow(Font,String,int,int,int)
-    location: variable graphics of type GuiGraphics
-  /home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/DebugHud.java:62: error: cannot find symbol
-  			graphics.drawTextWithShadow(font, String.format(Locale.US,
-  			        ^
-    symbol:   method drawTextWithShadow(Font,String,int,int,int)
-    location: variable graphics of type GuiGraphics
-  /home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/DebugHud.java:71: error: cannot find symbol
-  			graphics.drawTextWithShadow(font, "Tornadoes:", x0, y, 0xFFFF5555);
-  			        ^
-    symbol:   method drawTextWithShadow(Font,String,int,int,int)
-    location: variable graphics of type GuiGraphics
-  /home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/DebugHud.java:78: error: cannot find symbol
-  			graphics.drawTextWithShadow(font, String.format(Locale.US,
-  			        ^
-    symbol:   method drawTextWithShadow(Font,String,int,int,int)
-    location: variable graphics of type GuiGraphics
-  /home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/DebugHud.java:85: error: cannot find symbol
-  			graphics.drawTextWithShadow(font, String.format(Locale.US,
-  			        ^
-    symbol:   method drawTextWithShadow(Font,String,int,int,int)
-    location: variable graphics of type GuiGraphics
-  /home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/NotebookScreen.java:41: error: cannot find symbol
-  		g.drawTextWithShadow(font, "STORM NOTEBOOK", x0 + w / 2 - font.width("STORM NOTEBOOK") / 2, y0 - 10, 0xFFFFD080);
-  		 ^
-    symbol:   method drawTextWithShadow(Font,String,int,int,int)
-    location: variable g of type GuiGraphics
-  /home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/NotebookScreen.java:43: error: cannot find symbol
-  			g.drawTextWithShadow(font, "waiting for weather data...", x, y, 0xFF999999);
-  			 ^
-    symbol:   method drawTextWithShadow(Font,String,int,int,int)
-    location: variable g of type GuiGraphics
-  /home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/NotebookScreen.java:45: error: cannot find symbol
-  			g.drawTextWithShadow(font, "stand by for a sync packet", x, y, 0xFF666666);
-  			 ^
-    symbol:   method drawTextWithShadow(Font,String,int,int,int)
-    location: variable g of type GuiGraphics
-  /home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/NotebookScreen.java:47: error: cannot find symbol
-  			g.drawTextWithShadow(font, "Day " + w2.day(), x, y, 0xFFEEEEEE);
-  			 ^
-    symbol:   method drawTextWithShadow(Font,String,int,int,int)
-    location: variable g of type GuiGraphics
-  /home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/NotebookScreen.java:49: error: cannot find symbol
-  			g.drawTextWithShadow(font, "Risk rating: " + RiskRating.fromOrdinal(w2.riskOrdinal()), x, y,
-  			 ^
-    symbol:   method drawTextWithShadow(Font,String,int,int,int)
-    location: variable g of type GuiGraphics
-  /home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/NotebookScreen.java:52: error: cannot find symbol
-  			g.drawTextWithShadow(font, String.format(Locale.US,
-  			 ^
-    symbol:   method drawTextWithShadow(Font,String,int,int,int)
-    location: variable g of type GuiGraphics
-  /home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/NotebookScreen.java:55: error: cannot find symbol
-  			g.drawTextWithShadow(font, String.format(Locale.US,
-  			 ^
-    symbol:   method drawTextWithShadow(Font,String,int,int,int)
-    location: variable g of type GuiGraphics
-  /home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/NotebookScreen.java:58: error: cannot find symbol
-  			g.drawTextWithShadow(font, String.format(Locale.US,
-  			 ^
-    symbol:   method drawTextWithShadow(Font,String,int,int,int)
-    location: variable g of type GuiGraphics
-  /home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/NotebookScreen.java:61: error: cannot find symbol
-  			g.drawTextWithShadow(font, String.format(Locale.US,
-  			 ^
-    symbol:   method drawTextWithShadow(Font,String,int,int,int)
-    location: variable g of type GuiGraphics
-  /home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/NotebookScreen.java:65: error: cannot find symbol
-  			g.drawTextWithShadow(font, "--- Today so far ---", x, y, 0xFF80A0FF);
-  			 ^
-    symbol:   method drawTextWithShadow(Font,String,int,int,int)
-    location: variable g of type GuiGraphics
-  /home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/NotebookScreen.java:67: error: cannot find symbol
-  			g.drawTextWithShadow(font, String.format(Locale.US,
-  			 ^
-    symbol:   method drawTextWithShadow(Font,String,int,int,int)
-    location: variable g of type GuiGraphics
-  /home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/NotebookScreen.java:72: error: cannot find symbol
-  			g.drawTextWithShadow(font, String.format(Locale.US,
-  			 ^
-    symbol:   method drawTextWithShadow(Font,String,int,int,int)
-    location: variable g of type GuiGraphics
-  /home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/NotebookScreen.java:75: error: cannot find symbol
-  		g.drawCenteredTextWithShadow(font, "[ESC] close", this.width / 2, y0 + h + 12, 0xFF777777);
-  		 ^
-    symbol:   method drawCenteredTextWithShadow(Font,String,int,int,int)
-    location: variable g of type GuiGraphics
-  /home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/WeatherVisuals.java:203: error: cannot find symbol
-  						s.hailSize() > 0.8 ? SoundEvents.ITEM_BREAK.value() : SoundEvents.SNOWBALL_THROW.value(),
-  						                                           ^
-    symbol:   method value()
-    location: variable ITEM_BREAK of type SoundEvent
-  /home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/WeatherVisuals.java:203: error: cannot find symbol
-  						s.hailSize() > 0.8 ? SoundEvents.ITEM_BREAK.value() : SoundEvents.SNOWBALL_THROW.value(),
-  						                                                                                ^
-    symbol:   method value()
-    location: variable SNOWBALL_THROW of type SoundEvent
-  55 errors
+  2 errors
 
 * Try:
 > Check your code and dependencies to fix the compilation error(s)
@@ -657,250 +147,10 @@ org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':compile
 	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
 	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
 Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler output below.
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/VehicleVisuals.java:8: error: cannot find symbol
-import net.minecraft.client.particle.DustParticleOptions;
-                                    ^
-  symbol:   class DustParticleOptions
-  location: package net.minecraft.client.particle
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/VehicleVisuals.java:9: error: cannot find symbol
-import net.minecraft.client.particle.ParticleTypes;
-                                    ^
-  symbol:   class ParticleTypes
-  location: package net.minecraft.client.particle
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/WeatherVisuals.java:12: error: cannot find symbol
-import net.minecraft.client.particle.DustParticleOptions;
-                                    ^
-  symbol:   class DustParticleOptions
-  location: package net.minecraft.client.particle
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/WeatherVisuals.java:13: error: cannot find symbol
-import net.minecraft.client.particle.ParticleTypes;
-                                    ^
-  symbol:   class ParticleTypes
-  location: package net.minecraft.client.particle
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/RadarScreen.java:37: error: render(GuiGraphics,int,int,float) in RadarScreen cannot implement render(GuiGraphics,int,int,float) in Renderable
-	protected void render(GuiGraphics g, int mouseX, int mouseY, float partialTicks) {
-	               ^
-  attempting to assign weaker access privileges; was public
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/RadarScreen.java:38: error: method renderBackground in class Screen cannot be applied to given types;
-		renderBackground(g);
-		^
-  required: GuiGraphics,int,int,float
-  found:    GuiGraphics
-  reason: actual and formal argument lists differ in length
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/RadarScreen.java:76: error: incompatible types: Stamp<StormSyncPayload> cannot be converted to StormSyncPayload
-			for (StormSyncPayload s : ClientWeatherState.storms.values()) {
-			                                                          ^
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/RadarScreen.java:95: error: incompatible types: Stamp<TornadoSyncPayload> cannot be converted to TornadoSyncPayload
-			for (TornadoSyncPayload t2 : ClientWeatherState.tornadoes.values()) {
-			                                                                ^
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/RadarScreen.java:124: error: cannot find symbol
-				g.drawTextWithShadow(f, "EF" + b.ef, b.x + 6, b.y - 8, 0xFFFF6666);
-				 ^
-  symbol:   method drawTextWithShadow(Font,String,int,int,int)
-  location: variable g of type GuiGraphics
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/RadarScreen.java:130: error: cannot find symbol
-		g.drawCenteredTextWithShadow(font, this.title, this.width / 2, oy - 22, 0xFFDDDDDD);
-		 ^
-  symbol:   method drawCenteredTextWithShadow(Font,Component,int,int,int)
-  location: variable g of type GuiGraphics
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/RadarScreen.java:131: error: cannot find symbol
-		g.drawCenteredTextWithShadow(font,
-		 ^
-  symbol:   method drawCenteredTextWithShadow(Font,String,int,int,int)
-  location: variable g of type GuiGraphics
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/RadarScreen.java:134: error: cannot find symbol
-		g.drawCenteredTextWithShadow(font, "green=cell  orange=supercell  red=tornado",
-		 ^
-  symbol:   method drawCenteredTextWithShadow(Font,String,int,int,int)
-  location: variable g of type GuiGraphics
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/RadarScreen.java:136: error: cannot find symbol
-		g.drawCenteredTextWithShadow(font, "[ESC] close", this.width / 2, oy + SCOPE + 34, 0xFF777777);
-		 ^
-  symbol:   method drawCenteredTextWithShadow(Font,String,int,int,int)
-  location: variable g of type GuiGraphics
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/DebugHud.java:29: error: cannot find symbol
-		graphics.drawTextWithShadow(font, "TORNADIC DEBUG [V]", 4, y, 0xFF55FF55);
-		        ^
-  symbol:   method drawTextWithShadow(Font,String,int,int,int)
-  location: variable graphics of type GuiGraphics
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/DebugHud.java:33: error: cannot find symbol
-			graphics.drawTextWithShadow(font, "waiting for sync...", 4, y, 0xFFAAAAAA);
-			        ^
-  symbol:   method drawTextWithShadow(Font,String,int,int,int)
-  location: variable graphics of type GuiGraphics
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/DebugHud.java:36: error: cannot find symbol
-		graphics.drawTextWithShadow(font, String.format(Locale.US,
-		        ^
-  symbol:   method drawTextWithShadow(Font,String,int,int,int)
-  location: variable graphics of type GuiGraphics
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/DebugHud.java:40: error: cannot find symbol
-		graphics.drawTextWithShadow(font, String.format(Locale.US,
-		        ^
-  symbol:   method drawTextWithShadow(Font,String,int,int,int)
-  location: variable graphics of type GuiGraphics
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/DebugHud.java:44: error: cannot find symbol
-		graphics.drawTextWithShadow(font, String.format(Locale.US,
-		        ^
-  symbol:   method drawTextWithShadow(Font,String,int,int,int)
-  location: variable graphics of type GuiGraphics
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/DebugHud.java:48: error: cannot find symbol
-		graphics.drawTextWithShadow(font, String.format(Locale.US,
-		        ^
-  symbol:   method drawTextWithShadow(Font,String,int,int,int)
-  location: variable graphics of type GuiGraphics
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/DebugHud.java:55: error: cannot find symbol
-			graphics.drawTextWithShadow(font, "Storms:", x0, y, 0xFFFFAA55);
-			        ^
-  symbol:   method drawTextWithShadow(Font,String,int,int,int)
-  location: variable graphics of type GuiGraphics
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/DebugHud.java:58: error: incompatible types: Stamp<StormSyncPayload> cannot be converted to StormSyncPayload
-			for (StormSyncPayload s : ClientWeatherState.storms.values()) {
-			                                                          ^
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/DebugHud.java:62: error: cannot find symbol
-			graphics.drawTextWithShadow(font, String.format(Locale.US,
-			        ^
-  symbol:   method drawTextWithShadow(Font,String,int,int,int)
-  location: variable graphics of type GuiGraphics
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/DebugHud.java:71: error: cannot find symbol
-			graphics.drawTextWithShadow(font, "Tornadoes:", x0, y, 0xFFFF5555);
-			        ^
-  symbol:   method drawTextWithShadow(Font,String,int,int,int)
-  location: variable graphics of type GuiGraphics
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/DebugHud.java:74: error: incompatible types: Stamp<TornadoSyncPayload> cannot be converted to TornadoSyncPayload
-			for (TornadoSyncPayload t : ClientWeatherState.tornadoes.values()) {
-			                                                               ^
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/DebugHud.java:78: error: cannot find symbol
-			graphics.drawTextWithShadow(font, String.format(Locale.US,
-			        ^
-  symbol:   method drawTextWithShadow(Font,String,int,int,int)
-  location: variable graphics of type GuiGraphics
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/DebugHud.java:85: error: cannot find symbol
-			graphics.drawTextWithShadow(font, String.format(Locale.US,
-			        ^
-  symbol:   method drawTextWithShadow(Font,String,int,int,int)
-  location: variable graphics of type GuiGraphics
 /home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/VehicleVisuals.java:37: error: incompatible types: possible lossy conversion from double to float
 			float yaw = (float) v.getYRot() * (float) Math.PI / 180.0;
 			                                                  ^
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/VehicleVisuals.java:50: error: cannot find symbol
-					new DustParticleOptions(new org.joml.Vector3f(58 / 255.0F, 64 / 255.0F, 72 / 255.0F), 0.55f),
-					    ^
-  symbol:   class DustParticleOptions
-  location: class VehicleVisuals
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/VehicleVisuals.java:55: error: cannot find symbol
-				client.level.addParticle(ParticleTypes.ENCHANT,
-				                         ^
-  symbol:   variable ParticleTypes
-  location: class VehicleVisuals
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/NotebookScreen.java:28: error: render(GuiGraphics,int,int,float) in NotebookScreen cannot implement render(GuiGraphics,int,int,float) in Renderable
-	protected void render(GuiGraphics g, int mouseX, int mouseY, float partialTicks) {
-	               ^
-  attempting to assign weaker access privileges; was public
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/NotebookScreen.java:29: error: method renderBackground in class Screen cannot be applied to given types;
-		renderBackground(g);
-		^
-  required: GuiGraphics,int,int,float
-  found:    GuiGraphics
-  reason: actual and formal argument lists differ in length
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/NotebookScreen.java:41: error: cannot find symbol
-		g.drawTextWithShadow(font, "STORM NOTEBOOK", x0 + w / 2 - font.width("STORM NOTEBOOK") / 2, y0 - 10, 0xFFFFD080);
-		 ^
-  symbol:   method drawTextWithShadow(Font,String,int,int,int)
-  location: variable g of type GuiGraphics
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/NotebookScreen.java:43: error: cannot find symbol
-			g.drawTextWithShadow(font, "waiting for weather data...", x, y, 0xFF999999);
-			 ^
-  symbol:   method drawTextWithShadow(Font,String,int,int,int)
-  location: variable g of type GuiGraphics
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/NotebookScreen.java:45: error: cannot find symbol
-			g.drawTextWithShadow(font, "stand by for a sync packet", x, y, 0xFF666666);
-			 ^
-  symbol:   method drawTextWithShadow(Font,String,int,int,int)
-  location: variable g of type GuiGraphics
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/NotebookScreen.java:47: error: cannot find symbol
-			g.drawTextWithShadow(font, "Day " + w2.day(), x, y, 0xFFEEEEEE);
-			 ^
-  symbol:   method drawTextWithShadow(Font,String,int,int,int)
-  location: variable g of type GuiGraphics
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/NotebookScreen.java:49: error: cannot find symbol
-			g.drawTextWithShadow(font, "Risk rating: " + RiskRating.fromOrdinal(w2.riskOrdinal()), x, y,
-			 ^
-  symbol:   method drawTextWithShadow(Font,String,int,int,int)
-  location: variable g of type GuiGraphics
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/NotebookScreen.java:52: error: cannot find symbol
-			g.drawTextWithShadow(font, String.format(Locale.US,
-			 ^
-  symbol:   method drawTextWithShadow(Font,String,int,int,int)
-  location: variable g of type GuiGraphics
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/NotebookScreen.java:55: error: cannot find symbol
-			g.drawTextWithShadow(font, String.format(Locale.US,
-			 ^
-  symbol:   method drawTextWithShadow(Font,String,int,int,int)
-  location: variable g of type GuiGraphics
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/NotebookScreen.java:58: error: cannot find symbol
-			g.drawTextWithShadow(font, String.format(Locale.US,
-			 ^
-  symbol:   method drawTextWithShadow(Font,String,int,int,int)
-  location: variable g of type GuiGraphics
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/NotebookScreen.java:61: error: cannot find symbol
-			g.drawTextWithShadow(font, String.format(Locale.US,
-			 ^
-  symbol:   method drawTextWithShadow(Font,String,int,int,int)
-  location: variable g of type GuiGraphics
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/NotebookScreen.java:65: error: cannot find symbol
-			g.drawTextWithShadow(font, "--- Today so far ---", x, y, 0xFF80A0FF);
-			 ^
-  symbol:   method drawTextWithShadow(Font,String,int,int,int)
-  location: variable g of type GuiGraphics
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/NotebookScreen.java:67: error: cannot find symbol
-			g.drawTextWithShadow(font, String.format(Locale.US,
-			 ^
-  symbol:   method drawTextWithShadow(Font,String,int,int,int)
-  location: variable g of type GuiGraphics
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/NotebookScreen.java:72: error: cannot find symbol
-			g.drawTextWithShadow(font, String.format(Locale.US,
-			 ^
-  symbol:   method drawTextWithShadow(Font,String,int,int,int)
-  location: variable g of type GuiGraphics
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/NotebookScreen.java:75: error: cannot find symbol
-		g.drawCenteredTextWithShadow(font, "[ESC] close", this.width / 2, y0 + h + 12, 0xFF777777);
-		 ^
-  symbol:   method drawCenteredTextWithShadow(Font,String,int,int,int)
-  location: variable g of type GuiGraphics
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/WeatherVisuals.java:111: error: incompatible types: possible lossy conversion from double to float
-				float y = t.y() + fr * height;
-				                ^
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/WeatherVisuals.java:117: error: cannot find symbol
-					new DustParticleOptions(new org.joml.Vector3f(r, g, b),
-					    ^
-  symbol:   class DustParticleOptions
-  location: class WeatherVisuals
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/WeatherVisuals.java:126: error: cannot find symbol
-						new DustParticleOptions(new org.joml.Vector3f(r * 0.78F, g * 0.78F, b * 0.78F),
-						    ^
-  symbol:   class DustParticleOptions
-  location: class WeatherVisuals
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/WeatherVisuals.java:138: error: cannot find symbol
-					client.level.addParticle(ParticleTypes.SPLASH,
-					                         ^
-  symbol:   variable ParticleTypes
-  location: class WeatherVisuals
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/WeatherVisuals.java:147: error: cannot find symbol
-				client.level.addParticle(ParticleTypes.CRIT,
-				                         ^
-  symbol:   variable ParticleTypes
-  location: class WeatherVisuals
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/WeatherVisuals.java:185: error: cannot find symbol
-				client.level.addParticle(ParticleTypes.SPLASH,
-				                         ^
-  symbol:   variable ParticleTypes
-  location: class WeatherVisuals
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/WeatherVisuals.java:196: error: cannot find symbol
-					client.level.addParticle(ParticleTypes.SNOWFLAKE,
-					                         ^
-  symbol:   variable ParticleTypes
-  location: class WeatherVisuals
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/WeatherVisuals.java:202: error: no suitable method found for playLocalSound(double,double,double,s.hailSize[...]lue(),SoundSource,float,float)
+/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/WeatherVisuals.java:202: error: no suitable method found for playLocalSound(double,double,double,s.hailSize[...]THROW,SoundSource,float,float)
 					client.level.playLocalSound(px, client.player.getY(), pz,
 					            ^
     method Level.playLocalSound(BlockPos,SoundEvent,SoundSource,float,float,boolean) is not applicable
@@ -909,22 +159,7 @@ import net.minecraft.client.particle.ParticleTypes;
       (actual and formal argument lists differ in length)
     method ClientLevel.playLocalSound(double,double,double,SoundEvent,SoundSource,float,float,boolean) is not applicable
       (actual and formal argument lists differ in length)
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/WeatherVisuals.java:203: error: cannot find symbol
-						s.hailSize() > 0.8 ? SoundEvents.ITEM_BREAK.value() : SoundEvents.SNOWBALL_THROW.value(),
-						                                           ^
-  symbol:   method value()
-  location: variable ITEM_BREAK of type SoundEvent
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/WeatherVisuals.java:203: error: cannot find symbol
-						s.hailSize() > 0.8 ? SoundEvents.ITEM_BREAK.value() : SoundEvents.SNOWBALL_THROW.value(),
-						                                                                                ^
-  symbol:   method value()
-  location: variable SNOWBALL_THROW of type SoundEvent
-/home/runner/work/Tornado-mod/Tornado-mod/src/client/java/com/tornadic/client/WeatherVisuals.java:233: error: cannot find symbol
-				new DustParticleOptions(new org.joml.Vector3f(235 / 255.0F, 235 / 255.0F, 235 / 255.0F), 0.35f),
-				    ^
-  symbol:   class DustParticleOptions
-  location: class WeatherVisuals
-55 errors
+2 errors
 	at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:89)
 	at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:50)
 	at org.gradle.api.internal.tasks.compile.NormalizingJavaCompiler.delegateAndHandleErrors(NormalizingJavaCompiler.java:98)
@@ -1065,6 +300,6 @@ You can use '--warning-mode all' to show the individual deprecation warnings and
 
 For more on this, please refer to https://docs.gradle.org/9.5.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
 
-BUILD FAILED in 49s
+BUILD FAILED in 58s
 3 actionable tasks: 3 executed
 gradle-build-exit=1
