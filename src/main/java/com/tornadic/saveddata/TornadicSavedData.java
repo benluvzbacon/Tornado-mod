@@ -140,14 +140,9 @@ public class TornadicSavedData extends SavedData {
 	}
 
 	private long worldSeed(ServerLevel world) {
-		// Deterministic per world: the save-folder id is stable across restarts and
-		// unique per world, so daily forecasts are reproducible (1.21.1 exposes no
-		// stable world-seed accessor from LevelData).
-		String id = ((net.minecraft.world.level.storage.ServerLevelData) world.getLevelData()).getLevelName();
-		long seed = 1125899906842597L;
-		for (int i = 0; i < id.length(); i++) {
-			seed = 31 * seed + id.charAt(i);
-		}
+		// The persisted world seed: stable across restarts and unique per world, so
+		// daily forecasts are deterministic per world/day.
+		long seed = world.getSeed();
 		return seed == 0L ? 1L : seed;
 	}
 

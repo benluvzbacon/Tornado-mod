@@ -39,6 +39,99 @@ jobs:
       - name: Verify jar exists
         run: ls -la build/libs/tornadic-1.0.0.jar
 
+      - name: Runtime smoke test (headless dedicated server)
+        if: success()
+        run: |
+          set -x
+          mkdir -p .minecraft
+          printf 'eula=true\n' > .minecraft/eula.txt
+          {
+            echo 'online-mode=false'
+            echo 'enable-rcon=true'
+            echo 'rcon.password=tornadic'
+            echo 'rcon.port=25575'
+            echo 'max-tick-time=60000'
+            echo 'spawn-protection=0'
+            echo 'view-distance=4'
+            echo 'simulation-distance=4'
+            echo 'generate-structures=false'
+            echo 'level-seed=987654321'
+            echo 'motd=tornadic-ci'
+          } > .minecraft/server.properties
+
+          ./gradlew runServer --no-daemon > gradle-server.log 2>&1 &
+          GRADLE_PID=$!
+
+          # Wait for the RCON port (world generation on first boot takes a while).
+          READY=0
+          for i in $(seq 1 75); do
+            if python3 ci/rcon_test.py 127.0.0.1 25575 tornadic list > rcon-list.out 2>&1; then
+              READY=1
+              break
+            fi
+            sleep 2
+          done
+          if [ "$READY" != "1" ]; then
+            echo "SERVER NEVER BECAME READY"
+            tail -c 100000 gradle-server.log > ci-last-failure.log || true
+            [ -f .minecraft/latest.log ] && tail -c 100000 .minecraft/latest.log >> ci-last-failure.log || true
+            pkill -f KnotServer 2>/dev/null || true
+            pkill -f GradleDaemon 2>/dev/null || true
+            kill "$GRADLE_PID" 2>/dev/null || true
+            exit 1
+          fi
+
+          run_cmd() {
+            local name="$2"
+            echo "\$ /$1"
+            python3 ci/rcon_test.py 127.0.0.1 25575 tornadic "$1" > "rcon-out-${name}.out" 2>&1 || echo "(command failed: $1)"
+            cat "rcon-out-${name}.out" 2>/dev/null || true
+            sleep 2
+          }
+
+          run_cmd "thermos" thermos
+          run_cmd "thermos tomorrow" thermos_tomorrow
+          run_cmd "spawn_tornado ef2" spawn_tornado
+          run_cmd "tornado_info" tornado_info_1
+          run_cmd "storm_info" storm_info
+          run_cmd "weatherstorm supercell" weatherstorm
+          sleep 20
+          run_cmd "tornado_info" tornado_info_2
+          python3 ci/rcon_test.py 127.0.0.1 25575 tornadic stop || true
+
+          # Wait for a clean shutdown (max 90s).
+          for i in $(seq 1 45); do
+            if ! pgrep -f KnotServer > /dev/null 2>&1; then
+              break
+            fi
+            sleep 2
+          done
+          pkill -f KnotServer 2>/dev/null || true
+          kill "$GRADLE_PID" 2>/dev/null || true
+          pkill -f GradleDaemon 2>/dev/null || true
+          sleep 2
+
+          echo "=== rcon outputs ==="
+          cat rcon-list.out
+          echo "=== server log assertions ==="
+          [ -f .minecraft/latest.log ] || { echo "NO LATEST LOG"; exit 1; }
+          FAIL=0
+          grep -q "Tornadic loaded" .minecraft/latest.log || { echo "FAIL: mod never initialized"; FAIL=1; }
+          if grep -q "Crashed server" .minecraft/latest.log; then echo "FAIL: server crashed"; FAIL=1; fi
+          if grep -q "Tornadic simulation tick failed" .minecraft/latest.log; then echo "FAIL: simulation tick exception"; FAIL=1; fi
+          if grep -q "THERMOS" rcon-out-thermos.out 2>/dev/null; then echo "OK: /thermos produced output"; else echo "FAIL: no /thermos output"; FAIL=1; fi
+          if grep -q "unknown command" rcon-out-thermos.out 2>/dev/null; then echo "FAIL: /thermos unknown command"; FAIL=1; fi
+          if [ "$FAIL" != "0" ]; then
+            {
+              echo "=== runtime smoke test FAILED $(date -u) ==="
+              for f in rcon-*.out; do echo "--- $f ---"; cat "$f" 2>/dev/null || true; done
+              echo "--- latest.log tail ---"; tail -c 120000 .minecraft/latest.log 2>/dev/null || true
+              echo "--- gradle-server.log tail ---"; tail -c 60000 gradle-server.log 2>/dev/null || true
+            } > ci-last-failure.log
+            exit 1
+          fi
+          echo "RUNTIME SMOKE TEST PASSED"
+
       - name: Remove stale failure log
         if: success()
         run: |

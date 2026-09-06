@@ -33,3 +33,6 @@ build-output.log
 build-output.log
 ci-last-failure.log
 ci-api-dump.txt
+.minecraft/
+gradle-server.log
+rcon-*.out
