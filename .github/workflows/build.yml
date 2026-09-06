@@ -29,13 +29,26 @@ jobs:
 
       - name: Build with Gradle
         run: |
+          {
+            echo "=== tornadic-ci diagnostics $(date -u) ==="
+            uname -a
+            echo "--- java -version ---"
+            java -version 2>&1 || true
+            echo "--- ls -la ---"
+            ls -la
+            echo "--- wrapper ---"
+            ls -la gradle/wrapper
+            echo "--- end header ---"
+          } > build-output.log 2>&1
           set +e
-          ./gradlew --version 2>&1 | tee -a build-output.log
-          ./gradlew build --no-daemon --stacktrace 2>&1 | tee -a build-output.log
-          status=${PIPESTATUS[0]}
+          ./gradlew --version >> build-output.log 2>&1
+          echo "gradlew-version-exit=$?" >> build-output.log
+          ./gradlew build --no-daemon --stacktrace >> build-output.log 2>&1
+          status=$?
           set -e
+          echo "gradle-build-exit=$status" >> build-output.log
+          tail -c 200000 build-output.log > ci-last-failure.log
           if [ "$status" -ne 0 ]; then
-            tail -c 200000 build-output.log > ci-last-failure.log
             exit "$status"
           fi
 
@@ -61,6 +74,7 @@ jobs:
         run: |
           git config user.name "tornadic-ci"
           git config user.email "ci@tornadic.invalid"
+          [ -f ci-last-failure.log ] || : > ci-last-failure.log
           git add ci-last-failure.log 2>/dev/null || true
           if ! git diff --cached --quiet; then
             git commit -m "ci: last build failure log"
