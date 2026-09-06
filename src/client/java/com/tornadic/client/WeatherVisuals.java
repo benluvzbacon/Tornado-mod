@@ -201,7 +201,7 @@ public final class WeatherVisuals {
 				if (s.hailSize() > 0.5 && RNG.nextInt(24) == 0) {
 					client.level.playLocalSound(px, client.player.getY(), pz,
 						s.hailSize() > 0.8 ? SoundEvents.ITEM_BREAK : SoundEvents.SNOWBALL_THROW,
-						SoundSource.BLOCKS, 0.3f * intensity, 0.8f + RNG.nextFloat() * 0.4f);
+						SoundSource.BLOCKS, 0.3f * intensity, 0.8f + RNG.nextFloat() * 0.4f, false);
 				}
 			}
 			break; // only the most relevant storm adds local rain

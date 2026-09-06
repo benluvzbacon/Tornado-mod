@@ -34,7 +34,7 @@ public final class VehicleVisuals {
 			if (v.distanceTo(client.player) > 64) {
 				continue;
 			}
-			float yaw = (float) v.getYRot() * (float) Math.PI / 180.0;
+			float yaw = (float) v.getYRot() * ((float) Math.PI / 180.0F);
 			double fx = -Math.sin(yaw);
 			double fz = Math.cos(yaw);
 			double rx = fz;
