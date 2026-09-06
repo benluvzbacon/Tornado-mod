@@ -14,9 +14,484 @@
 mc-common=/home/runner/.gradle/caches/fabric-loom/minecraftMaven/net/minecraft/minecraft-common/1.21.1-loom.mappings.1_21_1.layered+hash.2198-v2/minecraft-common-1.21.1-loom.mappings.1_21_1.layered+hash.2198-v2.jar
 mc-client=/home/runner/.gradle/caches/fabric-loom/minecraftMaven/net/minecraft/minecraft-clientonly/1.21.1-loom.mappings.1_21_1.layered+hash.2198-v2/minecraft-clientonly-1.21.1-loom.mappings.1_21_1.layered+hash.2198-v2.jar
 fabric-jars-count=3
-apidump/ApiDump.java:139: error: illegal start of expression
-	private static String typeList(Class<?>[] types) {
-	^
-1 error
+JARCLASS net.minecraft.world.level.levelgen.WorldGenSettings
+JARCLASS net.minecraft.world.level.storage.LevelDataAndDimensions
+JARCLASS net.minecraft.world.level.storage.WorldData
+JARCLASS net.minecraft.world.level.storage.LevelData
+JARCLASS net.minecraft.world.level.storage.ServerLevelData
+JARCLASS net.minecraft.world.level.storage.LevelStorageSource
+JARCLASS net.minecraft.core.registries.Registries
+JARCLASS net.minecraft.network.protocol.common.ClientboundCustomPayloadPacket
+JARCLASS net.minecraft.network.protocol.common.ServerboundCustomPayloadPacket
+JARCLASS net.minecraft.util.datafix.DataFixTypes
+JARCLASS net.minecraft.util.datafix.fixes.LevelLegacyWorldGenSettingsFix
+JARCLASS net.minecraft.util.datafix.fixes.WorldGenSettingsDisallowOldCustomWorldsFix
+JARCLASS net.minecraft.util.datafix.fixes.WorldGenSettingsHeightAndBiomeFix
+JARCLASS net.minecraft.util.datafix.fixes.WorldGenSettingsFix
+== scan done
+== net.minecraft.world.entity.Entity (super=java.lang.Object)
+-- constructors
+== net.minecraft.world.entity.Entity MISSING: java.lang.NoClassDefFoundError: com/mojang/brigadier/Message
+== net.minecraft.core.registries.DefaultedRegistry MISSING: java.lang.ClassNotFoundException: net.minecraft.core.registries.DefaultedRegistry
+== net.minecraft.core.registries.Registry MISSING: java.lang.ClassNotFoundException: net.minecraft.core.registries.Registry
+== net.minecraft.core.registries.MapLikeRegistry MISSING: java.lang.ClassNotFoundException: net.minecraft.core.registries.MapLikeRegistry
+== net.minecraft.world.level.storage.LevelData (super=-)
+-- constructors
+-- methods
+  getSpawnAngle() : float
+  getDayTime() : long
+  isThundering() : boolean
+  isRaining() : boolean
+  setRaining(boolean) : void
+  isHardcore() : boolean
+  getDifficulty() : net.minecraft.world.Difficulty
+  isDifficultyLocked() : boolean
+  getSpawnPos() : net.minecraft.core.BlockPos
+  fillCrashReportCategory(net.minecraft.CrashReportCategory, net.minecraft.world.level.LevelHeightAccessor) : void
+  getGameTime() : long
+  getGameRules() : net.minecraft.world.level.GameRules
+-- fields (static)
+== net.minecraft.world.level.storage.ServerLevelData (super=-)
+-- constructors
+-- methods
+  getLevelName() : java.lang.String
+  fillCrashReportCategory(net.minecraft.CrashReportCategory, net.minecraft.world.level.LevelHeightAccessor) : void
+  getWorldBorder() : net.minecraft.world.level.border.WorldBorder$Settings
+  setThundering(boolean) : void
+  getRainTime() : int
+  setRainTime(int) : void
+  setThunderTime(int) : void
+  getThunderTime() : int
+  getClearWeatherTime() : int
+  setClearWeatherTime(int) : void
+  getWanderingTraderSpawnDelay() : int
+  setWanderingTraderSpawnDelay(int) : void
+  getWanderingTraderSpawnChance() : int
+  setWanderingTraderSpawnChance(int) : void
+  getWanderingTraderId() : java.util.UUID
+  setWanderingTraderId(java.util.UUID) : void
+  getGameType() : net.minecraft.world.level.GameType
+  setWorldBorder(net.minecraft.world.level.border.WorldBorder$Settings) : void
+  isInitialized() : boolean
+  setInitialized(boolean) : void
+  isAllowCommands() : boolean
+  setGameType(net.minecraft.world.level.GameType) : void
+  getScheduledEvents() : net.minecraft.world.level.timers.TimerQueue
+  setGameTime(long) : void
+  setDayTime(long) : void
+-- fields (static)
+== net.minecraft.world.level.storage.WritableLevelData (super=-)
+-- constructors
+-- methods
+  setSpawn(net.minecraft.core.BlockPos, float) : void
+-- fields (static)
+== net.minecraft.world.level.storage.DimensionDataStorage (super=java.lang.Object)
+-- constructors
+== net.minecraft.world.level.storage.DimensionDataStorage MISSING: java.lang.NoClassDefFoundError: com/mojang/datafixers/DataFixer
+== net.minecraft.world.level.storage.LevelStorageSource (super=java.lang.Object)
+-- constructors
+== net.minecraft.world.level.storage.LevelStorageSource MISSING: java.lang.NoClassDefFoundError: com/mojang/brigadier/Message
+== net.minecraft.server.MinecraftServer (super=net.minecraft.util.thread.ReentrantBlockableEventLoop)
+-- constructors
+== net.minecraft.server.MinecraftServer MISSING: java.lang.NoClassDefFoundError: com/mojang/brigadier/Message
+== net.minecraft.world.level.Level (super=java.lang.Object)
+-- constructors
+  net.minecraft.world.level.Level(net.minecraft.world.level.storage.WritableLevelData, net.minecraft.resources.ResourceKey, net.minecraft.core.RegistryAccess, net.minecraft.core.Holder, java.util.function.Supplier, boolean, boolean, long, int)
+-- methods
+  close() : void
+  isDebug() : boolean
+  isLoaded(net.minecraft.core.BlockPos) : boolean
+  getDayTime() : long
+  isThundering() : boolean
+  isRaining() : boolean
+  getRainLevel(float) : float
+  getProfiler() : net.minecraft.util.profiling.ProfilerFiller
+  isClientSide() : boolean
+  damageSources() : net.minecraft.world.damagesource.DamageSources
+  playSound(net.minecraft.world.entity.player.Player, net.minecraft.core.BlockPos, net.minecraft.sounds.SoundEvent, net.minecraft.sounds.SoundSource, float, float) : void
+  playSound(net.minecraft.world.entity.player.Player, double, double, double, net.minecraft.core.Holder, net.minecraft.sounds.SoundSource, float, float) : void
+  playSound(net.minecraft.world.entity.player.Player, double, double, double, net.minecraft.sounds.SoundEvent, net.minecraft.sounds.SoundSource) : void
+  playSound(net.minecraft.world.entity.player.Player, double, double, double, net.minecraft.sounds.SoundEvent, net.minecraft.sounds.SoundSource, float, float) : void
+  playSound(net.minecraft.world.entity.player.Player, net.minecraft.world.entity.Entity, net.minecraft.sounds.SoundEvent, net.minecraft.sounds.SoundSource, float, float) : void
+  playSound(net.minecraft.world.entity.Entity, net.minecraft.core.BlockPos, net.minecraft.sounds.SoundEvent, net.minecraft.sounds.SoundSource, float, float) : void
+  getBlockState(net.minecraft.core.BlockPos) : net.minecraft.world.level.block.state.BlockState
+  getGameTime() : long
+  getWorldBorder() : net.minecraft.world.level.border.WorldBorder
+  getSharedSpawnPos() : net.minecraft.core.BlockPos
+  getChunkAt(net.minecraft.core.BlockPos) : net.minecraft.world.level.chunk.LevelChunk
+  getHeight(net.minecraft.world.level.levelgen.Heightmap$Types, int, int) : int
+  isRainingAt(net.minecraft.core.BlockPos) : boolean
+  getFluidState(net.minecraft.core.BlockPos) : net.minecraft.world.level.material.FluidState
+  dimensionType() : net.minecraft.world.level.dimension.DimensionType
+  addParticle(net.minecraft.core.particles.ParticleOptions, boolean, double, double, double, double, double, double) : void
+  addParticle(net.minecraft.core.particles.ParticleOptions, double, double, double, double, double, double) : void
+  registryAccess() : net.minecraft.core.RegistryAccess
+  getServer() : net.minecraft.server.MinecraftServer
+  dimension() : net.minecraft.resources.ResourceKey
+  getScoreboard() : net.minecraft.world.scores.Scoreboard
+  getGameRules() : net.minecraft.world.level.GameRules
+  mayInteract(net.minecraft.world.entity.player.Player, net.minecraft.core.BlockPos) : boolean
+  getRandom() : net.minecraft.util.RandomSource
+  getSharedSpawnAngle() : float
+  tickRateManager() : net.minecraft.world.TickRateManager
+  potionBrewing() : net.minecraft.world.item.alchemy.PotionBrewing
+  dimensionTypeRegistration() : net.minecraft.core.Holder
+  isInWorldBounds(net.minecraft.core.BlockPos) : boolean
+  isInSpawnableBounds(net.minecraft.core.BlockPos) : boolean
+  getChunk(int, int) : net.minecraft.world.level.chunk.ChunkAccess
+  getChunk(int, int, net.minecraft.world.level.chunk.status.ChunkStatus, boolean) : net.minecraft.world.level.chunk.ChunkAccess
+  getChunk(int, int) : net.minecraft.world.level.chunk.LevelChunk
+  setBlock(net.minecraft.core.BlockPos, net.minecraft.world.level.block.state.BlockState, int) : boolean
+  setBlock(net.minecraft.core.BlockPos, net.minecraft.world.level.block.state.BlockState, int, int) : boolean
+  setBlocksDirty(net.minecraft.core.BlockPos, net.minecraft.world.level.block.state.BlockState, net.minecraft.world.level.block.state.BlockState) : void
+  sendBlockUpdated(net.minecraft.core.BlockPos, net.minecraft.world.level.block.state.BlockState, net.minecraft.world.level.block.state.BlockState, int) : void
+  updateNeighbourForOutputSignal(net.minecraft.core.BlockPos, net.minecraft.world.level.block.Block) : void
+  onBlockStateChange(net.minecraft.core.BlockPos, net.minecraft.world.level.block.state.BlockState, net.minecraft.world.level.block.state.BlockState) : void
+  removeBlock(net.minecraft.core.BlockPos, boolean) : boolean
+  destroyBlock(net.minecraft.core.BlockPos, boolean, net.minecraft.world.entity.Entity, int) : boolean
+  getBlockEntity(net.minecraft.core.BlockPos) : net.minecraft.world.level.block.entity.BlockEntity
+  addDestroyBlockEffect(net.minecraft.core.BlockPos, net.minecraft.world.level.block.state.BlockState) : void
+  setBlockAndUpdate(net.minecraft.core.BlockPos, net.minecraft.world.level.block.state.BlockState) : boolean
+  updateNeighborsAt(net.minecraft.core.BlockPos, net.minecraft.world.level.block.Block) : void
+  updateNeighborsAtExceptFromFacing(net.minecraft.core.BlockPos, net.minecraft.world.level.block.Block, net.minecraft.core.Direction) : void
+  neighborChanged(net.minecraft.core.BlockPos, net.minecraft.world.level.block.Block, net.minecraft.core.BlockPos) : void
+  neighborChanged(net.minecraft.world.level.block.state.BlockState, net.minecraft.core.BlockPos, net.minecraft.world.level.block.Block, net.minecraft.core.BlockPos, boolean) : void
+  neighborShapeChanged(net.minecraft.core.Direction, net.minecraft.world.level.block.state.BlockState, net.minecraft.core.BlockPos, net.minecraft.core.BlockPos, int, int) : void
+  getSeaLevel() : int
+  getLightEngine() : net.minecraft.world.level.lighting.LevelLightEngine
+  isDay() : boolean
+  isNight() : boolean
+  playSeededSound(net.minecraft.world.entity.player.Player, double, double, double, net.minecraft.core.Holder, net.minecraft.sounds.SoundSource, float, float, long) : void
+  playSeededSound(net.minecraft.world.entity.player.Player, double, double, double, net.minecraft.sounds.SoundEvent, net.minecraft.sounds.SoundSource, float, float, long) : void
+  playSeededSound(net.minecraft.world.entity.player.Player, net.minecraft.world.entity.Entity, net.minecraft.core.Holder, net.minecraft.sounds.SoundSource, float, float, long) : void
+  playLocalSound(double, double, double, net.minecraft.sounds.SoundEvent, net.minecraft.sounds.SoundSource, float, float, boolean) : void
+  playLocalSound(net.minecraft.world.entity.Entity, net.minecraft.sounds.SoundEvent, net.minecraft.sounds.SoundSource, float, float) : void
+  playLocalSound(net.minecraft.core.BlockPos, net.minecraft.sounds.SoundEvent, net.minecraft.sounds.SoundSource, float, float, boolean) : void
+  addAlwaysVisibleParticle(net.minecraft.core.particles.ParticleOptions, boolean, double, double, double, double, double, double) : void
+  addAlwaysVisibleParticle(net.minecraft.core.particles.ParticleOptions, double, double, double, double, double, double) : void
+  getSunAngle(float) : float
+  addBlockEntityTicker(net.minecraft.world.level.block.entity.TickingBlockEntity) : void
+  tickBlockEntities() : void
+  shouldTickBlocksAt(net.minecraft.core.BlockPos) : boolean
+  shouldTickBlocksAt(long) : boolean
+  guardEntityTick(java.util.function.Consumer, net.minecraft.world.entity.Entity) : void
+  shouldTickDeath(net.minecraft.world.entity.Entity) : boolean
+  explode(net.minecraft.world.entity.Entity, net.minecraft.world.damagesource.DamageSource, net.minecraft.world.level.ExplosionDamageCalculator, double, double, double, float, boolean, net.minecraft.world.level.Level$ExplosionInteraction) : net.minecraft.world.level.Explosion
+  explode(net.minecraft.world.entity.Entity, double, double, double, float, net.minecraft.world.level.Level$ExplosionInteraction) : net.minecraft.world.level.Explosion
+  explode(net.minecraft.world.entity.Entity, net.minecraft.world.damagesource.DamageSource, net.minecraft.world.level.ExplosionDamageCalculator, net.minecraft.world.phys.Vec3, float, boolean, net.minecraft.world.level.Level$ExplosionInteraction) : net.minecraft.world.level.Explosion
+  explode(net.minecraft.world.entity.Entity, net.minecraft.world.damagesource.DamageSource, net.minecraft.world.level.ExplosionDamageCalculator, double, double, double, float, boolean, net.minecraft.world.level.Level$ExplosionInteraction, net.minecraft.core.particles.ParticleOptions, net.minecraft.core.particles.ParticleOptions, net.minecraft.core.Holder) : net.minecraft.world.level.Explosion
+  explode(net.minecraft.world.entity.Entity, net.minecraft.world.damagesource.DamageSource, net.minecraft.world.level.ExplosionDamageCalculator, double, double, double, float, boolean, net.minecraft.world.level.Level$ExplosionInteraction, boolean, net.minecraft.core.particles.ParticleOptions, net.minecraft.core.particles.ParticleOptions, net.minecraft.core.Holder) : net.minecraft.world.level.Explosion
+  explode(net.minecraft.world.entity.Entity, double, double, double, float, boolean, net.minecraft.world.level.Level$ExplosionInteraction) : net.minecraft.world.level.Explosion
+  gatherChunkSourceStats() : java.lang.String
+  setBlockEntity(net.minecraft.world.level.block.entity.BlockEntity) : void
+  removeBlockEntity(net.minecraft.core.BlockPos) : void
+  loadedAndEntityCanStandOnFace(net.minecraft.core.BlockPos, net.minecraft.world.entity.Entity, net.minecraft.core.Direction) : boolean
+  loadedAndEntityCanStandOn(net.minecraft.core.BlockPos, net.minecraft.world.entity.Entity) : boolean
+  updateSkyBrightness() : void
+  getThunderLevel(float) : float
+  prepareWeather() : void
+  getChunkForCollisions(int, int) : net.minecraft.world.level.BlockGetter
+  getEntities() : net.minecraft.world.level.entity.LevelEntityGetter
+  getEntities(net.minecraft.world.level.entity.EntityTypeTest, net.minecraft.world.phys.AABB, java.util.function.Predicate, java.util.List, int) : void
+  getEntities(net.minecraft.world.level.entity.EntityTypeTest, net.minecraft.world.phys.AABB, java.util.function.Predicate, java.util.List) : void
+  getEntities(net.minecraft.world.level.entity.EntityTypeTest, net.minecraft.world.phys.AABB, java.util.function.Predicate) : java.util.List
+  getEntities(net.minecraft.world.entity.Entity, net.minecraft.world.phys.AABB, java.util.function.Predicate) : java.util.List
+  getEntity(int) : net.minecraft.world.entity.Entity
+  blockEntityChanged(net.minecraft.core.BlockPos) : void
+  broadcastEntityEvent(net.minecraft.world.entity.Entity, byte) : void
+  broadcastDamageEvent(net.minecraft.world.entity.Entity, net.minecraft.world.damagesource.DamageSource) : void
+  blockEvent(net.minecraft.core.BlockPos, net.minecraft.world.level.block.Block, int, int) : void
+  setThunderLevel(float) : void
+  setRainLevel(float) : void
+  getMapData(net.minecraft.world.level.saveddata.maps.MapId) : net.minecraft.world.level.saveddata.maps.MapItemSavedData
+  setMapData(net.minecraft.world.level.saveddata.maps.MapId, net.minecraft.world.level.saveddata.maps.MapItemSavedData) : void
+  getFreeMapId() : net.minecraft.world.level.saveddata.maps.MapId
+  globalLevelEvent(int, net.minecraft.core.BlockPos, int) : void
+  destroyBlockProgress(int, net.minecraft.core.BlockPos, int) : void
+  createFireworks(double, double, double, double, double, double, java.util.List) : void
+  fillReportDetails(net.minecraft.CrashReport) : net.minecraft.CrashReportCategory
+  noSave() : boolean
+  setSpawnSettings(boolean, boolean) : void
+  getLevelData() : net.minecraft.world.level.storage.LevelData
+  disconnect() : void
+  getRecipeManager() : net.minecraft.world.item.crafting.RecipeManager
+  getCurrentDifficultyAt(net.minecraft.core.BlockPos) : net.minecraft.world.DifficultyInstance
+  getSkyDarken() : int
+  setSkyFlashTime(int) : void
+  sendPacketToServer(net.minecraft.network.protocol.Packet) : void
+  isStateAtPosition(net.minecraft.core.BlockPos, java.util.function.Predicate) : boolean
+  isFluidAtPosition(net.minecraft.core.BlockPos, java.util.function.Predicate) : boolean
+  getBlockRandomPos(int, int, int, int) : net.minecraft.core.BlockPos
+  getProfilerSupplier() : java.util.function.Supplier
+  getBiomeManager() : net.minecraft.world.level.biome.BiomeManager
+  nextSubTickCount() : long
+-- fields (static)
+== net.minecraft.world.level.Level MISSING: java.lang.NoClassDefFoundError: com/mojang/serialization/Codec
+== net.minecraft.world.level.ServerLevel MISSING: java.lang.ClassNotFoundException: net.minecraft.world.level.ServerLevel
+== net.minecraft.world.level.SoundEvent MISSING: java.lang.ClassNotFoundException: net.minecraft.world.level.SoundEvent
+== net.minecraft.world.level.saveddata.SavedData (super=java.lang.Object)
+-- constructors
+  net.minecraft.world.level.saveddata.SavedData()
+-- methods
+  save(java.io.File, net.minecraft.core.HolderLookup$Provider) : void
+  save(net.minecraft.nbt.CompoundTag, net.minecraft.core.HolderLookup$Provider) : net.minecraft.nbt.CompoundTag
+  isDirty() : boolean
+  setDirty(boolean) : void
+  setDirty() : void
+-- fields (static)
+== net.minecraft.world.level.saveddata.SavedData MISSING: java.lang.NoClassDefFoundError: org/slf4j/Logger
+== net.minecraft.world.level.saveddata.SavedData$Factory (super=java.lang.Record)
+-- constructors
+  net.minecraft.world.level.saveddata.SavedData$Factory(java.util.function.Supplier, java.util.function.BiFunction, net.minecraft.util.datafix.DataFixTypes)
+-- methods
+  type() : net.minecraft.util.datafix.DataFixTypes
+  equals(java.lang.Object) : boolean
+  toString() : java.lang.String
+  hashCode() : int
+  constructor() : java.util.function.Supplier
+  deserializer() : java.util.function.BiFunction
+-- fields (static)
+== net.minecraft.network.protocol.game.ClientboundGameEventPacket (super=java.lang.Object)
+-- constructors
+== net.minecraft.network.protocol.game.ClientboundGameEventPacket MISSING: java.lang.NoClassDefFoundError: io/netty/buffer/ByteBuf
+== net.minecraft.server.network.ServerGamePacketListenerImpl (super=net.minecraft.server.network.ServerCommonPacketListenerImpl)
+-- constructors
+== net.minecraft.server.network.ServerGamePacketListenerImpl MISSING: java.lang.NoClassDefFoundError: com/mojang/brigadier/Message
+== net.minecraft.network.protocol.Packet (super=-)
+-- constructors
+-- methods
+  type() : net.minecraft.network.protocol.PacketType
+  handle(net.minecraft.network.PacketListener) : void
+  codec(net.minecraft.network.codec.StreamMemberEncoder, net.minecraft.network.codec.StreamDecoder) : net.minecraft.network.codec.StreamCodec
+  isSkippable() : boolean
+  isTerminal() : boolean
+-- fields (static)
+== net.minecraft.world.entity.LightningBolt (super=net.minecraft.world.entity.Entity)
+-- constructors
+== net.minecraft.world.entity.LightningBolt MISSING: java.lang.NoClassDefFoundError: com/mojang/brigadier/Message
+== net.minecraft.world.entity.ItemEntity MISSING: java.lang.ClassNotFoundException: net.minecraft.world.entity.ItemEntity
+== net.minecraft.world.entity.player.Player (super=net.minecraft.world.entity.LivingEntity)
+-- constructors
+== net.minecraft.world.entity.player.Player MISSING: java.lang.NoClassDefFoundError: com/mojang/brigadier/Message
+== net.minecraft.world.entity.data.EntityDataAccessor MISSING: java.lang.ClassNotFoundException: net.minecraft.world.entity.data.EntityDataAccessor
+== net.minecraft.network.codec.StreamCodec (super=-)
+-- constructors
+-- methods
+== net.minecraft.network.codec.StreamCodec MISSING: java.lang.NoClassDefFoundError: com/mojang/datafixers/util/Function5
+== net.minecraft.world.level.block.CropBlock (super=net.minecraft.world.level.block.BushBlock)
+-- constructors
+== net.minecraft.world.level.block.CropBlock MISSING: java.lang.NoClassDefFoundError: com/mojang/datafixers/kinds/App
+== net.minecraft.world.level.block.state.properties.BlockStateProperties (super=java.lang.Object)
+-- constructors
+  net.minecraft.world.level.block.state.properties.BlockStateProperties()
+-- methods
+-- fields (static)
+  ATTACHED : net.minecraft.world.level.block.state.properties.BooleanProperty
+  BOTTOM : net.minecraft.world.level.block.state.properties.BooleanProperty
+  CONDITIONAL : net.minecraft.world.level.block.state.properties.BooleanProperty
+  DISARMED : net.minecraft.world.level.block.state.properties.BooleanProperty
+  DRAG : net.minecraft.world.level.block.state.properties.BooleanProperty
+  ENABLED : net.minecraft.world.level.block.state.properties.BooleanProperty
+  EXTENDED : net.minecraft.world.level.block.state.properties.BooleanProperty
+  EYE : net.minecraft.world.level.block.state.properties.BooleanProperty
+  FALLING : net.minecraft.world.level.block.state.properties.BooleanProperty
+  HANGING : net.minecraft.world.level.block.state.properties.BooleanProperty
+  HAS_BOTTLE_0 : net.minecraft.world.level.block.state.properties.BooleanProperty
+  HAS_BOTTLE_1 : net.minecraft.world.level.block.state.properties.BooleanProperty
+  HAS_BOTTLE_2 : net.minecraft.world.level.block.state.properties.BooleanProperty
+  HAS_RECORD : net.minecraft.world.level.block.state.properties.BooleanProperty
+  HAS_BOOK : net.minecraft.world.level.block.state.properties.BooleanProperty
+  INVERTED : net.minecraft.world.level.block.state.properties.BooleanProperty
+  IN_WALL : net.minecraft.world.level.block.state.properties.BooleanProperty
+  LIT : net.minecraft.world.level.block.state.properties.BooleanProperty
+  LOCKED : net.minecraft.world.level.block.state.properties.BooleanProperty
+  OCCUPIED : net.minecraft.world.level.block.state.properties.BooleanProperty
+  OPEN : net.minecraft.world.level.block.state.properties.BooleanProperty
+  PERSISTENT : net.minecraft.world.level.block.state.properties.BooleanProperty
+  POWERED : net.minecraft.world.level.block.state.properties.BooleanProperty
+  SHORT : net.minecraft.world.level.block.state.properties.BooleanProperty
+  SIGNAL_FIRE : net.minecraft.world.level.block.state.properties.BooleanProperty
+  SNOWY : net.minecraft.world.level.block.state.properties.BooleanProperty
+  TRIGGERED : net.minecraft.world.level.block.state.properties.BooleanProperty
+  UNSTABLE : net.minecraft.world.level.block.state.properties.BooleanProperty
+  WATERLOGGED : net.minecraft.world.level.block.state.properties.BooleanProperty
+  BERRIES : net.minecraft.world.level.block.state.properties.BooleanProperty
+  BLOOM : net.minecraft.world.level.block.state.properties.BooleanProperty
+  SHRIEKING : net.minecraft.world.level.block.state.properties.BooleanProperty
+  CAN_SUMMON : net.minecraft.world.level.block.state.properties.BooleanProperty
+  HORIZONTAL_AXIS : net.minecraft.world.level.block.state.properties.EnumProperty
+  AXIS : net.minecraft.world.level.block.state.properties.EnumProperty
+  UP : net.minecraft.world.level.block.state.properties.BooleanProperty
+  DOWN : net.minecraft.world.level.block.state.properties.BooleanProperty
+  NORTH : net.minecraft.world.level.block.state.properties.BooleanProperty
+  EAST : net.minecraft.world.level.block.state.properties.BooleanProperty
+  SOUTH : net.minecraft.world.level.block.state.properties.BooleanProperty
+  WEST : net.minecraft.world.level.block.state.properties.BooleanProperty
+  FACING : net.minecraft.world.level.block.state.properties.DirectionProperty
+  FACING_HOPPER : net.minecraft.world.level.block.state.properties.DirectionProperty
+  HORIZONTAL_FACING : net.minecraft.world.level.block.state.properties.DirectionProperty
+  FLOWER_AMOUNT : net.minecraft.world.level.block.state.properties.IntegerProperty
+  ORIENTATION : net.minecraft.world.level.block.state.properties.EnumProperty
+  ATTACH_FACE : net.minecraft.world.level.block.state.properties.EnumProperty
+  BELL_ATTACHMENT : net.minecraft.world.level.block.state.properties.EnumProperty
+  EAST_WALL : net.minecraft.world.level.block.state.properties.EnumProperty
+  NORTH_WALL : net.minecraft.world.level.block.state.properties.EnumProperty
+  SOUTH_WALL : net.minecraft.world.level.block.state.properties.EnumProperty
+  WEST_WALL : net.minecraft.world.level.block.state.properties.EnumProperty
+  EAST_REDSTONE : net.minecraft.world.level.block.state.properties.EnumProperty
+  NORTH_REDSTONE : net.minecraft.world.level.block.state.properties.EnumProperty
+  SOUTH_REDSTONE : net.minecraft.world.level.block.state.properties.EnumProperty
+  WEST_REDSTONE : net.minecraft.world.level.block.state.properties.EnumProperty
+  DOUBLE_BLOCK_HALF : net.minecraft.world.level.block.state.properties.EnumProperty
+  HALF : net.minecraft.world.level.block.state.properties.EnumProperty
+  RAIL_SHAPE : net.minecraft.world.level.block.state.properties.EnumProperty
+  RAIL_SHAPE_STRAIGHT : net.minecraft.world.level.block.state.properties.EnumProperty
+  MAX_AGE_1 : int
+  MAX_AGE_2 : int
+  MAX_AGE_3 : int
+  MAX_AGE_4 : int
+  MAX_AGE_5 : int
+  MAX_AGE_7 : int
+  MAX_AGE_15 : int
+  MAX_AGE_25 : int
+  AGE_1 : net.minecraft.world.level.block.state.properties.IntegerProperty
+  AGE_2 : net.minecraft.world.level.block.state.properties.IntegerProperty
+  AGE_3 : net.minecraft.world.level.block.state.properties.IntegerProperty
+  AGE_4 : net.minecraft.world.level.block.state.properties.IntegerProperty
+  AGE_5 : net.minecraft.world.level.block.state.properties.IntegerProperty
+  AGE_7 : net.minecraft.world.level.block.state.properties.IntegerProperty
+  AGE_15 : net.minecraft.world.level.block.state.properties.IntegerProperty
+  AGE_25 : net.minecraft.world.level.block.state.properties.IntegerProperty
+  BITES : net.minecraft.world.level.block.state.properties.IntegerProperty
+  CANDLES : net.minecraft.world.level.block.state.properties.IntegerProperty
+  DELAY : net.minecraft.world.level.block.state.properties.IntegerProperty
+  MAX_DISTANCE : int
+  DISTANCE : net.minecraft.world.level.block.state.properties.IntegerProperty
+  EGGS : net.minecraft.world.level.block.state.properties.IntegerProperty
+  HATCH : net.minecraft.world.level.block.state.properties.IntegerProperty
+  LAYERS : net.minecraft.world.level.block.state.properties.IntegerProperty
+  MIN_LEVEL : int
+  MIN_LEVEL_CAULDRON : int
+  MAX_LEVEL_3 : int
+  MAX_LEVEL_8 : int
+  LEVEL_CAULDRON : net.minecraft.world.level.block.state.properties.IntegerProperty
+  LEVEL_COMPOSTER : net.minecraft.world.level.block.state.properties.IntegerProperty
+  LEVEL_FLOWING : net.minecraft.world.level.block.state.properties.IntegerProperty
+  LEVEL_HONEY : net.minecraft.world.level.block.state.properties.IntegerProperty
+  MAX_LEVEL_15 : int
+  LEVEL : net.minecraft.world.level.block.state.properties.IntegerProperty
+  MOISTURE : net.minecraft.world.level.block.state.properties.IntegerProperty
+  NOTE : net.minecraft.world.level.block.state.properties.IntegerProperty
+  PICKLES : net.minecraft.world.level.block.state.properties.IntegerProperty
+  POWER : net.minecraft.world.level.block.state.properties.IntegerProperty
+  STAGE : net.minecraft.world.level.block.state.properties.IntegerProperty
+  STABILITY_MAX_DISTANCE : int
+  STABILITY_DISTANCE : net.minecraft.world.level.block.state.properties.IntegerProperty
+  MIN_RESPAWN_ANCHOR_CHARGES : int
+  MAX_RESPAWN_ANCHOR_CHARGES : int
+  RESPAWN_ANCHOR_CHARGES : net.minecraft.world.level.block.state.properties.IntegerProperty
+  ROTATION_16 : net.minecraft.world.level.block.state.properties.IntegerProperty
+  BED_PART : net.minecraft.world.level.block.state.properties.EnumProperty
+  CHEST_TYPE : net.minecraft.world.level.block.state.properties.EnumProperty
+  MODE_COMPARATOR : net.minecraft.world.level.block.state.properties.EnumProperty
+  DOOR_HINGE : net.minecraft.world.level.block.state.properties.EnumProperty
+  NOTEBLOCK_INSTRUMENT : net.minecraft.world.level.block.state.properties.EnumProperty
+  PISTON_TYPE : net.minecraft.world.level.block.state.properties.EnumProperty
+  SLAB_TYPE : net.minecraft.world.level.block.state.properties.EnumProperty
+  STAIRS_SHAPE : net.minecraft.world.level.block.state.properties.EnumProperty
+  STRUCTUREBLOCK_MODE : net.minecraft.world.level.block.state.properties.EnumProperty
+  BAMBOO_LEAVES : net.minecraft.world.level.block.state.properties.EnumProperty
+  TILT : net.minecraft.world.level.block.state.properties.EnumProperty
+  VERTICAL_DIRECTION : net.minecraft.world.level.block.state.properties.DirectionProperty
+  DRIPSTONE_THICKNESS : net.minecraft.world.level.block.state.properties.EnumProperty
+  SCULK_SENSOR_PHASE : net.minecraft.world.level.block.state.properties.EnumProperty
+  CHISELED_BOOKSHELF_SLOT_0_OCCUPIED : net.minecraft.world.level.block.state.properties.BooleanProperty
+  CHISELED_BOOKSHELF_SLOT_1_OCCUPIED : net.minecraft.world.level.block.state.properties.BooleanProperty
+  CHISELED_BOOKSHELF_SLOT_2_OCCUPIED : net.minecraft.world.level.block.state.properties.BooleanProperty
+  CHISELED_BOOKSHELF_SLOT_3_OCCUPIED : net.minecraft.world.level.block.state.properties.BooleanProperty
+  CHISELED_BOOKSHELF_SLOT_4_OCCUPIED : net.minecraft.world.level.block.state.properties.BooleanProperty
+  CHISELED_BOOKSHELF_SLOT_5_OCCUPIED : net.minecraft.world.level.block.state.properties.BooleanProperty
+  DUSTED : net.minecraft.world.level.block.state.properties.IntegerProperty
+  CRACKED : net.minecraft.world.level.block.state.properties.BooleanProperty
+  CRAFTING : net.minecraft.world.level.block.state.properties.BooleanProperty
+  TRIAL_SPAWNER_STATE : net.minecraft.world.level.block.state.properties.EnumProperty
+  VAULT_STATE : net.minecraft.world.level.block.state.properties.EnumProperty
+  OMINOUS : net.minecraft.world.level.block.state.properties.BooleanProperty
+== net.minecraft.world.phys.VoxelShape MISSING: java.lang.ClassNotFoundException: net.minecraft.world.phys.VoxelShape
+== net.minecraft.world.level.block.state.BlockState (super=net.minecraft.world.level.block.state.BlockBehaviour$BlockStateBase)
+-- constructors
+== net.minecraft.world.level.block.state.BlockState MISSING: java.lang.NoClassDefFoundError: com/google/common/collect/Table
+== net.minecraft.world.level.GameEvent MISSING: java.lang.ClassNotFoundException: net.minecraft.world.level.GameEvent
+== net.minecraft.world.entity.EntityType (super=java.lang.Object)
+-- constructors
+== net.minecraft.world.entity.EntityType MISSING: java.lang.NoClassDefFoundError: com/mojang/serialization/Keyable
+== net.minecraft.world.entity.EntityType$Builder (super=java.lang.Object)
+-- constructors
+-- methods
+  of(net.minecraft.world.entity.EntityType$EntityFactory, net.minecraft.world.entity.MobCategory) : net.minecraft.world.entity.EntityType$Builder
+  build(java.lang.String) : net.minecraft.world.entity.EntityType
+  attach(net.minecraft.world.entity.EntityAttachment, net.minecraft.world.phys.Vec3) : net.minecraft.world.entity.EntityType$Builder
+  attach(net.minecraft.world.entity.EntityAttachment, float, float, float) : net.minecraft.world.entity.EntityType$Builder
+  eyeHeight(float) : net.minecraft.world.entity.EntityType$Builder
+  fireImmune() : net.minecraft.world.entity.EntityType$Builder
+  noSave() : net.minecraft.world.entity.EntityType$Builder
+  requiredFeatures([Lnet.minecraft.world.flag.FeatureFlag;) : net.minecraft.world.entity.EntityType$Builder
+  immuneTo([Lnet.minecraft.world.level.block.Block;) : net.minecraft.world.entity.EntityType$Builder
+  canSpawnFarFromPlayer() : net.minecraft.world.entity.EntityType$Builder
+  clientTrackingRange(int) : net.minecraft.world.entity.EntityType$Builder
+  updateInterval(int) : net.minecraft.world.entity.EntityType$Builder
+  spawnDimensionsScale(float) : net.minecraft.world.entity.EntityType$Builder
+  sized(float, float) : net.minecraft.world.entity.EntityType$Builder
+  ridingOffset(float) : net.minecraft.world.entity.EntityType$Builder
+  passengerAttachments([F) : net.minecraft.world.entity.EntityType$Builder
+  passengerAttachments([Lnet.minecraft.world.phys.Vec3;) : net.minecraft.world.entity.EntityType$Builder
+  nameTagOffset(float) : net.minecraft.world.entity.EntityType$Builder
+  createNothing(net.minecraft.world.entity.MobCategory) : net.minecraft.world.entity.EntityType$Builder
+  noSummon() : net.minecraft.world.entity.EntityType$Builder
+  vehicleAttachment(net.minecraft.world.phys.Vec3) : net.minecraft.world.entity.EntityType$Builder
+-- fields (static)
+== net.minecraft.world.entity.EntityType$Builder MISSING: java.lang.NoClassDefFoundError: com/google/common/collect/ImmutableSet
+== net.minecraft.client.Minecraft (super=net.minecraft.util.thread.ReentrantBlockableEventLoop)
+-- constructors
+== net.minecraft.client.Minecraft MISSING: java.lang.NoClassDefFoundError: com/mojang/brigadier/Message
+== net.minecraft.client.gui.GuiGraphics (super=java.lang.Object)
+-- constructors
+  net.minecraft.client.gui.GuiGraphics(net.minecraft.client.Minecraft, net.minecraft.client.renderer.MultiBufferSource$BufferSource)
+-- methods
+== net.minecraft.client.gui.GuiGraphics MISSING: java.lang.NoClassDefFoundError: com/mojang/brigadier/Message
+== net.minecraft.client.gui.screens.Screen (super=net.minecraft.client.gui.components.events.AbstractContainerEventHandler)
+-- constructors
+== net.minecraft.client.gui.screens.Screen MISSING: java.lang.NoClassDefFoundError: com/mojang/brigadier/Message
+== net.minecraft.client.gui.Font (super=java.lang.Object)
+-- constructors
+== net.minecraft.client.gui.Font MISSING: java.lang.NoClassDefFoundError: com/ibm/icu/text/ArabicShapingException
+== net.minecraft.client.KeyMapping (super=java.lang.Object)
+-- constructors
+== net.minecraft.client.KeyMapping MISSING: java.lang.NoClassDefFoundError: com/mojang/brigadier/Message
+== net.minecraft.client.renderer.entity.EntityRenderers (super=java.lang.Object)
+-- constructors
+  net.minecraft.client.renderer.entity.EntityRenderers()
+-- methods
+== net.minecraft.client.renderer.entity.EntityRenderers MISSING: java.lang.NoClassDefFoundError: com/google/common/collect/ImmutableMap$Builder
+== net.minecraft.client.renderer.entity.EntityRenderer (super=java.lang.Object)
+-- constructors
+  net.minecraft.client.renderer.entity.EntityRenderer(net.minecraft.client.renderer.entity.EntityRendererProvider$Context)
+-- methods
+== net.minecraft.client.renderer.entity.EntityRenderer MISSING: java.lang.NoClassDefFoundError: com/mojang/brigadier/Message
+== net.minecraft.client.multiplayer.ClientLevel (super=net.minecraft.world.level.Level)
+-- constructors
+== net.minecraft.client.multiplayer.ClientLevel MISSING: java.lang.NoClassDefFoundError: com/mojang/brigadier/Message
+== net.minecraft.core.particles.DustParticleOptions (super=net.minecraft.core.particles.ScalableParticleOptionsBase)
+-- constructors
+== net.minecraft.core.particles.DustParticleOptions MISSING: java.lang.NoClassDefFoundError: com/mojang/datafixers/kinds/App
+== net.minecraft.core.particles.ParticleTypes (super=java.lang.Object)
+-- constructors
+  net.minecraft.core.particles.ParticleTypes()
+-- methods
+== net.minecraft.core.particles.ParticleTypes MISSING: java.lang.NoClassDefFoundError: com/mojang/serialization/MapCodec
+== net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking MISSING: java.lang.ClassNotFoundException: net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking
+== net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents MISSING: java.lang.ClassNotFoundException: net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents
+== net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper MISSING: java.lang.ClassNotFoundException: net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper
+== net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback MISSING: java.lang.ClassNotFoundException: net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback
 api-dump-exit=0
-21 ci-api-dump.txt
+496 ci-api-dump.txt
