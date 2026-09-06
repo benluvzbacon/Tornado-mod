@@ -6,7 +6,6 @@ import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.ResourceLocation;
 
 import com.tornadic.storm.Storm;
-import com.tornadic.weather.StormType;
 
 public record StormSyncPayload(
 	long id,

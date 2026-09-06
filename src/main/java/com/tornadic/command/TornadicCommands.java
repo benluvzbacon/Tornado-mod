@@ -114,11 +114,14 @@ public final class TornadicCommands {
 	}
 
 	private static long seedOf(ServerLevel world) {
-		try {
-			return ((net.minecraft.world.level.storage.ServerLevelData) world.getLevelData()).getWorldGenSettings().getSeed();
-		} catch (Exception e) {
-			return 0L;
+		// Same deterministic derivation as TornadicSavedData.worldSeed: 1.21.1 exposes no
+		// stable world-seed accessor, so the level name is hashed instead.
+		String name = world.getLevelData().getWorldName();
+		long seed = 1125899906842597L;
+		for (int i = 0; i < name.length(); i++) {
+			seed = 31 * seed + name.charAt(i);
 		}
+		return seed == 0L ? 1L : seed;
 	}
 
 	private static Component line(String label, Object value) {

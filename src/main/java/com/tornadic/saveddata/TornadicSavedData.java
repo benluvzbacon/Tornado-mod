@@ -74,7 +74,7 @@ public class TornadicSavedData extends SavedData {
 	public static TornadicSavedData getOrLoad(MinecraftServer server) {
 		DimensionDataStorage storage = server.overworld().getDataStorage();
 		return storage.computeIfAbsent(
-			new SavedData.Factory<>(TornadicSavedData::new, TornadicSavedData::load), NAME);
+			new SavedData.Factory<>(TornadicSavedData::new, TornadicSavedData::load, net.minecraft.data.fixes.DataFixTypes.LEVEL), NAME);
 	}
 
 	private static TornadicSavedData load(CompoundTag tag, HolderLookup.Provider registries) {
@@ -140,12 +140,15 @@ public class TornadicSavedData extends SavedData {
 	}
 
 	private long worldSeed(ServerLevel world) {
-		try {
-			return ((net.minecraft.world.level.storage.ServerLevelData) world.getLevelData()).getWorldGenSettings().getSeed();
-		} catch (Exception e) {
-			// Extremely defensive fallback; the seed is only used as a deterministic input.
-			return 0L;
+		// Deterministic per world: derived from the level name (1.21.1 exposes no stable
+		// world-seed accessor from LevelData/ServerLevelData). Same world -> same value,
+		// so daily forecasts are reproducible across saves and server restarts.
+		String name = world.getLevelData().getWorldName();
+		long seed = 1125899906842597L;
+		for (int i = 0; i < name.length(); i++) {
+			seed = 31 * seed + name.charAt(i);
 		}
+		return seed == 0L ? 1L : seed;
 	}
 
 	/** Called every server tick from the END_WORLD_TICK event (overworld only). */
@@ -397,7 +400,7 @@ public class TornadicSavedData extends SavedData {
 		BlockPos pos = new BlockPos(lx, 0, lz);
 		int groundY = world.getHeight(Heightmap.Types.MOTION_BLOCKING, pos.getX(), pos.getZ());
 		LightningBolt bolt = new LightningBolt(
-			net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE.get(
+			(net.minecraft.world.entity.EntityType<? extends LightningBolt>) net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE.get(
 				net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.ENTITY_TYPE,
 					net.minecraft.resources.ResourceLocation.withDefaultNamespace("lightning_bolt"))),
 			world);
@@ -485,7 +488,7 @@ public class TornadicSavedData extends SavedData {
 			}
 			if (broke) {
 				world.playSound(null, hx, groundY + 1, hz,
-					storm.hailSize > 0.7f ? SoundEvents.ITEM_BREAK : SoundEvents.SNOWBALL_THROW,
+					storm.hailSize > 0.7f ? SoundEvents.ITEM_BREAK.value() : SoundEvents.SNOWBALL_THROW.value(),
 					SoundSource.BLOCKS, 0.4f * storm.intensity, 0.8f + world.getRandom().nextFloat() * 0.4f);
 			}
 		}
@@ -609,8 +612,27 @@ public class TornadicSavedData extends SavedData {
 			int groundY = world.getHeight(Heightmap.Types.MOTION_BLOCKING, (int) state.x, (int) state.z);
 			state.y = groundY;
 
-			// Move the tracking entity.
-			if (state.entity != null && !state.entity.isRemoved()) {
+			// Move the tracking entity. Vanilla's default far-removal may have yanked the
+		// visual entity while players were far away, so re-create it once someone is
+		// close enough to see it (state stays authoritative regardless).
+			if (state.entity == null || state.entity.isRemoved()) {
+				BlockPos spawnPos = new BlockPos((int) state.x, (int) state.y, (int) state.z);
+				boolean near = false;
+				for (ServerPlayer p : world.getServer().getPlayerList().getPlayers()) {
+					if (p.distanceToSqr(new Vec3(state.x, p.getY(), state.z)) < 400 * 400) {
+						near = true;
+						break;
+					}
+				}
+				if (near && world.isLoaded(spawnPos)) {
+					TornadoEntity entity = TornadoEntity.create(TornadicMod.TORNADO_TYPE, world, state.id,
+						state.x, state.y, state.z);
+					world.addFreshEntity(entity);
+					state.entity = entity;
+				} else {
+					state.entity = null;
+				}
+			} else {
 				state.entity.setPos(state.x, state.y, state.z);
 				state.entity.setYRot((float) (state.heading * 180.0 / Math.PI));
 			}
@@ -768,9 +790,9 @@ public class TornadicSavedData extends SavedData {
 			lastRain = rain;
 			lastThunder = thunder;
 			ClientboundGameEventPacket rainPacket =
-				new ClientboundGameEventPacket(ClientboundGameEventPacket.GameEventId.RAIN_LEVEL_CHANGE, rain);
+				new ClientboundGameEventPacket(ClientboundGameEventPacket.RAIN_LEVEL_CHANGE, rain);
 			ClientboundGameEventPacket thunderPacket =
-				new ClientboundGameEventPacket(ClientboundGameEventPacket.GameEventId.THUNDER_LEVEL_CHANGE, thunder);
+				new ClientboundGameEventPacket(ClientboundGameEventPacket.THUNDER_LEVEL_CHANGE, thunder);
 			for (ServerPlayer p : world.getServer().getPlayerList().getPlayers()) {
 				p.connection.send(rainPacket);
 				p.connection.send(thunderPacket);

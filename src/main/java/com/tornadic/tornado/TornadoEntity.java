@@ -39,10 +39,6 @@ public class TornadoEntity extends Entity {
 		this.tornadoId = id;
 	}
 
-	@Override
-	public boolean shouldRemove(double x, double z) {
-		return false;
-	}
 
 	@Override
 	protected void readAdditionalSaveData(CompoundTag tag) {

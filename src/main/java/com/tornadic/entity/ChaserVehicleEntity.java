@@ -78,10 +78,6 @@ public class ChaserVehicleEntity extends Entity {
 		}
 	}
 
-	@Override
-	public boolean shouldRemove(double x, double z) {
-		return distance < 4096; // persist a bit past the default so it isn't yanked mid-chase
-	}
 
 	@Override
 	protected void readAdditionalSaveData(CompoundTag tag) {

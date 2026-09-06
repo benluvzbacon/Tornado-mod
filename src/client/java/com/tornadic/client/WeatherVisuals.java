@@ -56,7 +56,7 @@ public final class WeatherVisuals {
 			}
 		}
 		for (ClientWeatherState.PendingThunder t : due) {
-			client.level.playLocalSound(t.x, 64, t.z, SoundEvents.ENTITY_LIGHTNING_BOLT_THUNDER,
+			client.level.playLocalSound(t.x, 64, t.z, SoundEvents.LIGHTNING_BOLT_THUNDER.value(),
 				SoundSource.WEATHER, t.volume, t.pitch, true);
 		}
 	}
@@ -201,8 +201,8 @@ public final class WeatherVisuals {
 				}
 				if (s.hailSize() > 0.5 && RNG.nextInt(24) == 0) {
 					client.level.playLocalSound(px, client.player.getY(), pz,
-						s.hailSize() > 0.8 ? SoundEvents.ENTITY_ITEM_BREAK : SoundEvents.ENTITY_SNOWBALL_THROW,
-						SoundSource.BLOCK, 0.3f * intensity, 0.8f + RNG.nextFloat() * 0.4f);
+						s.hailSize() > 0.8 ? SoundEvents.ITEM_BREAK.value() : SoundEvents.SNOWBALL_THROW.value(),
+						SoundSource.BLOCKS, 0.3f * intensity, 0.8f + RNG.nextFloat() * 0.4f);
 				}
 			}
 			break; // only the most relevant storm adds local rain

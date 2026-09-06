@@ -1,46 +1,36 @@
 package com.tornadic;
 
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.network.protocol.game.ClientboundCustomPayloadPacket;
 import net.minecraft.network.protocol.game.ClientboundGameEventPacket;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.Level;
 
 /**
- * TEMPORARY compile-time API probe, round 3 (final). Delete when done.
+ * TEMPORARY compile-time API probe, round 4 (last). Delete when done.
  */
 public final class ApiProbe {
 	private ApiProbe() {
 	}
 
-	// R3A: registry value lookup via Map#get(ResourceKey)
-	static EntityType<?> r3a() {
-		return BuiltInRegistries.ENTITY_TYPE.get(ResourceKey.create(Registries.ENTITY_TYPE,
-			ResourceLocation.parse("tornadic:probe")));
+	// R4A: vanilla static registration API
+	static Object r4a() {
+		return net.minecraft.registry.Registry.register(Registries.ENTITY_TYPE,
+			net.minecraft.util.Identifier.of("tornadic", "probe"), EntityType.MINECART);
 	}
 
-	// R3B: fabric registry helper registration
-	static Object r3b() {
-		return net.fabricmc.fabric.api.registry.v1.Registry.register(Registries.ENTITY_TYPE,
-			"tornadic:probe", EntityType.MINECART);
-	}
-
-	// R3C: custom payload packet wrapping
-	static Object r3c(ServerPlayer p) {
-		p.connection.send(new ClientboundCustomPayloadPacket(new TornadoSyncProbe()));
+	// R4B: custom payload packet class (common.custom package)
+	static Object r4b(ServerPlayer p) {
+		p.connection.send(new net.minecraft.network.protocol.common.custom.ClientboundCustomPayloadPacket(
+			new PayloadProbe()));
 		return p;
 	}
 
-	record TornadoSyncProbe() implements net.minecraft.network.protocol.common.custom.CustomPacketPayload {
-		public static final net.minecraft.network.protocol.common.custom.CustomPacketPayload.Type<TornadoSyncProbe> TYPE =
+	record PayloadProbe() implements net.minecraft.network.protocol.common.custom.CustomPacketPayload {
+		public static final net.minecraft.network.protocol.common.custom.CustomPacketPayload.Type<PayloadProbe> TYPE =
 			new net.minecraft.network.protocol.common.custom.CustomPacketPayload.Type<>(
-				ResourceLocation.parse("tornadic:probe2"));
+				net.minecraft.resources.ResourceLocation.parse("tornadic:probe3"));
 
 		@Override
 		public net.minecraft.network.protocol.common.custom.CustomPacketPayload.Type<? extends net.minecraft.network.protocol.common.custom.CustomPacketPayload> type() {
@@ -48,79 +38,56 @@ public final class ApiProbe {
 		}
 	}
 
-	// R3D: game event packet ctor candidates (wrong arity lists them all)
-	static Object r3d() {
-		return new ClientboundGameEventPacket("a", "b", "c");
+	// R4C: data fix types
+	static Object r4c() {
+		return net.minecraft.data.fixes.DataFixTypes.LEVEL;
 	}
 
-	// R3E: saved data factory third arg type
-	static Object r3e() {
-		return new net.minecraft.world.level.saveddata.SavedData.Factory<>(
-			() -> null, (t, p) -> null, "a");
+	// R4D: game event packet constants (statics on the packet class)
+	static Object r4d() {
+		return new ClientboundGameEventPacket(ClientboundGameEventPacket.RAIN_LEVEL_CHANGE, 1f);
 	}
 
-	// R3F: server level world gen settings
-	static long r3f(ServerLevel w) {
-		return w.getWorldGenSettings().getSeed();
+	static Object r4d2() {
+		return new ClientboundGameEventPacket(ClientboundGameEventPacket.THUNDER_LEVEL_CHANGE, 0f);
 	}
 
-	// R3G: crop block age property
-	static Object r3g() {
-		return net.minecraft.world.level.block.CropBlock.AGE;
-	}
-
-	// R3H: note block pling
-	static Object r3h() {
-		return net.minecraft.sounds.SoundEvents.NOTE_BLOCK_PLING;
-	}
-
-	// R3I: style empty
-	static Object r3i() {
-		return net.minecraft.network.chat.Style.EMPTY.withBold(true);
-	}
-
-	// R3J: far-removal override candidates — four probe entities
-	static class ProbeEntA extends Entity {
-		ProbeEntA(EntityType<? extends Entity> t, Level l) {
+	// R4E: far-removal override candidates, batch 2
+	static class ProbeEntE extends Entity {
+		ProbeEntE(EntityType<? extends Entity> t, Level l) {
 			super(t, l);
 		}
 
 		@Override
-		public boolean removeWhenFarAway(double d) {
+		public boolean shouldBeRemoved() {
 			return false;
+		}
+
+		@Override
+		protected void readAdditionalSaveData(net.minecraft.nbt.CompoundTag tag) {
+		}
+
+		@Override
+		protected void addAdditionalSaveData(net.minecraft.nbt.CompoundTag tag) {
 		}
 	}
 
-	static class ProbeEntB extends Entity {
-		ProbeEntB(EntityType<? extends Entity> t, Level l) {
+	static class ProbeEntF extends Entity {
+		ProbeEntF(EntityType<? extends Entity> t, Level l) {
 			super(t, l);
 		}
 
 		@Override
-		public boolean shouldRemove(double x, double z) {
+		public boolean canBeRemoved() {
 			return false;
-		}
-	}
-
-	static class ProbeEntC extends Entity {
-		ProbeEntC(EntityType<? extends Entity> t, Level l) {
-			super(t, l);
 		}
 
 		@Override
-		public boolean canRemove() {
-			return false;
-		}
-	}
-
-	static class ProbeEntD extends Entity {
-		ProbeEntD(EntityType<? extends Entity> t, Level l) {
-			super(t, l);
+		protected void readAdditionalSaveData(net.minecraft.nbt.CompoundTag tag) {
 		}
 
 		@Override
-		public boolean isBeyondRemoveDistance(double d) {
-			return false;
+		protected void addAdditionalSaveData(net.minecraft.nbt.CompoundTag tag) {
 		}
 	}
 }

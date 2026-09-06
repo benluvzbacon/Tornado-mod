@@ -58,7 +58,7 @@ public class WeatherRadioItem extends Item {
 				}
 			}
 			sp.sendSystemMessage(msg);
-			sp.playSound(SoundEvents.NOTE_BLOCK_PLING, 0.3f, 1.4f);
+			sp.playSound(SoundEvents.NOTE_BLOCK_PLING.value(), 0.3f, 1.4f);
 		}
 		return net.minecraft.world.InteractionResultHolder.sidedSuccess(player.getItemInHand(hand), world.isClientSide);
 	}
