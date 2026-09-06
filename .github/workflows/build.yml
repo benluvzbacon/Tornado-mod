@@ -46,6 +46,25 @@ jobs:
           tail -c 200000 build-output.log > ci-last-failure.log || echo "tail failed" >> ci-last-failure.log
           exit "$status"
 
+      - name: Dump 1.21.1 API surface
+        if: always()
+        run: |
+          set +e
+          echo "=== loom cache jars ===" > ci-api-dump.txt
+          find ~/.gradle/caches/fabric-loom -name "*.jar" 2>/dev/null | grep -iv "sources\|javadoc" >> ci-api-dump.txt 2>&1
+          JAR=$(find ~/.gradle/caches/fabric-loom -name "*.jar" 2>/dev/null | grep -iv "sources\|javadoc" | grep -iE "named|merged|remapped" | xargs -I{} ls -la {} 2>/dev/null | awk '{print $5, $9}' | sort -rn | head -1 | awk '{print $2}')
+          FABRIC_JAR=$(find ~/.gradle/caches/modules-2 -name "fabric-api-*.jar" 2>/dev/null | grep -v sources | head -1)
+          echo "jar-used=$JAR" >> ci-api-dump.txt
+          echo "fabric-jar-used=$FABRIC_JAR" >> ci-api-dump.txt
+          if [ -n "$JAR" ]; then
+            mkdir -p /tmp/dumpout
+            if javac -d /tmp/dumpout apidump/ApiDump.java 2>> ci-api-dump.txt; then
+              java -cp "/tmp/dumpout:$JAR:$FABRIC_JAR" com.tornadic.ApiDump >> ci-api-dump.txt 2>&1
+            fi
+          fi
+          echo "api-dump-exit=$?" >> ci-api-dump.txt
+          wc -l ci-api-dump.txt >> ci-api-dump.txt
+
       - name: Verify jar exists
         run: ls -la build/libs/tornadic-1.0.0.jar
 
@@ -55,13 +74,15 @@ jobs:
           set +e
           git config user.name "tornadic-ci"
           git config user.email "ci@tornadic.invalid"
-          if [ -f ci-last-failure.log ]; then
-            rm ci-last-failure.log
-            git add -A ci-last-failure.log
-            if ! git diff --cached --quiet; then
-              git commit -m "ci: build fixed, drop last failure log"
-              git push
+          for f in ci-last-failure.log ci-api-dump.txt; do
+            if [ -f "$f" ]; then
+              rm "$f"
+              git add -A "$f"
             fi
+          done
+          if ! git diff --cached --quiet; then
+            git commit -m "ci: build fixed, drop diagnostic logs"
+            git push
           fi
           exit 0
 
@@ -72,8 +93,9 @@ jobs:
           git config user.name "tornadic-ci"
           git config user.email "ci@tornadic.invalid"
           [ -f ci-last-failure.log ] || echo "BUILD STEP DIED BEFORE CAPTURE" > ci-last-failure.log
+          [ -f ci-api-dump.txt ] || echo "API DUMP MISSING" > ci-api-dump.txt
           KEY=$(grep -E "error|Error|ERROR|FAILED|What went wrong|Exception" ci-last-failure.log | head -5 | tr '\n' '|' | head -c 150)
-          git add -f ci-last-failure.log
+          git add -f ci-last-failure.log ci-api-dump.txt
           COMMITTED=0
           if ! git diff --cached --quiet; then
             if git commit -m "ci: last build failure log | ${KEY}"; then
