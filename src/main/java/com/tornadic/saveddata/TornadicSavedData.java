@@ -140,13 +140,13 @@ public class TornadicSavedData extends SavedData {
 	}
 
 	private long worldSeed(ServerLevel world) {
-		// Deterministic per world: derived from the level name (1.21.1 exposes no stable
-		// world-seed accessor from LevelData/ServerLevelData). Same world -> same value,
-		// so daily forecasts are reproducible across saves and server restarts.
-		String name = world.getLevelData().getWorldName();
+		// Deterministic per world: the save-folder id is stable across restarts and
+		// unique per world, so daily forecasts are reproducible (1.21.1 exposes no
+		// stable world-seed accessor from LevelData).
+		String id = world.getServer().getServerStorageSource().getLevelId();
 		long seed = 1125899906842597L;
-		for (int i = 0; i < name.length(); i++) {
-			seed = 31 * seed + name.charAt(i);
+		for (int i = 0; i < id.length(); i++) {
+			seed = 31 * seed + id.charAt(i);
 		}
 		return seed == 0L ? 1L : seed;
 	}
@@ -199,7 +199,7 @@ public class TornadicSavedData extends SavedData {
 		for (TornadoState state : tornadoes) {
 			state.entity = null;
 			if (!state.isDissipated() && world.isLoaded(new BlockPos((int) state.x, 64, (int) state.z))) {
-				TornadoEntity entity = TornadoEntity.create(TornadicMod.TORNADO_TYPE, world, state.id,
+				TornadoEntity entity = TornadoEntity.create(TornadicMod.TORNADO_TYPE.get(), world, state.id,
 					state.x, state.y > 0 ? state.y : 64, state.z);
 				world.addFreshEntity(entity);
 				state.entity = entity;
@@ -422,7 +422,7 @@ public class TornadicSavedData extends SavedData {
 			}
 			float pitch = 0.6f + world.getRandom().nextFloat() * 0.7f;
 			int delay = (int) (dist / 16.0); // ~speed of sound in ticks
-			p.connection.send(new net.minecraft.network.protocol.game.ClientboundCustomPayloadPacket(
+			p.connection.send(new net.minecraft.network.protocol.common.custom.ClientboundCustomPayloadPacket(
 				new ThunderPayload(lx, lz, Math.min(1.0f, volume), pitch, delay)));
 		}
 	}
@@ -487,8 +487,10 @@ public class TornadicSavedData extends SavedData {
 				}
 			}
 			if (broke) {
+				net.minecraft.sounds.SoundEvent hailSound =
+					storm.hailSize > 0.7f ? SoundEvents.ITEM_BREAK : SoundEvents.SNOWBALL_THROW;
 				world.playSound(null, hx, groundY + 1, hz,
-					storm.hailSize > 0.7f ? SoundEvents.ITEM_BREAK.value() : SoundEvents.SNOWBALL_THROW.value(),
+					net.minecraft.core.registries.BuiltInRegistries.SOUND_EVENT.wrapAsHolder(hailSound),
 					SoundSource.BLOCKS, 0.4f * storm.intensity, 0.8f + world.getRandom().nextFloat() * 0.4f);
 			}
 		}
@@ -553,7 +555,7 @@ public class TornadicSavedData extends SavedData {
 			tornadoes.add(state);
 			tornadoesToday++;
 			maxEfToday = Math.max(maxEfToday, ef);
-			TornadoEntity entity = TornadoEntity.create(TornadicMod.TORNADO_TYPE, world, state.id, x, groundY, z);
+			TornadoEntity entity = TornadoEntity.create(TornadicMod.TORNADO_TYPE.get(), world, state.id, x, groundY, z);
 			world.addFreshEntity(entity);
 			state.entity = entity;
 			return;
@@ -567,7 +569,7 @@ public class TornadicSavedData extends SavedData {
 		tornadoes.add(state);
 		tornadoesToday++;
 		maxEfToday = Math.max(maxEfToday, (int) state.peakEf);
-		TornadoEntity entity = TornadoEntity.create(TornadicMod.TORNADO_TYPE, world, state.id, x, groundY, z);
+		TornadoEntity entity = TornadoEntity.create(TornadicMod.TORNADO_TYPE.get(), world, state.id, x, groundY, z);
 		world.addFreshEntity(entity);
 		state.entity = entity;
 		setDirty();
@@ -625,7 +627,7 @@ public class TornadicSavedData extends SavedData {
 					}
 				}
 				if (near && world.isLoaded(spawnPos)) {
-					TornadoEntity entity = TornadoEntity.create(TornadicMod.TORNADO_TYPE, world, state.id,
+					TornadoEntity entity = TornadoEntity.create(TornadicMod.TORNADO_TYPE.get(), world, state.id,
 						state.x, state.y, state.z);
 					world.addFreshEntity(entity);
 					state.entity = entity;
@@ -649,7 +651,7 @@ public class TornadicSavedData extends SavedData {
 				int groundTone = sampleGroundTone(world, state);
 				for (ServerPlayer p : world.getServer().getPlayerList().getPlayers()) {
 					if (p.distanceToSqr(new Vec3(state.x, p.getY(), state.z)) < 1600 * 1600) {
-						p.connection.send(new net.minecraft.network.protocol.game.ClientboundCustomPayloadPacket(
+						p.connection.send(new net.minecraft.network.protocol.common.custom.ClientboundCustomPayloadPacket(
 						TornadoSyncPayload.of(state, (int) state.id, groundTone)));
 					}
 				}
@@ -797,7 +799,7 @@ public class TornadicSavedData extends SavedData {
 				p.connection.send(rainPacket);
 				p.connection.send(thunderPacket);
 				if (tickCounter % 40 == 0) {
-					p.connection.send(new net.minecraft.network.protocol.game.ClientboundCustomPayloadPacket(
+					p.connection.send(new net.minecraft.network.protocol.common.custom.ClientboundCustomPayloadPacket(
 						WeatherSyncPayload.of(forecast, rain, thunder, stormsToday, tornadoesToday, maxEfToday)));
 				}
 			}
@@ -816,7 +818,7 @@ public class TornadicSavedData extends SavedData {
 				StormSyncPayload payload = StormSyncPayload.of(storm, tornadoEf);
 				for (ServerPlayer p : world.getServer().getPlayerList().getPlayers()) {
 					if (p.distanceToSqr(new Vec3(storm.x, p.getY(), storm.z)) < 4200 * 4200) {
-						p.connection.send(new net.minecraft.network.protocol.game.ClientboundCustomPayloadPacket(payload));
+						p.connection.send(new net.minecraft.network.protocol.common.custom.ClientboundCustomPayloadPacket(payload));
 					}
 				}
 			}
@@ -826,7 +828,7 @@ public class TornadicSavedData extends SavedData {
 	/** Sends the full current state to one player (on join). */
 	public void syncToPlayer(ServerLevel world, ServerPlayer player) {
 		DailyForecast forecast = currentForecast(world);
-		player.connection.send(new net.minecraft.network.protocol.game.ClientboundCustomPayloadPacket(
+		player.connection.send(new net.minecraft.network.protocol.common.custom.ClientboundCustomPayloadPacket(
 			WeatherSyncPayload.of(forecast, lastRain < 0 ? 0 : lastRain,
 			lastThunder < 0 ? 0 : lastThunder, stormsToday, tornadoesToday, maxEfToday)));
 		for (Storm storm : storms) {
@@ -838,13 +840,13 @@ public class TornadicSavedData extends SavedData {
 				}
 			}
 			if (player.distanceToSqr(new Vec3(storm.x, player.getY(), storm.z)) < 4200 * 4200) {
-				player.connection.send(new net.minecraft.network.protocol.game.ClientboundCustomPayloadPacket(
+				player.connection.send(new net.minecraft.network.protocol.common.custom.ClientboundCustomPayloadPacket(
 				StormSyncPayload.of(storm, tornadoEf)));
 			}
 		}
 		for (TornadoState t : tornadoes) {
 			if (!t.isDissipated() && player.distanceToSqr(new Vec3(t.x, player.getY(), t.z)) < 1600 * 1600) {
-				player.connection.send(new net.minecraft.network.protocol.game.ClientboundCustomPayloadPacket(
+				player.connection.send(new net.minecraft.network.protocol.common.custom.ClientboundCustomPayloadPacket(
 				TornadoSyncPayload.of(t, (int) t.id, sampleGroundTone(world, t))));
 			}
 		}

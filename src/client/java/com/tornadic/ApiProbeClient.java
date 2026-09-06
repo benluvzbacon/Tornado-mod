@@ -102,7 +102,7 @@ public final class ApiProbeClient {
 
 	// C07: renderer registration
 	static void c07() {
-		EntityRenderers.register(TornadicMod.TORNADO_TYPE, ApiProbeClient::c06);
+		EntityRenderers.register(TornadicMod.TORNADO_TYPE.get(), ApiProbeClient::c06);
 	}
 
 	// C08: level game time + entity list

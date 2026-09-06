@@ -2,8 +2,6 @@ package com.tornadic.item;
 
 import com.tornadic.TornadicMod;
 
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
 
@@ -15,26 +13,22 @@ public final class TornadicItems {
 	private TornadicItems() {
 	}
 
-	/** Forces class initialization (registers all items). */
-	public static void ensureRegistered() {
-	}
+	public static final net.fabricmc.fabric.api.object.builder.v1.registry.DeferredRegister<Item> ITEMS =
+		net.fabricmc.fabric.api.object.builder.v1.registry.DeferredRegister.create(
+			net.minecraft.core.registries.Registries.ITEM, TornadicMod.MOD_ID);
 
-	public static final Item WEATHER_RADIO = register("weather_radio",
-		new WeatherRadioItem(new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));
-	public static final Item ANEMOMETER = register("anemometer",
-		new AnemometerItem(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON)));
-	public static final Item THERMOMETER = register("thermometer",
-		new ThermometerItem(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON)));
-	public static final Item BAROMETER = register("barometer",
-		new BarometerItem(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON)));
-	public static final Item STORM_RADAR = register("storm_radar",
-		new StormRadarItem(new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));
-	public static final Item STORM_NOTEBOOK = register("storm_notebook",
-		new StormNotebookItem(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON)));
-	public static final Item CHASER_VEHICLE = register("chaser_vehicle",
-		new ChaserVehicleItem(new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));
-
-	private static Item register(String name, Item item) {
-		return net.minecraft.registry.Registry.register(net.minecraft.core.registries.Registries.ITEM, net.minecraft.util.Identifier.of(TornadicMod.MOD_ID, name), item);
-	}
+	public static final net.fabricmc.fabric.api.object.builder.v1.registry.DeferredRegister.DeferredEntry<Item> WEATHER_RADIO =
+		ITEMS.register("weather_radio", () -> new WeatherRadioItem(new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));
+	public static final net.fabricmc.fabric.api.object.builder.v1.registry.DeferredRegister.DeferredEntry<Item> ANEMOMETER =
+		ITEMS.register("anemometer", () -> new AnemometerItem(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON)));
+	public static final net.fabricmc.fabric.api.object.builder.v1.registry.DeferredRegister.DeferredEntry<Item> THERMOMETER =
+		ITEMS.register("thermometer", () -> new ThermometerItem(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON)));
+	public static final net.fabricmc.fabric.api.object.builder.v1.registry.DeferredRegister.DeferredEntry<Item> BAROMETER =
+		ITEMS.register("barometer", () -> new BarometerItem(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON)));
+	public static final net.fabricmc.fabric.api.object.builder.v1.registry.DeferredRegister.DeferredEntry<Item> STORM_RADAR =
+		ITEMS.register("storm_radar", () -> new StormRadarItem(new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));
+	public static final net.fabricmc.fabric.api.object.builder.v1.registry.DeferredRegister.DeferredEntry<Item> STORM_NOTEBOOK =
+		ITEMS.register("storm_notebook", () -> new StormNotebookItem(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON)));
+	public static final net.fabricmc.fabric.api.object.builder.v1.registry.DeferredRegister.DeferredEntry<Item> CHASER_VEHICLE =
+		ITEMS.register("chaser_vehicle", () -> new ChaserVehicleItem(new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));
 }

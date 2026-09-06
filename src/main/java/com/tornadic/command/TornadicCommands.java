@@ -114,12 +114,12 @@ public final class TornadicCommands {
 	}
 
 	private static long seedOf(ServerLevel world) {
-		// Same deterministic derivation as TornadicSavedData.worldSeed: 1.21.1 exposes no
-		// stable world-seed accessor, so the level name is hashed instead.
-		String name = world.getLevelData().getWorldName();
+		// Same deterministic derivation as TornadicSavedData.worldSeed: hash of the
+		// save-folder id (stable across restarts, unique per world).
+		String id = world.getServer().getServerStorageSource().getLevelId();
 		long seed = 1125899906842597L;
-		for (int i = 0; i < name.length(); i++) {
-			seed = 31 * seed + name.charAt(i);
+		for (int i = 0; i < id.length(); i++) {
+			seed = 31 * seed + id.charAt(i);
 		}
 		return seed == 0L ? 1L : seed;
 	}

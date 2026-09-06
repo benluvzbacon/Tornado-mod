@@ -27,8 +27,8 @@ public class TornadicClientMod implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
 		// Renderers (both are particle-visual shells; the entity itself is invisible).
-		EntityRenderers.register(TornadicMod.TORNADO_TYPE, TornadoRenderer::new);
-		EntityRenderers.register(TornadicMod.CHASER_VEHICLE_TYPE, ChaserVehicleRenderer::new);
+		EntityRenderers.register(TornadicMod.TORNADO_TYPE.get(), TornadoRenderer::new);
+		EntityRenderers.register(TornadicMod.CHASER_VEHICLE_TYPE.get(), ChaserVehicleRenderer::new);
 
 		// Screen hooks for the common item classes.
 		ScreenOpening screens = new ScreenOpening() {

@@ -31,14 +31,16 @@ public class TornadicMod implements ModInitializer {
 	public static final String MOD_ID = "tornadic";
 	public static final Logger LOGGER = LoggerFactory.getLogger("Tornadic");
 
-	public static EntityType<TornadoEntity> TORNADO_TYPE;
-	public static EntityType<ChaserVehicleEntity> CHASER_VEHICLE_TYPE;
+	public static final net.fabricmc.fabric.api.object.builder.v1.registry.DeferredRegister<EntityType<?>> ENTITY_TYPES =
+		net.fabricmc.fabric.api.object.builder.v1.registry.DeferredRegister.create(
+			net.minecraft.core.registries.Registries.ENTITY_TYPE, MOD_ID);
+	public static final net.fabricmc.fabric.api.object.builder.v1.registry.DeferredRegister.DeferredEntry<EntityType<TornadoEntity>> TORNADO_TYPE;
+	public static final net.fabricmc.fabric.api.object.builder.v1.registry.DeferredRegister.DeferredEntry<EntityType<ChaserVehicleEntity>> CHASER_VEHICLE_TYPE;
 
 	@Override
 	public void onInitialize() {
 		TornadicConfig.load();
 		registerEntities();
-		TornadicItems.ensureRegistered();
 		TornadicPayloads.register();
 
 		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
@@ -73,8 +75,8 @@ public class TornadicMod implements ModInitializer {
 		LOGGER.info("Tornadic loaded - may the winds be in your favor.");
 	}
 
-	private void registerEntities() {
-		TORNADO_TYPE = net.minecraft.registry.Registry.register(net.minecraft.core.registries.Registries.ENTITY_TYPE, net.minecraft.util.Identifier.of(MOD_ID, "tornado"),
+	static {
+		TORNADO_TYPE = ENTITY_TYPES.register("tornado", () ->
 			EntityType.Builder.of(TornadoEntity::new, MobCategory.MISC)
 				.sized(1.0F, 1.0F)
 				.clientTrackingRange(12)
@@ -82,8 +84,7 @@ public class TornadicMod implements ModInitializer {
 				.fireImmune()
 				.noSave()
 				.build());
-
-		CHASER_VEHICLE_TYPE = net.minecraft.registry.Registry.register(net.minecraft.core.registries.Registries.ENTITY_TYPE, net.minecraft.util.Identifier.of(MOD_ID, "chaser_vehicle"),
+		CHASER_VEHICLE_TYPE = ENTITY_TYPES.register("chaser_vehicle", () ->
 			EntityType.Builder.of(ChaserVehicleEntity::new, MobCategory.MISC)
 				.sized(1.6F, 1.0F)
 				.clientTrackingRange(8)
