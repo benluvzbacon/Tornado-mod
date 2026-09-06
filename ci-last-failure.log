@@ -1,72 +1,165 @@
-=== tornadic-ci diagnostics Sun Sep  6 18:50:39 UTC 2026 ===
-Linux runnervmejwal 6.17.0-1022-azure #22-Ubuntu SMP Mon Jul 27 17:24:03 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux
---- java -version ---
-openjdk version "21.0.12.1" 2026-08-18 LTS
-OpenJDK Runtime Environment Temurin-21.0.12.1+1 (build 21.0.12.1+1-LTS)
-OpenJDK 64-Bit Server VM Temurin-21.0.12.1+1 (build 21.0.12.1+1-LTS, mixed mode, sharing)
---- ls -la ---
-total 140
-drwxr-xr-x 6 runner runner  4096 Sep  6 18:50 .
-drwxr-xr-x 3 runner runner  4096 Sep  6 18:50 ..
-drwxr-xr-x 7 runner runner  4096 Sep  6 18:50 .git
-drwxr-xr-x 3 runner runner  4096 Sep  6 18:50 .github
--rw-r--r-- 1 runner runner   217 Sep  6 18:50 .gitignore
--rw-r--r-- 1 runner runner  1070 Sep  6 18:50 LICENSE
--rw-r--r-- 1 runner runner  5730 Sep  6 18:50 README.md
--rw-r--r-- 1 runner runner   416 Sep  6 18:50 build-output.log
--rw-r--r-- 1 runner runner  1078 Sep  6 18:50 build.gradle
--rw-r--r-- 1 runner runner 69383 Sep  6 18:50 ci-last-failure.log
-drwxr-xr-x 3 runner runner  4096 Sep  6 18:50 gradle
--rw-r--r-- 1 runner runner   284 Sep  6 18:50 gradle.properties
--rwxr-xr-x 1 runner runner  8654 Sep  6 18:50 gradlew
--rw-r--r-- 1 runner runner  2846 Sep  6 18:50 gradlew.bat
--rw-r--r-- 1 runner runner   200 Sep  6 18:50 settings.gradle
-drwxr-xr-x 4 runner runner  4096 Sep  6 18:50 src
-Fetching distribution.
-Downloading https://services.gradle.org/distributions/gradle-9.5.1-bin.zip
-.............10%.............20%..............30%.............40%.............50%..............60%.............70%..............80%.............90%.............100%
-
-Welcome to Gradle 9.5.1!
-
-Here are the highlights of this release:
- - Task provenance in reports and failure messages
- - Type-safe accessors for precompiled Kotlin Settings plugins
-
-For more details see https://docs.gradle.org/9.5.1/release-notes.html
-
-
-------------------------------------------------------------
-Gradle 9.5.1
-------------------------------------------------------------
-
-Build time:    2026-05-12 13:19:42 UTC
-Revision:      fd78213f09782e62ca4957f9cfd3d90c6c3f1767
-
-Kotlin:        2.3.20
-Groovy:        4.0.29
-Ant:           Apache Ant(TM) version 1.10.15 compiled on August 25 2024
-Launcher JVM:  21.0.12.1 (Eclipse Adoptium 21.0.12.1+1-LTS)
-Daemon JVM:    /usr/lib/jvm/temurin-21-jdk-amd64 (no Daemon JVM specified, using current Java home)
-OS:            Linux 6.17.0-1022-azure amd64
-
-gradlew-version-exit=0
-To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.5.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
-Daemon will be stopped at the end of the build 
-
-> Configure project :
-Fabric Loom: 1.17.20
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Using of the official minecraft mappings is at your own risk!
-Please make sure to read and understand the following license:
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# (c) 2020 Microsoft Corporation. These mappings are provided "as-is" and you bear the risk of using them. You may copy and use the mappings for development purposes, but you may not redistribute the mappings complete and unmodified. Microsoft makes no warranties, express or implied, with respect to the mappings provided here.  Use and modification of this document or the source code (in any form) of Minecraft: Java Edition is governed by the Minecraft End User License Agreement available at https://account.mojang.com/documents/minecraft_eula.
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-> Task :compileJava
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/TornadicMod.java:41: error: not a statement
-		TornadicItems.class; // triggers item registration
+amCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>)
+    B#5 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
+    C#5 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
+    T1#5 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
+    T2#4 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
+    T3#3 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
+    T4#2 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
+    T5#1 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
+    B#6 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+    C#6 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+    T1#6 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+    T2#5 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+    T3#4 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+    T4#3 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+    T5#2 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+    T6 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/WeatherSyncPayload.java:57: error: method does not override or implement a method from a supertype
+	@Override
+	^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/TornadicMod.java:57: error: cannot find symbol
+				TornadicSavedData.getOrLoad(world.getMinecraftServer()).tick(world);
+				                                 ^
+  symbol:   method getMinecraftServer()
+  location: variable world of type ServerLevel
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/TornadicMod.java:77: error: cannot find symbol
+		TORNADO_TYPE = BuiltInRegistries.ENTITY_TYPE.register(ResourceLocation.fromNamespaceAndPath(MOD_ID, "tornado"),
+		                                            ^
+  symbol:   method register(ResourceLocation,EntityType<TornadoEntity>)
+  location: variable ENTITY_TYPE of type DefaultedRegistry<EntityType<?>>
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/TornadicMod.java:86: error: cannot find symbol
+		CHASER_VEHICLE_TYPE = BuiltInRegistries.ENTITY_TYPE.register(ResourceLocation.fromNamespaceAndPath(MOD_ID, "chaser_vehicle"),
+		                                                   ^
+  symbol:   method register(ResourceLocation,EntityType<ChaserVehicleEntity>)
+  location: variable ENTITY_TYPE of type DefaultedRegistry<EntityType<?>>
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:42: error: cannot find symbol
+		if (TornadicConfig.debrisEnabled && tick % 4 == 0) {
+		    ^
+  symbol:   variable TornadicConfig
+  location: class TornadoPhysics
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:45: error: cannot find symbol
+		if (TornadicConfig.worldDamageEnabled && tick % 4 == 0) {
+		    ^
+  symbol:   variable TornadicConfig
+  location: class TornadoPhysics
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:81: error: cannot find symbol
+			double localWind = windMs * TornadicConfig.windStrength * (0.3 + 0.7 * core) * (1.0 - norm * 0.7);
+			                            ^
+  symbol:   variable TornadicConfig
+  location: class TornadoPhysics
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:98: error: incompatible types: double cannot be converted to Vec3
+				target = target.multiply(maxSpeed / speed);
+				                                  ^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:106: error: method nextDouble in interface RandomSource cannot be applied to given types;
+				if (world.getRandom().nextDouble(chance)) {
+				                     ^
+  required: no arguments
+  found:    double
+  reason: actual and formal argument lists differ in length
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:119: error: method nextDouble in interface RandomSource cannot be applied to given types;
+				if (world.getRandom().nextDouble(chance)) {
+				                     ^
+  required: no arguments
+  found:    double
+  reason: actual and formal argument lists differ in length
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:144: error: cannot find symbol
+		List<ItemEntity> items = world.getEntitiesOfClass(ItemEntity.class, area);
+		     ^
+  symbol:   class ItemEntity
+  location: class TornadoPhysics
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:144: error: cannot find symbol
+		List<ItemEntity> items = world.getEntitiesOfClass(ItemEntity.class, area);
+		                                                  ^
+  symbol:   class ItemEntity
+  location: class TornadoPhysics
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:145: error: cannot find symbol
+		int budget = Math.max(0, TornadicConfig.maxDebrisItems - state.debrisCount);
+		                         ^
+  symbol:   variable TornadicConfig
+  location: class TornadoPhysics
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:148: error: cannot find symbol
+			ItemEntity item = items.get(i);
+			^
+  symbol:   class ItemEntity
+  location: class TornadoPhysics
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:155: error: cannot find symbol
+			double v = state.windMs() * 0.05 * TornadicConfig.windStrength * (1.0 - dist / reach + 0.4);
+			                                   ^
+  symbol:   variable TornadicConfig
+  location: class TornadoPhysics
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:177: error: cannot find symbol
+		int budget = TornadicConfig.maxBlocksBrokenPerTick;
 		             ^
-1 error
+  symbol:   variable TornadicConfig
+  location: class TornadoPhysics
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:178: error: cannot find symbol
+		if (state.blocksBroken >= TornadicConfig.maxBlocksBrokenPerTornado) {
+		                          ^
+  symbol:   variable TornadicConfig
+  location: class TornadoPhysics
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:194: error: package Heightmap does not exist
+			int groundY = world.getHeight(Heightmap.Types.MOTION_BLOCKING, base);
+			                                       ^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:214: error: method nextDouble in interface RandomSource cannot be applied to given types;
+				if (!world.getRandom().nextDouble(chance)) {
+				                      ^
+  required: no arguments
+  found:    double
+  reason: actual and formal argument lists differ in length
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:223: error: cannot find symbol
+				if (TornadicConfig.debrisEnabled && state.debrisCount < TornadicConfig.maxDebrisItems
+				    ^
+  symbol:   variable TornadicConfig
+  location: class TornadoPhysics
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:223: error: cannot find symbol
+				if (TornadicConfig.debrisEnabled && state.debrisCount < TornadicConfig.maxDebrisItems
+				                                                        ^
+  symbol:   variable TornadicConfig
+  location: class TornadoPhysics
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:227: error: cannot find symbol
+						ItemEntity debris = new ItemEntity(world, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, stack);
+						^
+  symbol:   class ItemEntity
+  location: class TornadoPhysics
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:227: error: cannot find symbol
+						ItemEntity debris = new ItemEntity(world, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, stack);
+						                        ^
+  symbol:   class ItemEntity
+  location: class TornadoPhysics
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:266: error: cannot find symbol
+		if (!TornadicConfig.warningsEnabled || state.currentEf() < 1 || state.intensity < 0.3) {
+		     ^
+  symbol:   variable TornadicConfig
+  location: class TornadoPhysics
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:300: error: players is not public in ServerLevel; cannot be accessed from outside package
+		for (ServerPlayer p : world.players) {
+		                           ^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:301: error: cannot find symbol
+			if (p.distanceToSqr(new Vec3(state.x, p.getY(), state.z)) <= (double) TornadicConfig.warningRadius * TornadicConfig.warningRadius) {
+			                                                                      ^
+  symbol:   variable TornadicConfig
+  location: class TornadoPhysics
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:301: error: cannot find symbol
+			if (p.distanceToSqr(new Vec3(state.x, p.getY(), state.z)) <= (double) TornadicConfig.warningRadius * TornadicConfig.warningRadius) {
+			                                                                                                     ^
+  symbol:   variable TornadicConfig
+  location: class TornadoPhysics
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:303: error: cannot find symbol
+				p.playSound(SoundEvents.ENTITY_PLAYER_LEVELUP, SoundSource.WEATHER, 0.7f, 1.0f);
+				                       ^
+  symbol:   variable ENTITY_PLAYER_LEVELUP
+  location: class SoundEvents
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:77: error: package SavedData does not exist
+			new SavedData.Factory<>(TornadicSavedData::new, TornadicSavedData::load), NAME);
+			             ^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:86: error: method getInt in class CompoundTag cannot be applied to given types;
+		data.maxEfToday = tag.getInt("MaxEfToday", -1);
+		                     ^
+  required: String
+  found:    String,int
+  reason: actual and formal argument lists differ in length
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+100 errors
 
 > Task :compileJava FAILED
 
@@ -77,10 +170,620 @@ FAILURE: Build failed with an exception.
 * What went wrong:
 Execution failed for task ':compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
 > Compilation failed; see the compiler output below.
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/TornadicMod.java:41: error: not a statement
-  		TornadicItems.class; // triggers item registration
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:106: error: method nextDouble in interface RandomSource cannot be applied to given types;
+  				if (world.getRandom().nextDouble(chance)) {
+  				                     ^
+    required: no arguments
+    found:    double
+    reason: actual and formal argument lists differ in length
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:119: error: method nextDouble in interface RandomSource cannot be applied to given types;
+  				if (world.getRandom().nextDouble(chance)) {
+  				                     ^
+    required: no arguments
+    found:    double
+    reason: actual and formal argument lists differ in length
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:214: error: method nextDouble in interface RandomSource cannot be applied to given types;
+  				if (!world.getRandom().nextDouble(chance)) {
+  				                      ^
+    required: no arguments
+    found:    double
+    reason: actual and formal argument lists differ in length
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:86: error: method getInt in class CompoundTag cannot be applied to given types;
+  		data.maxEfToday = tag.getInt("MaxEfToday", -1);
+  		                     ^
+    required: String
+    found:    String,int
+    reason: actual and formal argument lists differ in length
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/TornadoSyncPayload.java:28: error: no suitable method found for composite(FriendlyBy[...]arInt,TornadoSyn[...]ityId,FriendlyBy[...]ouble,TornadoSyn[...]ad::x,FriendlyBy[...]ouble,TornadoSyn[...]ad::y,FriendlyBy[...]ouble,TornadoSyn[...]ad::z,FriendlyBy[...]Float,TornadoSyn[...]adius,FriendlyBy[...]Float,TornadoSyn[...]adius,FriendlyBy[...]arInt,TornadoSyn[...]d::ef,FriendlyBy[...]Float,TornadoSyn[...]indMs,FriendlyBy[...]Float,TornadoSyn[...]ading,FriendlyBy[...]arInt,TornadoSyn[...]dTone,TornadoSyn[...]::new)
+  	public static final StreamCodec<FriendlyByteBuf, TornadoSyncPayload> STREAM_CODEC = StreamCodec.composite(
+  	                                                                                               ^
+      method StreamCodec.<B#1,C#1,T1#1>composite(StreamCodec<? super B#1,T1#1>,Function<C#1,T1#1>,Function<T1#1,C#1>) is not applicable
+        (cannot infer type-variable(s) B#1,C#1,T1#1
+          (actual and formal argument lists differ in length))
+      method StreamCodec.<B#2,C#2,T1#2,T2#1>composite(StreamCodec<? super B#2,T1#2>,Function<C#2,T1#2>,StreamCodec<? super B#2,T2#1>,Function<C#2,T2#1>,BiFunction<T1#2,T2#1,C#2>) is not applicable
+        (cannot infer type-variable(s) B#2,C#2,T1#2,T2#1
+          (actual and formal argument lists differ in length))
+      method StreamCodec.<B#3,C#3,T1#3,T2#2,T3#1>composite(StreamCodec<? super B#3,T1#3>,Function<C#3,T1#3>,StreamCodec<? super B#3,T2#2>,Function<C#3,T2#2>,StreamCodec<? super B#3,T3#1>,Function<C#3,T3#1>,Function3<T1#3,T2#2,T3#1,C#3>) is not applicable
+        (cannot infer type-variable(s) B#3,C#3,T1#3,T2#2,T3#1
+          (actual and formal argument lists differ in length))
+      method StreamCodec.<B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>) is not applicable
+        (cannot infer type-variable(s) B#4,C#4,T1#4,T2#3,T3#2,T4#1
+          (actual and formal argument lists differ in length))
+      method StreamCodec.<B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>) is not applicable
+        (cannot infer type-variable(s) B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1
+          (actual and formal argument lists differ in length))
+      method StreamCodec.<B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>) is not applicable
+        (cannot infer type-variable(s) B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6
+          (actual and formal argument lists differ in length))
+    where B#1,C#1,T1#1,B#2,C#2,T1#2,T2#1,B#3,C#3,T1#3,T2#2,T3#1,B#4,C#4,T1#4,T2#3,T3#2,T4#1,B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1,B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6 are type-variables:
+      B#1 extends Object declared in method <B#1,C#1,T1#1>composite(StreamCodec<? super B#1,T1#1>,Function<C#1,T1#1>,Function<T1#1,C#1>)
+      C#1 extends Object declared in method <B#1,C#1,T1#1>composite(StreamCodec<? super B#1,T1#1>,Function<C#1,T1#1>,Function<T1#1,C#1>)
+      T1#1 extends Object declared in method <B#1,C#1,T1#1>composite(StreamCodec<? super B#1,T1#1>,Function<C#1,T1#1>,Function<T1#1,C#1>)
+      B#2 extends Object declared in method <B#2,C#2,T1#2,T2#1>composite(StreamCodec<? super B#2,T1#2>,Function<C#2,T1#2>,StreamCodec<? super B#2,T2#1>,Function<C#2,T2#1>,BiFunction<T1#2,T2#1,C#2>)
+      C#2 extends Object declared in method <B#2,C#2,T1#2,T2#1>composite(StreamCodec<? super B#2,T1#2>,Function<C#2,T1#2>,StreamCodec<? super B#2,T2#1>,Function<C#2,T2#1>,BiFunction<T1#2,T2#1,C#2>)
+      T1#2 extends Object declared in method <B#2,C#2,T1#2,T2#1>composite(StreamCodec<? super B#2,T1#2>,Function<C#2,T1#2>,StreamCodec<? super B#2,T2#1>,Function<C#2,T2#1>,BiFunction<T1#2,T2#1,C#2>)
+      T2#1 extends Object declared in method <B#2,C#2,T1#2,T2#1>composite(StreamCodec<? super B#2,T1#2>,Function<C#2,T1#2>,StreamCodec<? super B#2,T2#1>,Function<C#2,T2#1>,BiFunction<T1#2,T2#1,C#2>)
+      B#3 extends Object declared in method <B#3,C#3,T1#3,T2#2,T3#1>composite(StreamCodec<? super B#3,T1#3>,Function<C#3,T1#3>,StreamCodec<? super B#3,T2#2>,Function<C#3,T2#2>,StreamCodec<? super B#3,T3#1>,Function<C#3,T3#1>,Function3<T1#3,T2#2,T3#1,C#3>)
+      C#3 extends Object declared in method <B#3,C#3,T1#3,T2#2,T3#1>composite(StreamCodec<? super B#3,T1#3>,Function<C#3,T1#3>,StreamCodec<? super B#3,T2#2>,Function<C#3,T2#2>,StreamCodec<? super B#3,T3#1>,Function<C#3,T3#1>,Function3<T1#3,T2#2,T3#1,C#3>)
+      T1#3 extends Object declared in method <B#3,C#3,T1#3,T2#2,T3#1>composite(StreamCodec<? super B#3,T1#3>,Function<C#3,T1#3>,StreamCodec<? super B#3,T2#2>,Function<C#3,T2#2>,StreamCodec<? super B#3,T3#1>,Function<C#3,T3#1>,Function3<T1#3,T2#2,T3#1,C#3>)
+      T2#2 extends Object declared in method <B#3,C#3,T1#3,T2#2,T3#1>composite(StreamCodec<? super B#3,T1#3>,Function<C#3,T1#3>,StreamCodec<? super B#3,T2#2>,Function<C#3,T2#2>,StreamCodec<? super B#3,T3#1>,Function<C#3,T3#1>,Function3<T1#3,T2#2,T3#1,C#3>)
+      T3#1 extends Object declared in method <B#3,C#3,T1#3,T2#2,T3#1>composite(StreamCodec<? super B#3,T1#3>,Function<C#3,T1#3>,StreamCodec<? super B#3,T2#2>,Function<C#3,T2#2>,StreamCodec<? super B#3,T3#1>,Function<C#3,T3#1>,Function3<T1#3,T2#2,T3#1,C#3>)
+      B#4 extends Object declared in method <B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>)
+      C#4 extends Object declared in method <B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>)
+      T1#4 extends Object declared in method <B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>)
+      T2#3 extends Object declared in method <B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>)
+      T3#2 extends Object declared in method <B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>)
+      T4#1 extends Object declared in method <B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>)
+      B#5 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
+      C#5 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
+      T1#5 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
+      T2#4 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
+      T3#3 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
+      T4#2 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
+      T5#1 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
+      B#6 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+      C#6 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+      T1#6 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+      T2#5 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+      T3#4 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+      T4#3 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+      T5#2 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+      T6 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/StormSyncPayload.java:32: error: no suitable method found for composite(FriendlyBy[...]rLong,StormSyncP[...]d::id,FriendlyBy[...]ouble,StormSyncPayload::x,FriendlyBy[...]ouble,StormSyncPayload::z,FriendlyBy[...]Float,StormSyncP[...]adius,FriendlyBy[...]arInt,StormSyncP[...]dinal,FriendlyBy[...]Float,StormSyncP[...]nsity,FriendlyBy[...]Float,StormSyncP[...]ation,FriendlyBy[...]Float,StormSyncP[...]nsity,FriendlyBy[...]olean,StormSyncP[...]:hail,FriendlyBy[...]Float,StormSyncP[...]lSize,FriendlyBy[...]Float,StormSyncP[...]::dir,FriendlyBy[...]Float,StormSyncP[...]speed,FriendlyBy[...]arInt,StormSyncP[...]adoEf,StormSyncP[...]::new)
+  	public static final StreamCodec<FriendlyByteBuf, StormSyncPayload> STREAM_CODEC = StreamCodec.composite(
+  	                                                                                             ^
+      method StreamCodec.<B#1,C#1,T1#1>composite(StreamCodec<? super B#1,T1#1>,Function<C#1,T1#1>,Function<T1#1,C#1>) is not applicable
+        (cannot infer type-variable(s) B#1,C#1,T1#1
+          (actual and formal argument lists differ in length))
+      method StreamCodec.<B#2,C#2,T1#2,T2#1>composite(StreamCodec<? super B#2,T1#2>,Function<C#2,T1#2>,StreamCodec<? super B#2,T2#1>,Function<C#2,T2#1>,BiFunction<T1#2,T2#1,C#2>) is not applicable
+        (cannot infer type-variable(s) B#2,C#2,T1#2,T2#1
+          (actual and formal argument lists differ in length))
+      method StreamCodec.<B#3,C#3,T1#3,T2#2,T3#1>composite(StreamCodec<? super B#3,T1#3>,Function<C#3,T1#3>,StreamCodec<? super B#3,T2#2>,Function<C#3,T2#2>,StreamCodec<? super B#3,T3#1>,Function<C#3,T3#1>,Function3<T1#3,T2#2,T3#1,C#3>) is not applicable
+        (cannot infer type-variable(s) B#3,C#3,T1#3,T2#2,T3#1
+          (actual and formal argument lists differ in length))
+      method StreamCodec.<B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>) is not applicable
+        (cannot infer type-variable(s) B#4,C#4,T1#4,T2#3,T3#2,T4#1
+          (actual and formal argument lists differ in length))
+      method StreamCodec.<B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>) is not applicable
+        (cannot infer type-variable(s) B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1
+          (actual and formal argument lists differ in length))
+      method StreamCodec.<B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>) is not applicable
+        (cannot infer type-variable(s) B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6
+          (actual and formal argument lists differ in length))
+    where B#1,C#1,T1#1,B#2,C#2,T1#2,T2#1,B#3,C#3,T1#3,T2#2,T3#1,B#4,C#4,T1#4,T2#3,T3#2,T4#1,B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1,B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6 are type-variables:
+      B#1 extends Object declared in method <B#1,C#1,T1#1>composite(StreamCodec<? super B#1,T1#1>,Function<C#1,T1#1>,Function<T1#1,C#1>)
+      C#1 extends Object declared in method <B#1,C#1,T1#1>composite(StreamCodec<? super B#1,T1#1>,Function<C#1,T1#1>,Function<T1#1,C#1>)
+      T1#1 extends Object declared in method <B#1,C#1,T1#1>composite(StreamCodec<? super B#1,T1#1>,Function<C#1,T1#1>,Function<T1#1,C#1>)
+      B#2 extends Object declared in method <B#2,C#2,T1#2,T2#1>composite(StreamCodec<? super B#2,T1#2>,Function<C#2,T1#2>,StreamCodec<? super B#2,T2#1>,Function<C#2,T2#1>,BiFunction<T1#2,T2#1,C#2>)
+      C#2 extends Object declared in method <B#2,C#2,T1#2,T2#1>composite(StreamCodec<? super B#2,T1#2>,Function<C#2,T1#2>,StreamCodec<? super B#2,T2#1>,Function<C#2,T2#1>,BiFunction<T1#2,T2#1,C#2>)
+      T1#2 extends Object declared in method <B#2,C#2,T1#2,T2#1>composite(StreamCodec<? super B#2,T1#2>,Function<C#2,T1#2>,StreamCodec<? super B#2,T2#1>,Function<C#2,T2#1>,BiFunction<T1#2,T2#1,C#2>)
+      T2#1 extends Object declared in method <B#2,C#2,T1#2,T2#1>composite(StreamCodec<? super B#2,T1#2>,Function<C#2,T1#2>,StreamCodec<? super B#2,T2#1>,Function<C#2,T2#1>,BiFunction<T1#2,T2#1,C#2>)
+      B#3 extends Object declared in method <B#3,C#3,T1#3,T2#2,T3#1>composite(StreamCodec<? super B#3,T1#3>,Function<C#3,T1#3>,StreamCodec<? super B#3,T2#2>,Function<C#3,T2#2>,StreamCodec<? super B#3,T3#1>,Function<C#3,T3#1>,Function3<T1#3,T2#2,T3#1,C#3>)
+      C#3 extends Object declared in method <B#3,C#3,T1#3,T2#2,T3#1>composite(StreamCodec<? super B#3,T1#3>,Function<C#3,T1#3>,StreamCodec<? super B#3,T2#2>,Function<C#3,T2#2>,StreamCodec<? super B#3,T3#1>,Function<C#3,T3#1>,Function3<T1#3,T2#2,T3#1,C#3>)
+      T1#3 extends Object declared in method <B#3,C#3,T1#3,T2#2,T3#1>composite(StreamCodec<? super B#3,T1#3>,Function<C#3,T1#3>,StreamCodec<? super B#3,T2#2>,Function<C#3,T2#2>,StreamCodec<? super B#3,T3#1>,Function<C#3,T3#1>,Function3<T1#3,T2#2,T3#1,C#3>)
+      T2#2 extends Object declared in method <B#3,C#3,T1#3,T2#2,T3#1>composite(StreamCodec<? super B#3,T1#3>,Function<C#3,T1#3>,StreamCodec<? super B#3,T2#2>,Function<C#3,T2#2>,StreamCodec<? super B#3,T3#1>,Function<C#3,T3#1>,Function3<T1#3,T2#2,T3#1,C#3>)
+      T3#1 extends Object declared in method <B#3,C#3,T1#3,T2#2,T3#1>composite(StreamCodec<? super B#3,T1#3>,Function<C#3,T1#3>,StreamCodec<? super B#3,T2#2>,Function<C#3,T2#2>,StreamCodec<? super B#3,T3#1>,Function<C#3,T3#1>,Function3<T1#3,T2#2,T3#1,C#3>)
+      B#4 extends Object declared in method <B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>)
+      C#4 extends Object declared in method <B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>)
+      T1#4 extends Object declared in method <B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>)
+      T2#3 extends Object declared in method <B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>)
+      T3#2 extends Object declared in method <B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>)
+      T4#1 extends Object declared in method <B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>)
+      B#5 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
+      C#5 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
+      T1#5 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
+      T2#4 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
+      T3#3 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
+      T4#2 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
+      T5#1 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
+      B#6 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+      C#6 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+      T1#6 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+      T2#5 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+      T3#4 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+      T4#3 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+      T5#2 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+      T6 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/ThunderPayload.java:18: error: no suitable method found for composite(FriendlyBy[...]ouble,ThunderPayload::x,FriendlyBy[...]ouble,ThunderPayload::z,FriendlyBy[...]Float,ThunderPay[...]olume,FriendlyBy[...]Float,ThunderPay[...]pitch,FriendlyBy[...]arInt,ThunderPay[...]Ticks,ThunderPayload::new)
+  	public static final StreamCodec<FriendlyByteBuf, ThunderPayload> STREAM_CODEC = StreamCodec.composite(
+  	                                                                                           ^
+      method StreamCodec.<B#1,C#1,T1#1>composite(StreamCodec<? super B#1,T1#1>,Function<C#1,T1#1>,Function<T1#1,C#1>) is not applicable
+        (cannot infer type-variable(s) B#1,C#1,T1#1
+          (actual and formal argument lists differ in length))
+      method StreamCodec.<B#2,C#2,T1#2,T2#1>composite(StreamCodec<? super B#2,T1#2>,Function<C#2,T1#2>,StreamCodec<? super B#2,T2#1>,Function<C#2,T2#1>,BiFunction<T1#2,T2#1,C#2>) is not applicable
+        (cannot infer type-variable(s) B#2,C#2,T1#2,T2#1
+          (actual and formal argument lists differ in length))
+      method StreamCodec.<B#3,C#3,T1#3,T2#2,T3#1>composite(StreamCodec<? super B#3,T1#3>,Function<C#3,T1#3>,StreamCodec<? super B#3,T2#2>,Function<C#3,T2#2>,StreamCodec<? super B#3,T3#1>,Function<C#3,T3#1>,Function3<T1#3,T2#2,T3#1,C#3>) is not applicable
+        (cannot infer type-variable(s) B#3,C#3,T1#3,T2#2,T3#1
+          (actual and formal argument lists differ in length))
+      method StreamCodec.<B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>) is not applicable
+        (cannot infer type-variable(s) B#4,C#4,T1#4,T2#3,T3#2,T4#1
+          (actual and formal argument lists differ in length))
+      method StreamCodec.<B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>) is not applicable
+        (cannot infer type-variable(s) B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1
+          (argument mismatch; StreamCodec is not a functional interface
+            multiple non-overriding abstract methods found in interface StreamCodec))
+      method StreamCodec.<B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>) is not applicable
+        (cannot infer type-variable(s) B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6
+          (actual and formal argument lists differ in length))
+    where B#1,C#1,T1#1,B#2,C#2,T1#2,T2#1,B#3,C#3,T1#3,T2#2,T3#1,B#4,C#4,T1#4,T2#3,T3#2,T4#1,B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1,B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6 are type-variables:
+      B#1 extends Object declared in method <B#1,C#1,T1#1>composite(StreamCodec<? super B#1,T1#1>,Function<C#1,T1#1>,Function<T1#1,C#1>)
+      C#1 extends Object declared in method <B#1,C#1,T1#1>composite(StreamCodec<? super B#1,T1#1>,Function<C#1,T1#1>,Function<T1#1,C#1>)
+      T1#1 extends Object declared in method <B#1,C#1,T1#1>composite(StreamCodec<? super B#1,T1#1>,Function<C#1,T1#1>,Function<T1#1,C#1>)
+      B#2 extends Object declared in method <B#2,C#2,T1#2,T2#1>composite(StreamCodec<? super B#2,T1#2>,Function<C#2,T1#2>,StreamCodec<? super B#2,T2#1>,Function<C#2,T2#1>,BiFunction<T1#2,T2#1,C#2>)
+      C#2 extends Object declared in method <B#2,C#2,T1#2,T2#1>composite(StreamCodec<? super B#2,T1#2>,Function<C#2,T1#2>,StreamCodec<? super B#2,T2#1>,Function<C#2,T2#1>,BiFunction<T1#2,T2#1,C#2>)
+      T1#2 extends Object declared in method <B#2,C#2,T1#2,T2#1>composite(StreamCodec<? super B#2,T1#2>,Function<C#2,T1#2>,StreamCodec<? super B#2,T2#1>,Function<C#2,T2#1>,BiFunction<T1#2,T2#1,C#2>)
+      T2#1 extends Object declared in method <B#2,C#2,T1#2,T2#1>composite(StreamCodec<? super B#2,T1#2>,Function<C#2,T1#2>,StreamCodec<? super B#2,T2#1>,Function<C#2,T2#1>,BiFunction<T1#2,T2#1,C#2>)
+      B#3 extends Object declared in method <B#3,C#3,T1#3,T2#2,T3#1>composite(StreamCodec<? super B#3,T1#3>,Function<C#3,T1#3>,StreamCodec<? super B#3,T2#2>,Function<C#3,T2#2>,StreamCodec<? super B#3,T3#1>,Function<C#3,T3#1>,Function3<T1#3,T2#2,T3#1,C#3>)
+      C#3 extends Object declared in method <B#3,C#3,T1#3,T2#2,T3#1>composite(StreamCodec<? super B#3,T1#3>,Function<C#3,T1#3>,StreamCodec<? super B#3,T2#2>,Function<C#3,T2#2>,StreamCodec<? super B#3,T3#1>,Function<C#3,T3#1>,Function3<T1#3,T2#2,T3#1,C#3>)
+      T1#3 extends Object declared in method <B#3,C#3,T1#3,T2#2,T3#1>composite(StreamCodec<? super B#3,T1#3>,Function<C#3,T1#3>,StreamCodec<? super B#3,T2#2>,Function<C#3,T2#2>,StreamCodec<? super B#3,T3#1>,Function<C#3,T3#1>,Function3<T1#3,T2#2,T3#1,C#3>)
+      T2#2 extends Object declared in method <B#3,C#3,T1#3,T2#2,T3#1>composite(StreamCodec<? super B#3,T1#3>,Function<C#3,T1#3>,StreamCodec<? super B#3,T2#2>,Function<C#3,T2#2>,StreamCodec<? super B#3,T3#1>,Function<C#3,T3#1>,Function3<T1#3,T2#2,T3#1,C#3>)
+      T3#1 extends Object declared in method <B#3,C#3,T1#3,T2#2,T3#1>composite(StreamCodec<? super B#3,T1#3>,Function<C#3,T1#3>,StreamCodec<? super B#3,T2#2>,Function<C#3,T2#2>,StreamCodec<? super B#3,T3#1>,Function<C#3,T3#1>,Function3<T1#3,T2#2,T3#1,C#3>)
+      B#4 extends Object declared in method <B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>)
+      C#4 extends Object declared in method <B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>)
+      T1#4 extends Object declared in method <B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>)
+      T2#3 extends Object declared in method <B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>)
+      T3#2 extends Object declared in method <B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>)
+      T4#1 extends Object declared in method <B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>)
+      B#5 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
+      C#5 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
+      T1#5 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
+      T2#4 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
+      T3#3 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
+      T4#2 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
+      T5#1 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
+      B#6 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+      C#6 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+      T1#6 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+      T2#5 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+      T3#4 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+      T4#3 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+      T5#2 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+      T6 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/WeatherSyncPayload.java:36: error: no suitable method found for composite(FriendlyBy[...]arInt,WeatherSyn[...]::day,FriendlyBy[...]Float,WeatherSyn[...]tempF,FriendlyBy[...]Float,WeatherSyn[...]ointF,FriendlyBy[...]arInt,WeatherSyn[...]idity,FriendlyBy[...]Float,WeatherSyn[...]ureMb,FriendlyBy[...]Float,WeatherSyn[...]ndMph,FriendlyBy[...]Float,WeatherSyn[...]ndDir,FriendlyBy[...]arInt,WeatherSyn[...]:cape,FriendlyBy[...]Float,WeatherSyn[...]shear,FriendlyBy[...]arInt,WeatherSyn[...]ility,FriendlyBy[...]arInt,WeatherSyn[...]ility,FriendlyBy[...]arInt,WeatherSyn[...]dinal,FriendlyBy[...]Float,WeatherSyn[...]Level,FriendlyBy[...]Float,WeatherSyn[...]Level,FriendlyBy[...]arInt,WeatherSyn[...]Today,FriendlyBy[...]arInt,WeatherSyn[...]Today,FriendlyBy[...]arInt,WeatherSyn[...]Today,WeatherSyn[...]::new)
+  	public static final StreamCodec<FriendlyByteBuf, WeatherSyncPayload> STREAM_CODEC = StreamCodec.composite(
+  	                                                                                               ^
+      method StreamCodec.<B#1,C#1,T1#1>composite(StreamCodec<? super B#1,T1#1>,Function<C#1,T1#1>,Function<T1#1,C#1>) is not applicable
+        (cannot infer type-variable(s) B#1,C#1,T1#1
+          (actual and formal argument lists differ in length))
+      method StreamCodec.<B#2,C#2,T1#2,T2#1>composite(StreamCodec<? super B#2,T1#2>,Function<C#2,T1#2>,StreamCodec<? super B#2,T2#1>,Function<C#2,T2#1>,BiFunction<T1#2,T2#1,C#2>) is not applicable
+        (cannot infer type-variable(s) B#2,C#2,T1#2,T2#1
+          (actual and formal argument lists differ in length))
+      method StreamCodec.<B#3,C#3,T1#3,T2#2,T3#1>composite(StreamCodec<? super B#3,T1#3>,Function<C#3,T1#3>,StreamCodec<? super B#3,T2#2>,Function<C#3,T2#2>,StreamCodec<? super B#3,T3#1>,Function<C#3,T3#1>,Function3<T1#3,T2#2,T3#1,C#3>) is not applicable
+        (cannot infer type-variable(s) B#3,C#3,T1#3,T2#2,T3#1
+          (actual and formal argument lists differ in length))
+      method StreamCodec.<B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>) is not applicable
+        (cannot infer type-variable(s) B#4,C#4,T1#4,T2#3,T3#2,T4#1
+          (actual and formal argument lists differ in length))
+      method StreamCodec.<B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>) is not applicable
+        (cannot infer type-variable(s) B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1
+          (actual and formal argument lists differ in length))
+      method StreamCodec.<B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>) is not applicable
+        (cannot infer type-variable(s) B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6
+          (actual and formal argument lists differ in length))
+    where B#1,C#1,T1#1,B#2,C#2,T1#2,T2#1,B#3,C#3,T1#3,T2#2,T3#1,B#4,C#4,T1#4,T2#3,T3#2,T4#1,B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1,B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6 are type-variables:
+      B#1 extends Object declared in method <B#1,C#1,T1#1>composite(StreamCodec<? super B#1,T1#1>,Function<C#1,T1#1>,Function<T1#1,C#1>)
+      C#1 extends Object declared in method <B#1,C#1,T1#1>composite(StreamCodec<? super B#1,T1#1>,Function<C#1,T1#1>,Function<T1#1,C#1>)
+      T1#1 extends Object declared in method <B#1,C#1,T1#1>composite(StreamCodec<? super B#1,T1#1>,Function<C#1,T1#1>,Function<T1#1,C#1>)
+      B#2 extends Object declared in method <B#2,C#2,T1#2,T2#1>composite(StreamCodec<? super B#2,T1#2>,Function<C#2,T1#2>,StreamCodec<? super B#2,T2#1>,Function<C#2,T2#1>,BiFunction<T1#2,T2#1,C#2>)
+      C#2 extends Object declared in method <B#2,C#2,T1#2,T2#1>composite(StreamCodec<? super B#2,T1#2>,Function<C#2,T1#2>,StreamCodec<? super B#2,T2#1>,Function<C#2,T2#1>,BiFunction<T1#2,T2#1,C#2>)
+      T1#2 extends Object declared in method <B#2,C#2,T1#2,T2#1>composite(StreamCodec<? super B#2,T1#2>,Function<C#2,T1#2>,StreamCodec<? super B#2,T2#1>,Function<C#2,T2#1>,BiFunction<T1#2,T2#1,C#2>)
+      T2#1 extends Object declared in method <B#2,C#2,T1#2,T2#1>composite(StreamCodec<? super B#2,T1#2>,Function<C#2,T1#2>,StreamCodec<? super B#2,T2#1>,Function<C#2,T2#1>,BiFunction<T1#2,T2#1,C#2>)
+      B#3 extends Object declared in method <B#3,C#3,T1#3,T2#2,T3#1>composite(StreamCodec<? super B#3,T1#3>,Function<C#3,T1#3>,StreamCodec<? super B#3,T2#2>,Function<C#3,T2#2>,StreamCodec<? super B#3,T3#1>,Function<C#3,T3#1>,Function3<T1#3,T2#2,T3#1,C#3>)
+      C#3 extends Object declared in method <B#3,C#3,T1#3,T2#2,T3#1>composite(StreamCodec<? super B#3,T1#3>,Function<C#3,T1#3>,StreamCodec<? super B#3,T2#2>,Function<C#3,T2#2>,StreamCodec<? super B#3,T3#1>,Function<C#3,T3#1>,Function3<T1#3,T2#2,T3#1,C#3>)
+      T1#3 extends Object declared in method <B#3,C#3,T1#3,T2#2,T3#1>composite(StreamCodec<? super B#3,T1#3>,Function<C#3,T1#3>,StreamCodec<? super B#3,T2#2>,Function<C#3,T2#2>,StreamCodec<? super B#3,T3#1>,Function<C#3,T3#1>,Function3<T1#3,T2#2,T3#1,C#3>)
+      T2#2 extends Object declared in method <B#3,C#3,T1#3,T2#2,T3#1>composite(StreamCodec<? super B#3,T1#3>,Function<C#3,T1#3>,StreamCodec<? super B#3,T2#2>,Function<C#3,T2#2>,StreamCodec<? super B#3,T3#1>,Function<C#3,T3#1>,Function3<T1#3,T2#2,T3#1,C#3>)
+      T3#1 extends Object declared in method <B#3,C#3,T1#3,T2#2,T3#1>composite(StreamCodec<? super B#3,T1#3>,Function<C#3,T1#3>,StreamCodec<? super B#3,T2#2>,Function<C#3,T2#2>,StreamCodec<? super B#3,T3#1>,Function<C#3,T3#1>,Function3<T1#3,T2#2,T3#1,C#3>)
+      B#4 extends Object declared in method <B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>)
+      C#4 extends Object declared in method <B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>)
+      T1#4 extends Object declared in method <B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>)
+      T2#3 extends Object declared in method <B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>)
+      T3#2 extends Object declared in method <B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>)
+      T4#1 extends Object declared in method <B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>)
+      B#5 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
+      C#5 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
+      T1#5 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
+      T2#4 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
+      T3#3 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
+      T4#2 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
+      T5#1 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
+      B#6 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+      C#6 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+      T1#6 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+      T2#5 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+      T3#4 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+      T4#3 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+      T5#2 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+      T6 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/entity/ChaserVehicleEntity.java:35: error: cannot find symbol
+  		return entity instanceof Player && !this.hasPassengers();
+  		                                        ^
+    symbol: method hasPassengers()
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/entity/ChaserVehicleEntity.java:73: error: incompatible types: double cannot be converted to Vec3
+  			setDeltaMovement(vel.multiply(0.9));
+  			                              ^
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoState.java:64: error: incompatible types: possible lossy conversion from float to int
+  			ef = peakEf;
+  			     ^
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoState.java:74: error: incompatible types: possible lossy conversion from float to int
+  		float base = TornadoIntensity.fromEf(peakEf).funnelRadius();
+  		                                     ^
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:98: error: incompatible types: double cannot be converted to Vec3
+  				target = target.multiply(maxSpeed / speed);
+  				                                  ^
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/TornadoSyncPayload.java:43: error: cannot find symbol
+  	public Type<? extends CustomPacketPayload> type() {
+  	       ^
+    symbol:   class Type
+    location: class TornadoSyncPayload
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/TornadoSyncPayload.java:43: error: cannot find symbol
+  	public Type<? extends CustomPacketPayload> type() {
+  	                      ^
+    symbol:   class CustomPacketPayload
+    location: class TornadoSyncPayload
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/StormSyncPayload.java:50: error: cannot find symbol
+  	public Type<? extends CustomPacketPayload> type() {
+  	       ^
+    symbol:   class Type
+    location: class StormSyncPayload
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/StormSyncPayload.java:50: error: cannot find symbol
+  	public Type<? extends CustomPacketPayload> type() {
+  	                      ^
+    symbol:   class CustomPacketPayload
+    location: class StormSyncPayload
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/ThunderPayload.java:28: error: cannot find symbol
+  	public Type<? extends CustomPacketPayload> type() {
+  	       ^
+    symbol:   class Type
+    location: class ThunderPayload
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/ThunderPayload.java:28: error: cannot find symbol
+  	public Type<? extends CustomPacketPayload> type() {
+  	                      ^
+    symbol:   class CustomPacketPayload
+    location: class ThunderPayload
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/WeatherSyncPayload.java:6: error: cannot find symbol
+  import net.minecraft.network.codec.PacketCodec;
+                                    ^
+    symbol:   class PacketCodec
+    location: package net.minecraft.network.codec
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/WeatherSyncPayload.java:58: error: cannot find symbol
+  	public Type<? extends CustomPacketPayload> type() {
+  	       ^
+    symbol:   class Type
+    location: class WeatherSyncPayload
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/WeatherSyncPayload.java:58: error: cannot find symbol
+  	public Type<? extends CustomPacketPayload> type() {
+  	                      ^
+    symbol:   class CustomPacketPayload
+    location: class WeatherSyncPayload
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:19: error: cannot find symbol
+  import net.minecraft.world.entity.ItemEntity;
+                                   ^
+    symbol:   class ItemEntity
+    location: package net.minecraft.world.entity
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/command/TornadicCommands.java:160: error: cannot find symbol
+  		TornadicConfig.debugHud = !TornadicConfig.debugHud;
+  		^
+    symbol:   variable TornadicConfig
+    location: class TornadicCommands
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/command/TornadicCommands.java:160: error: cannot find symbol
+  		TornadicConfig.debugHud = !TornadicConfig.debugHud;
+  		                           ^
+    symbol:   variable TornadicConfig
+    location: class TornadicCommands
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/command/TornadicCommands.java:161: error: cannot find symbol
+  		source.sendSuccess(() -> Component.literal("Debug HUD " + (TornadicConfig.debugHud ? "enabled" : "disabled") + ".")
+  		                                                           ^
+    symbol:   variable TornadicConfig
+    location: class TornadicCommands
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/command/TornadicCommands.java:167: error: cannot find symbol
+  		TornadicConfig.debugHud = on;
+  		^
+    symbol:   variable TornadicConfig
+    location: class TornadicCommands
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/command/TornadicCommands.java:325: error: cannot find symbol
+  				.withStyle(s.hail ? ChatFormatting.CYAN : ChatFormatting.WHITE))
+  				                                  ^
+    symbol:   variable CYAN
+    location: class ChatFormatting
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:42: error: cannot find symbol
+  		if (TornadicConfig.debrisEnabled && tick % 4 == 0) {
+  		    ^
+    symbol:   variable TornadicConfig
+    location: class TornadoPhysics
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:45: error: cannot find symbol
+  		if (TornadicConfig.worldDamageEnabled && tick % 4 == 0) {
+  		    ^
+    symbol:   variable TornadicConfig
+    location: class TornadoPhysics
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:81: error: cannot find symbol
+  			double localWind = windMs * TornadicConfig.windStrength * (0.3 + 0.7 * core) * (1.0 - norm * 0.7);
+  			                            ^
+    symbol:   variable TornadicConfig
+    location: class TornadoPhysics
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:144: error: cannot find symbol
+  		List<ItemEntity> items = world.getEntitiesOfClass(ItemEntity.class, area);
+  		     ^
+    symbol:   class ItemEntity
+    location: class TornadoPhysics
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:144: error: cannot find symbol
+  		List<ItemEntity> items = world.getEntitiesOfClass(ItemEntity.class, area);
+  		                                                  ^
+    symbol:   class ItemEntity
+    location: class TornadoPhysics
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:145: error: cannot find symbol
+  		int budget = Math.max(0, TornadicConfig.maxDebrisItems - state.debrisCount);
+  		                         ^
+    symbol:   variable TornadicConfig
+    location: class TornadoPhysics
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:148: error: cannot find symbol
+  			ItemEntity item = items.get(i);
+  			^
+    symbol:   class ItemEntity
+    location: class TornadoPhysics
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:155: error: cannot find symbol
+  			double v = state.windMs() * 0.05 * TornadicConfig.windStrength * (1.0 - dist / reach + 0.4);
+  			                                   ^
+    symbol:   variable TornadicConfig
+    location: class TornadoPhysics
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:177: error: cannot find symbol
+  		int budget = TornadicConfig.maxBlocksBrokenPerTick;
   		             ^
-  1 error
+    symbol:   variable TornadicConfig
+    location: class TornadoPhysics
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:178: error: cannot find symbol
+  		if (state.blocksBroken >= TornadicConfig.maxBlocksBrokenPerTornado) {
+  		                          ^
+    symbol:   variable TornadicConfig
+    location: class TornadoPhysics
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:223: error: cannot find symbol
+  				if (TornadicConfig.debrisEnabled && state.debrisCount < TornadicConfig.maxDebrisItems
+  				    ^
+    symbol:   variable TornadicConfig
+    location: class TornadoPhysics
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:223: error: cannot find symbol
+  				if (TornadicConfig.debrisEnabled && state.debrisCount < TornadicConfig.maxDebrisItems
+  				                                                        ^
+    symbol:   variable TornadicConfig
+    location: class TornadoPhysics
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:227: error: cannot find symbol
+  						ItemEntity debris = new ItemEntity(world, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, stack);
+  						^
+    symbol:   class ItemEntity
+    location: class TornadoPhysics
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:227: error: cannot find symbol
+  						ItemEntity debris = new ItemEntity(world, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, stack);
+  						                        ^
+    symbol:   class ItemEntity
+    location: class TornadoPhysics
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:266: error: cannot find symbol
+  		if (!TornadicConfig.warningsEnabled || state.currentEf() < 1 || state.intensity < 0.3) {
+  		     ^
+    symbol:   variable TornadicConfig
+    location: class TornadoPhysics
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:301: error: cannot find symbol
+  			if (p.distanceToSqr(new Vec3(state.x, p.getY(), state.z)) <= (double) TornadicConfig.warningRadius * TornadicConfig.warningRadius) {
+  			                                                                      ^
+    symbol:   variable TornadicConfig
+    location: class TornadoPhysics
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:301: error: cannot find symbol
+  			if (p.distanceToSqr(new Vec3(state.x, p.getY(), state.z)) <= (double) TornadicConfig.warningRadius * TornadicConfig.warningRadius) {
+  			                                                                                                     ^
+    symbol:   variable TornadicConfig
+    location: class TornadoPhysics
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:303: error: cannot find symbol
+  				p.playSound(SoundEvents.ENTITY_PLAYER_LEVELUP, SoundSource.WEATHER, 0.7f, 1.0f);
+  				                       ^
+    symbol:   variable ENTITY_PLAYER_LEVELUP
+    location: class SoundEvents
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/entity/ChaserVehicleEntity.java:43: error: canRide(Entity) has protected access in Entity
+  			} else if (player.canRide(this)) {
+  			                 ^
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:300: error: players is not public in ServerLevel; cannot be accessed from outside package
+  		for (ServerPlayer p : world.players) {
+  		                           ^
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/entity/ChaserVehicleEntity.java:81: error: method does not override or implement a method from a supertype
+  	@Override
+  	^
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/TornadoSyncPayload.java:42: error: method does not override or implement a method from a supertype
+  	@Override
+  	^
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoEntity.java:42: error: method does not override or implement a method from a supertype
+  	@Override
+  	^
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/StormSyncPayload.java:49: error: method does not override or implement a method from a supertype
+  	@Override
+  	^
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/ThunderPayload.java:27: error: method does not override or implement a method from a supertype
+  	@Override
+  	^
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/WeatherSyncPayload.java:57: error: method does not override or implement a method from a supertype
+  	@Override
+  	^
+  Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/TornadoSyncPayload.java:24: error: cannot find symbol
+  ) implements CustomPacketPayload {
+               ^
+    symbol: class CustomPacketPayload
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/StormSyncPayload.java:28: error: cannot find symbol
+  ) implements CustomPacketPayload {
+               ^
+    symbol: class CustomPacketPayload
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/ThunderPayload.java:14: error: cannot find symbol
+  	implements CustomPacketPayload {
+  	           ^
+    symbol: class CustomPacketPayload
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/WeatherSyncPayload.java:32: error: cannot find symbol
+  ) implements CustomPacketPayload {
+               ^
+    symbol: class CustomPacketPayload
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:50: error: cannot find symbol
+  public class TornadicSavedData extends SavedData {
+                                         ^
+    symbol: class SavedData
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoEntity.java:23: error: cannot find symbol
+  		this.noGravity = true;
+  		    ^
+    symbol: variable noGravity
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/entity/ChaserVehicleEntity.java:41: error: cannot find symbol
+  			if (hasPassengers()) {
+  			    ^
+    symbol:   method hasPassengers()
+    location: class ChaserVehicleEntity
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/entity/ChaserVehicleEntity.java:57: error: cannot find symbol
+  		if (hasPassengers()) {
+  		    ^
+    symbol:   method hasPassengers()
+    location: class ChaserVehicleEntity
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/command/TornadicCommands.java:100: error: cannot find symbol
+  			.append(" ").append(risk.asComponent().withStyle(ChatFormatting.BOLD)));
+  			                                      ^
+    symbol:   method withStyle(ChatFormatting)
+    location: interface Component
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/command/TornadicCommands.java:118: error: cannot find symbol
+  			return world.getLevelData().getWorldGenOptions().getSeed();
+  			                           ^
+    symbol:   method getWorldGenOptions()
+    location: interface LevelData
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/command/TornadicCommands.java:209: error: cannot find symbol
+  		data.setDirty();
+  		    ^
+    symbol:   method setDirty()
+    location: variable data of type TornadicSavedData
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/command/TornadicCommands.java:312: error: cannot find symbol
+  			.append(s.type.asComponent().withStyle(ChatFormatting.BOLD))
+  			                            ^
+    symbol:   method withStyle(ChatFormatting)
+    location: interface Component
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/TornadicMod.java:57: error: cannot find symbol
+  				TornadicSavedData.getOrLoad(world.getMinecraftServer()).tick(world);
+  				                                 ^
+    symbol:   method getMinecraftServer()
+    location: variable world of type ServerLevel
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/TornadicMod.java:77: error: cannot find symbol
+  		TORNADO_TYPE = BuiltInRegistries.ENTITY_TYPE.register(ResourceLocation.fromNamespaceAndPath(MOD_ID, "tornado"),
+  		                                            ^
+    symbol:   method register(ResourceLocation,EntityType<TornadoEntity>)
+    location: variable ENTITY_TYPE of type DefaultedRegistry<EntityType<?>>
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/TornadicMod.java:86: error: cannot find symbol
+  		CHASER_VEHICLE_TYPE = BuiltInRegistries.ENTITY_TYPE.register(ResourceLocation.fromNamespaceAndPath(MOD_ID, "chaser_vehicle"),
+  		                                                   ^
+    symbol:   method register(ResourceLocation,EntityType<ChaserVehicleEntity>)
+    location: variable ENTITY_TYPE of type DefaultedRegistry<EntityType<?>>
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/command/TornadicCommands.java:8: error: package com.tornadic.config does not exist
+  import com.tornadic.config.TornadicConfig;
+                            ^
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/TornadoSyncPayload.java:7: error: package net.minecraft.network.protocol.custom does not exist
+  import net.minecraft.network.protocol.custom.CustomPacketPayload;
+                                              ^
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/TornadoSyncPayload.java:26: error: package CustomPacketPayload does not exist
+  	public static final CustomPacketPayload.Type<TornadoSyncPayload> TYPE = new CustomPacketPayload.Type<>(ID);
+  	                                       ^
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/StormSyncPayload.java:7: error: package net.minecraft.network.protocol.custom does not exist
+  import net.minecraft.network.protocol.custom.CustomPacketPayload;
+                                              ^
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/StormSyncPayload.java:30: error: package CustomPacketPayload does not exist
+  	public static final CustomPacketPayload.Type<StormSyncPayload> TYPE = new CustomPacketPayload.Type<>(ID);
+  	                                       ^
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/ThunderPayload.java:5: error: package net.minecraft.network.protocol.custom does not exist
+  import net.minecraft.network.protocol.custom.CustomPacketPayload;
+                                              ^
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/ThunderPayload.java:16: error: package CustomPacketPayload does not exist
+  	public static final CustomPacketPayload.Type<ThunderPayload> TYPE = new CustomPacketPayload.Type<>(ID);
+  	                                       ^
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/WeatherSyncPayload.java:8: error: package net.minecraft.network.protocol.custom does not exist
+  import net.minecraft.network.protocol.custom.CustomPacketPayload;
+                                              ^
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/WeatherSyncPayload.java:34: error: package CustomPacketPayload does not exist
+  	public static final CustomPacketPayload.Type<WeatherSyncPayload> TYPE = new CustomPacketPayload.Type<>(ID);
+  	                                       ^
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/TornadicMod.java:4: error: package com.tornadic.config does not exist
+  import com.tornadic.config.TornadicConfig;
+                            ^
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:5: error: package com.tornadic.config does not exist
+  import com.tornadic.config.TornadicConfig;
+                            ^
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:24: error: package net.minecraft.world.level.heightmap does not exist
+  import net.minecraft.world.level.heightmap.Heightmap;
+                                            ^
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:9: error: package com.tornadic.config does not exist
+  import com.tornadic.config.TornadicConfig;
+                            ^
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:36: error: package net.minecraft.world.level.heightmap does not exist
+  import net.minecraft.world.level.heightmap.Heightmap;
+                                            ^
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:39: error: package net.minecraft.world.level.storage.saveddata does not exist
+  import net.minecraft.world.level.storage.saveddata.SavedData;
+                                                    ^
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/wind/WindField.java:5: error: package com.tornadic.config does not exist
+  import com.tornadic.config.TornadicConfig;
+                            ^
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/item/ChaserVehicleItem.java:4: error: package com.tornadic.config does not exist
+  import com.tornadic.config.TornadicConfig;
+                            ^
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/item/ChaserVehicleItem.java:19: error: package net.minecraft.world.level.tooltip does not exist
+  import net.minecraft.world.level.tooltip.TooltipContext;
+                                          ^
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/item/AnemometerItem.java:16: error: package net.minecraft.world.level.tooltip does not exist
+  import net.minecraft.world.level.tooltip.TooltipContext;
+                                          ^
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/item/StormRadarItem.java:12: error: package net.minecraft.world.level.tooltip does not exist
+  import net.minecraft.world.level.tooltip.TooltipContext;
+                                          ^
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/item/StormNotebookItem.java:12: error: package net.minecraft.world.level.tooltip does not exist
+  import net.minecraft.world.level.tooltip.TooltipContext;
+                                          ^
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/item/BarometerItem.java:15: error: package net.minecraft.world.level.tooltip does not exist
+  import net.minecraft.world.level.tooltip.TooltipContext;
+                                          ^
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/item/ThermometerItem.java:15: error: package net.minecraft.world.level.tooltip does not exist
+  import net.minecraft.world.level.tooltip.TooltipContext;
+                                          ^
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/item/WeatherRadioItem.java:3: error: package com.tornadic.config does not exist
+  import com.tornadic.config.TornadicConfig;
+                            ^
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/item/WeatherRadioItem.java:21: error: package net.minecraft.world.level.tooltip does not exist
+  import net.minecraft.world.level.tooltip.TooltipContext;
+                                          ^
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/TornadoSyncPayload.java:26: error: package CustomPacketPayload does not exist
+  	public static final CustomPacketPayload.Type<TornadoSyncPayload> TYPE = new CustomPacketPayload.Type<>(ID);
+  	                                                                                               ^
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/StormSyncPayload.java:30: error: package CustomPacketPayload does not exist
+  	public static final CustomPacketPayload.Type<StormSyncPayload> TYPE = new CustomPacketPayload.Type<>(ID);
+  	                                                                                             ^
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/ThunderPayload.java:16: error: package CustomPacketPayload does not exist
+  	public static final CustomPacketPayload.Type<ThunderPayload> TYPE = new CustomPacketPayload.Type<>(ID);
+  	                                                                                           ^
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/WeatherSyncPayload.java:34: error: package CustomPacketPayload does not exist
+  	public static final CustomPacketPayload.Type<WeatherSyncPayload> TYPE = new CustomPacketPayload.Type<>(ID);
+  	                                                                                               ^
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:194: error: package Heightmap does not exist
+  			int groundY = world.getHeight(Heightmap.Types.MOTION_BLOCKING, base);
+  			                                       ^
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:77: error: package SavedData does not exist
+  			new SavedData.Factory<>(TornadicSavedData::new, TornadicSavedData::load), NAME);
+  			             ^
+  100 errors
 
 * Try:
 > Check your code and dependencies to fix the compilation error(s)
@@ -122,10 +825,620 @@ org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':compile
 	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
 	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
 Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler output below.
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/TornadicMod.java:41: error: not a statement
-		TornadicItems.class; // triggers item registration
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/command/TornadicCommands.java:8: error: package com.tornadic.config does not exist
+import com.tornadic.config.TornadicConfig;
+                          ^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/TornadoSyncPayload.java:7: error: package net.minecraft.network.protocol.custom does not exist
+import net.minecraft.network.protocol.custom.CustomPacketPayload;
+                                            ^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/TornadoSyncPayload.java:24: error: cannot find symbol
+) implements CustomPacketPayload {
+             ^
+  symbol: class CustomPacketPayload
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/TornadoSyncPayload.java:26: error: package CustomPacketPayload does not exist
+	public static final CustomPacketPayload.Type<TornadoSyncPayload> TYPE = new CustomPacketPayload.Type<>(ID);
+	                                       ^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/TornadoSyncPayload.java:43: error: cannot find symbol
+	public Type<? extends CustomPacketPayload> type() {
+	       ^
+  symbol:   class Type
+  location: class TornadoSyncPayload
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/TornadoSyncPayload.java:43: error: cannot find symbol
+	public Type<? extends CustomPacketPayload> type() {
+	                      ^
+  symbol:   class CustomPacketPayload
+  location: class TornadoSyncPayload
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/StormSyncPayload.java:7: error: package net.minecraft.network.protocol.custom does not exist
+import net.minecraft.network.protocol.custom.CustomPacketPayload;
+                                            ^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/StormSyncPayload.java:28: error: cannot find symbol
+) implements CustomPacketPayload {
+             ^
+  symbol: class CustomPacketPayload
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/StormSyncPayload.java:30: error: package CustomPacketPayload does not exist
+	public static final CustomPacketPayload.Type<StormSyncPayload> TYPE = new CustomPacketPayload.Type<>(ID);
+	                                       ^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/StormSyncPayload.java:50: error: cannot find symbol
+	public Type<? extends CustomPacketPayload> type() {
+	       ^
+  symbol:   class Type
+  location: class StormSyncPayload
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/StormSyncPayload.java:50: error: cannot find symbol
+	public Type<? extends CustomPacketPayload> type() {
+	                      ^
+  symbol:   class CustomPacketPayload
+  location: class StormSyncPayload
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/ThunderPayload.java:5: error: package net.minecraft.network.protocol.custom does not exist
+import net.minecraft.network.protocol.custom.CustomPacketPayload;
+                                            ^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/ThunderPayload.java:14: error: cannot find symbol
+	implements CustomPacketPayload {
+	           ^
+  symbol: class CustomPacketPayload
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/ThunderPayload.java:16: error: package CustomPacketPayload does not exist
+	public static final CustomPacketPayload.Type<ThunderPayload> TYPE = new CustomPacketPayload.Type<>(ID);
+	                                       ^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/ThunderPayload.java:28: error: cannot find symbol
+	public Type<? extends CustomPacketPayload> type() {
+	       ^
+  symbol:   class Type
+  location: class ThunderPayload
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/ThunderPayload.java:28: error: cannot find symbol
+	public Type<? extends CustomPacketPayload> type() {
+	                      ^
+  symbol:   class CustomPacketPayload
+  location: class ThunderPayload
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/WeatherSyncPayload.java:6: error: cannot find symbol
+import net.minecraft.network.codec.PacketCodec;
+                                  ^
+  symbol:   class PacketCodec
+  location: package net.minecraft.network.codec
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/WeatherSyncPayload.java:8: error: package net.minecraft.network.protocol.custom does not exist
+import net.minecraft.network.protocol.custom.CustomPacketPayload;
+                                            ^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/WeatherSyncPayload.java:32: error: cannot find symbol
+) implements CustomPacketPayload {
+             ^
+  symbol: class CustomPacketPayload
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/WeatherSyncPayload.java:34: error: package CustomPacketPayload does not exist
+	public static final CustomPacketPayload.Type<WeatherSyncPayload> TYPE = new CustomPacketPayload.Type<>(ID);
+	                                       ^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/WeatherSyncPayload.java:58: error: cannot find symbol
+	public Type<? extends CustomPacketPayload> type() {
+	       ^
+  symbol:   class Type
+  location: class WeatherSyncPayload
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/WeatherSyncPayload.java:58: error: cannot find symbol
+	public Type<? extends CustomPacketPayload> type() {
+	                      ^
+  symbol:   class CustomPacketPayload
+  location: class WeatherSyncPayload
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/TornadicMod.java:4: error: package com.tornadic.config does not exist
+import com.tornadic.config.TornadicConfig;
+                          ^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:5: error: package com.tornadic.config does not exist
+import com.tornadic.config.TornadicConfig;
+                          ^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:19: error: cannot find symbol
+import net.minecraft.world.entity.ItemEntity;
+                                 ^
+  symbol:   class ItemEntity
+  location: package net.minecraft.world.entity
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:24: error: package net.minecraft.world.level.heightmap does not exist
+import net.minecraft.world.level.heightmap.Heightmap;
+                                          ^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:9: error: package com.tornadic.config does not exist
+import com.tornadic.config.TornadicConfig;
+                          ^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:36: error: package net.minecraft.world.level.heightmap does not exist
+import net.minecraft.world.level.heightmap.Heightmap;
+                                          ^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:39: error: package net.minecraft.world.level.storage.saveddata does not exist
+import net.minecraft.world.level.storage.saveddata.SavedData;
+                                                  ^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:50: error: cannot find symbol
+public class TornadicSavedData extends SavedData {
+                                       ^
+  symbol: class SavedData
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/wind/WindField.java:5: error: package com.tornadic.config does not exist
+import com.tornadic.config.TornadicConfig;
+                          ^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/item/ChaserVehicleItem.java:4: error: package com.tornadic.config does not exist
+import com.tornadic.config.TornadicConfig;
+                          ^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/item/ChaserVehicleItem.java:19: error: package net.minecraft.world.level.tooltip does not exist
+import net.minecraft.world.level.tooltip.TooltipContext;
+                                        ^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/item/AnemometerItem.java:16: error: package net.minecraft.world.level.tooltip does not exist
+import net.minecraft.world.level.tooltip.TooltipContext;
+                                        ^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/item/StormRadarItem.java:12: error: package net.minecraft.world.level.tooltip does not exist
+import net.minecraft.world.level.tooltip.TooltipContext;
+                                        ^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/item/StormNotebookItem.java:12: error: package net.minecraft.world.level.tooltip does not exist
+import net.minecraft.world.level.tooltip.TooltipContext;
+                                        ^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/item/BarometerItem.java:15: error: package net.minecraft.world.level.tooltip does not exist
+import net.minecraft.world.level.tooltip.TooltipContext;
+                                        ^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/item/ThermometerItem.java:15: error: package net.minecraft.world.level.tooltip does not exist
+import net.minecraft.world.level.tooltip.TooltipContext;
+                                        ^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/item/WeatherRadioItem.java:3: error: package com.tornadic.config does not exist
+import com.tornadic.config.TornadicConfig;
+                          ^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/item/WeatherRadioItem.java:21: error: package net.minecraft.world.level.tooltip does not exist
+import net.minecraft.world.level.tooltip.TooltipContext;
+                                        ^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/entity/ChaserVehicleEntity.java:35: error: cannot find symbol
+		return entity instanceof Player && !this.hasPassengers();
+		                                        ^
+  symbol: method hasPassengers()
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/entity/ChaserVehicleEntity.java:41: error: cannot find symbol
+			if (hasPassengers()) {
+			    ^
+  symbol:   method hasPassengers()
+  location: class ChaserVehicleEntity
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/entity/ChaserVehicleEntity.java:43: error: canRide(Entity) has protected access in Entity
+			} else if (player.canRide(this)) {
+			                 ^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/entity/ChaserVehicleEntity.java:57: error: cannot find symbol
+		if (hasPassengers()) {
+		    ^
+  symbol:   method hasPassengers()
+  location: class ChaserVehicleEntity
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/entity/ChaserVehicleEntity.java:73: error: incompatible types: double cannot be converted to Vec3
+			setDeltaMovement(vel.multiply(0.9));
+			                              ^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/entity/ChaserVehicleEntity.java:81: error: method does not override or implement a method from a supertype
+	@Override
+	^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/command/TornadicCommands.java:100: error: cannot find symbol
+			.append(" ").append(risk.asComponent().withStyle(ChatFormatting.BOLD)));
+			                                      ^
+  symbol:   method withStyle(ChatFormatting)
+  location: interface Component
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/command/TornadicCommands.java:118: error: cannot find symbol
+			return world.getLevelData().getWorldGenOptions().getSeed();
+			                           ^
+  symbol:   method getWorldGenOptions()
+  location: interface LevelData
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/command/TornadicCommands.java:160: error: cannot find symbol
+		TornadicConfig.debugHud = !TornadicConfig.debugHud;
+		^
+  symbol:   variable TornadicConfig
+  location: class TornadicCommands
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/command/TornadicCommands.java:160: error: cannot find symbol
+		TornadicConfig.debugHud = !TornadicConfig.debugHud;
+		                           ^
+  symbol:   variable TornadicConfig
+  location: class TornadicCommands
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/command/TornadicCommands.java:161: error: cannot find symbol
+		source.sendSuccess(() -> Component.literal("Debug HUD " + (TornadicConfig.debugHud ? "enabled" : "disabled") + ".")
+		                                                           ^
+  symbol:   variable TornadicConfig
+  location: class TornadicCommands
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/command/TornadicCommands.java:167: error: cannot find symbol
+		TornadicConfig.debugHud = on;
+		^
+  symbol:   variable TornadicConfig
+  location: class TornadicCommands
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/command/TornadicCommands.java:209: error: cannot find symbol
+		data.setDirty();
+		    ^
+  symbol:   method setDirty()
+  location: variable data of type TornadicSavedData
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/command/TornadicCommands.java:312: error: cannot find symbol
+			.append(s.type.asComponent().withStyle(ChatFormatting.BOLD))
+			                            ^
+  symbol:   method withStyle(ChatFormatting)
+  location: interface Component
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/command/TornadicCommands.java:325: error: cannot find symbol
+				.withStyle(s.hail ? ChatFormatting.CYAN : ChatFormatting.WHITE))
+				                                  ^
+  symbol:   variable CYAN
+  location: class ChatFormatting
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/TornadoSyncPayload.java:26: error: package CustomPacketPayload does not exist
+	public static final CustomPacketPayload.Type<TornadoSyncPayload> TYPE = new CustomPacketPayload.Type<>(ID);
+	                                                                                               ^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/TornadoSyncPayload.java:28: error: no suitable method found for composite(FriendlyBy[...]arInt,TornadoSyn[...]ityId,FriendlyBy[...]ouble,TornadoSyn[...]ad::x,FriendlyBy[...]ouble,TornadoSyn[...]ad::y,FriendlyBy[...]ouble,TornadoSyn[...]ad::z,FriendlyBy[...]Float,TornadoSyn[...]adius,FriendlyBy[...]Float,TornadoSyn[...]adius,FriendlyBy[...]arInt,TornadoSyn[...]d::ef,FriendlyBy[...]Float,TornadoSyn[...]indMs,FriendlyBy[...]Float,TornadoSyn[...]ading,FriendlyBy[...]arInt,TornadoSyn[...]dTone,TornadoSyn[...]::new)
+	public static final StreamCodec<FriendlyByteBuf, TornadoSyncPayload> STREAM_CODEC = StreamCodec.composite(
+	                                                                                               ^
+    method StreamCodec.<B#1,C#1,T1#1>composite(StreamCodec<? super B#1,T1#1>,Function<C#1,T1#1>,Function<T1#1,C#1>) is not applicable
+      (cannot infer type-variable(s) B#1,C#1,T1#1
+        (actual and formal argument lists differ in length))
+    method StreamCodec.<B#2,C#2,T1#2,T2#1>composite(StreamCodec<? super B#2,T1#2>,Function<C#2,T1#2>,StreamCodec<? super B#2,T2#1>,Function<C#2,T2#1>,BiFunction<T1#2,T2#1,C#2>) is not applicable
+      (cannot infer type-variable(s) B#2,C#2,T1#2,T2#1
+        (actual and formal argument lists differ in length))
+    method StreamCodec.<B#3,C#3,T1#3,T2#2,T3#1>composite(StreamCodec<? super B#3,T1#3>,Function<C#3,T1#3>,StreamCodec<? super B#3,T2#2>,Function<C#3,T2#2>,StreamCodec<? super B#3,T3#1>,Function<C#3,T3#1>,Function3<T1#3,T2#2,T3#1,C#3>) is not applicable
+      (cannot infer type-variable(s) B#3,C#3,T1#3,T2#2,T3#1
+        (actual and formal argument lists differ in length))
+    method StreamCodec.<B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>) is not applicable
+      (cannot infer type-variable(s) B#4,C#4,T1#4,T2#3,T3#2,T4#1
+        (actual and formal argument lists differ in length))
+    method StreamCodec.<B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>) is not applicable
+      (cannot infer type-variable(s) B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1
+        (actual and formal argument lists differ in length))
+    method StreamCodec.<B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>) is not applicable
+      (cannot infer type-variable(s) B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6
+        (actual and formal argument lists differ in length))
+  where B#1,C#1,T1#1,B#2,C#2,T1#2,T2#1,B#3,C#3,T1#3,T2#2,T3#1,B#4,C#4,T1#4,T2#3,T3#2,T4#1,B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1,B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6 are type-variables:
+    B#1 extends Object declared in method <B#1,C#1,T1#1>composite(StreamCodec<? super B#1,T1#1>,Function<C#1,T1#1>,Function<T1#1,C#1>)
+    C#1 extends Object declared in method <B#1,C#1,T1#1>composite(StreamCodec<? super B#1,T1#1>,Function<C#1,T1#1>,Function<T1#1,C#1>)
+    T1#1 extends Object declared in method <B#1,C#1,T1#1>composite(StreamCodec<? super B#1,T1#1>,Function<C#1,T1#1>,Function<T1#1,C#1>)
+    B#2 extends Object declared in method <B#2,C#2,T1#2,T2#1>composite(StreamCodec<? super B#2,T1#2>,Function<C#2,T1#2>,StreamCodec<? super B#2,T2#1>,Function<C#2,T2#1>,BiFunction<T1#2,T2#1,C#2>)
+    C#2 extends Object declared in method <B#2,C#2,T1#2,T2#1>composite(StreamCodec<? super B#2,T1#2>,Function<C#2,T1#2>,StreamCodec<? super B#2,T2#1>,Function<C#2,T2#1>,BiFunction<T1#2,T2#1,C#2>)
+    T1#2 extends Object declared in method <B#2,C#2,T1#2,T2#1>composite(StreamCodec<? super B#2,T1#2>,Function<C#2,T1#2>,StreamCodec<? super B#2,T2#1>,Function<C#2,T2#1>,BiFunction<T1#2,T2#1,C#2>)
+    T2#1 extends Object declared in method <B#2,C#2,T1#2,T2#1>composite(StreamCodec<? super B#2,T1#2>,Function<C#2,T1#2>,StreamCodec<? super B#2,T2#1>,Function<C#2,T2#1>,BiFunction<T1#2,T2#1,C#2>)
+    B#3 extends Object declared in method <B#3,C#3,T1#3,T2#2,T3#1>composite(StreamCodec<? super B#3,T1#3>,Function<C#3,T1#3>,StreamCodec<? super B#3,T2#2>,Function<C#3,T2#2>,StreamCodec<? super B#3,T3#1>,Function<C#3,T3#1>,Function3<T1#3,T2#2,T3#1,C#3>)
+    C#3 extends Object declared in method <B#3,C#3,T1#3,T2#2,T3#1>composite(StreamCodec<? super B#3,T1#3>,Function<C#3,T1#3>,StreamCodec<? super B#3,T2#2>,Function<C#3,T2#2>,StreamCodec<? super B#3,T3#1>,Function<C#3,T3#1>,Function3<T1#3,T2#2,T3#1,C#3>)
+    T1#3 extends Object declared in method <B#3,C#3,T1#3,T2#2,T3#1>composite(StreamCodec<? super B#3,T1#3>,Function<C#3,T1#3>,StreamCodec<? super B#3,T2#2>,Function<C#3,T2#2>,StreamCodec<? super B#3,T3#1>,Function<C#3,T3#1>,Function3<T1#3,T2#2,T3#1,C#3>)
+    T2#2 extends Object declared in method <B#3,C#3,T1#3,T2#2,T3#1>composite(StreamCodec<? super B#3,T1#3>,Function<C#3,T1#3>,StreamCodec<? super B#3,T2#2>,Function<C#3,T2#2>,StreamCodec<? super B#3,T3#1>,Function<C#3,T3#1>,Function3<T1#3,T2#2,T3#1,C#3>)
+    T3#1 extends Object declared in method <B#3,C#3,T1#3,T2#2,T3#1>composite(StreamCodec<? super B#3,T1#3>,Function<C#3,T1#3>,StreamCodec<? super B#3,T2#2>,Function<C#3,T2#2>,StreamCodec<? super B#3,T3#1>,Function<C#3,T3#1>,Function3<T1#3,T2#2,T3#1,C#3>)
+    B#4 extends Object declared in method <B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>)
+    C#4 extends Object declared in method <B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>)
+    T1#4 extends Object declared in method <B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>)
+    T2#3 extends Object declared in method <B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>)
+    T3#2 extends Object declared in method <B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>)
+    T4#1 extends Object declared in method <B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>)
+    B#5 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
+    C#5 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
+    T1#5 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
+    T2#4 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
+    T3#3 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
+    T4#2 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
+    T5#1 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
+    B#6 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+    C#6 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+    T1#6 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+    T2#5 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+    T3#4 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+    T4#3 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+    T5#2 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+    T6 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/TornadoSyncPayload.java:42: error: method does not override or implement a method from a supertype
+	@Override
+	^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoState.java:64: error: incompatible types: possible lossy conversion from float to int
+			ef = peakEf;
+			     ^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoState.java:74: error: incompatible types: possible lossy conversion from float to int
+		float base = TornadoIntensity.fromEf(peakEf).funnelRadius();
+		                                     ^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoEntity.java:23: error: cannot find symbol
+		this.noGravity = true;
+		    ^
+  symbol: variable noGravity
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoEntity.java:42: error: method does not override or implement a method from a supertype
+	@Override
+	^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/StormSyncPayload.java:30: error: package CustomPacketPayload does not exist
+	public static final CustomPacketPayload.Type<StormSyncPayload> TYPE = new CustomPacketPayload.Type<>(ID);
+	                                                                                             ^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/StormSyncPayload.java:32: error: no suitable method found for composite(FriendlyBy[...]rLong,StormSyncP[...]d::id,FriendlyBy[...]ouble,StormSyncPayload::x,FriendlyBy[...]ouble,StormSyncPayload::z,FriendlyBy[...]Float,StormSyncP[...]adius,FriendlyBy[...]arInt,StormSyncP[...]dinal,FriendlyBy[...]Float,StormSyncP[...]nsity,FriendlyBy[...]Float,StormSyncP[...]ation,FriendlyBy[...]Float,StormSyncP[...]nsity,FriendlyBy[...]olean,StormSyncP[...]:hail,FriendlyBy[...]Float,StormSyncP[...]lSize,FriendlyBy[...]Float,StormSyncP[...]::dir,FriendlyBy[...]Float,StormSyncP[...]speed,FriendlyBy[...]arInt,StormSyncP[...]adoEf,StormSyncP[...]::new)
+	public static final StreamCodec<FriendlyByteBuf, StormSyncPayload> STREAM_CODEC = StreamCodec.composite(
+	                                                                                             ^
+    method StreamCodec.<B#1,C#1,T1#1>composite(StreamCodec<? super B#1,T1#1>,Function<C#1,T1#1>,Function<T1#1,C#1>) is not applicable
+      (cannot infer type-variable(s) B#1,C#1,T1#1
+        (actual and formal argument lists differ in length))
+    method StreamCodec.<B#2,C#2,T1#2,T2#1>composite(StreamCodec<? super B#2,T1#2>,Function<C#2,T1#2>,StreamCodec<? super B#2,T2#1>,Function<C#2,T2#1>,BiFunction<T1#2,T2#1,C#2>) is not applicable
+      (cannot infer type-variable(s) B#2,C#2,T1#2,T2#1
+        (actual and formal argument lists differ in length))
+    method StreamCodec.<B#3,C#3,T1#3,T2#2,T3#1>composite(StreamCodec<? super B#3,T1#3>,Function<C#3,T1#3>,StreamCodec<? super B#3,T2#2>,Function<C#3,T2#2>,StreamCodec<? super B#3,T3#1>,Function<C#3,T3#1>,Function3<T1#3,T2#2,T3#1,C#3>) is not applicable
+      (cannot infer type-variable(s) B#3,C#3,T1#3,T2#2,T3#1
+        (actual and formal argument lists differ in length))
+    method StreamCodec.<B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>) is not applicable
+      (cannot infer type-variable(s) B#4,C#4,T1#4,T2#3,T3#2,T4#1
+        (actual and formal argument lists differ in length))
+    method StreamCodec.<B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>) is not applicable
+      (cannot infer type-variable(s) B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1
+        (actual and formal argument lists differ in length))
+    method StreamCodec.<B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>) is not applicable
+      (cannot infer type-variable(s) B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6
+        (actual and formal argument lists differ in length))
+  where B#1,C#1,T1#1,B#2,C#2,T1#2,T2#1,B#3,C#3,T1#3,T2#2,T3#1,B#4,C#4,T1#4,T2#3,T3#2,T4#1,B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1,B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6 are type-variables:
+    B#1 extends Object declared in method <B#1,C#1,T1#1>composite(StreamCodec<? super B#1,T1#1>,Function<C#1,T1#1>,Function<T1#1,C#1>)
+    C#1 extends Object declared in method <B#1,C#1,T1#1>composite(StreamCodec<? super B#1,T1#1>,Function<C#1,T1#1>,Function<T1#1,C#1>)
+    T1#1 extends Object declared in method <B#1,C#1,T1#1>composite(StreamCodec<? super B#1,T1#1>,Function<C#1,T1#1>,Function<T1#1,C#1>)
+    B#2 extends Object declared in method <B#2,C#2,T1#2,T2#1>composite(StreamCodec<? super B#2,T1#2>,Function<C#2,T1#2>,StreamCodec<? super B#2,T2#1>,Function<C#2,T2#1>,BiFunction<T1#2,T2#1,C#2>)
+    C#2 extends Object declared in method <B#2,C#2,T1#2,T2#1>composite(StreamCodec<? super B#2,T1#2>,Function<C#2,T1#2>,StreamCodec<? super B#2,T2#1>,Function<C#2,T2#1>,BiFunction<T1#2,T2#1,C#2>)
+    T1#2 extends Object declared in method <B#2,C#2,T1#2,T2#1>composite(StreamCodec<? super B#2,T1#2>,Function<C#2,T1#2>,StreamCodec<? super B#2,T2#1>,Function<C#2,T2#1>,BiFunction<T1#2,T2#1,C#2>)
+    T2#1 extends Object declared in method <B#2,C#2,T1#2,T2#1>composite(StreamCodec<? super B#2,T1#2>,Function<C#2,T1#2>,StreamCodec<? super B#2,T2#1>,Function<C#2,T2#1>,BiFunction<T1#2,T2#1,C#2>)
+    B#3 extends Object declared in method <B#3,C#3,T1#3,T2#2,T3#1>composite(StreamCodec<? super B#3,T1#3>,Function<C#3,T1#3>,StreamCodec<? super B#3,T2#2>,Function<C#3,T2#2>,StreamCodec<? super B#3,T3#1>,Function<C#3,T3#1>,Function3<T1#3,T2#2,T3#1,C#3>)
+    C#3 extends Object declared in method <B#3,C#3,T1#3,T2#2,T3#1>composite(StreamCodec<? super B#3,T1#3>,Function<C#3,T1#3>,StreamCodec<? super B#3,T2#2>,Function<C#3,T2#2>,StreamCodec<? super B#3,T3#1>,Function<C#3,T3#1>,Function3<T1#3,T2#2,T3#1,C#3>)
+    T1#3 extends Object declared in method <B#3,C#3,T1#3,T2#2,T3#1>composite(StreamCodec<? super B#3,T1#3>,Function<C#3,T1#3>,StreamCodec<? super B#3,T2#2>,Function<C#3,T2#2>,StreamCodec<? super B#3,T3#1>,Function<C#3,T3#1>,Function3<T1#3,T2#2,T3#1,C#3>)
+    T2#2 extends Object declared in method <B#3,C#3,T1#3,T2#2,T3#1>composite(StreamCodec<? super B#3,T1#3>,Function<C#3,T1#3>,StreamCodec<? super B#3,T2#2>,Function<C#3,T2#2>,StreamCodec<? super B#3,T3#1>,Function<C#3,T3#1>,Function3<T1#3,T2#2,T3#1,C#3>)
+    T3#1 extends Object declared in method <B#3,C#3,T1#3,T2#2,T3#1>composite(StreamCodec<? super B#3,T1#3>,Function<C#3,T1#3>,StreamCodec<? super B#3,T2#2>,Function<C#3,T2#2>,StreamCodec<? super B#3,T3#1>,Function<C#3,T3#1>,Function3<T1#3,T2#2,T3#1,C#3>)
+    B#4 extends Object declared in method <B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>)
+    C#4 extends Object declared in method <B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>)
+    T1#4 extends Object declared in method <B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>)
+    T2#3 extends Object declared in method <B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>)
+    T3#2 extends Object declared in method <B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>)
+    T4#1 extends Object declared in method <B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>)
+    B#5 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
+    C#5 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
+    T1#5 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
+    T2#4 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
+    T3#3 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
+    T4#2 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
+    T5#1 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
+    B#6 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+    C#6 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+    T1#6 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+    T2#5 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+    T3#4 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+    T4#3 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+    T5#2 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+    T6 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/StormSyncPayload.java:49: error: method does not override or implement a method from a supertype
+	@Override
+	^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/ThunderPayload.java:16: error: package CustomPacketPayload does not exist
+	public static final CustomPacketPayload.Type<ThunderPayload> TYPE = new CustomPacketPayload.Type<>(ID);
+	                                                                                           ^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/ThunderPayload.java:18: error: no suitable method found for composite(FriendlyBy[...]ouble,ThunderPayload::x,FriendlyBy[...]ouble,ThunderPayload::z,FriendlyBy[...]Float,ThunderPay[...]olume,FriendlyBy[...]Float,ThunderPay[...]pitch,FriendlyBy[...]arInt,ThunderPay[...]Ticks,ThunderPayload::new)
+	public static final StreamCodec<FriendlyByteBuf, ThunderPayload> STREAM_CODEC = StreamCodec.composite(
+	                                                                                           ^
+    method StreamCodec.<B#1,C#1,T1#1>composite(StreamCodec<? super B#1,T1#1>,Function<C#1,T1#1>,Function<T1#1,C#1>) is not applicable
+      (cannot infer type-variable(s) B#1,C#1,T1#1
+        (actual and formal argument lists differ in length))
+    method StreamCodec.<B#2,C#2,T1#2,T2#1>composite(StreamCodec<? super B#2,T1#2>,Function<C#2,T1#2>,StreamCodec<? super B#2,T2#1>,Function<C#2,T2#1>,BiFunction<T1#2,T2#1,C#2>) is not applicable
+      (cannot infer type-variable(s) B#2,C#2,T1#2,T2#1
+        (actual and formal argument lists differ in length))
+    method StreamCodec.<B#3,C#3,T1#3,T2#2,T3#1>composite(StreamCodec<? super B#3,T1#3>,Function<C#3,T1#3>,StreamCodec<? super B#3,T2#2>,Function<C#3,T2#2>,StreamCodec<? super B#3,T3#1>,Function<C#3,T3#1>,Function3<T1#3,T2#2,T3#1,C#3>) is not applicable
+      (cannot infer type-variable(s) B#3,C#3,T1#3,T2#2,T3#1
+        (actual and formal argument lists differ in length))
+    method StreamCodec.<B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>) is not applicable
+      (cannot infer type-variable(s) B#4,C#4,T1#4,T2#3,T3#2,T4#1
+        (actual and formal argument lists differ in length))
+    method StreamCodec.<B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>) is not applicable
+      (cannot infer type-variable(s) B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1
+        (argument mismatch; StreamCodec is not a functional interface
+          multiple non-overriding abstract methods found in interface StreamCodec))
+    method StreamCodec.<B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>) is not applicable
+      (cannot infer type-variable(s) B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6
+        (actual and formal argument lists differ in length))
+  where B#1,C#1,T1#1,B#2,C#2,T1#2,T2#1,B#3,C#3,T1#3,T2#2,T3#1,B#4,C#4,T1#4,T2#3,T3#2,T4#1,B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1,B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6 are type-variables:
+    B#1 extends Object declared in method <B#1,C#1,T1#1>composite(StreamCodec<? super B#1,T1#1>,Function<C#1,T1#1>,Function<T1#1,C#1>)
+    C#1 extends Object declared in method <B#1,C#1,T1#1>composite(StreamCodec<? super B#1,T1#1>,Function<C#1,T1#1>,Function<T1#1,C#1>)
+    T1#1 extends Object declared in method <B#1,C#1,T1#1>composite(StreamCodec<? super B#1,T1#1>,Function<C#1,T1#1>,Function<T1#1,C#1>)
+    B#2 extends Object declared in method <B#2,C#2,T1#2,T2#1>composite(StreamCodec<? super B#2,T1#2>,Function<C#2,T1#2>,StreamCodec<? super B#2,T2#1>,Function<C#2,T2#1>,BiFunction<T1#2,T2#1,C#2>)
+    C#2 extends Object declared in method <B#2,C#2,T1#2,T2#1>composite(StreamCodec<? super B#2,T1#2>,Function<C#2,T1#2>,StreamCodec<? super B#2,T2#1>,Function<C#2,T2#1>,BiFunction<T1#2,T2#1,C#2>)
+    T1#2 extends Object declared in method <B#2,C#2,T1#2,T2#1>composite(StreamCodec<? super B#2,T1#2>,Function<C#2,T1#2>,StreamCodec<? super B#2,T2#1>,Function<C#2,T2#1>,BiFunction<T1#2,T2#1,C#2>)
+    T2#1 extends Object declared in method <B#2,C#2,T1#2,T2#1>composite(StreamCodec<? super B#2,T1#2>,Function<C#2,T1#2>,StreamCodec<? super B#2,T2#1>,Function<C#2,T2#1>,BiFunction<T1#2,T2#1,C#2>)
+    B#3 extends Object declared in method <B#3,C#3,T1#3,T2#2,T3#1>composite(StreamCodec<? super B#3,T1#3>,Function<C#3,T1#3>,StreamCodec<? super B#3,T2#2>,Function<C#3,T2#2>,StreamCodec<? super B#3,T3#1>,Function<C#3,T3#1>,Function3<T1#3,T2#2,T3#1,C#3>)
+    C#3 extends Object declared in method <B#3,C#3,T1#3,T2#2,T3#1>composite(StreamCodec<? super B#3,T1#3>,Function<C#3,T1#3>,StreamCodec<? super B#3,T2#2>,Function<C#3,T2#2>,StreamCodec<? super B#3,T3#1>,Function<C#3,T3#1>,Function3<T1#3,T2#2,T3#1,C#3>)
+    T1#3 extends Object declared in method <B#3,C#3,T1#3,T2#2,T3#1>composite(StreamCodec<? super B#3,T1#3>,Function<C#3,T1#3>,StreamCodec<? super B#3,T2#2>,Function<C#3,T2#2>,StreamCodec<? super B#3,T3#1>,Function<C#3,T3#1>,Function3<T1#3,T2#2,T3#1,C#3>)
+    T2#2 extends Object declared in method <B#3,C#3,T1#3,T2#2,T3#1>composite(StreamCodec<? super B#3,T1#3>,Function<C#3,T1#3>,StreamCodec<? super B#3,T2#2>,Function<C#3,T2#2>,StreamCodec<? super B#3,T3#1>,Function<C#3,T3#1>,Function3<T1#3,T2#2,T3#1,C#3>)
+    T3#1 extends Object declared in method <B#3,C#3,T1#3,T2#2,T3#1>composite(StreamCodec<? super B#3,T1#3>,Function<C#3,T1#3>,StreamCodec<? super B#3,T2#2>,Function<C#3,T2#2>,StreamCodec<? super B#3,T3#1>,Function<C#3,T3#1>,Function3<T1#3,T2#2,T3#1,C#3>)
+    B#4 extends Object declared in method <B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>)
+    C#4 extends Object declared in method <B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>)
+    T1#4 extends Object declared in method <B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>)
+    T2#3 extends Object declared in method <B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>)
+    T3#2 extends Object declared in method <B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>)
+    T4#1 extends Object declared in method <B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>)
+    B#5 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
+    C#5 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
+    T1#5 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
+    T2#4 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
+    T3#3 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
+    T4#2 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
+    T5#1 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
+    B#6 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+    C#6 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+    T1#6 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+    T2#5 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+    T3#4 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+    T4#3 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+    T5#2 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+    T6 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/ThunderPayload.java:27: error: method does not override or implement a method from a supertype
+	@Override
+	^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/WeatherSyncPayload.java:34: error: package CustomPacketPayload does not exist
+	public static final CustomPacketPayload.Type<WeatherSyncPayload> TYPE = new CustomPacketPayload.Type<>(ID);
+	                                                                                               ^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/WeatherSyncPayload.java:36: error: no suitable method found for composite(FriendlyBy[...]arInt,WeatherSyn[...]::day,FriendlyBy[...]Float,WeatherSyn[...]tempF,FriendlyBy[...]Float,WeatherSyn[...]ointF,FriendlyBy[...]arInt,WeatherSyn[...]idity,FriendlyBy[...]Float,WeatherSyn[...]ureMb,FriendlyBy[...]Float,WeatherSyn[...]ndMph,FriendlyBy[...]Float,WeatherSyn[...]ndDir,FriendlyBy[...]arInt,WeatherSyn[...]:cape,FriendlyBy[...]Float,WeatherSyn[...]shear,FriendlyBy[...]arInt,WeatherSyn[...]ility,FriendlyBy[...]arInt,WeatherSyn[...]ility,FriendlyBy[...]arInt,WeatherSyn[...]dinal,FriendlyBy[...]Float,WeatherSyn[...]Level,FriendlyBy[...]Float,WeatherSyn[...]Level,FriendlyBy[...]arInt,WeatherSyn[...]Today,FriendlyBy[...]arInt,WeatherSyn[...]Today,FriendlyBy[...]arInt,WeatherSyn[...]Today,WeatherSyn[...]::new)
+	public static final StreamCodec<FriendlyByteBuf, WeatherSyncPayload> STREAM_CODEC = StreamCodec.composite(
+	                                                                                               ^
+    method StreamCodec.<B#1,C#1,T1#1>composite(StreamCodec<? super B#1,T1#1>,Function<C#1,T1#1>,Function<T1#1,C#1>) is not applicable
+      (cannot infer type-variable(s) B#1,C#1,T1#1
+        (actual and formal argument lists differ in length))
+    method StreamCodec.<B#2,C#2,T1#2,T2#1>composite(StreamCodec<? super B#2,T1#2>,Function<C#2,T1#2>,StreamCodec<? super B#2,T2#1>,Function<C#2,T2#1>,BiFunction<T1#2,T2#1,C#2>) is not applicable
+      (cannot infer type-variable(s) B#2,C#2,T1#2,T2#1
+        (actual and formal argument lists differ in length))
+    method StreamCodec.<B#3,C#3,T1#3,T2#2,T3#1>composite(StreamCodec<? super B#3,T1#3>,Function<C#3,T1#3>,StreamCodec<? super B#3,T2#2>,Function<C#3,T2#2>,StreamCodec<? super B#3,T3#1>,Function<C#3,T3#1>,Function3<T1#3,T2#2,T3#1,C#3>) is not applicable
+      (cannot infer type-variable(s) B#3,C#3,T1#3,T2#2,T3#1
+        (actual and formal argument lists differ in length))
+    method StreamCodec.<B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>) is not applicable
+      (cannot infer type-variable(s) B#4,C#4,T1#4,T2#3,T3#2,T4#1
+        (actual and formal argument lists differ in length))
+    method StreamCodec.<B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>) is not applicable
+      (cannot infer type-variable(s) B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1
+        (actual and formal argument lists differ in length))
+    method StreamCodec.<B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>) is not applicable
+      (cannot infer type-variable(s) B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6
+        (actual and formal argument lists differ in length))
+  where B#1,C#1,T1#1,B#2,C#2,T1#2,T2#1,B#3,C#3,T1#3,T2#2,T3#1,B#4,C#4,T1#4,T2#3,T3#2,T4#1,B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1,B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6 are type-variables:
+    B#1 extends Object declared in method <B#1,C#1,T1#1>composite(StreamCodec<? super B#1,T1#1>,Function<C#1,T1#1>,Function<T1#1,C#1>)
+    C#1 extends Object declared in method <B#1,C#1,T1#1>composite(StreamCodec<? super B#1,T1#1>,Function<C#1,T1#1>,Function<T1#1,C#1>)
+    T1#1 extends Object declared in method <B#1,C#1,T1#1>composite(StreamCodec<? super B#1,T1#1>,Function<C#1,T1#1>,Function<T1#1,C#1>)
+    B#2 extends Object declared in method <B#2,C#2,T1#2,T2#1>composite(StreamCodec<? super B#2,T1#2>,Function<C#2,T1#2>,StreamCodec<? super B#2,T2#1>,Function<C#2,T2#1>,BiFunction<T1#2,T2#1,C#2>)
+    C#2 extends Object declared in method <B#2,C#2,T1#2,T2#1>composite(StreamCodec<? super B#2,T1#2>,Function<C#2,T1#2>,StreamCodec<? super B#2,T2#1>,Function<C#2,T2#1>,BiFunction<T1#2,T2#1,C#2>)
+    T1#2 extends Object declared in method <B#2,C#2,T1#2,T2#1>composite(StreamCodec<? super B#2,T1#2>,Function<C#2,T1#2>,StreamCodec<? super B#2,T2#1>,Function<C#2,T2#1>,BiFunction<T1#2,T2#1,C#2>)
+    T2#1 extends Object declared in method <B#2,C#2,T1#2,T2#1>composite(StreamCodec<? super B#2,T1#2>,Function<C#2,T1#2>,StreamCodec<? super B#2,T2#1>,Function<C#2,T2#1>,BiFunction<T1#2,T2#1,C#2>)
+    B#3 extends Object declared in method <B#3,C#3,T1#3,T2#2,T3#1>composite(StreamCodec<? super B#3,T1#3>,Function<C#3,T1#3>,StreamCodec<? super B#3,T2#2>,Function<C#3,T2#2>,StreamCodec<? super B#3,T3#1>,Function<C#3,T3#1>,Function3<T1#3,T2#2,T3#1,C#3>)
+    C#3 extends Object declared in method <B#3,C#3,T1#3,T2#2,T3#1>composite(StreamCodec<? super B#3,T1#3>,Function<C#3,T1#3>,StreamCodec<? super B#3,T2#2>,Function<C#3,T2#2>,StreamCodec<? super B#3,T3#1>,Function<C#3,T3#1>,Function3<T1#3,T2#2,T3#1,C#3>)
+    T1#3 extends Object declared in method <B#3,C#3,T1#3,T2#2,T3#1>composite(StreamCodec<? super B#3,T1#3>,Function<C#3,T1#3>,StreamCodec<? super B#3,T2#2>,Function<C#3,T2#2>,StreamCodec<? super B#3,T3#1>,Function<C#3,T3#1>,Function3<T1#3,T2#2,T3#1,C#3>)
+    T2#2 extends Object declared in method <B#3,C#3,T1#3,T2#2,T3#1>composite(StreamCodec<? super B#3,T1#3>,Function<C#3,T1#3>,StreamCodec<? super B#3,T2#2>,Function<C#3,T2#2>,StreamCodec<? super B#3,T3#1>,Function<C#3,T3#1>,Function3<T1#3,T2#2,T3#1,C#3>)
+    T3#1 extends Object declared in method <B#3,C#3,T1#3,T2#2,T3#1>composite(StreamCodec<? super B#3,T1#3>,Function<C#3,T1#3>,StreamCodec<? super B#3,T2#2>,Function<C#3,T2#2>,StreamCodec<? super B#3,T3#1>,Function<C#3,T3#1>,Function3<T1#3,T2#2,T3#1,C#3>)
+    B#4 extends Object declared in method <B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>)
+    C#4 extends Object declared in method <B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>)
+    T1#4 extends Object declared in method <B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>)
+    T2#3 extends Object declared in method <B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>)
+    T3#2 extends Object declared in method <B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>)
+    T4#1 extends Object declared in method <B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>)
+    B#5 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
+    C#5 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
+    T1#5 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
+    T2#4 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
+    T3#3 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
+    T4#2 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
+    T5#1 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
+    B#6 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+    C#6 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+    T1#6 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+    T2#5 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+    T3#4 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+    T4#3 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+    T5#2 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+    T6 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/WeatherSyncPayload.java:57: error: method does not override or implement a method from a supertype
+	@Override
+	^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/TornadicMod.java:57: error: cannot find symbol
+				TornadicSavedData.getOrLoad(world.getMinecraftServer()).tick(world);
+				                                 ^
+  symbol:   method getMinecraftServer()
+  location: variable world of type ServerLevel
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/TornadicMod.java:77: error: cannot find symbol
+		TORNADO_TYPE = BuiltInRegistries.ENTITY_TYPE.register(ResourceLocation.fromNamespaceAndPath(MOD_ID, "tornado"),
+		                                            ^
+  symbol:   method register(ResourceLocation,EntityType<TornadoEntity>)
+  location: variable ENTITY_TYPE of type DefaultedRegistry<EntityType<?>>
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/TornadicMod.java:86: error: cannot find symbol
+		CHASER_VEHICLE_TYPE = BuiltInRegistries.ENTITY_TYPE.register(ResourceLocation.fromNamespaceAndPath(MOD_ID, "chaser_vehicle"),
+		                                                   ^
+  symbol:   method register(ResourceLocation,EntityType<ChaserVehicleEntity>)
+  location: variable ENTITY_TYPE of type DefaultedRegistry<EntityType<?>>
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:42: error: cannot find symbol
+		if (TornadicConfig.debrisEnabled && tick % 4 == 0) {
+		    ^
+  symbol:   variable TornadicConfig
+  location: class TornadoPhysics
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:45: error: cannot find symbol
+		if (TornadicConfig.worldDamageEnabled && tick % 4 == 0) {
+		    ^
+  symbol:   variable TornadicConfig
+  location: class TornadoPhysics
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:81: error: cannot find symbol
+			double localWind = windMs * TornadicConfig.windStrength * (0.3 + 0.7 * core) * (1.0 - norm * 0.7);
+			                            ^
+  symbol:   variable TornadicConfig
+  location: class TornadoPhysics
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:98: error: incompatible types: double cannot be converted to Vec3
+				target = target.multiply(maxSpeed / speed);
+				                                  ^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:106: error: method nextDouble in interface RandomSource cannot be applied to given types;
+				if (world.getRandom().nextDouble(chance)) {
+				                     ^
+  required: no arguments
+  found:    double
+  reason: actual and formal argument lists differ in length
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:119: error: method nextDouble in interface RandomSource cannot be applied to given types;
+				if (world.getRandom().nextDouble(chance)) {
+				                     ^
+  required: no arguments
+  found:    double
+  reason: actual and formal argument lists differ in length
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:144: error: cannot find symbol
+		List<ItemEntity> items = world.getEntitiesOfClass(ItemEntity.class, area);
+		     ^
+  symbol:   class ItemEntity
+  location: class TornadoPhysics
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:144: error: cannot find symbol
+		List<ItemEntity> items = world.getEntitiesOfClass(ItemEntity.class, area);
+		                                                  ^
+  symbol:   class ItemEntity
+  location: class TornadoPhysics
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:145: error: cannot find symbol
+		int budget = Math.max(0, TornadicConfig.maxDebrisItems - state.debrisCount);
+		                         ^
+  symbol:   variable TornadicConfig
+  location: class TornadoPhysics
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:148: error: cannot find symbol
+			ItemEntity item = items.get(i);
+			^
+  symbol:   class ItemEntity
+  location: class TornadoPhysics
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:155: error: cannot find symbol
+			double v = state.windMs() * 0.05 * TornadicConfig.windStrength * (1.0 - dist / reach + 0.4);
+			                                   ^
+  symbol:   variable TornadicConfig
+  location: class TornadoPhysics
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:177: error: cannot find symbol
+		int budget = TornadicConfig.maxBlocksBrokenPerTick;
 		             ^
-1 error
+  symbol:   variable TornadicConfig
+  location: class TornadoPhysics
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:178: error: cannot find symbol
+		if (state.blocksBroken >= TornadicConfig.maxBlocksBrokenPerTornado) {
+		                          ^
+  symbol:   variable TornadicConfig
+  location: class TornadoPhysics
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:194: error: package Heightmap does not exist
+			int groundY = world.getHeight(Heightmap.Types.MOTION_BLOCKING, base);
+			                                       ^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:214: error: method nextDouble in interface RandomSource cannot be applied to given types;
+				if (!world.getRandom().nextDouble(chance)) {
+				                      ^
+  required: no arguments
+  found:    double
+  reason: actual and formal argument lists differ in length
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:223: error: cannot find symbol
+				if (TornadicConfig.debrisEnabled && state.debrisCount < TornadicConfig.maxDebrisItems
+				    ^
+  symbol:   variable TornadicConfig
+  location: class TornadoPhysics
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:223: error: cannot find symbol
+				if (TornadicConfig.debrisEnabled && state.debrisCount < TornadicConfig.maxDebrisItems
+				                                                        ^
+  symbol:   variable TornadicConfig
+  location: class TornadoPhysics
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:227: error: cannot find symbol
+						ItemEntity debris = new ItemEntity(world, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, stack);
+						^
+  symbol:   class ItemEntity
+  location: class TornadoPhysics
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:227: error: cannot find symbol
+						ItemEntity debris = new ItemEntity(world, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, stack);
+						                        ^
+  symbol:   class ItemEntity
+  location: class TornadoPhysics
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:266: error: cannot find symbol
+		if (!TornadicConfig.warningsEnabled || state.currentEf() < 1 || state.intensity < 0.3) {
+		     ^
+  symbol:   variable TornadicConfig
+  location: class TornadoPhysics
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:300: error: players is not public in ServerLevel; cannot be accessed from outside package
+		for (ServerPlayer p : world.players) {
+		                           ^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:301: error: cannot find symbol
+			if (p.distanceToSqr(new Vec3(state.x, p.getY(), state.z)) <= (double) TornadicConfig.warningRadius * TornadicConfig.warningRadius) {
+			                                                                      ^
+  symbol:   variable TornadicConfig
+  location: class TornadoPhysics
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:301: error: cannot find symbol
+			if (p.distanceToSqr(new Vec3(state.x, p.getY(), state.z)) <= (double) TornadicConfig.warningRadius * TornadicConfig.warningRadius) {
+			                                                                                                     ^
+  symbol:   variable TornadicConfig
+  location: class TornadoPhysics
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:303: error: cannot find symbol
+				p.playSound(SoundEvents.ENTITY_PLAYER_LEVELUP, SoundSource.WEATHER, 0.7f, 1.0f);
+				                       ^
+  symbol:   variable ENTITY_PLAYER_LEVELUP
+  location: class SoundEvents
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:77: error: package SavedData does not exist
+			new SavedData.Factory<>(TornadicSavedData::new, TornadicSavedData::load), NAME);
+			             ^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:86: error: method getInt in class CompoundTag cannot be applied to given types;
+		data.maxEfToday = tag.getInt("MaxEfToday", -1);
+		                     ^
+  required: String
+  found:    String,int
+  reason: actual and formal argument lists differ in length
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+100 errors
 	at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:89)
 	at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:50)
 	at org.gradle.api.internal.tasks.compile.NormalizingJavaCompiler.delegateAndHandleErrors(NormalizingJavaCompiler.java:98)
@@ -260,6 +1573,6 @@ Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Com
 	... 30 more
 
 
-BUILD FAILED in 49s
+BUILD FAILED in 46s
 1 actionable task: 1 executed
 gradle-build-exit=1
