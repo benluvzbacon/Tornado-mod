@@ -32,7 +32,7 @@ public class ChaserVehicleEntity extends Entity {
 
 	@Override
 	public boolean canRide(Entity entity) {
-		return entity instanceof Player && !this.!getPassengers().isEmpty();
+		return entity instanceof Player && getPassengers().isEmpty();
 	}
 
 	@Override
@@ -40,7 +40,7 @@ public class ChaserVehicleEntity extends Entity {
 		if (!level().isClientSide) {
 			if (!getPassengers().isEmpty()) {
 				player.stopRiding();
-			} else if (true) {
+			} else {
 				player.startRiding(this);
 				player.swing(hand);
 			}

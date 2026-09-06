@@ -158,7 +158,7 @@ public final class ApiProbe {
 		DimensionDataStorage storage = server.overworld().getDataStorage();
 		storage.computeIfAbsent(new SavedData.Factory<>(
 			com.tornadic.saveddata.TornadicSavedData::new,
-			(tag, HolderLookup.Provider registries) -> null), "probe");
+			(CompoundTag tag, HolderLookup.Provider registries) -> null), "probe");
 		return storage;
 	}
 
