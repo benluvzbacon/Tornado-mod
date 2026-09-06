@@ -139,6 +139,51 @@ jobs:
           fi
           echo "RUNTIME SMOKE TEST PASSED"
 
+      - name: Remove stale failure log
+        if: success()
+        run: |
+          set +e
+          git config user.name "tornadic-ci"
+          git config user.email "ci@tornadic.invalid"
+          if [ -f ci-last-failure.log ]; then
+            rm ci-last-failure.log
+            git add -A ci-last-failure.log
+          fi
+          if ! git diff --cached --quiet; then
+            git commit -m "ci: build fixed, drop diagnostic logs"
+            git push
+          fi
+          exit 0
+
+      - name: Commit failure log
+        if: failure()
+        run: |
+          set +e
+          git config user.name "tornadic-ci"
+          git config user.email "ci@tornadic.invalid"
+          [ -f ci-last-failure.log ] || {
+            echo "BUILD OR SMOKE STEP DIED BEFORE CAPTURE" > ci-last-failure.log
+            tail -c 100000 gradle-server.log >> ci-last-failure.log 2>/dev/null || true
+          }
+          KEY=$(grep -E "error|Error|ERROR|FAILED|What went wrong|Exception" ci-last-failure.log | head -5 | tr '\n' '|' | head -c 150)
+          git add -f ci-last-failure.log
+          COMMITTED=0
+          if ! git diff --cached --quiet; then
+            if git commit -m "ci: last build failure log | ${KEY}"; then
+              COMMITTED=1
+            fi
+          fi
+          if [ "$COMMITTED" = "1" ]; then
+            git push > /tmp/push.out 2>&1
+            PUSH=$?
+            echo "push-exit=$PUSH $(head -c 300 /tmp/push.out)"
+            if [ "$PUSH" -ne 0 ]; then
+              echo "PUSH_DENIED - log could not be committed"
+              exit 1
+            fi
+          fi
+          exit 0
+
       - name: Upload mod jar artifact
         if: success()
         uses: actions/upload-artifact@v4
