@@ -15,9 +15,8 @@ import java.util.zip.ZipEntry;
 public final class ApiDump {
 	private static final String[] CLASSES = {
 		"net.minecraft.world.entity.Entity",
-		"net.minecraft.core.registries.DefaultedRegistry",
-		"net.minecraft.core.registries.Registry",
-		"net.minecraft.core.registries.MapLikeRegistry",
+		"net.minecraft.core.registries.BuiltInRegistries",
+		"net.minecraft.core.registries.Registries",
 		"net.minecraft.world.level.storage.LevelData",
 		"net.minecraft.world.level.storage.ServerLevelData",
 		"net.minecraft.world.level.storage.WritableLevelData",
@@ -25,23 +24,23 @@ public final class ApiDump {
 		"net.minecraft.world.level.storage.LevelStorageSource",
 		"net.minecraft.server.MinecraftServer",
 		"net.minecraft.world.level.Level",
-		"net.minecraft.world.level.ServerLevel",
-		"net.minecraft.world.level.SoundEvent",
+		"net.minecraft.server.level.ServerLevel",
+		"net.minecraft.sounds.SoundEvent",
 		"net.minecraft.world.level.saveddata.SavedData",
 		"net.minecraft.world.level.saveddata.SavedData$Factory",
 		"net.minecraft.network.protocol.game.ClientboundGameEventPacket",
 		"net.minecraft.server.network.ServerGamePacketListenerImpl",
 		"net.minecraft.network.protocol.Packet",
 		"net.minecraft.world.entity.LightningBolt",
-		"net.minecraft.world.entity.ItemEntity",
+		"net.minecraft.world.entity.item.ItemEntity",
 		"net.minecraft.world.entity.player.Player",
-		"net.minecraft.world.entity.data.EntityDataAccessor",
+		"net.minecraft.world.entity.data.synched.SynchedEntityData",
 		"net.minecraft.network.codec.StreamCodec",
 		"net.minecraft.world.level.block.CropBlock",
 		"net.minecraft.world.level.block.state.properties.BlockStateProperties",
-		"net.minecraft.world.phys.VoxelShape",
+		"net.minecraft.world.phys.shapes.VoxelShape",
 		"net.minecraft.world.level.block.state.BlockState",
-		"net.minecraft.world.level.GameEvent",
+		"net.minecraft.util.datafix.DataFixTypes",
 		"net.minecraft.world.entity.EntityType",
 		"net.minecraft.world.entity.EntityType$Builder",
 		"net.minecraft.client.Minecraft",
@@ -75,19 +74,29 @@ public final class ApiDump {
 					if (Modifier.isPrivate(ctor.getModifiers())) {
 						continue;
 					}
-					System.out.println("  " + ctor.getName() + typeList(ctor.getParameterTypes()));
+					System.out.println("  " + ctor.getName() + safeTypes(ctor.getParameterTypes()));
 				}
-				System.out.println("-- methods");
+				System.out.println("-- declared methods");
 				for (Method m : c.getDeclaredMethods()) {
 					if (Modifier.isPrivate(m.getModifiers())) {
 						continue;
 					}
-					System.out.println("  " + m.getName() + typeList(m.getParameterTypes()) + " : " + m.getReturnType().getName());
+					String ret = "?";
+					try {
+						ret = m.getReturnType().getName();
+					} catch (Throwable ignored) {
+					}
+					System.out.println("  " + m.getName() + safeTypes(m.getParameterTypes()) + " : " + ret);
 				}
 				System.out.println("-- fields (static)");
 				for (Field f : c.getDeclaredFields()) {
 					if (Modifier.isStatic(f.getModifiers())) {
-						System.out.println("  " + f.getName() + " : " + f.getType().getName());
+						String t = "?";
+						try {
+							t = f.getType().getName();
+						} catch (Throwable ignored) {
+						}
+						System.out.println("  " + f.getName() + " : " + t);
 					}
 				}
 			} catch (Throwable t) {
@@ -99,17 +108,14 @@ public final class ApiDump {
 	private static void scanJars() {
 		String[] filters = {
 			"CustomPayload",
-			"DataFixTypes",
-			"WorldGenSettings",
-			"net/minecraft/core/registries/Registry",
-			"net/minecraft/core/registries/DefaultedRegistry",
-			"net/minecraft/core/registries/Registries",
+			"DefaultedRegistry",
+			"BuiltInRegistries",
 			"net/minecraft/registry/",
 			"net/minecraft/util/Identifier",
-			"LevelStorageSource",
-			"ServerLevelData",
-			"net/minecraft/world/level/storage/LevelData",
-			"net/minecraft/world/level/storage/WorldData"
+			"ClientPlayNetworking",
+			"KeyBindingHelper",
+			"HudRenderCallback",
+			"ClientTickEvents"
 		};
 		for (String part : System.getProperty("java.class.path").split(File.pathSeparator)) {
 			if (!part.endsWith(".jar")) {
@@ -123,11 +129,15 @@ public final class ApiDump {
 					if (!n.endsWith(".class") || n.contains("$")) {
 						continue;
 					}
+					boolean hit = n.endsWith("/Registry.class");
 					for (String f : filters) {
 						if (n.contains(f)) {
-							System.out.println("JARCLASS " + n.substring(0, n.length() - 6).replace('/', '.'));
+							hit = true;
 							break;
 						}
+					}
+					if (hit) {
+						System.out.println("JARCLASS " + n.substring(0, n.length() - 6).replace('/', '.'));
 					}
 				}
 			} catch (Throwable t) {
@@ -137,13 +147,17 @@ public final class ApiDump {
 		System.out.println("== scan done");
 	}
 
-	private static String typeList(Class<?>[] types) {
+	private static String safeTypes(Class<?>[] types) {
 		StringBuilder sb = new StringBuilder("(");
 		for (int i = 0; i < types.length; i++) {
 			if (i > 0) {
 				sb.append(", ");
 			}
-			sb.append(types[i].getName());
+			try {
+				sb.append(types[i].getName());
+			} catch (Throwable t) {
+				sb.append("<unloaded>");
+			}
 		}
 		return sb.append(")").toString();
 	}

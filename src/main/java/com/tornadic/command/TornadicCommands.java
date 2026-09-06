@@ -116,7 +116,7 @@ public final class TornadicCommands {
 	private static long seedOf(ServerLevel world) {
 		// Same deterministic derivation as TornadicSavedData.worldSeed: hash of the
 		// save-folder id (stable across restarts, unique per world).
-		String id = world.getServer().getServerStorageSource().getLevelId();
+		String id = ((net.minecraft.world.level.storage.ServerLevelData) world.getLevelData()).getLevelName();
 		long seed = 1125899906842597L;
 		for (int i = 0; i < id.length(); i++) {
 			seed = 31 * seed + id.charAt(i);

@@ -83,7 +83,7 @@ public class TornadicMod implements ModInitializer {
 				.updateInterval(2)
 				.fireImmune()
 				.noSave()
-				.build());
+				.build("tornado"));
 		CHASER_VEHICLE_TYPE = ENTITY_TYPES.register("chaser_vehicle", () ->
 			EntityType.Builder.of(ChaserVehicleEntity::new, MobCategory.MISC)
 				.sized(1.6F, 1.0F)
@@ -91,6 +91,6 @@ public class TornadicMod implements ModInitializer {
 				.updateInterval(3)
 				.fireImmune()
 				.noSummon()
-				.build());
+				.build("chaser_vehicle"));
 	}
 }
