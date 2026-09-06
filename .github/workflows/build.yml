@@ -63,16 +63,16 @@ jobs:
           # Inspect MC 1.21.1's RCON implementation (disassemble the classes).
           MCJAR=$(find ~/.gradle/caches/fabric-loom/minecraftMaven -path "*minecraft-common/*" -name "*.jar" 2>/dev/null | grep -v intermediary | head -1)
           echo "MC common jar: $MCJAR"
+          unzip -l "$MCJAR" 2>/dev/null | grep -iE "rcon|DedicatedServerProperties|dedicated/Settings" > rcon-classes.txt
+          cat rcon-classes.txt
           rm -rf /tmp/rconprobe && mkdir -p /tmp/rconprobe
-          (cd /tmp/rconprobe && unzip -o -q "$MCJAR" 2>/dev/null | true)
-          echo "--- RCON classes ---"
-          find /tmp/rconprobe -iname "*rcon*" -name "*.class" | head -12
-          for c in $(find /tmp/rconprobe -iname "*rcon*" -name "*.class" | head -8); do
-            echo "=== javap $(basename $c) ==="
-            javap -p -c "$c" 2>/dev/null | grep -B3 -A30 -iE "sendPacket|onAuth|password" | head -100
+          (cd /tmp/rconprobe && awk '{print $4}' rcon-classes.txt | grep "\.class$" | head -20 | while read f; do unzip -o -q "$MCJAR" "$f"; done)
+          for c in $(find /tmp/rconprobe -name "*.class" | head -20); do
+            echo "=== javap $(basename "$c") ==="
+            javap -p -c "$c" 2>/dev/null | head -120
           done > rcon-javap.txt 2>&1 || true
           echo "--- rcon-javap excerpt ---"
-          head -c 6000 rcon-javap.txt || true
+          head -c 8000 rcon-javap.txt || true
 
           # Split source sets make loom prefix the run task per mod (e.g. tornadic_runServer).
           ./gradlew tasks --all --no-daemon > gradle-tasks.log 2>&1 || true
@@ -141,6 +141,8 @@ jobs:
           pkill -f GradleDaemon 2>/dev/null || true
           sleep 2
 
+          echo "=== properties file as found on disk ==="
+          cat run/server.properties 2>/dev/null || echo "(run/server.properties missing)"
           echo "=== rcon outputs ==="
           cat rcon-list.out
           echo "=== server log assertions ==="
