@@ -68,21 +68,11 @@ jobs:
           fi
           # Fallback: also post the log as a commit comment so it is always visible.
           if [ -f ci-last-failure.log ]; then
-            python3 - "$GITHUB_TOKEN" "$GITHUB_REPOSITORY" "$GITHUB_SHA" <<'PYEOF' || true
-import json, sys, urllib.request
-token, repo, sha = sys.argv[1], sys.argv[2], sys.argv[3]
-body = open("ci-last-failure.log", "r", errors="replace").read()[:50000]
-req = urllib.request.Request(
-    f"https://api.github.com/repos/{repo}/commits/{sha}/comments",
-    data=json.dumps({"body": "CI build failed. Log tail:\n\n```log\n" + body + "\n```"}).encode(),
-    headers={"Authorization": f"Bearer {token}", "Accept": "application/vnd.github+json",
-             "User-Agent": "tornadic-ci"},
-    method="POST")
-try:
-    urllib.request.urlopen(req, timeout=60)
-except Exception as e:
-    print("commit comment failed:", e)
-PYEOF
+            LOG_B64=$(base64 -w0 ci-last-failure.log | head -c 45000)
+            curl -sS -X POST "https://api.github.com/repos/${GITHUB_REPOSITORY}/commits/${GITHUB_SHA}/comments" \
+              -H "Authorization: Bearer ${GITHUB_TOKEN}" \
+              -H "Accept: application/vnd.github+json" \
+              -d "{\"body\": \"CI build failed. Log tail (base64): ${LOG_B64}\"}" || true
           fi
 
       - name: Upload mod jar artifact
