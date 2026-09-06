@@ -103,7 +103,7 @@ public final class TornadoPhysics {
 			if (localWind > threshold) {
 				double excess = (localWind - threshold) / threshold;
 				double chance = Math.min(0.35, 0.05 + excess * 0.12);
-				if (world.getRandom().nextFloat((float) chance)) {
+				if (world.getRandom().nextFloat() < chance) {
 					double amount = 0.5 + state.currentEf() * 0.45 + world.getRandom().nextDouble() * 1.2;
 					// Riding a chaser vehicle halves wind damage (shelter).
 					if (e instanceof Player p && p.getVehicle() instanceof ChaserVehicleEntity) {
@@ -116,7 +116,7 @@ public final class TornadoPhysics {
 			// Debris strike near the core: bigger hit + violent knockback.
 			if (dist < funnel * 1.6 && state.currentEf() >= 1) {
 				double chance = state.intensityScale().debrisChance() * 0.5;
-				if (world.getRandom().nextFloat((float) chance)) {
+				if (world.getRandom().nextFloat() < chance) {
 					double amount = 1.5 + world.getRandom().nextDouble() * (1.0 + state.currentEf() * 0.6);
 					if (e instanceof Player p && p.getVehicle() instanceof ChaserVehicleEntity) {
 						amount *= 0.5;
@@ -158,7 +158,7 @@ public final class TornadoPhysics {
 			double lift = v * 0.9;
 			Vec3 vel = item.getDeltaMovement();
 			item.setDeltaMovement(vel.add(tx * v * 1.4, lift, tz * v * 1.4));
-			if (budget > 0 && item.customAge > 5) {
+			if (budget > 0 && item.getAge() > 5) {
 				state.debrisCount++;
 				budget--;
 			}
@@ -191,7 +191,7 @@ public final class TornadoPhysics {
 			if (!world.isLoaded(base)) {
 				continue;
 			}
-			int groundY = world.getHeight(Heightmap.Types.MOTION_BLOCKING, base);
+			int groundY = world.getHeight(Heightmap.Types.MOTION_BLOCKING, base.getX(), base.getZ());
 			boolean brokeOne = false;
 			for (int dy = 1; dy >= -1 && !brokeOne; dy--) {
 				BlockPos pos = new BlockPos(bx, groundY + dy, bz);
@@ -211,7 +211,7 @@ public final class TornadoPhysics {
 				}
 				// Stronger tornadoes break more readily.
 				double chance = 0.2 + state.intensity * 0.55;
-				if (!world.getRandom().nextFloat((float) chance)) {
+				if (world.getRandom().nextFloat() >= chance) {
 					continue;
 				}
 				world.destroyBlock(pos, false);
@@ -300,7 +300,7 @@ public final class TornadoPhysics {
 		for (ServerPlayer p : world.getServer().getPlayerList().getPlayers()) {
 			if (p.distanceToSqr(new Vec3(state.x, p.getY(), state.z)) <= (double) TornadicConfig.warningRadius * TornadicConfig.warningRadius) {
 				p.sendSystemMessage(warning);
-				p.playSound(SoundEvents.PLAYER_LEVELUP, SoundSource.WEATHER, 0.7f, 1.0f);
+				p.playSound(SoundSource.WEATHER, SoundEvents.PLAYER_LEVELUP, 0.7f, 1.0f);
 			}
 		}
 	}

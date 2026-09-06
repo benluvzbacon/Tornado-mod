@@ -25,10 +25,11 @@ public class ThermometerItem extends Item {
 	}
 
 	@Override
-	public InteractionResult use(Level world, Player player, InteractionHand hand) {
+	public net.minecraft.world.InteractionResultHolder<net.minecraft.world.item.ItemStack> use(
+		Level world, Player player, InteractionHand hand) {
 		if (!world.isClientSide && player instanceof ServerPlayer sp) {
 			TornadicSavedData data = TornadicSavedData.getOrLoad(sp.getServer());
-			float temp = data.currentForecast(sp.level()).tempF();
+			float temp = data.currentForecast(sp.serverLevel()).tempF();
 			// Storms are cooler than their surroundings.
 			double minStormDist = Double.MAX_VALUE;
 			for (var storm : data.storms()) {
@@ -45,7 +46,7 @@ public class ThermometerItem extends Item {
 				.append(Component.literal(String.format("%.0f°F", temp)).withStyle(ChatFormatting.RED))
 				.append(Component.literal(String.format("  (%.0f°C)", (temp - 32.0f) * 5.0f / 9.0f)).withStyle(ChatFormatting.DARK_GRAY)));
 		}
-		return InteractionResult.SUCCESS;
+		return net.minecraft.world.InteractionResultHolder.sidedSuccess(player.getItemInHand(hand), world.isClientSide);
 	}
 
 	@Override

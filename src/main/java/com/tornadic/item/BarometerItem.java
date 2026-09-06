@@ -30,10 +30,11 @@ public class BarometerItem extends Item {
 	}
 
 	@Override
-	public InteractionResult use(Level world, Player player, InteractionHand hand) {
+	public net.minecraft.world.InteractionResultHolder<net.minecraft.world.item.ItemStack> use(
+		Level world, Player player, InteractionHand hand) {
 		if (!world.isClientSide && player instanceof ServerPlayer sp) {
 			TornadicSavedData data = TornadicSavedData.getOrLoad(sp.getServer());
-			float pressure = data.currentForecast(sp.level()).pressureMb();
+			float pressure = data.currentForecast(sp.serverLevel()).pressureMb();
 			// Approaching storms depress the local pressure.
 			for (var storm : data.storms()) {
 				double d = storm.distanceTo(sp.getX(), sp.getZ());
@@ -63,11 +64,11 @@ public class BarometerItem extends Item {
 				trendColor = ChatFormatting.GREEN;
 			}
 			sp.sendSystemMessage(Component.literal("Pressure: ").withStyle(ChatFormatting.GRAY)
-				.append(Component.literal(String.format("%.1f hPa", pressure)).withStyle(ChatFormatting.CYAN))
+				.append(Component.literal(String.format("%.1f hPa", pressure)).withStyle(ChatFormatting.AQUA))
 				.append(Component.literal("  ").withStyle(ChatFormatting.DARK_GRAY))
 				.append(Component.literal(trendText).withStyle(trendColor)));
 		}
-		return InteractionResult.SUCCESS;
+		return net.minecraft.world.InteractionResultHolder.sidedSuccess(player.getItemInHand(hand), world.isClientSide);
 	}
 
 	@Override

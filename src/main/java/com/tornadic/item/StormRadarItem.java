@@ -27,11 +27,12 @@ public class StormRadarItem extends Item {
 	}
 
 	@Override
-	public InteractionResult use(Level world, Player player, InteractionHand hand) {
+	public net.minecraft.world.InteractionResultHolder<net.minecraft.world.item.ItemStack> use(
+		Level world, Player player, InteractionHand hand) {
 		if (world.isClientSide && screens != null) {
 			screens.openRadar();
 		}
-		return InteractionResult.SUCCESS;
+		return net.minecraft.world.InteractionResultHolder.sidedSuccess(player.getItemInHand(hand), world.isClientSide);
 	}
 
 	@Override

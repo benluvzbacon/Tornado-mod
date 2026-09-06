@@ -97,7 +97,7 @@ public final class TornadicCommands {
 		lines.add(line("Tornado Probability:", shown.tornadoProbability() + "%"));
 		lines.add(Component.empty());
 		lines.add(Component.literal("SEVERE WEATHER RISK:").withStyle(ChatFormatting.WHITE, ChatFormatting.BOLD)
-			.append(" ").append(risk.asComponent().withStyle(net.minecraft.world.Style.EMPTY.withBold(true))));
+			.append(" ").append(risk.asComponent().withStyle(net.minecraft.network.chat.Style.EMPTY.withBold(true))));
 		lines.add(Component.literal(risk.description()).withStyle(risk.color()));
 		lines.add(Component.empty());
 		lines.add(Component.literal("Forecast:").withStyle(ChatFormatting.GRAY, ChatFormatting.ITALIC));
@@ -115,7 +115,7 @@ public final class TornadicCommands {
 
 	private static long seedOf(ServerLevel world) {
 		try {
-			return world.getLevelData().getWorldGenSettings().getSeed();
+			return ((net.minecraft.world.level.storage.ServerLevelData) world.getLevelData()).getWorldGenSettings().getSeed();
 		} catch (Exception e) {
 			return 0L;
 		}
@@ -309,7 +309,7 @@ public final class TornadicCommands {
 			}
 		}
 		source.sendSuccess(() -> Component.empty()
-			.append(s.type.asComponent().withStyle(net.minecraft.world.Style.EMPTY.withBold(true)))
+			.append(s.type.asComponent().withStyle(net.minecraft.network.chat.Style.EMPTY.withBold(true)))
 			.append(Component.literal("\nPosition: ").withStyle(ChatFormatting.GRAY))
 			.append(Component.literal((int) s.x + ", " + (int) s.z).withStyle(ChatFormatting.WHITE))
 			.append(Component.literal("\nMovement: ").withStyle(ChatFormatting.GRAY))
@@ -322,7 +322,7 @@ public final class TornadicCommands {
 			.append(Component.literal(String.format("%.2f", s.rotation)).withStyle(ChatFormatting.WHITE))
 			.append(Component.literal("\nHail: ").withStyle(ChatFormatting.GRAY))
 			.append(Component.literal(s.hail ? "yes (" + String.format("%.2f", s.hailSize) + " size)" : "no")
-				.withStyle(s.hail ? ChatFormatting.CYAN : ChatFormatting.WHITE))
+				.withStyle(s.hail ? ChatFormatting.AQUA : ChatFormatting.WHITE))
 			.append(Component.literal("\nTornado: ").withStyle(ChatFormatting.GRAY))
 			.append(Component.literal(tornadoEf >= 0 ? com.tornadic.tornado.TornadoIntensity.fromEf(tornadoEf).label() : "none")
 				.withStyle(tornadoEf >= 0 ? ChatFormatting.RED : ChatFormatting.WHITE)), false);

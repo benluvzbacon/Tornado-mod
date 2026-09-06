@@ -140,9 +140,8 @@ public class TornadicSavedData extends SavedData {
 	}
 
 	private long worldSeed(ServerLevel world) {
-		WorldData data = world.getLevelData();
 		try {
-			return data.getWorldGenSettings().getSeed();
+			return ((net.minecraft.world.level.storage.ServerLevelData) world.getLevelData()).getWorldGenSettings().getSeed();
 		} catch (Exception e) {
 			// Extremely defensive fallback; the seed is only used as a deterministic input.
 			return 0L;
@@ -196,7 +195,7 @@ public class TornadicSavedData extends SavedData {
 	private void recreateTornadoEntities(ServerLevel world) {
 		for (TornadoState state : tornadoes) {
 			state.entity = null;
-			if (!state.isDissipated() && world.isLoaded(new BlockPos(state.x, 64, state.z))) {
+			if (!state.isDissipated() && world.isLoaded(new BlockPos((int) state.x, 64, (int) state.z))) {
 				TornadoEntity entity = TornadoEntity.create(TornadicMod.TORNADO_TYPE, world, state.id,
 					state.x, state.y > 0 ? state.y : 64, state.z);
 				world.addFreshEntity(entity);
@@ -215,7 +214,7 @@ public class TornadicSavedData extends SavedData {
 		}
 		double perTick = 0.00035 * (forecast.stormProbability() / 100.0)
 			* forecast.risk().stormRateMultiplier() * TornadicConfig.stormFrequency;
-		if (!world.getRandom().nextFloat((float) (perTick * intervalFactor()))) {
+		if (world.getRandom().nextFloat() >= (perTick * intervalFactor())) {
 			return;
 		}
 
@@ -229,7 +228,7 @@ public class TornadicSavedData extends SavedData {
 				* (TornadicConfig.stormMaxPlayerDistance - TornadicConfig.stormMinPlayerDistance);
 			double x = anchor.getX() + Math.cos(angle) * dist;
 			double z = anchor.getZ() + Math.sin(angle) * dist;
-			if (!world.isLoaded(new BlockPos(x, 64, z))) {
+			if (!world.isLoaded(new BlockPos((int) x, 64, (int) z))) {
 				continue;
 			}
 			// Keep fresh storms away from every player.
@@ -301,7 +300,7 @@ public class TornadicSavedData extends SavedData {
 					double perSecond = (0.045 + 0.11 * storm.rotation * storm.rotation)
 						* (0.35 + 0.65 * forecast.tornadoProbability() / 100.0)
 						* TornadicConfig.tornadoFrequency;
-					if (world.getRandom().nextFloat((float) (perSecond / 20.0))) {
+					if (world.getRandom().nextFloat() < (perSecond / 20.0)) {
 						trySpawnTornado(world, storm);
 					}
 				}
@@ -332,7 +331,7 @@ public class TornadicSavedData extends SavedData {
 			if (storm.type == StormType.TORNADIC_SUPERCELL) {
 				advanceChance = 0.0;
 			}
-			if (world.getRandom().nextFloat((float) advanceChance)) {
+			if (world.getRandom().nextFloat() < advanceChance) {
 				StormType next = StormType.values()[Math.min(storm.type.ordinal() + 1, StormType.values().length - 1)];
 				// Weaker days rarely organize past strong thunderstorms.
 				if (next.ordinal() >= StormType.SUPERCELL.ordinal() && quality < 0.28) {
@@ -399,7 +398,8 @@ public class TornadicSavedData extends SavedData {
 		int groundY = world.getHeight(Heightmap.Types.MOTION_BLOCKING, pos);
 		LightningBolt bolt = new LightningBolt(
 			net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE.getValue(
-				net.minecraft.resources.ResourceLocation.withDefaultNamespace("lightning_bolt")),
+				net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.ENTITY_TYPE,
+					net.minecraft.resources.ResourceLocation.withDefaultNamespace("lightning_bolt"))),
 			world);
 		bolt.setPos(lx + 0.5, groundY + 8.0, lz + 0.5);
 		world.addFreshEntity(bolt);
@@ -419,7 +419,7 @@ public class TornadicSavedData extends SavedData {
 			}
 			float pitch = 0.6f + world.getRandom().nextFloat() * 0.7f;
 			int delay = (int) (dist / 16.0); // ~speed of sound in ticks
-			p.connection.send(new ThunderPayload(lx, lz, Math.min(1.0f, volume), pitch, delay));
+			p.connection.sendCustomPayload(new ThunderPayload(lx, lz, Math.min(1.0f, volume), pitch, delay));
 		}
 	}
 
@@ -451,9 +451,9 @@ public class TornadicSavedData extends SavedData {
 
 			// Damage crops.
 			if (surface.getBlock() instanceof net.minecraft.world.level.block.CropBlock
-				&& surface.hasProperty(net.minecraft.world.level.block.state.properties.BlockStateProperties.AGE)) {
+				&& surface.hasProperty(net.minecraft.world.level.block.CropsBlock.AGE)) {
 				world.setBlock(new BlockPos(hx, groundY, hz),
-					surface.setValue(net.minecraft.world.level.block.state.properties.BlockStateProperties.AGE, 0),
+					surface.setValue(net.minecraft.world.level.block.CropsBlock.AGE, 0),
 					net.minecraft.world.level.block.Block.UPDATE_CLIENTS);
 				broke = true;
 				hailEventsToday++;
@@ -484,8 +484,8 @@ public class TornadicSavedData extends SavedData {
 			}
 			if (broke) {
 				world.playSound(null, hx, groundY + 1, hz,
-					storm.hailSize > 0.7f ? SoundEvents.ENTITY_ITEM_BREAK : SoundEvents.ENTITY_SNOWBALL_THROW,
-					SoundSource.BLOCK, 0.4f * storm.intensity, 0.8f + world.getRandom().nextFloat() * 0.4f);
+					storm.hailSize > 0.7f ? SoundEvents.ITEM_BREAK : SoundEvents.SNOWBALL_THROW,
+					SoundSource.BLOCKS, 0.4f * storm.intensity, 0.8f + world.getRandom().nextFloat() * 0.4f);
 			}
 		}
 	}
@@ -533,10 +533,10 @@ public class TornadicSavedData extends SavedData {
 					break;
 				}
 			}
-			if (nearPlayer || !world.isLoaded(new BlockPos(x, 64, z))) {
+			if (nearPlayer || !world.isLoaded(new BlockPos((int) x, 64, (int) z))) {
 				continue;
 			}
-			int groundY = world.getHeight(Heightmap.Types.MOTION_BLOCKING, new BlockPos(x, 0, z));
+			int groundY = world.getHeight(Heightmap.Types.MOTION_BLOCKING, (int) x, (int) z);
 			DailyForecast forecast = currentForecast(world);
 			double r = world.getRandom().nextDouble();
 			int ef = r < 0.42 ? 0 : r < 0.72 ? 1 : r < 0.89 ? 2 : r < 0.965 ? 3 : r < 0.992 ? 4 : 5;
@@ -558,11 +558,11 @@ public class TornadicSavedData extends SavedData {
 	}
 
 	public void spawnTestTornado(ServerLevel world, double x, double z, int ef) {
-		int groundY = world.getHeight(Heightmap.Types.MOTION_BLOCKING, new BlockPos(x, 0, z));
+		int groundY = world.getHeight(Heightmap.Types.MOTION_BLOCKING, (int) x, (int) z);
 		TornadoState state = new TornadoState(newId(), x, groundY, z, -1, Math.max(0, Math.min(5, ef)));
 		tornadoes.add(state);
 		tornadoesToday++;
-		maxEfToday = Math.max(maxEfToday, state.peakEf);
+		maxEfToday = Math.max(maxEfToday, (int) state.peakEf);
 		TornadoEntity entity = TornadoEntity.create(TornadicMod.TORNADO_TYPE, world, state.id, x, groundY, z);
 		world.addFreshEntity(entity);
 		state.entity = entity;
@@ -605,7 +605,7 @@ public class TornadicSavedData extends SavedData {
 				state.z += Math.sin(state.heading) * 0.15;
 			}
 
-			int groundY = world.getHeight(Heightmap.Types.MOTION_BLOCKING, new BlockPos(state.x, 0, state.z));
+			int groundY = world.getHeight(Heightmap.Types.MOTION_BLOCKING, (int) state.x, (int) state.z);
 			state.y = groundY;
 
 			// Move the tracking entity.
@@ -626,7 +626,7 @@ public class TornadicSavedData extends SavedData {
 				int groundTone = sampleGroundTone(world, state);
 				for (ServerPlayer p : world.getServer().getPlayerList().getPlayers()) {
 					if (p.distanceToSqr(new Vec3(state.x, p.getY(), state.z)) < 1600 * 1600) {
-						p.connection.send(TornadoSyncPayload.of(state, (int) state.id, groundTone));
+						p.connection.sendCustomPayload(TornadoSyncPayload.of(state, (int) state.id, groundTone));
 					}
 				}
 			}
@@ -695,14 +695,14 @@ public class TornadicSavedData extends SavedData {
 				int idx = world.getRandom().nextInt(state.pathX.size());
 				double px = state.pathX.get(idx);
 				double pz = state.pathZ.get(idx);
-				BlockPos pos = new BlockPos(px, 0, pz);
+				BlockPos pos = new BlockPos((int) px, 0, (int) pz);
 				if (!world.isLoaded(pos)) {
 					continue;
 				}
-				int y = world.getHeight(Heightmap.Types.MOTION_BLOCKING, pos);
-				BlockState surface = world.getBlockState(new BlockPos(px, y, pz));
+				int y = world.getHeight(Heightmap.Types.MOTION_BLOCKING, pos.getX(), pos.getZ());
+				BlockState surface = world.getBlockState(new BlockPos((int) px, y, (int) pz));
 				if (surface.is(net.minecraft.world.level.block.Blocks.GRASS_BLOCK)) {
-					world.setBlock(new BlockPos(px, y + 1, pz),
+					world.setBlock(new BlockPos((int) px, y + 1, (int) pz),
 						net.minecraft.world.level.block.Blocks.DEAD_BUSH.defaultBlockState(),
 						net.minecraft.world.level.block.Block.UPDATE_CLIENTS);
 				}
@@ -715,13 +715,13 @@ public class TornadicSavedData extends SavedData {
 	}
 
 	private int sampleGroundTone(ServerLevel world, TornadoState state) {
-		BlockPos pos = new BlockPos(state.x, 0, state.z);
+		BlockPos pos = new BlockPos((int) state.x, 0, (int) state.z);
 		if (!world.isLoaded(pos)) {
 			return 0;
 		}
-		int y = world.getHeight(Heightmap.Types.MOTION_BLOCKING, pos);
-		BlockState surface = world.getBlockState(new BlockPos(state.x, y, state.z));
-		BlockState above = world.getBlockState(new BlockPos(state.x, y + 1, state.z));
+		int y = world.getHeight(Heightmap.Types.MOTION_BLOCKING, pos.getX(), pos.getZ());
+		BlockState surface = world.getBlockState(new BlockPos((int) state.x, y, (int) state.z));
+		BlockState above = world.getBlockState(new BlockPos((int) state.x, y + 1, (int) state.z));
 		net.minecraft.world.level.block.Block block = surface.getBlock();
 		if (block == net.minecraft.world.level.block.Blocks.SAND || block == net.minecraft.world.level.block.Blocks.SANDSTONE
 			|| block == net.minecraft.world.level.block.Blocks.GRAVEL) {
@@ -773,7 +773,7 @@ public class TornadicSavedData extends SavedData {
 				p.connection.send(rainPacket);
 				p.connection.send(thunderPacket);
 				if (tickCounter % 40 == 0) {
-					p.connection.send(WeatherSyncPayload.of(forecast, rain, thunder,
+					p.connection.sendCustomPayload(WeatherSyncPayload.of(forecast, rain, thunder,
 						stormsToday, tornadoesToday, maxEfToday));
 				}
 			}
@@ -792,7 +792,7 @@ public class TornadicSavedData extends SavedData {
 				StormSyncPayload payload = StormSyncPayload.of(storm, tornadoEf);
 				for (ServerPlayer p : world.getServer().getPlayerList().getPlayers()) {
 					if (p.distanceToSqr(new Vec3(storm.x, p.getY(), storm.z)) < 4200 * 4200) {
-						p.connection.send(payload);
+						p.connection.sendCustomPayload(payload);
 					}
 				}
 			}
@@ -802,7 +802,7 @@ public class TornadicSavedData extends SavedData {
 	/** Sends the full current state to one player (on join). */
 	public void syncToPlayer(ServerLevel world, ServerPlayer player) {
 		DailyForecast forecast = currentForecast(world);
-		player.connection.send(WeatherSyncPayload.of(forecast, lastRain < 0 ? 0 : lastRain,
+		player.connection.sendCustomPayload(WeatherSyncPayload.of(forecast, lastRain < 0 ? 0 : lastRain,
 			lastThunder < 0 ? 0 : lastThunder, stormsToday, tornadoesToday, maxEfToday));
 		for (Storm storm : storms) {
 			int tornadoEf = -1;
@@ -813,12 +813,12 @@ public class TornadicSavedData extends SavedData {
 				}
 			}
 			if (player.distanceToSqr(new Vec3(storm.x, player.getY(), storm.z)) < 4200 * 4200) {
-				player.connection.send(StormSyncPayload.of(storm, tornadoEf));
+				player.connection.sendCustomPayload(StormSyncPayload.of(storm, tornadoEf));
 			}
 		}
 		for (TornadoState t : tornadoes) {
 			if (!t.isDissipated() && player.distanceToSqr(new Vec3(t.x, player.getY(), t.z)) < 1600 * 1600) {
-				player.connection.send(TornadoSyncPayload.of(t, (int) t.id, sampleGroundTone(world, t)));
+				player.connection.sendCustomPayload(TornadoSyncPayload.of(t, (int) t.id, sampleGroundTone(world, t)));
 			}
 		}
 	}

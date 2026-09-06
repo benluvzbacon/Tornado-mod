@@ -71,7 +71,7 @@ public class TornadoState {
 	}
 
 	public float funnelRadius() {
-		float base = TornadoIntensity.fromEf(peakEf).funnelRadius();
+		float base = TornadoIntensity.fromEf((int) peakEf).funnelRadius();
 		float progress = Math.max(0.25F, intensity);
 		return base * (0.4F + 0.6F * progress);
 	}

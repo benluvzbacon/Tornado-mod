@@ -96,12 +96,12 @@ public final class WindField {
 		Vec3 wind = windAt(level, forecast, storms, tornadoes, entity.getX(), entity.getY(), entity.getZ());
 		Vec3 vel = entity.getDeltaMovement();
 		double push = entity instanceof net.minecraft.world.entity.player.Player ? 0.45 : 1.0;
-		Vec3 target = vel.add(wind.multiply(0.16 * push));
+		Vec3 target = vel.add(wind.multiply(0.16 * push, 0.16 * push, 0.16 * push));
 		// Damp horizontal velocity a bit so wind can't launch entities to infinity.
 		double speed = target.length();
 		double max = 0.9;
 		if (speed > max) {
-			target = target.multiply(max / speed);
+			target = target.multiply(max / speed, max / speed, max / speed);
 		}
 		entity.setDeltaMovement(target);
 	}

@@ -31,13 +31,14 @@ public class WeatherRadioItem extends Item {
 	}
 
 	@Override
-	public InteractionResult use(Level world, Player player, InteractionHand hand) {
+	public net.minecraft.world.InteractionResultHolder<net.minecraft.world.item.ItemStack> use(
+		Level world, Player player, InteractionHand hand) {
 		if (!world.isClientSide && player instanceof ServerPlayer sp) {
 			TornadicSavedData data = TornadicSavedData.getOrLoad(sp.getServer());
-			DailyForecast forecast = data.currentForecast(sp.level());
+			DailyForecast forecast = data.currentForecast(sp.serverLevel());
 			Component msg = Component.empty()
-				.append(Component.literal("WEATHER RADIO - DAY ").withStyle(ChatFormatting.CYAN, ChatFormatting.BOLD))
-				.append(Component.literal(String.valueOf(forecast.day() + 1)).withStyle(ChatFormatting.CYAN))
+				.append(Component.literal("WEATHER RADIO - DAY ").withStyle(ChatFormatting.AQUA, ChatFormatting.BOLD))
+				.append(Component.literal(String.valueOf(forecast.day() + 1)).withStyle(ChatFormatting.AQUA))
 				.append(Component.literal("\nRisk: ").withStyle(ChatFormatting.GRAY))
 				.append(forecast.risk().asComponent().withStyle(ChatFormatting.BOLD))
 				.append(Component.literal("\n" + forecast.risk().description()).withStyle(ChatFormatting.GRAY));
@@ -59,7 +60,7 @@ public class WeatherRadioItem extends Item {
 			sp.sendSystemMessage(msg);
 			sp.playSound(SoundEvents.BLOCK_NOTE_BLOCK_PLING, SoundSource.NEUTRAL, 0.3f, 1.4f);
 		}
-		return InteractionResult.SUCCESS;
+		return net.minecraft.world.InteractionResultHolder.sidedSuccess(player.getItemInHand(hand), world.isClientSide);
 	}
 
 	@Override

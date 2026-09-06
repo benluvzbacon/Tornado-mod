@@ -27,10 +27,11 @@ public class AnemometerItem extends Item {
 	}
 
 	@Override
-	public InteractionResult use(Level world, Player player, InteractionHand hand) {
+	public net.minecraft.world.InteractionResultHolder<net.minecraft.world.item.ItemStack> use(
+		Level world, Player player, InteractionHand hand) {
 		if (!world.isClientSide && player instanceof ServerPlayer sp) {
 			TornadicSavedData data = TornadicSavedData.getOrLoad(sp.getServer());
-			Vec3 wind = WindField.windAt(sp.level(), data.currentForecast(sp.level()),
+			Vec3 wind = WindField.windAt(sp.serverLevel(), data.currentForecast(sp.serverLevel()),
 				data.storms(), data.tornadoes(), sp.getX(), sp.getY(), sp.getZ());
 			double blocksPerSec = Math.sqrt(wind.x * wind.x + wind.z * wind.z) * 20.0;
 			double mph = blocksPerSec * 2.23694;
@@ -44,10 +45,10 @@ public class AnemometerItem extends Item {
 				dir = "from " + dirs[((int) Math.round(deg / 45.0)) % 8];
 			}
 			sp.sendSystemMessage(Component.literal("Wind: ").withStyle(ChatFormatting.GRAY)
-				.append(Component.literal(String.format("%.1f mph", mph)).withStyle(ChatFormatting.CYAN))
+				.append(Component.literal(String.format("%.1f mph", mph)).withStyle(ChatFormatting.AQUA))
 				.append(Component.literal("  " + dir).withStyle(ChatFormatting.GRAY)));
 		}
-		return InteractionResult.SUCCESS;
+		return net.minecraft.world.InteractionResultHolder.sidedSuccess(player.getItemInHand(hand), world.isClientSide);
 	}
 
 	@Override
