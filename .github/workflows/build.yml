@@ -80,8 +80,16 @@ jobs:
           done
           if [ "$READY" != "1" ]; then
             echo "SERVER NEVER BECAME READY"
-            tail -c 100000 gradle-server.log > ci-last-failure.log || true
-            tail -c 100000 run/latest.log >> ci-last-failure.log 2>/dev/null || true
+            echo "--- rcon-list.out (last attempt) ---"
+            cat rcon-list.out 2>/dev/null || true
+            echo "--- listening ports ---"
+            (ss -ltn 2>/dev/null || netstat -ltn 2>/dev/null) | head -20 || true
+            {
+              echo "=== runtime smoke test FAILED: server never ready $(date -u) ==="
+              echo "--- rcon-list.out ---"; cat rcon-list.out 2>/dev/null || true
+              echo "--- run/latest.log tail ---"; tail -c 60000 run/latest.log 2>/dev/null || true
+              echo "--- gradle-server.log tail ---"; tail -c 80000 gradle-server.log 2>/dev/null || true
+            } > ci-last-failure.log
             pkill -f KnotServer 2>/dev/null || true
             pkill -f GradleDaemon 2>/dev/null || true
             kill "$GRADLE_PID" 2>/dev/null || true
@@ -121,18 +129,21 @@ jobs:
           echo "=== rcon outputs ==="
           cat rcon-list.out
           echo "=== server log assertions ==="
-          [ -f run/latest.log ] || { echo "NO LATEST LOG"; find . -name "latest.log" 2>/dev/null | head; ls -la run 2>/dev/null || true; exit 1; }
+          SERVER_LOG=run/latest.log
+          [ -f "$SERVER_LOG" ] || SERVER_LOG=gradle-server.log
+          [ -f "$SERVER_LOG" ] || { echo "NO SERVER LOG"; ls -la run 2>/dev/null || true; exit 1; }
+          echo "asserting against $SERVER_LOG"
           FAIL=0
-          grep -q "Tornadic loaded" run/latest.log || { echo "FAIL: mod never initialized"; FAIL=1; }
-          if grep -q "Crashed server" run/latest.log; then echo "FAIL: server crashed"; FAIL=1; fi
-          if grep -q "Tornadic simulation tick failed" run/latest.log; then echo "FAIL: simulation tick exception"; FAIL=1; fi
+          grep -q "Tornadic loaded" "$SERVER_LOG" || { echo "FAIL: mod never initialized"; FAIL=1; }
+          if grep -q "Crashed server" "$SERVER_LOG"; then echo "FAIL: server crashed"; FAIL=1; fi
+          if grep -q "Tornadic simulation tick failed" "$SERVER_LOG"; then echo "FAIL: simulation tick exception"; FAIL=1; fi
           if grep -q "THERMOS" rcon-out-thermos.out 2>/dev/null; then echo "OK: /thermos produced output"; else echo "FAIL: no /thermos output"; FAIL=1; fi
           if grep -q "unknown command" rcon-out-thermos.out 2>/dev/null; then echo "FAIL: /thermos unknown command"; FAIL=1; fi
           if [ "$FAIL" != "0" ]; then
             {
               echo "=== runtime smoke test FAILED $(date -u) ==="
               for f in rcon-*.out; do echo "--- $f ---"; cat "$f" 2>/dev/null || true; done
-              echo "--- latest.log tail ---"; tail -c 120000 run/latest.log 2>/dev/null || true
+              echo "--- latest.log tail ---"; tail -c 120000 "$SERVER_LOG" 2>/dev/null || true
               echo "--- gradle-server.log tail ---"; tail -c 60000 gradle-server.log 2>/dev/null || true
             } > ci-last-failure.log
             exit 1
