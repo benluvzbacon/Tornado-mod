@@ -199,7 +199,7 @@ public class TornadicSavedData extends SavedData {
 		for (TornadoState state : tornadoes) {
 			state.entity = null;
 			if (!state.isDissipated() && world.isLoaded(new BlockPos((int) state.x, 64, (int) state.z))) {
-				TornadoEntity entity = TornadoEntity.create(TornadicMod.TORNADO_TYPE.get(), world, state.id,
+				TornadoEntity entity = TornadoEntity.create(TornadicMod.TORNADO_TYPE, world, state.id,
 					state.x, state.y > 0 ? state.y : 64, state.z);
 				world.addFreshEntity(entity);
 				state.entity = entity;
@@ -555,7 +555,7 @@ public class TornadicSavedData extends SavedData {
 			tornadoes.add(state);
 			tornadoesToday++;
 			maxEfToday = Math.max(maxEfToday, ef);
-			TornadoEntity entity = TornadoEntity.create(TornadicMod.TORNADO_TYPE.get(), world, state.id, x, groundY, z);
+			TornadoEntity entity = TornadoEntity.create(TornadicMod.TORNADO_TYPE, world, state.id, x, groundY, z);
 			world.addFreshEntity(entity);
 			state.entity = entity;
 			return;
@@ -569,7 +569,7 @@ public class TornadicSavedData extends SavedData {
 		tornadoes.add(state);
 		tornadoesToday++;
 		maxEfToday = Math.max(maxEfToday, (int) state.peakEf);
-		TornadoEntity entity = TornadoEntity.create(TornadicMod.TORNADO_TYPE.get(), world, state.id, x, groundY, z);
+		TornadoEntity entity = TornadoEntity.create(TornadicMod.TORNADO_TYPE, world, state.id, x, groundY, z);
 		world.addFreshEntity(entity);
 		state.entity = entity;
 		setDirty();
@@ -627,7 +627,7 @@ public class TornadicSavedData extends SavedData {
 					}
 				}
 				if (near && world.isLoaded(spawnPos)) {
-					TornadoEntity entity = TornadoEntity.create(TornadicMod.TORNADO_TYPE.get(), world, state.id,
+					TornadoEntity entity = TornadoEntity.create(TornadicMod.TORNADO_TYPE, world, state.id,
 						state.x, state.y, state.z);
 					world.addFreshEntity(entity);
 					state.entity = entity;

@@ -29,7 +29,8 @@ public final class VehicleVisuals {
 			return;
 		}
 		List<ChaserVehicleEntity> vehicles =
-			client.level.getEntities().getEntities(ChaserVehicleEntity.class);
+			client.level.getEntitiesOfClass(ChaserVehicleEntity.class,
+				client.player.getBoundingBox().inflate(64.0D));
 		for (ChaserVehicleEntity v : vehicles) {
 			if (v.distanceTo(client.player) > 64) {
 				continue;
@@ -52,7 +53,7 @@ public final class VehicleVisuals {
 			}
 			// Blinking research light on the roof.
 			if ((v.level().getGameTime() / 10) % 2 == 0) {
-				client.level.addParticle(ParticleTypes.CIT,
+				client.level.addParticle(ParticleTypes.ENCHANT,
 					v.getX(), v.getY() + 1.25, v.getZ(), 0, 0.02, 0);
 			}
 		}

@@ -52,14 +52,14 @@ public class ChaserVehicleItem extends Item {
 			return InteractionResult.FAIL;
 		}
 		// Don't stack vehicles.
-		for (net.minecraft.world.entity.Entity e : world.getEntities(TornadicMod.CHASER_VEHICLE_TYPE.get(),
+		for (net.minecraft.world.entity.Entity e : world.getEntities(TornadicMod.CHASER_VEHICLE_TYPE,
 			new net.minecraft.world.phys.AABB(
 				net.minecraft.world.phys.Vec3.atCenterOf(pos), net.minecraft.world.phys.Vec3.atCenterOf(pos)).inflate(2),
 			other -> !other.isRemoved())) {
 			return InteractionResult.FAIL;
 		}
 		com.tornadic.entity.ChaserVehicleEntity vehicle =
-			com.tornadic.entity.ChaserVehicleEntity.create(TornadicMod.CHASER_VEHICLE_TYPE.get(), world,
+			com.tornadic.entity.ChaserVehicleEntity.create(TornadicMod.CHASER_VEHICLE_TYPE, world,
 				pos.getX() + 0.5, pos.getY() + 0.2, pos.getZ() + 0.5);
 		world.addFreshEntity(vehicle);
 		context.getItemInHand().shrink(1);

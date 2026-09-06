@@ -14,7 +14,7 @@ import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 
 /**
  * Client entry point: renderers, key bindings, payload receivers, screens and
@@ -27,8 +27,8 @@ public class TornadicClientMod implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
 		// Renderers (both are particle-visual shells; the entity itself is invisible).
-		EntityRenderers.register(TornadicMod.TORNADO_TYPE.get(), TornadoRenderer::new);
-		EntityRenderers.register(TornadicMod.CHASER_VEHICLE_TYPE.get(), ChaserVehicleRenderer::new);
+		EntityRendererRegistry.register(TornadicMod.TORNADO_TYPE, TornadoRenderer::new);
+		EntityRendererRegistry.register(TornadicMod.CHASER_VEHICLE_TYPE, ChaserVehicleRenderer::new);
 
 		// Screen hooks for the common item classes.
 		ScreenOpening screens = new ScreenOpening() {

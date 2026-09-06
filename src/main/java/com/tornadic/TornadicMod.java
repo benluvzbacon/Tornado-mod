@@ -31,11 +31,27 @@ public class TornadicMod implements ModInitializer {
 	public static final String MOD_ID = "tornadic";
 	public static final Logger LOGGER = LoggerFactory.getLogger("Tornadic");
 
-	public static final net.fabricmc.fabric.api.object.builder.v1.registry.DeferredRegister<EntityType<?>> ENTITY_TYPES =
-		net.fabricmc.fabric.api.object.builder.v1.registry.DeferredRegister.create(
-			net.minecraft.core.registries.Registries.ENTITY_TYPE, MOD_ID);
-	public static final net.fabricmc.fabric.api.object.builder.v1.registry.DeferredRegister.DeferredEntry<EntityType<TornadoEntity>> TORNADO_TYPE;
-	public static final net.fabricmc.fabric.api.object.builder.v1.registry.DeferredRegister.DeferredEntry<EntityType<ChaserVehicleEntity>> CHASER_VEHICLE_TYPE;
+	@SuppressWarnings("unchecked")
+	public static final EntityType<TornadoEntity> TORNADO_TYPE = (EntityType<TornadoEntity>) (EntityType<?>) net.minecraft.core.Registry.register(
+		net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE, "tornadic:tornado",
+		EntityType.Builder.of(TornadoEntity::new, MobCategory.MISC)
+			.sized(1.0F, 1.0F)
+			.clientTrackingRange(12)
+			.updateInterval(2)
+			.fireImmune()
+			.noSave()
+			.build("tornadic:tornado"));
+
+	@SuppressWarnings("unchecked")
+	public static final EntityType<ChaserVehicleEntity> CHASER_VEHICLE_TYPE = (EntityType<ChaserVehicleEntity>) (EntityType<?>) net.minecraft.core.Registry.register(
+		net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE, "tornadic:chaser_vehicle",
+		EntityType.Builder.of(ChaserVehicleEntity::new, MobCategory.MISC)
+			.sized(1.6F, 1.0F)
+			.clientTrackingRange(8)
+			.updateInterval(3)
+			.fireImmune()
+			.noSummon()
+			.build("tornadic:chaser_vehicle"));
 
 	@Override
 	public void onInitialize() {
@@ -73,24 +89,5 @@ public class TornadicMod implements ModInitializer {
 		});
 
 		LOGGER.info("Tornadic loaded - may the winds be in your favor.");
-	}
-
-	static {
-		TORNADO_TYPE = ENTITY_TYPES.register("tornado", () ->
-			EntityType.Builder.of(TornadoEntity::new, MobCategory.MISC)
-				.sized(1.0F, 1.0F)
-				.clientTrackingRange(12)
-				.updateInterval(2)
-				.fireImmune()
-				.noSave()
-				.build("tornado"));
-		CHASER_VEHICLE_TYPE = ENTITY_TYPES.register("chaser_vehicle", () ->
-			EntityType.Builder.of(ChaserVehicleEntity::new, MobCategory.MISC)
-				.sized(1.6F, 1.0F)
-				.clientTrackingRange(8)
-				.updateInterval(3)
-				.fireImmune()
-				.noSummon()
-				.build("chaser_vehicle"));
 	}
 }
