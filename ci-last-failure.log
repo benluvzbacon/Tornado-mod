@@ -1,27 +1,28 @@
-=== tornadic-ci diagnostics Sun Sep  6 19:51:56 UTC 2026 ===
+=== tornadic-ci diagnostics Sun Sep  6 19:59:19 UTC 2026 ===
 Linux runnervmejwal 6.17.0-1022-azure #22-Ubuntu SMP Mon Jul 27 17:24:03 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux
 --- java -version ---
 openjdk version "21.0.12.1" 2026-08-18 LTS
 OpenJDK Runtime Environment Temurin-21.0.12.1+1 (build 21.0.12.1+1-LTS)
 OpenJDK 64-Bit Server VM Temurin-21.0.12.1+1 (build 21.0.12.1+1-LTS, mixed mode, sharing)
 --- ls -la ---
-total 124
-drwxr-xr-x 6 runner runner  4096 Sep  6 19:51 .
-drwxr-xr-x 3 runner runner  4096 Sep  6 19:51 ..
-drwxr-xr-x 7 runner runner  4096 Sep  6 19:51 .git
-drwxr-xr-x 3 runner runner  4096 Sep  6 19:51 .github
--rw-r--r-- 1 runner runner   217 Sep  6 19:51 .gitignore
--rw-r--r-- 1 runner runner  1070 Sep  6 19:51 LICENSE
--rw-r--r-- 1 runner runner  5730 Sep  6 19:51 README.md
--rw-r--r-- 1 runner runner   416 Sep  6 19:51 build-output.log
--rw-r--r-- 1 runner runner  1078 Sep  6 19:51 build.gradle
--rw-r--r-- 1 runner runner 51775 Sep  6 19:51 ci-last-failure.log
-drwxr-xr-x 3 runner runner  4096 Sep  6 19:51 gradle
--rw-r--r-- 1 runner runner   284 Sep  6 19:51 gradle.properties
--rwxr-xr-x 1 runner runner  8654 Sep  6 19:51 gradlew
--rw-r--r-- 1 runner runner  2846 Sep  6 19:51 gradlew.bat
--rw-r--r-- 1 runner runner   200 Sep  6 19:51 settings.gradle
-drwxr-xr-x 4 runner runner  4096 Sep  6 19:51 src
+total 132
+drwxr-xr-x 7 runner runner  4096 Sep  6 19:59 .
+drwxr-xr-x 3 runner runner  4096 Sep  6 19:59 ..
+drwxr-xr-x 7 runner runner  4096 Sep  6 19:59 .git
+drwxr-xr-x 3 runner runner  4096 Sep  6 19:59 .github
+-rw-r--r-- 1 runner runner   217 Sep  6 19:59 .gitignore
+-rw-r--r-- 1 runner runner  1070 Sep  6 19:59 LICENSE
+-rw-r--r-- 1 runner runner  5730 Sep  6 19:59 README.md
+drwxr-xr-x 2 runner runner  4096 Sep  6 19:59 apidump
+-rw-r--r-- 1 runner runner   416 Sep  6 19:59 build-output.log
+-rw-r--r-- 1 runner runner  1078 Sep  6 19:59 build.gradle
+-rw-r--r-- 1 runner runner 53785 Sep  6 19:59 ci-last-failure.log
+drwxr-xr-x 3 runner runner  4096 Sep  6 19:59 gradle
+-rw-r--r-- 1 runner runner   284 Sep  6 19:59 gradle.properties
+-rwxr-xr-x 1 runner runner  8654 Sep  6 19:59 gradlew
+-rw-r--r-- 1 runner runner  2846 Sep  6 19:59 gradlew.bat
+-rw-r--r-- 1 runner runner   200 Sep  6 19:59 settings.gradle
+drwxr-xr-x 4 runner runner  4096 Sep  6 19:59 src
 Fetching distribution.
 Downloading https://services.gradle.org/distributions/gradle-9.5.1-bin.zip
 .............10%.............20%..............30%.............40%.............50%..............60%.............70%..............80%.............90%.............100%
@@ -152,25 +153,12 @@ Please make sure to read and understand the following license:
 				                                                                       ^
   symbol:   class ClientboundCustomPayloadPacket
   location: package net.minecraft.network.protocol.common.custom
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:18: error: package net.fabricmc.fabric.api.object.builder.v1.registry does not exist
-		var dr = net.fabricmc.fabric.api.object.builder.v1.registry.DeferredRegister
-		                                                           ^
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:26: error: cannot find symbol
-		return server.getServerStorageSource().getLevelId();
-		             ^
-  symbol:   method getServerStorageSource()
-  location: variable server of type MinecraftServer
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:31: error: cannot find symbol
-		return net.minecraft.data.worldgen.DataFixTypes.LEVEL;
-		                                  ^
-  symbol:   class DataFixTypes
-  location: package net.minecraft.data.worldgen
 /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/item/TornadicItems.java:17: error: package net.fabricmc.fabric.api.object.builder.v1.registry does not exist
 		net.fabricmc.fabric.api.object.builder.v1.registry.DeferredRegister.create(
 		                                                  ^
 Note: /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java uses unchecked or unsafe operations.
 Note: Recompile with -Xlint:unchecked for details.
-27 errors
+24 errors
 
 > Task :compileJava FAILED
 
@@ -217,11 +205,6 @@ Execution failed for task ':compileJava' (registered by plugin class 'org.gradle
   				                                                                       ^
     symbol:   class ClientboundCustomPayloadPacket
     location: package net.minecraft.network.protocol.common.custom
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:31: error: cannot find symbol
-  		return net.minecraft.data.worldgen.DataFixTypes.LEVEL;
-  		                                  ^
-    symbol:   class DataFixTypes
-    location: package net.minecraft.data.worldgen
   Note: Recompile with -Xlint:unchecked for details.
   /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/command/TornadicCommands.java:119: error: cannot find symbol
   		String id = world.getServer().getServerStorageSource().getLevelId();
@@ -238,11 +221,6 @@ Execution failed for task ':compileJava' (registered by plugin class 'org.gradle
   		                             ^
     symbol:   method getServerStorageSource()
     location: class MinecraftServer
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:26: error: cannot find symbol
-  		return server.getServerStorageSource().getLevelId();
-  		             ^
-    symbol:   method getServerStorageSource()
-    location: variable server of type MinecraftServer
   /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/TornadicMod.java:34: error: package net.fabricmc.fabric.api.object.builder.v1.registry does not exist
   	public static final net.fabricmc.fabric.api.object.builder.v1.registry.DeferredRegister<EntityType<?>> ENTITY_TYPES =
   	                                                                      ^
@@ -282,13 +260,10 @@ Execution failed for task ':compileJava' (registered by plugin class 'org.gradle
   /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:77: error: package net.minecraft.data.fixes does not exist
   			new SavedData.Factory<>(TornadicSavedData::new, TornadicSavedData::load, net.minecraft.data.fixes.DataFixTypes.LEVEL), NAME);
   			                                                                                                 ^
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:18: error: package net.fabricmc.fabric.api.object.builder.v1.registry does not exist
-  		var dr = net.fabricmc.fabric.api.object.builder.v1.registry.DeferredRegister
-  		                                                           ^
   /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/item/TornadicItems.java:17: error: package net.fabricmc.fabric.api.object.builder.v1.registry does not exist
   		net.fabricmc.fabric.api.object.builder.v1.registry.DeferredRegister.create(
   		                                                  ^
-  27 errors
+  24 errors
 
 * Try:
 > Check your code and dependencies to fix the compilation error(s)
@@ -419,25 +394,12 @@ Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Com
 				                                                                       ^
   symbol:   class ClientboundCustomPayloadPacket
   location: package net.minecraft.network.protocol.common.custom
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:18: error: package net.fabricmc.fabric.api.object.builder.v1.registry does not exist
-		var dr = net.fabricmc.fabric.api.object.builder.v1.registry.DeferredRegister
-		                                                           ^
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:26: error: cannot find symbol
-		return server.getServerStorageSource().getLevelId();
-		             ^
-  symbol:   method getServerStorageSource()
-  location: variable server of type MinecraftServer
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:31: error: cannot find symbol
-		return net.minecraft.data.worldgen.DataFixTypes.LEVEL;
-		                                  ^
-  symbol:   class DataFixTypes
-  location: package net.minecraft.data.worldgen
 /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/item/TornadicItems.java:17: error: package net.fabricmc.fabric.api.object.builder.v1.registry does not exist
 		net.fabricmc.fabric.api.object.builder.v1.registry.DeferredRegister.create(
 		                                                  ^
 Note: /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java uses unchecked or unsafe operations.
 Note: Recompile with -Xlint:unchecked for details.
-27 errors
+24 errors
 	at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:89)
 	at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:50)
 	at org.gradle.api.internal.tasks.compile.NormalizingJavaCompiler.delegateAndHandleErrors(NormalizingJavaCompiler.java:98)
@@ -572,6 +534,6 @@ Note: Recompile with -Xlint:unchecked for details.
 	... 30 more
 
 
-BUILD FAILED in 45s
+BUILD FAILED in 54s
 1 actionable task: 1 executed
 gradle-build-exit=1

@@ -1,0 +1,17 @@
+=== loom cache jars ===
+/home/runner/.gradle/caches/fabric-loom/minecraftMaven/net/minecraft/minecraft-common/1.21.1-loom.mappings.1_21_1.layered+hash.2198-v2/minecraft-common-1.21.1-loom.mappings.1_21_1.layered+hash.2198-v2.jar
+/home/runner/.gradle/caches/fabric-loom/minecraftMaven/net/minecraft/minecraft-clientonly-intermediary/1.21.1-loom.mappings.1_21_1.layered+hash.2198-v2/minecraft-clientonly-intermediary-1.21.1-loom.mappings.1_21_1.layered+hash.2198-v2.jar
+/home/runner/.gradle/caches/fabric-loom/minecraftMaven/net/minecraft/minecraft-common-intermediary/1.21.1-loom.mappings.1_21_1.layered+hash.2198-v2/minecraft-common-intermediary-1.21.1-loom.mappings.1_21_1.layered+hash.2198-v2.jar
+/home/runner/.gradle/caches/fabric-loom/minecraftMaven/net/minecraft/minecraft-clientonly/1.21.1-loom.mappings.1_21_1.layered+hash.2198-v2/minecraft-clientonly-1.21.1-loom.mappings.1_21_1.layered+hash.2198-v2.jar
+/home/runner/.gradle/caches/fabric-loom/minecraftMaven/loom/mappings/layered+hash.2198/mappings-layered+hash.2198.jar
+/home/runner/.gradle/caches/fabric-loom/1.21.1/loom.mappings.1_21_1.layered+hash.2198-v2/mappings.jar
+/home/runner/.gradle/caches/fabric-loom/1.21.1/minecraft-client-only.jar
+/home/runner/.gradle/caches/fabric-loom/1.21.1/minecraft-extracted_server.jar
+/home/runner/.gradle/caches/fabric-loom/1.21.1/minecraft-common.jar
+/home/runner/.gradle/caches/fabric-loom/1.21.1/layered/loom.mappings-layered+hash.2198.jar
+/home/runner/.gradle/caches/fabric-loom/1.21.1/minecraft-client.jar
+/home/runner/.gradle/caches/fabric-loom/1.21.1/minecraft-server.jar
+jar-used=
+fabric-jar-used=/home/runner/.gradle/caches/modules-2/files-2.1/net.fabricmc.fabric-api/fabric-api-lookup-api-v1/1.6.70+b559734419/c0e775599a8c03315343e1f8ea777097cdf0b75c/fabric-api-lookup-api-v1-1.6.70+b559734419.jar
+api-dump-exit=0
+16 ci-api-dump.txt
