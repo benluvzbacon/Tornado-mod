@@ -66,7 +66,9 @@ jobs:
           unzip -l "$MCJAR" 2>/dev/null | grep -iE "rcon|DedicatedServerProperties|dedicated/Settings" > rcon-classes.txt
           cat rcon-classes.txt
           rm -rf /tmp/rconprobe && mkdir -p /tmp/rconprobe
-          (cd /tmp/rconprobe && awk '{print $4}' rcon-classes.txt | grep "\.class$" | head -20 | while read f; do unzip -o -q "$MCJAR" "$f"; done)
+          awk '{print $4}' "$GITHUB_WORKSPACE/rcon-classes.txt" 2>/dev/null | grep "\.class$" | head -20 > rcon-classlist.txt
+          cat rcon-classlist.txt
+          while read -r f; do (cd /tmp/rconprobe && unzip -o -q "$MCJAR" "$f"); done < rcon-classlist.txt
           for c in $(find /tmp/rconprobe -name "*.class" | head -20); do
             echo "=== javap $(basename "$c") ==="
             javap -p -c "$c" 2>/dev/null | head -120
