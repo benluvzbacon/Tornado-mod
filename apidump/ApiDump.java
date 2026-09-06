@@ -15,6 +15,8 @@ import java.util.zip.ZipEntry;
 public final class ApiDump {
 	private static final String[] CLASSES = {
 		"net.minecraft.world.entity.Entity",
+		"net.minecraft.core.DefaultedRegistry",
+		"net.minecraft.core.Registry",
 		"net.minecraft.core.registries.BuiltInRegistries",
 		"net.minecraft.core.registries.Registries",
 		"net.minecraft.world.level.storage.LevelData",

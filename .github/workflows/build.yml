@@ -54,14 +54,14 @@ jobs:
           find ~/.gradle/caches/fabric-loom -name "*.jar" 2>/dev/null | grep -iv "sources\|javadoc" >> ci-api-dump.txt 2>&1
           MC_COMMON=$(find ~/.gradle/caches/fabric-loom/minecraftMaven -path "*minecraft-common/*" -name "*.jar" 2>/dev/null | grep -v intermediary | head -1)
           MC_CLIENT=$(find ~/.gradle/caches/fabric-loom/minecraftMaven -path "*minecraft-clientonly/*" -name "*.jar" 2>/dev/null | grep -v intermediary | head -1)
-          FABRIC_JARS=$(find ~/.gradle/caches/modules-2 -name "fabric-api-*.jar" 2>/dev/null | grep -v sources | tr '\n' ':')
+          DEPS=$(find ~/.gradle/caches/modules-2 -name "*.jar" 2>/dev/null | grep -v sources | tr '\n' ':')
           echo "mc-common=$MC_COMMON" >> ci-api-dump.txt
           echo "mc-client=$MC_CLIENT" >> ci-api-dump.txt
           echo "fabric-jars-count=$(find ~/.gradle/caches/modules-2 -name 'fabric-api-*.jar' 2>/dev/null | grep -cv sources)" >> ci-api-dump.txt
           if [ -n "$MC_COMMON" ]; then
             mkdir -p /tmp/dumpout
             if javac -d /tmp/dumpout apidump/ApiDump.java 2>> ci-api-dump.txt; then
-              java -cp "/tmp/dumpout:$MC_COMMON:$MC_CLIENT:$FABRIC_JARS" com.tornadic.ApiDump >> ci-api-dump.txt 2>&1
+              java -cp "/tmp/dumpout:$MC_COMMON:$MC_CLIENT:$DEPS" com.tornadic.ApiDump >> ci-api-dump.txt 2>&1
             fi
           fi
           echo "api-dump-exit=$?" >> ci-api-dump.txt
