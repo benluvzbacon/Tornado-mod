@@ -11,7 +11,6 @@ import com.tornadic.network.WeatherSyncPayload;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.DustParticleOptions;
 import net.minecraft.client.particle.ParticleTypes;
-import net.minecraft.core.particles.DustColor;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
@@ -56,7 +55,7 @@ public final class WeatherVisuals {
 			}
 		}
 		for (ClientWeatherState.PendingThunder t : due) {
-			client.level.playLocalSound(t.x, 64, t.z, SoundEvents.LIGHTNING_BOLT_THUNDER.value(),
+			client.level.playLocalSound(t.x, 64, t.z, SoundEvents.LIGHTNING_BOLT_THUNDER,
 				SoundSource.WEATHER, t.volume, t.pitch, true);
 		}
 	}
@@ -115,7 +114,7 @@ public final class WeatherVisuals {
 				double az = t.z() + Math.sin(angle) * radius;
 				// Funnel body.
 				client.level.addParticle(
-					new DustParticleOptions(new DustColor((int) (r * 255), (int) (g * 255), (int) (b * 255)),
+					new DustParticleOptions(new org.joml.Vector3f(r, g, b),
 						0.6f + fr * 1.6f),
 					ax, y, az,
 					0, 0.02f + RNG.nextFloat() * 0.02f, 0);
@@ -124,7 +123,7 @@ public final class WeatherVisuals {
 				if (fr < 0.25f && spawned < budget && RNG.nextInt(3) == 0) {
 					float da = RNG.nextFloat() * (float) Math.PI * 2;
 					client.level.addParticle(
-						new DustParticleOptions(new DustColor((int) (r * 200), (int) (g * 200), (int) (b * 200)),
+						new DustParticleOptions(new org.joml.Vector3f(r * 0.78F, g * 0.78F, b * 0.78F),
 							1.4f),
 						t.x() + Math.cos(da) * funnel * (0.8f + RNG.nextFloat()),
 						t.y() + 0.5 + RNG.nextFloat() * 2.5f,
@@ -231,7 +230,7 @@ public final class WeatherVisuals {
 			double sz = pz + (RNG.nextFloat() * 2 - 1) * 24;
 			double sy = client.player.getY() + 1 + RNG.nextFloat() * 3;
 			client.level.addParticle(
-				new DustParticleOptions(new DustColor(235, 235, 235), 0.35f),
+				new DustParticleOptions(new org.joml.Vector3f(235 / 255.0F, 235 / 255.0F, 235 / 255.0F), 0.35f),
 				sx, sy, sz,
 				wind.x * 4.0, 0.02, wind.z * 4.0);
 		}

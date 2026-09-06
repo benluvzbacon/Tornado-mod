@@ -311,6 +311,7 @@ public final class TornadicCommands {
 				break;
 			}
 		}
+		final int efSnapshot = tornadoEf;
 		source.sendSuccess(() -> Component.empty()
 			.append(s.type.asComponent().withStyle(net.minecraft.network.chat.Style.EMPTY.withBold(true)))
 			.append(Component.literal("\nPosition: ").withStyle(ChatFormatting.GRAY))
@@ -327,8 +328,8 @@ public final class TornadicCommands {
 			.append(Component.literal(s.hail ? "yes (" + String.format("%.2f", s.hailSize) + " size)" : "no")
 				.withStyle(s.hail ? ChatFormatting.AQUA : ChatFormatting.WHITE))
 			.append(Component.literal("\nTornado: ").withStyle(ChatFormatting.GRAY))
-			.append(Component.literal(tornadoEf >= 0 ? com.tornadic.tornado.TornadoIntensity.fromEf(tornadoEf).label() : "none")
-				.withStyle(tornadoEf >= 0 ? ChatFormatting.RED : ChatFormatting.WHITE)), false);
+			.append(Component.literal(efSnapshot >= 0 ? com.tornadic.tornado.TornadoIntensity.fromEf(efSnapshot).label() : "none")
+				.withStyle(efSnapshot >= 0 ? ChatFormatting.RED : ChatFormatting.WHITE)), false);
 		return 1;
 	}
 }

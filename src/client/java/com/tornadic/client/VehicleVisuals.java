@@ -7,7 +7,6 @@ import com.tornadic.entity.ChaserVehicleEntity;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.DustParticleOptions;
 import net.minecraft.client.particle.ParticleTypes;
-import net.minecraft.core.particles.DustColor;
 import net.minecraft.util.RandomSource;
 
 /**
@@ -48,7 +47,7 @@ public final class VehicleVisuals {
 				double wz = v.getZ() + lf * fz + lr * rz;
 				double wy = v.getY() + 0.2 + RNG.nextFloat() * 0.8;
 				client.level.addParticle(
-					new DustParticleOptions(new DustColor(58, 64, 72), 0.55f),
+					new DustParticleOptions(new org.joml.Vector3f(58 / 255.0F, 64 / 255.0F, 72 / 255.0F), 0.55f),
 					wx, wy, wz, 0, 0, 0);
 			}
 			// Blinking research light on the roof.

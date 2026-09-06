@@ -56,7 +56,6 @@ public class TornadicMod implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		TornadicConfig.load();
-		registerEntities();
 		TornadicPayloads.register();
 
 		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
