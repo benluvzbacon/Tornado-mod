@@ -29,43 +29,12 @@ jobs:
 
       - name: Build with Gradle
         run: |
-          {
-            echo "=== tornadic-ci diagnostics $(date -u) ==="
-            uname -a
-            echo "--- java -version ---"
-            java -version 2>&1 || true
-            echo "--- ls -la ---"
-            ls -la
-          } > build-output.log 2>&1
-          set +e
-          ./gradlew --version >> build-output.log 2>&1
-          echo "gradlew-version-exit=$?" >> build-output.log
-          ./gradlew build --no-daemon --stacktrace >> build-output.log 2>&1
-          status=$?
-          echo "gradle-build-exit=$status" >> build-output.log
-          tail -c 200000 build-output.log > ci-last-failure.log || echo "tail failed" >> ci-last-failure.log
-          exit "$status"
-
-      - name: Dump 1.21.1 API surface
-        if: always()
-        run: |
-          set +e
-          echo "=== loom cache jars ===" > ci-api-dump.txt
-          find ~/.gradle/caches/fabric-loom -name "*.jar" 2>/dev/null | grep -iv "sources\|javadoc" >> ci-api-dump.txt 2>&1
-          MC_COMMON=$(find ~/.gradle/caches/fabric-loom/minecraftMaven -path "*minecraft-common/*" -name "*.jar" 2>/dev/null | grep -v intermediary | head -1)
-          MC_CLIENT=$(find ~/.gradle/caches/fabric-loom/minecraftMaven -path "*minecraft-clientonly/*" -name "*.jar" 2>/dev/null | grep -v intermediary | head -1)
-          DEPS=$(find ~/.gradle/caches/modules-2 -name "*.jar" 2>/dev/null | grep -v sources | tr '\n' ':')
-          echo "mc-common=$MC_COMMON" >> ci-api-dump.txt
-          echo "mc-client=$MC_CLIENT" >> ci-api-dump.txt
-          echo "fabric-jars-count=$(find ~/.gradle/caches/modules-2 -name 'fabric-api-*.jar' 2>/dev/null | grep -cv sources)" >> ci-api-dump.txt
-          if [ -n "$MC_COMMON" ]; then
-            mkdir -p /tmp/dumpout
-            if javac -d /tmp/dumpout apidump/ApiDump.java 2>> ci-api-dump.txt; then
-              java -cp "/tmp/dumpout:$MC_COMMON:$MC_CLIENT:$DEPS" com.tornadic.ApiDump >> ci-api-dump.txt 2>&1
-            fi
+          ./gradlew build --no-daemon --stacktrace 2>&1 | tee build-output.log
+          status=${PIPESTATUS[0]}
+          if [ "$status" -ne 0 ]; then
+            tail -c 200000 build-output.log > ci-last-failure.log || true
           fi
-          echo "api-dump-exit=$?" >> ci-api-dump.txt
-          wc -l ci-api-dump.txt >> ci-api-dump.txt
+          exit "$status"
 
       - name: Verify jar exists
         run: ls -la build/libs/tornadic-1.0.0.jar
@@ -76,12 +45,10 @@ jobs:
           set +e
           git config user.name "tornadic-ci"
           git config user.email "ci@tornadic.invalid"
-          for f in ci-last-failure.log ci-api-dump.txt; do
-            if [ -f "$f" ]; then
-              rm "$f"
-              git add -A "$f"
-            fi
-          done
+          if [ -f ci-last-failure.log ]; then
+            rm ci-last-failure.log
+            git add -A ci-last-failure.log
+          fi
           if ! git diff --cached --quiet; then
             git commit -m "ci: build fixed, drop diagnostic logs"
             git push
@@ -95,21 +62,14 @@ jobs:
           git config user.name "tornadic-ci"
           git config user.email "ci@tornadic.invalid"
           [ -f ci-last-failure.log ] || echo "BUILD STEP DIED BEFORE CAPTURE" > ci-last-failure.log
-          [ -f ci-api-dump.txt ] || echo "API DUMP MISSING" > ci-api-dump.txt
           KEY=$(grep -E "error|Error|ERROR|FAILED|What went wrong|Exception" ci-last-failure.log | head -5 | tr '\n' '|' | head -c 150)
-          git add -f ci-last-failure.log ci-api-dump.txt
+          git add -f ci-last-failure.log
           COMMITTED=0
           if ! git diff --cached --quiet; then
             if git commit -m "ci: last build failure log | ${KEY}"; then
               COMMITTED=1
             fi
           fi
-          # Commit comment first (works even if branch push is blocked).
-          curl -sS -X POST "https://api.github.com/repos/${GITHUB_REPOSITORY}/commits/${GITHUB_SHA}/comments" \
-            -H "Authorization: Bearer ${GITHUB_TOKEN}" \
-            -H "Accept: application/vnd.github+json" \
-            -d "{\"body\": \"CI build failed. Log tail (base64): $(base64 -w0 ci-last-failure.log | head -c 45000)\"}" > /tmp/curl.out 2>&1
-          echo "curl-exit=$? result=$(head -c 300 /tmp/curl.out)"
           if [ "$COMMITTED" = "1" ]; then
             git push > /tmp/push.out 2>&1
             PUSH=$?

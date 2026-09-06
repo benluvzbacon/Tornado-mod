@@ -28,3 +28,8 @@ Thumbs.db
 
 # CI diagnostics
 build-output.log
+
+# CI diagnostics
+build-output.log
+ci-last-failure.log
+ci-api-dump.txt
