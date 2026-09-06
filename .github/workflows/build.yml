@@ -57,7 +57,7 @@ jobs:
           git config user.email "ci@tornadic.invalid"
           if [ -f ci-last-failure.log ]; then
             rm ci-last-failure.log
-            git add -A
+            git add -A ci-last-failure.log
             if ! git diff --cached --quiet; then
               git commit -m "ci: build fixed, drop last failure log"
               git push
@@ -73,7 +73,7 @@ jobs:
           git config user.email "ci@tornadic.invalid"
           [ -f ci-last-failure.log ] || echo "BUILD STEP DIED BEFORE CAPTURE" > ci-last-failure.log
           KEY=$(grep -E "error|Error|ERROR|FAILED|What went wrong|Exception" ci-last-failure.log | head -5 | tr '\n' '|' | head -c 150)
-          git add ci-last-failure.log
+          git add -f ci-last-failure.log
           COMMITTED=0
           if ! git diff --cached --quiet; then
             if git commit -m "ci: last build failure log | ${KEY}"; then
