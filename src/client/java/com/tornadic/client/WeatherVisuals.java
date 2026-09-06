@@ -9,8 +9,11 @@ import com.tornadic.network.TornadoSyncPayload;
 import com.tornadic.network.WeatherSyncPayload;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.BlockParticleOption;
 import net.minecraft.core.particles.DustParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
@@ -217,6 +220,36 @@ public final class WeatherVisuals {
 						-Math.sin(spin) * 0.08, 0.12, Math.cos(spin) * 0.08);
 					spawned++;
 				}
+			}
+
+			// Visible block fragments orbit, rise, and peel away from the circulation.
+			// These are client-only particles (not thousands of entities); real broken
+			// blocks and item debris remain server-authoritative in TornadoPhysics.
+			int fragments = Math.min(budget - spawned, 1 + t.ef());
+			BlockState ground = client.level.getBlockState(BlockPos.containing(t.x(), t.y() - 1, t.z()));
+			if (!ground.isAir()) {
+				for (int f = 0; f < fragments; f++) {
+					double a = RNG.nextDouble() * Math.PI * 2.0;
+					double rr = funnel * (0.7 + RNG.nextDouble() * 1.6);
+					double tangential = 0.16 + t.ef() * 0.035;
+					client.level.addParticle(new BlockParticleOption(ParticleTypes.BLOCK, ground),
+						t.x() + Math.cos(a) * rr, t.y() + 0.5 + RNG.nextDouble() * (8 + t.ef() * 3),
+						t.z() + Math.sin(a) * rr,
+						-Math.sin(a) * tangential, 0.10 + RNG.nextDouble() * 0.18,
+						Math.cos(a) * tangential);
+					spawned++;
+				}
+			}
+
+			// Dense swirling dust, rather than a broad hurricane-like rain cylinder.
+			if (spawned < budget) {
+				double a = time * 0.012 + RNG.nextDouble() * Math.PI * 2.0;
+				double rr = funnel * (0.9 + RNG.nextDouble() * 0.9);
+				client.level.addParticle(ParticleTypes.POOF,
+					t.x() + Math.cos(a) * rr, t.y() + RNG.nextDouble() * 10.0,
+					t.z() + Math.sin(a) * rr,
+					-Math.sin(a) * 0.18, 0.08, Math.cos(a) * 0.18);
+				spawned++;
 			}
 
 			// Debris sparks on the irregular outer edge.

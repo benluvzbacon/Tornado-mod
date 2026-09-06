@@ -1,4 +1,6 @@
 {
+	"itemGroup.tornadic.weather": "Tornadic Weather",
+	"block.tornadic.anemometer": "Anemometer",
 	"item.tornadic.weather_radio": "Weather Radio",
 	"item.tornadic.anemometer": "Anemometer",
 	"item.tornadic.thermometer": "Thermometer",

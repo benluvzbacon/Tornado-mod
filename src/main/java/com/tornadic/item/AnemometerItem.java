@@ -9,8 +9,10 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
@@ -21,9 +23,9 @@ import java.util.List;
  * Measures the local wind: speed (mph) and direction from the full wind field
  * (daily wind + storms + tornado vortexes).
  */
-public class AnemometerItem extends Item {
-	public AnemometerItem(Properties properties) {
-		super(properties);
+public class AnemometerItem extends BlockItem {
+	public AnemometerItem(Block block, Item.Properties properties) {
+		super(block, properties);
 	}
 
 	@Override
