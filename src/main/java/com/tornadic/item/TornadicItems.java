@@ -15,6 +15,10 @@ public final class TornadicItems {
 	private TornadicItems() {
 	}
 
+	/** Forces class initialization (registers all items). */
+	public static void ensureRegistered() {
+	}
+
 	public static final Item WEATHER_RADIO = register("weather_radio",
 		new WeatherRadioItem(new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));
 	public static final Item ANEMOMETER = register("anemometer",
