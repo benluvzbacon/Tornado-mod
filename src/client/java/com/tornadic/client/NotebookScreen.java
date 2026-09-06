@@ -26,7 +26,11 @@ public class NotebookScreen extends Screen {
 
 	@Override
 	public void render(GuiGraphics g, int mouseX, int mouseY, float partialTicks) {
-		renderBackground(g, mouseX, mouseY, partialTicks);
+		// Do not invoke Screen#renderBackground here. In 1.21.1 the game may have
+		// already installed the world-screen blur pass for this frame; requesting it
+		// again can throw and crash the client when the notebook opens. A lightweight
+		// translucent backdrop is deterministic and compatible with other render mods.
+		g.fill(0, 0, this.width, this.height, 0x88000000);
 		int w = 250;
 		int h = 190;
 		int x0 = (this.width - w) / 2;

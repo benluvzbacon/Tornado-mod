@@ -34,12 +34,14 @@ public class TornadicClientMod implements ClientModInitializer {
 		ScreenOpening screens = new ScreenOpening() {
 			@Override
 			public void openRadar() {
-				Minecraft.getInstance().setScreen(new RadarScreen());
+				Minecraft client = Minecraft.getInstance();
+				client.execute(() -> client.setScreen(new RadarScreen()));
 			}
 
 			@Override
 			public void openNotebook() {
-				Minecraft.getInstance().setScreen(new NotebookScreen());
+				Minecraft client = Minecraft.getInstance();
+				client.execute(() -> client.setScreen(new NotebookScreen()));
 			}
 		};
 		StormRadarItem.screens = screens;

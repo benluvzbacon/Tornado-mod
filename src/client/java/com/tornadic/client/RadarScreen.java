@@ -35,7 +35,9 @@ public class RadarScreen extends Screen {
 
 	@Override
 	public void render(GuiGraphics g, int mouseX, int mouseY, float partialTicks) {
-		renderBackground(g, mouseX, mouseY, partialTicks);
+		// Avoid requesting Minecraft's blur post-chain from a custom in-world screen.
+		// On 1.21.1 a second background blur in the same frame can crash the client.
+		g.fill(0, 0, this.width, this.height, 0x99000000);
 		int ox = (this.width - SCOPE) / 2;
 		int oy = (this.height - SCOPE) / 2 + 10;
 		int cx = ox + SCOPE / 2;
