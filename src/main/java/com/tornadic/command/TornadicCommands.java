@@ -97,7 +97,7 @@ public final class TornadicCommands {
 		lines.add(line("Tornado Probability:", shown.tornadoProbability() + "%"));
 		lines.add(Component.empty());
 		lines.add(Component.literal("SEVERE WEATHER RISK:").withStyle(ChatFormatting.WHITE, ChatFormatting.BOLD)
-			.append(" ").append(risk.asComponent().withStyle(ChatFormatting.BOLD)));
+			.append(" ").append(risk.asComponent().withStyle(net.minecraft.world.Style.EMPTY.withBold(true))));
 		lines.add(Component.literal(risk.description()).withStyle(risk.color()));
 		lines.add(Component.empty());
 		lines.add(Component.literal("Forecast:").withStyle(ChatFormatting.GRAY, ChatFormatting.ITALIC));
@@ -115,7 +115,7 @@ public final class TornadicCommands {
 
 	private static long seedOf(ServerLevel world) {
 		try {
-			return world.getLevelData().getWorldGenOptions().getSeed();
+			return world.getLevelData().getWorldGenSettings().getSeed();
 		} catch (Exception e) {
 			return 0L;
 		}
@@ -309,7 +309,7 @@ public final class TornadicCommands {
 			}
 		}
 		source.sendSuccess(() -> Component.empty()
-			.append(s.type.asComponent().withStyle(ChatFormatting.BOLD))
+			.append(s.type.asComponent().withStyle(net.minecraft.world.Style.EMPTY.withBold(true)))
 			.append(Component.literal("\nPosition: ").withStyle(ChatFormatting.GRAY))
 			.append(Component.literal((int) s.x + ", " + (int) s.z).withStyle(ChatFormatting.WHITE))
 			.append(Component.literal("\nMovement: ").withStyle(ChatFormatting.GRAY))

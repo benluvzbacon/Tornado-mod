@@ -16,12 +16,12 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.ItemEntity;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.heightmap.Heightmap;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 
@@ -95,7 +95,7 @@ public final class TornadoPhysics {
 			double speed = target.length();
 			double maxSpeed = 1.1;
 			if (speed > maxSpeed) {
-				target = target.multiply(maxSpeed / speed);
+				target = target.multiply(maxSpeed / speed, maxSpeed / speed, maxSpeed / speed);
 			}
 			e.setDeltaMovement(target);
 
@@ -103,7 +103,7 @@ public final class TornadoPhysics {
 			if (localWind > threshold) {
 				double excess = (localWind - threshold) / threshold;
 				double chance = Math.min(0.35, 0.05 + excess * 0.12);
-				if (world.getRandom().nextDouble(chance)) {
+				if (world.getRandom().nextFloat((float) chance)) {
 					double amount = 0.5 + state.currentEf() * 0.45 + world.getRandom().nextDouble() * 1.2;
 					// Riding a chaser vehicle halves wind damage (shelter).
 					if (e instanceof Player p && p.getVehicle() instanceof ChaserVehicleEntity) {
@@ -116,7 +116,7 @@ public final class TornadoPhysics {
 			// Debris strike near the core: bigger hit + violent knockback.
 			if (dist < funnel * 1.6 && state.currentEf() >= 1) {
 				double chance = state.intensityScale().debrisChance() * 0.5;
-				if (world.getRandom().nextDouble(chance)) {
+				if (world.getRandom().nextFloat((float) chance)) {
 					double amount = 1.5 + world.getRandom().nextDouble() * (1.0 + state.currentEf() * 0.6);
 					if (e instanceof Player p && p.getVehicle() instanceof ChaserVehicleEntity) {
 						amount *= 0.5;
@@ -211,7 +211,7 @@ public final class TornadoPhysics {
 				}
 				// Stronger tornadoes break more readily.
 				double chance = 0.2 + state.intensity * 0.55;
-				if (!world.getRandom().nextDouble(chance)) {
+				if (!world.getRandom().nextFloat((float) chance)) {
 					continue;
 				}
 				world.destroyBlock(pos, false);
@@ -236,7 +236,7 @@ public final class TornadoPhysics {
 				}
 
 				// Tornado paths strip trees: nearby logs go down too.
-				if (st.is(BlockTags.LOGS) && world.getRandom().nextDouble() < 0.5 && budget > 0) {
+				if (st.is(BlockTags.LOGS) && world.getRandom().nextFloat() < 0.5f && budget > 0) {
 					for (int k = 0; k < 3 && budget > 0; k++) {
 						BlockPos logPos = pos.offset(world.getRandom().nextInt(5) - 2,
 							world.getRandom().nextInt(3), world.getRandom().nextInt(5) - 2);
@@ -297,10 +297,10 @@ public final class TornadoPhysics {
 			.append(Component.literal("\nMovement: " + compass + "  Speed: " + (int) speedKmh + " km/h\n"))
 			.append(Component.literal("Seek shelter immediately.").withStyle(ChatFormatting.YELLOW));
 
-		for (ServerPlayer p : world.players) {
+		for (ServerPlayer p : world.getServer().getPlayerList().getPlayers()) {
 			if (p.distanceToSqr(new Vec3(state.x, p.getY(), state.z)) <= (double) TornadicConfig.warningRadius * TornadicConfig.warningRadius) {
 				p.sendSystemMessage(warning);
-				p.playSound(SoundEvents.ENTITY_PLAYER_LEVELUP, SoundSource.WEATHER, 0.7f, 1.0f);
+				p.playSound(SoundEvents.PLAYER_LEVELUP, SoundSource.WEATHER, 0.7f, 1.0f);
 			}
 		}
 	}

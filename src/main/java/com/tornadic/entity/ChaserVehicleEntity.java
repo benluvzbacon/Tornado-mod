@@ -32,15 +32,15 @@ public class ChaserVehicleEntity extends Entity {
 
 	@Override
 	public boolean canRide(Entity entity) {
-		return entity instanceof Player && !this.hasPassengers();
+		return entity instanceof Player && !this.!getPassengers().isEmpty();
 	}
 
 	@Override
 	public net.minecraft.world.InteractionResult interact(Player player, net.minecraft.world.InteractionHand hand) {
 		if (!level().isClientSide) {
-			if (hasPassengers()) {
+			if (!getPassengers().isEmpty()) {
 				player.stopRiding();
-			} else if (player.canRide(this)) {
+			} else if (true) {
 				player.startRiding(this);
 				player.swing(hand);
 			}
@@ -54,7 +54,7 @@ public class ChaserVehicleEntity extends Entity {
 		if (level().isClientSide) {
 			return;
 		}
-		if (hasPassengers()) {
+		if (!getPassengers().isEmpty()) {
 			Player driver = (Player) getControllingPassenger();
 		// Research vehicle handling: steady forward force, a little speed, no superpowers.
 		float yaw = (float) (driver.getYRot() * Math.PI / 180.0);
@@ -70,7 +70,7 @@ public class ChaserVehicleEntity extends Entity {
 	} else {
 			// Coasting friction.
 			Vec3 vel = getDeltaMovement();
-			setDeltaMovement(vel.multiply(0.9));
+			setDeltaMovement(vel.multiply(0.9, 0.9, 0.9));
 		}
 		// Discard if it falls far out of the world.
 		if (getY() < (level() instanceof ServerLevel sl ? sl.getMinBuildHeight() : 0) - 64) {
@@ -79,7 +79,7 @@ public class ChaserVehicleEntity extends Entity {
 	}
 
 	@Override
-	public boolean removeWhenFarAway(double distance) {
+	public boolean shouldRemove(double x, double z) {
 		return distance < 4096; // persist a bit past the default so it isn't yanked mid-chase
 	}
 

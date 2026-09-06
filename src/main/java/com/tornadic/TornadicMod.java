@@ -54,7 +54,7 @@ public class TornadicMod implements ModInitializer {
 				return;
 			}
 			try {
-				TornadicSavedData.getOrLoad(world.getMinecraftServer()).tick(world);
+				TornadicSavedData.getOrLoad(world.getServer()).tick(world);
 			} catch (Throwable t) {
 				LOGGER.error("Tornadic simulation tick failed", t);
 			}

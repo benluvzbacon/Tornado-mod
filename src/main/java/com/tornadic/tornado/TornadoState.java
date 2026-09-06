@@ -61,7 +61,7 @@ public class TornadoState {
 			ef = 0;
 		}
 		if (ef > peakEf) {
-			ef = peakEf;
+			ef = (int) peakEf;
 		}
 		return ef;
 	}

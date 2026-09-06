@@ -33,10 +33,10 @@ import net.minecraft.world.entity.LightningBolt;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.heightmap.Heightmap;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.storage.DimensionDataStorage;
 import net.minecraft.world.level.storage.WorldData;
-import net.minecraft.world.level.storage.saveddata.SavedData;
+import net.minecraft.world.level.saveddata.SavedData;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 
@@ -83,7 +83,7 @@ public class TornadicSavedData extends SavedData {
 		data.nextId = tag.getLong("NextId");
 		data.stormsToday = tag.getInt("StormsToday");
 		data.tornadoesToday = tag.getInt("TornadoesToday");
-		data.maxEfToday = tag.getInt("MaxEfToday", -1);
+		data.maxEfToday = tag.contains("MaxEfToday") ? tag.getInt("MaxEfToday") : -1;
 		data.lightningToday = tag.getInt("LightningToday");
 		data.hailEventsToday = tag.getInt("HailToday");
 
@@ -142,7 +142,7 @@ public class TornadicSavedData extends SavedData {
 	private long worldSeed(ServerLevel world) {
 		WorldData data = world.getLevelData();
 		try {
-			return data.getWorldGenOptions().getSeed();
+			return data.getWorldGenSettings().getSeed();
 		} catch (Exception e) {
 			// Extremely defensive fallback; the seed is only used as a deterministic input.
 			return 0L;
@@ -155,7 +155,7 @@ public class TornadicSavedData extends SavedData {
 		if (world.isClientSide) {
 			return;
 		}
-		if (world.players.isEmpty()) {
+		if (world.getServer().getPlayerList().getPlayers().isEmpty()) {
 			// Nothing to simulate for; keep vanilla behavior.
 			return;
 		}
@@ -215,12 +215,12 @@ public class TornadicSavedData extends SavedData {
 		}
 		double perTick = 0.00035 * (forecast.stormProbability() / 100.0)
 			* forecast.risk().stormRateMultiplier() * TornadicConfig.stormFrequency;
-		if (!world.getRandom().nextDouble(perTick * intervalFactor())) {
+		if (!world.getRandom().nextFloat((float) (perTick * intervalFactor()))) {
 			return;
 		}
 
 		// Spawn relative to a random player, at a reasonable distance.
-		List<ServerPlayer> players = world.players;
+		List<ServerPlayer> players = world.getServer().getPlayerList().getPlayers();
 		ServerPlayer anchor = players.get(world.getRandom().nextInt(players.size()));
 		for (int attempt = 0; attempt < 6; attempt++) {
 			double angle = world.getRandom().nextDouble() * Math.PI * 2.0;
@@ -252,8 +252,8 @@ public class TornadicSavedData extends SavedData {
 			float org = (float) ((forecast.cape() / 3400.0) * 0.5 + (forecast.shear() / 48.0) * 0.5);
 			storm.rotation = world.getRandom().nextFloat() * (0.2f + 0.8f * org)
 				* (world.getRandom().nextBoolean() ? 1 : -1) * (0.5f + org * 0.5f);
-			storm.hail = storm.rotation * storm.rotation > 0.25 && world.getRandom().nextDouble()
-				< 0.5 * TornadicConfig.hailFrequency;
+			storm.hail = storm.rotation * storm.rotation > 0.25 && world.getRandom().nextFloat()
+				< 0.5f * TornadicConfig.hailFrequency;
 			storm.hailSize = 0.3f + world.getRandom().nextFloat() * 0.8f * (0.5f + org);
 			storms.add(storm);
 			stormsToday++;
@@ -273,7 +273,7 @@ public class TornadicSavedData extends SavedData {
 
 			boolean anyoneNear = false;
 			double minPlayerDist = Double.MAX_VALUE;
-			for (ServerPlayer p : world.players) {
+			for (ServerPlayer p : world.getServer().getPlayerList().getPlayers()) {
 				double d = storm.distanceTo(p.getX(), p.getZ());
 				minPlayerDist = Math.min(minPlayerDist, d);
 				if (d < TornadicConfig.stormMaxPlayerDistance) {
@@ -301,7 +301,7 @@ public class TornadicSavedData extends SavedData {
 					double perSecond = (0.045 + 0.11 * storm.rotation * storm.rotation)
 						* (0.35 + 0.65 * forecast.tornadoProbability() / 100.0)
 						* TornadicConfig.tornadoFrequency;
-					if (world.getRandom().nextDouble(perSecond / 20.0)) {
+					if (world.getRandom().nextFloat((float) (perSecond / 20.0))) {
 						trySpawnTornado(world, storm);
 					}
 				}
@@ -332,7 +332,7 @@ public class TornadicSavedData extends SavedData {
 			if (storm.type == StormType.TORNADIC_SUPERCELL) {
 				advanceChance = 0.0;
 			}
-			if (world.getRandom().nextDouble(advanceChance)) {
+			if (world.getRandom().nextFloat((float) advanceChance)) {
 				StormType next = StormType.values()[Math.min(storm.type.ordinal() + 1, StormType.values().length - 1)];
 				// Weaker days rarely organize past strong thunderstorms.
 				if (next.ordinal() >= StormType.SUPERCELL.ordinal() && quality < 0.28) {
@@ -407,7 +407,7 @@ public class TornadicSavedData extends SavedData {
 		lightningToday++;
 
 		// Thunder with distance-based delay for players.
-		for (ServerPlayer p : world.players) {
+		for (ServerPlayer p : world.getServer().getPlayerList().getPlayers()) {
 			double dist = Math.sqrt(
 				(p.getX() - lx) * (p.getX() - lx) + (p.getZ() - lz) * (p.getZ() - lz));
 			if (dist > 1800) {
@@ -435,7 +435,7 @@ public class TornadicSavedData extends SavedData {
 			}
 			// Only bother near players (relevance + performance).
 			boolean nearPlayer = false;
-			for (ServerPlayer p : world.players) {
+			for (ServerPlayer p : world.getServer().getPlayerList().getPlayers()) {
 				if (p.distanceToSqr(new Vec3(hx, p.getY(), hz)) < 96 * 96) {
 					nearPlayer = true;
 					break;
@@ -527,7 +527,7 @@ public class TornadicSavedData extends SavedData {
 			double x = storm.x + Math.cos(angle) * dist;
 			double z = storm.z + Math.sin(angle) * dist;
 			boolean nearPlayer = false;
-			for (ServerPlayer p : world.players) {
+			for (ServerPlayer p : world.getServer().getPlayerList().getPlayers()) {
 				if (p.distanceToSqr(new Vec3(x, p.getY(), z)) < 96 * 96) {
 					nearPlayer = true;
 					break;
@@ -624,7 +624,7 @@ public class TornadicSavedData extends SavedData {
 			// Client sync.
 			if (tickCounter % 5 == 0) {
 				int groundTone = sampleGroundTone(world, state);
-				for (ServerPlayer p : world.players) {
+				for (ServerPlayer p : world.getServer().getPlayerList().getPlayers()) {
 					if (p.distanceToSqr(new Vec3(state.x, p.getY(), state.z)) < 1600 * 1600) {
 						p.connection.send(TornadoSyncPayload.of(state, (int) state.id, groundTone));
 					}
@@ -750,7 +750,7 @@ public class TornadicSavedData extends SavedData {
 		float thunder = 0f;
 		for (Storm storm : storms) {
 			double d = Double.MAX_VALUE;
-			for (ServerPlayer p : world.players) {
+			for (ServerPlayer p : world.getServer().getPlayerList().getPlayers()) {
 				d = Math.min(d, storm.distanceTo(p.getX(), p.getZ()));
 			}
 			float prox = (float) Math.max(0.35, 1.0 - d / 2500.0);
@@ -769,7 +769,7 @@ public class TornadicSavedData extends SavedData {
 				new ClientboundGameEventPacket(ClientboundGameEventPacket.GameEventId.RAIN_LEVEL_CHANGE, rain);
 			ClientboundGameEventPacket thunderPacket =
 				new ClientboundGameEventPacket(ClientboundGameEventPacket.GameEventId.THUNDER_LEVEL_CHANGE, thunder);
-			for (ServerPlayer p : world.players) {
+			for (ServerPlayer p : world.getServer().getPlayerList().getPlayers()) {
 				p.connection.send(rainPacket);
 				p.connection.send(thunderPacket);
 				if (tickCounter % 40 == 0) {
@@ -790,7 +790,7 @@ public class TornadicSavedData extends SavedData {
 					}
 				}
 				StormSyncPayload payload = StormSyncPayload.of(storm, tornadoEf);
-				for (ServerPlayer p : world.players) {
+				for (ServerPlayer p : world.getServer().getPlayerList().getPlayers()) {
 					if (p.distanceToSqr(new Vec3(storm.x, p.getY(), storm.z)) < 4200 * 4200) {
 						p.connection.send(payload);
 					}

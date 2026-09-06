@@ -20,7 +20,7 @@ public class TornadoEntity extends Entity {
 	public TornadoEntity(EntityType<? extends TornadoEntity> type, Level level) {
 		super(type, level);
 		this.noPhysics = true;
-		this.noGravity = true;
+		this.setNoGravity(true);
 	}
 
 	public static TornadoEntity create(EntityType<? extends TornadoEntity> type, Level level, long tornadoId,
@@ -40,7 +40,7 @@ public class TornadoEntity extends Entity {
 	}
 
 	@Override
-	public boolean removeWhenFarAway(double distance) {
+	public boolean shouldRemove(double x, double z) {
 		return false;
 	}
 

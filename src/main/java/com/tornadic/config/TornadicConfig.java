@@ -1,4 +1,4 @@
-package com.tornadic;
+package com.tornadic.config;
 
 import java.io.IOException;
 import java.nio.file.Files;
