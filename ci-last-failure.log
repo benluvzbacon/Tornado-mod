@@ -1,27 +1,27 @@
-=== tornadic-ci diagnostics Sun Sep  6 19:16:32 UTC 2026 ===
+=== tornadic-ci diagnostics Sun Sep  6 19:43:26 UTC 2026 ===
 Linux runnervmejwal 6.17.0-1022-azure #22-Ubuntu SMP Mon Jul 27 17:24:03 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux
 --- java -version ---
 openjdk version "21.0.12.1" 2026-08-18 LTS
 OpenJDK Runtime Environment Temurin-21.0.12.1+1 (build 21.0.12.1+1-LTS)
 OpenJDK 64-Bit Server VM Temurin-21.0.12.1+1 (build 21.0.12.1+1-LTS, mixed mode, sharing)
 --- ls -la ---
-total 200
-drwxr-xr-x 6 runner runner   4096 Sep  6 19:16 .
-drwxr-xr-x 3 runner runner   4096 Sep  6 19:16 ..
-drwxr-xr-x 7 runner runner   4096 Sep  6 19:16 .git
-drwxr-xr-x 3 runner runner   4096 Sep  6 19:16 .github
--rw-r--r-- 1 runner runner    217 Sep  6 19:16 .gitignore
--rw-r--r-- 1 runner runner   1070 Sep  6 19:16 LICENSE
--rw-r--r-- 1 runner runner   5730 Sep  6 19:16 README.md
--rw-r--r-- 1 runner runner    416 Sep  6 19:16 build-output.log
--rw-r--r-- 1 runner runner   1078 Sep  6 19:16 build.gradle
--rw-r--r-- 1 runner runner 130267 Sep  6 19:16 ci-last-failure.log
-drwxr-xr-x 3 runner runner   4096 Sep  6 19:16 gradle
--rw-r--r-- 1 runner runner    284 Sep  6 19:16 gradle.properties
--rwxr-xr-x 1 runner runner   8654 Sep  6 19:16 gradlew
--rw-r--r-- 1 runner runner   2846 Sep  6 19:16 gradlew.bat
--rw-r--r-- 1 runner runner    200 Sep  6 19:16 settings.gradle
-drwxr-xr-x 4 runner runner   4096 Sep  6 19:16 src
+total 132
+drwxr-xr-x 6 runner runner  4096 Sep  6 19:43 .
+drwxr-xr-x 3 runner runner  4096 Sep  6 19:43 ..
+drwxr-xr-x 7 runner runner  4096 Sep  6 19:43 .git
+drwxr-xr-x 3 runner runner  4096 Sep  6 19:43 .github
+-rw-r--r-- 1 runner runner   217 Sep  6 19:43 .gitignore
+-rw-r--r-- 1 runner runner  1070 Sep  6 19:43 LICENSE
+-rw-r--r-- 1 runner runner  5730 Sep  6 19:43 README.md
+-rw-r--r-- 1 runner runner   416 Sep  6 19:43 build-output.log
+-rw-r--r-- 1 runner runner  1078 Sep  6 19:43 build.gradle
+-rw-r--r-- 1 runner runner 60259 Sep  6 19:43 ci-last-failure.log
+drwxr-xr-x 3 runner runner  4096 Sep  6 19:43 gradle
+-rw-r--r-- 1 runner runner   284 Sep  6 19:43 gradle.properties
+-rwxr-xr-x 1 runner runner  8654 Sep  6 19:43 gradlew
+-rw-r--r-- 1 runner runner  2846 Sep  6 19:43 gradlew.bat
+-rw-r--r-- 1 runner runner   200 Sep  6 19:43 settings.gradle
+drwxr-xr-x 4 runner runner  4096 Sep  6 19:43 src
 Fetching distribution.
 Downloading https://services.gradle.org/distributions/gradle-9.5.1-bin.zip
 .............10%.............20%..............30%.............40%.............50%..............60%.............70%..............80%.............90%.............100%
@@ -63,155 +63,123 @@ Please make sure to read and understand the following license:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 > Task :compileJava
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/StormSyncPayload.java:9: error: cannot find symbol
-import com.tornadic.weather.StormType;
-                           ^
-  symbol:   class StormType
-  location: package com.tornadic.weather
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:5: error: cannot find symbol
-import net.minecraft.network.protocol.game.ClientboundCustomPayloadPacket;
-                                          ^
-  symbol:   class ClientboundCustomPayloadPacket
-  location: package net.minecraft.network.protocol.game
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/entity/ChaserVehicleEntity.java:81: error: method does not override or implement a method from a supertype
-	@Override
-	^
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/entity/ChaserVehicleEntity.java:83: error: cannot find symbol
-		return distance < 4096; // persist a bit past the default so it isn't yanked mid-chase
-		       ^
-  symbol:   variable distance
-  location: class ChaserVehicleEntity
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/command/TornadicCommands.java:118: error: cannot find symbol
-			return ((net.minecraft.world.level.storage.ServerLevelData) world.getLevelData()).getWorldGenSettings().getSeed();
-			                                                                                 ^
-  symbol:   method getWorldGenSettings()
-  location: interface ServerLevelData
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoEntity.java:42: error: method does not override or implement a method from a supertype
-	@Override
-	^
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/TornadicMod.java:77: error: package net.fabricmc.fabric.api.registry.v1 does not exist
-		TORNADO_TYPE = net.fabricmc.fabric.api.registry.v1.Registry.register(net.minecraft.core.registries.Registries.ENTITY_TYPE, MOD_ID + ":tornado",
-		                                                  ^
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/TornadicMod.java:86: error: package net.fabricmc.fabric.api.registry.v1 does not exist
-		CHASER_VEHICLE_TYPE = net.fabricmc.fabric.api.registry.v1.Registry.register(net.minecraft.core.registries.Registries.ENTITY_TYPE, MOD_ID + ":chaser_vehicle",
-		                                                         ^
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:77: error: cannot infer type arguments for Factory<>
-			new SavedData.Factory<>(TornadicSavedData::new, TornadicSavedData::load), NAME);
-			^
-  reason: cannot infer type-variable(s) T
-    (actual and formal argument lists differ in length)
-  where T is a type-variable:
-    T extends SavedData declared in record Factory
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:144: error: cannot find symbol
-			return ((net.minecraft.world.level.storage.ServerLevelData) world.getLevelData()).getWorldGenSettings().getSeed();
-			                                                                                 ^
-  symbol:   method getWorldGenSettings()
-  location: interface ServerLevelData
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:400: error: incompatible types: EntityType<CAP#1> cannot be converted to EntityType<? extends LightningBolt>
-			net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE.get(
-			                                                               ^
-  where CAP#1 is a fresh type-variable:
-    CAP#1 extends Entity from capture of ?
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:422: error: cannot find symbol
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/command/TornadicCommands.java:119: error: cannot find symbol
+		String name = world.getLevelData().getWorldName();
+		                                  ^
+  symbol:   method getWorldName()
+  location: interface LevelData
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/TornadicMod.java:77: error: package net.minecraft.registry does not exist
+		TORNADO_TYPE = net.minecraft.registry.Registry.register(net.minecraft.core.registries.Registries.ENTITY_TYPE, net.minecraft.util.Identifier.of(MOD_ID, "tornado"),
+		                                     ^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/TornadicMod.java:77: error: cannot find symbol
+		TORNADO_TYPE = net.minecraft.registry.Registry.register(net.minecraft.core.registries.Registries.ENTITY_TYPE, net.minecraft.util.Identifier.of(MOD_ID, "tornado"),
+		                                                                                                                                ^
+  symbol:   class Identifier
+  location: package net.minecraft.util
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/TornadicMod.java:86: error: package net.minecraft.registry does not exist
+		CHASER_VEHICLE_TYPE = net.minecraft.registry.Registry.register(net.minecraft.core.registries.Registries.ENTITY_TYPE, net.minecraft.util.Identifier.of(MOD_ID, "chaser_vehicle"),
+		                                            ^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/TornadicMod.java:86: error: cannot find symbol
+		CHASER_VEHICLE_TYPE = net.minecraft.registry.Registry.register(net.minecraft.core.registries.Registries.ENTITY_TYPE, net.minecraft.util.Identifier.of(MOD_ID, "chaser_vehicle"),
+		                                                                                                                                       ^
+  symbol:   class Identifier
+  location: package net.minecraft.util
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:77: error: package net.minecraft.data.fixes does not exist
+			new SavedData.Factory<>(TornadicSavedData::new, TornadicSavedData::load, net.minecraft.data.fixes.DataFixTypes.LEVEL), NAME);
+			                                                                                                 ^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:146: error: cannot find symbol
+		String name = world.getLevelData().getWorldName();
+		                                  ^
+  symbol:   method getWorldName()
+  location: interface LevelData
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:425: error: cannot find symbol
 			p.connection.send(new net.minecraft.network.protocol.game.ClientboundCustomPayloadPacket(
 			                                                         ^
   symbol:   class ClientboundCustomPayloadPacket
   location: package net.minecraft.network.protocol.game
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:630: error: cannot find symbol
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:490: error: reference to playSound is ambiguous
+				world.playSound(null, hx, groundY + 1, hz,
+				     ^
+  both method playSound(Player,double,double,double,SoundEvent,SoundSource,float,float) in Level and method playSound(Player,double,double,double,Holder<SoundEvent>,SoundSource,float,float) in Level match
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:491: error: cannot find symbol
+					storm.hailSize > 0.7f ? SoundEvents.ITEM_BREAK.value() : SoundEvents.SNOWBALL_THROW.value(),
+					                                              ^
+  symbol:   method value()
+  location: variable ITEM_BREAK of type SoundEvent
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:491: error: cannot find symbol
+					storm.hailSize > 0.7f ? SoundEvents.ITEM_BREAK.value() : SoundEvents.SNOWBALL_THROW.value(),
+					                                                                                   ^
+  symbol:   method value()
+  location: variable SNOWBALL_THROW of type SoundEvent
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:652: error: cannot find symbol
 						p.connection.send(new net.minecraft.network.protocol.game.ClientboundCustomPayloadPacket(
 						                                                         ^
   symbol:   class ClientboundCustomPayloadPacket
   location: package net.minecraft.network.protocol.game
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:771: error: cannot find symbol
-				new ClientboundGameEventPacket(ClientboundGameEventPacket.GameEventId.RAIN_LEVEL_CHANGE, rain);
-				                                                         ^
-  symbol:   variable GameEventId
-  location: class ClientboundGameEventPacket
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:773: error: cannot find symbol
-				new ClientboundGameEventPacket(ClientboundGameEventPacket.GameEventId.THUNDER_LEVEL_CHANGE, thunder);
-				                                                         ^
-  symbol:   variable GameEventId
-  location: class ClientboundGameEventPacket
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:778: error: cannot find symbol
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:800: error: cannot find symbol
 					p.connection.send(new net.minecraft.network.protocol.game.ClientboundCustomPayloadPacket(
 					                                                         ^
   symbol:   class ClientboundCustomPayloadPacket
   location: package net.minecraft.network.protocol.game
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:797: error: cannot find symbol
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:819: error: cannot find symbol
 						p.connection.send(new net.minecraft.network.protocol.game.ClientboundCustomPayloadPacket(payload));
 						                                                         ^
   symbol:   class ClientboundCustomPayloadPacket
   location: package net.minecraft.network.protocol.game
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:807: error: cannot find symbol
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:829: error: cannot find symbol
 		player.connection.send(new net.minecraft.network.protocol.game.ClientboundCustomPayloadPacket(
 		                                                              ^
   symbol:   class ClientboundCustomPayloadPacket
   location: package net.minecraft.network.protocol.game
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:819: error: cannot find symbol
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:841: error: cannot find symbol
 				player.connection.send(new net.minecraft.network.protocol.game.ClientboundCustomPayloadPacket(
 				                                                              ^
   symbol:   class ClientboundCustomPayloadPacket
   location: package net.minecraft.network.protocol.game
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:825: error: cannot find symbol
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:847: error: cannot find symbol
 				player.connection.send(new net.minecraft.network.protocol.game.ClientboundCustomPayloadPacket(
 				                                                              ^
   symbol:   class ClientboundCustomPayloadPacket
   location: package net.minecraft.network.protocol.game
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:30: error: package net.fabricmc.fabric.api.registry.v1 does not exist
-		return net.fabricmc.fabric.api.registry.v1.Registry.register(Registries.ENTITY_TYPE,
-		                                          ^
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:36: error: cannot find symbol
-		p.connection.send(new ClientboundCustomPayloadPacket(new TornadoSyncProbe()));
-		                      ^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:19: error: package net.minecraft.registry does not exist
+		return net.minecraft.registry.Registry.register(Registries.ENTITY_TYPE,
+		                             ^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:20: error: cannot find symbol
+			net.minecraft.util.Identifier.of("tornadic", "probe"), EntityType.MINECART);
+			                  ^
+  symbol:   class Identifier
+  location: package net.minecraft.util
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:25: error: cannot find symbol
+		p.connection.send(new net.minecraft.network.protocol.common.custom.ClientboundCustomPayloadPacket(
+		                                                                  ^
   symbol:   class ClientboundCustomPayloadPacket
-  location: class ApiProbe
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:53: error: no suitable constructor found for ClientboundGameEventPacket(String,String,String)
-		return new ClientboundGameEventPacket("a", "b", "c");
-		       ^
-    constructor ClientboundGameEventPacket.ClientboundGameEventPacket(Type,float) is not applicable
-      (actual and formal argument lists differ in length)
-    constructor ClientboundGameEventPacket.ClientboundGameEventPacket(FriendlyByteBuf) is not applicable
-      (actual and formal argument lists differ in length)
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:59: error: incompatible types: String cannot be converted to DataFixTypes
-			() -> null, (t, p) -> null, "a");
-			                            ^
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:64: error: cannot find symbol
-		return w.getWorldGenSettings().getSeed();
-		        ^
-  symbol:   method getWorldGenSettings()
-  location: variable w of type ServerLevel
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:83: error: ProbeEntA is not abstract and does not override abstract method addAdditionalSaveData(CompoundTag) in Entity
-	static class ProbeEntA extends Entity {
+  location: package net.minecraft.network.protocol.common.custom
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:43: error: package net.minecraft.data.fixes does not exist
+		return net.minecraft.data.fixes.DataFixTypes.LEVEL;
+		                               ^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:56: error: ProbeEntE is not abstract and does not override abstract method defineSynchedData(Builder) in Entity
+	static class ProbeEntE extends Entity {
 	       ^
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:88: error: method does not override or implement a method from a supertype
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:61: error: method does not override or implement a method from a supertype
 		@Override
 		^
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:94: error: ProbeEntB is not abstract and does not override abstract method addAdditionalSaveData(CompoundTag) in Entity
-	static class ProbeEntB extends Entity {
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:75: error: ProbeEntF is not abstract and does not override abstract method defineSynchedData(Builder) in Entity
+	static class ProbeEntF extends Entity {
 	       ^
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:99: error: method does not override or implement a method from a supertype
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:80: error: method does not override or implement a method from a supertype
 		@Override
 		^
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:105: error: ProbeEntC is not abstract and does not override abstract method addAdditionalSaveData(CompoundTag) in Entity
-	static class ProbeEntC extends Entity {
-	       ^
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:110: error: method does not override or implement a method from a supertype
-		@Override
-		^
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:116: error: ProbeEntD is not abstract and does not override abstract method addAdditionalSaveData(CompoundTag) in Entity
-	static class ProbeEntD extends Entity {
-	       ^
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:121: error: method does not override or implement a method from a supertype
-		@Override
-		^
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/item/WeatherRadioItem.java:61: error: incompatible types: Reference<SoundEvent> cannot be converted to SoundEvent
-			sp.playSound(SoundEvents.NOTE_BLOCK_PLING, 0.3f, 1.4f);
-			                        ^
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/item/TornadicItems.java:38: error: package net.fabricmc.fabric.api.registry.v1 does not exist
-		return net.fabricmc.fabric.api.registry.v1.Registry.register(net.minecraft.core.registries.Registries.ITEM, TornadicMod.MOD_ID + ":" + name, item);
-		                                          ^
-Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
-35 errors
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/item/TornadicItems.java:38: error: package net.minecraft.registry does not exist
+		return net.minecraft.registry.Registry.register(net.minecraft.core.registries.Registries.ITEM, net.minecraft.util.Identifier.of(TornadicMod.MOD_ID, name), item);
+		                             ^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/item/TornadicItems.java:38: error: cannot find symbol
+		return net.minecraft.registry.Registry.register(net.minecraft.core.registries.Registries.ITEM, net.minecraft.util.Identifier.of(TornadicMod.MOD_ID, name), item);
+		                                                                                                                 ^
+  symbol:   class Identifier
+  location: package net.minecraft.util
+Note: /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+27 errors
 
 > Task :compileJava FAILED
 
@@ -222,155 +190,123 @@ FAILURE: Build failed with an exception.
 * What went wrong:
 Execution failed for task ':compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
 > Compilation failed; see the compiler output below.
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:53: error: no suitable constructor found for ClientboundGameEventPacket(String,String,String)
-  		return new ClientboundGameEventPacket("a", "b", "c");
-  		       ^
-      constructor ClientboundGameEventPacket.ClientboundGameEventPacket(Type,float) is not applicable
-        (actual and formal argument lists differ in length)
-      constructor ClientboundGameEventPacket.ClientboundGameEventPacket(FriendlyByteBuf) is not applicable
-        (actual and formal argument lists differ in length)
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:83: error: ProbeEntA is not abstract and does not override abstract method addAdditionalSaveData(CompoundTag) in Entity
-  	static class ProbeEntA extends Entity {
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:490: error: reference to playSound is ambiguous
+  				world.playSound(null, hx, groundY + 1, hz,
+  				     ^
+    both method playSound(Player,double,double,double,SoundEvent,SoundSource,float,float) in Level and method playSound(Player,double,double,double,Holder<SoundEvent>,SoundSource,float,float) in Level match
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:56: error: ProbeEntE is not abstract and does not override abstract method defineSynchedData(Builder) in Entity
+  	static class ProbeEntE extends Entity {
   	       ^
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:94: error: ProbeEntB is not abstract and does not override abstract method addAdditionalSaveData(CompoundTag) in Entity
-  	static class ProbeEntB extends Entity {
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:75: error: ProbeEntF is not abstract and does not override abstract method defineSynchedData(Builder) in Entity
+  	static class ProbeEntF extends Entity {
   	       ^
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:105: error: ProbeEntC is not abstract and does not override abstract method addAdditionalSaveData(CompoundTag) in Entity
-  	static class ProbeEntC extends Entity {
-  	       ^
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:116: error: ProbeEntD is not abstract and does not override abstract method addAdditionalSaveData(CompoundTag) in Entity
-  	static class ProbeEntD extends Entity {
-  	       ^
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:400: error: incompatible types: EntityType<CAP#1> cannot be converted to EntityType<? extends LightningBolt>
-  			net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE.get(
-  			                                                               ^
-    where CAP#1 is a fresh type-variable:
-      CAP#1 extends Entity from capture of ?
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:59: error: incompatible types: String cannot be converted to DataFixTypes
-  			() -> null, (t, p) -> null, "a");
-  			                            ^
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/item/WeatherRadioItem.java:61: error: incompatible types: Reference<SoundEvent> cannot be converted to SoundEvent
-  			sp.playSound(SoundEvents.NOTE_BLOCK_PLING, 0.3f, 1.4f);
-  			                        ^
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/StormSyncPayload.java:9: error: cannot find symbol
-  import com.tornadic.weather.StormType;
-                             ^
-    symbol:   class StormType
-    location: package com.tornadic.weather
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:5: error: cannot find symbol
-  import net.minecraft.network.protocol.game.ClientboundCustomPayloadPacket;
-                                            ^
-    symbol:   class ClientboundCustomPayloadPacket
-    location: package net.minecraft.network.protocol.game
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/entity/ChaserVehicleEntity.java:83: error: cannot find symbol
-  		return distance < 4096; // persist a bit past the default so it isn't yanked mid-chase
-  		       ^
-    symbol:   variable distance
-    location: class ChaserVehicleEntity
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:422: error: cannot find symbol
+  Note: /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java uses unchecked or unsafe operations.
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/TornadicMod.java:77: error: cannot find symbol
+  		TORNADO_TYPE = net.minecraft.registry.Registry.register(net.minecraft.core.registries.Registries.ENTITY_TYPE, net.minecraft.util.Identifier.of(MOD_ID, "tornado"),
+  		                                                                                                                                ^
+    symbol:   class Identifier
+    location: package net.minecraft.util
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/TornadicMod.java:86: error: cannot find symbol
+  		CHASER_VEHICLE_TYPE = net.minecraft.registry.Registry.register(net.minecraft.core.registries.Registries.ENTITY_TYPE, net.minecraft.util.Identifier.of(MOD_ID, "chaser_vehicle"),
+  		                                                                                                                                       ^
+    symbol:   class Identifier
+    location: package net.minecraft.util
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:425: error: cannot find symbol
   			p.connection.send(new net.minecraft.network.protocol.game.ClientboundCustomPayloadPacket(
   			                                                         ^
     symbol:   class ClientboundCustomPayloadPacket
     location: package net.minecraft.network.protocol.game
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:630: error: cannot find symbol
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:652: error: cannot find symbol
   						p.connection.send(new net.minecraft.network.protocol.game.ClientboundCustomPayloadPacket(
   						                                                         ^
     symbol:   class ClientboundCustomPayloadPacket
     location: package net.minecraft.network.protocol.game
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:771: error: cannot find symbol
-  				new ClientboundGameEventPacket(ClientboundGameEventPacket.GameEventId.RAIN_LEVEL_CHANGE, rain);
-  				                                                         ^
-    symbol:   variable GameEventId
-    location: class ClientboundGameEventPacket
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:773: error: cannot find symbol
-  				new ClientboundGameEventPacket(ClientboundGameEventPacket.GameEventId.THUNDER_LEVEL_CHANGE, thunder);
-  				                                                         ^
-    symbol:   variable GameEventId
-    location: class ClientboundGameEventPacket
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:778: error: cannot find symbol
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:800: error: cannot find symbol
   					p.connection.send(new net.minecraft.network.protocol.game.ClientboundCustomPayloadPacket(
   					                                                         ^
     symbol:   class ClientboundCustomPayloadPacket
     location: package net.minecraft.network.protocol.game
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:797: error: cannot find symbol
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:819: error: cannot find symbol
   						p.connection.send(new net.minecraft.network.protocol.game.ClientboundCustomPayloadPacket(payload));
   						                                                         ^
     symbol:   class ClientboundCustomPayloadPacket
     location: package net.minecraft.network.protocol.game
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:807: error: cannot find symbol
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:829: error: cannot find symbol
   		player.connection.send(new net.minecraft.network.protocol.game.ClientboundCustomPayloadPacket(
   		                                                              ^
     symbol:   class ClientboundCustomPayloadPacket
     location: package net.minecraft.network.protocol.game
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:819: error: cannot find symbol
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:841: error: cannot find symbol
   				player.connection.send(new net.minecraft.network.protocol.game.ClientboundCustomPayloadPacket(
   				                                                              ^
     symbol:   class ClientboundCustomPayloadPacket
     location: package net.minecraft.network.protocol.game
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:825: error: cannot find symbol
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:847: error: cannot find symbol
   				player.connection.send(new net.minecraft.network.protocol.game.ClientboundCustomPayloadPacket(
   				                                                              ^
     symbol:   class ClientboundCustomPayloadPacket
     location: package net.minecraft.network.protocol.game
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:36: error: cannot find symbol
-  		p.connection.send(new ClientboundCustomPayloadPacket(new TornadoSyncProbe()));
-  		                      ^
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:20: error: cannot find symbol
+  			net.minecraft.util.Identifier.of("tornadic", "probe"), EntityType.MINECART);
+  			                  ^
+    symbol:   class Identifier
+    location: package net.minecraft.util
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:25: error: cannot find symbol
+  		p.connection.send(new net.minecraft.network.protocol.common.custom.ClientboundCustomPayloadPacket(
+  		                                                                  ^
     symbol:   class ClientboundCustomPayloadPacket
-    location: class ApiProbe
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/entity/ChaserVehicleEntity.java:81: error: method does not override or implement a method from a supertype
-  	@Override
-  	^
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoEntity.java:42: error: method does not override or implement a method from a supertype
-  	@Override
-  	^
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:88: error: method does not override or implement a method from a supertype
+    location: package net.minecraft.network.protocol.common.custom
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/item/TornadicItems.java:38: error: cannot find symbol
+  		return net.minecraft.registry.Registry.register(net.minecraft.core.registries.Registries.ITEM, net.minecraft.util.Identifier.of(TornadicMod.MOD_ID, name), item);
+  		                                                                                                                 ^
+    symbol:   class Identifier
+    location: package net.minecraft.util
+  Note: Recompile with -Xlint:unchecked for details.
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:61: error: method does not override or implement a method from a supertype
   		@Override
   		^
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:99: error: method does not override or implement a method from a supertype
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:80: error: method does not override or implement a method from a supertype
   		@Override
   		^
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:110: error: method does not override or implement a method from a supertype
-  		@Override
-  		^
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:121: error: method does not override or implement a method from a supertype
-  		@Override
-  		^
-  Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:77: error: cannot infer type arguments for Factory<>
-  			new SavedData.Factory<>(TornadicSavedData::new, TornadicSavedData::load), NAME);
-  			^
-    reason: cannot infer type-variable(s) T
-      (actual and formal argument lists differ in length)
-    where T is a type-variable:
-      T extends SavedData declared in record Factory
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/TornadicMod.java:77: error: package net.fabricmc.fabric.api.registry.v1 does not exist
-  		TORNADO_TYPE = net.fabricmc.fabric.api.registry.v1.Registry.register(net.minecraft.core.registries.Registries.ENTITY_TYPE, MOD_ID + ":tornado",
-  		                                                  ^
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/TornadicMod.java:86: error: package net.fabricmc.fabric.api.registry.v1 does not exist
-  		CHASER_VEHICLE_TYPE = net.fabricmc.fabric.api.registry.v1.Registry.register(net.minecraft.core.registries.Registries.ENTITY_TYPE, MOD_ID + ":chaser_vehicle",
-  		                                                         ^
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:30: error: package net.fabricmc.fabric.api.registry.v1 does not exist
-  		return net.fabricmc.fabric.api.registry.v1.Registry.register(Registries.ENTITY_TYPE,
-  		                                          ^
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/item/TornadicItems.java:38: error: package net.fabricmc.fabric.api.registry.v1 does not exist
-  		return net.fabricmc.fabric.api.registry.v1.Registry.register(net.minecraft.core.registries.Registries.ITEM, TornadicMod.MOD_ID + ":" + name, item);
-  		                                          ^
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/command/TornadicCommands.java:118: error: cannot find symbol
-  			return ((net.minecraft.world.level.storage.ServerLevelData) world.getLevelData()).getWorldGenSettings().getSeed();
-  			                                                                                 ^
-    symbol:   method getWorldGenSettings()
-    location: interface ServerLevelData
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:144: error: cannot find symbol
-  			return ((net.minecraft.world.level.storage.ServerLevelData) world.getLevelData()).getWorldGenSettings().getSeed();
-  			                                                                                 ^
-    symbol:   method getWorldGenSettings()
-    location: interface ServerLevelData
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:64: error: cannot find symbol
-  		return w.getWorldGenSettings().getSeed();
-  		        ^
-    symbol:   method getWorldGenSettings()
-    location: variable w of type ServerLevel
-  35 errors
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/TornadicMod.java:77: error: package net.minecraft.registry does not exist
+  		TORNADO_TYPE = net.minecraft.registry.Registry.register(net.minecraft.core.registries.Registries.ENTITY_TYPE, net.minecraft.util.Identifier.of(MOD_ID, "tornado"),
+  		                                     ^
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/TornadicMod.java:86: error: package net.minecraft.registry does not exist
+  		CHASER_VEHICLE_TYPE = net.minecraft.registry.Registry.register(net.minecraft.core.registries.Registries.ENTITY_TYPE, net.minecraft.util.Identifier.of(MOD_ID, "chaser_vehicle"),
+  		                                            ^
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:77: error: package net.minecraft.data.fixes does not exist
+  			new SavedData.Factory<>(TornadicSavedData::new, TornadicSavedData::load, net.minecraft.data.fixes.DataFixTypes.LEVEL), NAME);
+  			                                                                                                 ^
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:19: error: package net.minecraft.registry does not exist
+  		return net.minecraft.registry.Registry.register(Registries.ENTITY_TYPE,
+  		                             ^
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:43: error: package net.minecraft.data.fixes does not exist
+  		return net.minecraft.data.fixes.DataFixTypes.LEVEL;
+  		                               ^
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/item/TornadicItems.java:38: error: package net.minecraft.registry does not exist
+  		return net.minecraft.registry.Registry.register(net.minecraft.core.registries.Registries.ITEM, net.minecraft.util.Identifier.of(TornadicMod.MOD_ID, name), item);
+  		                             ^
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/command/TornadicCommands.java:119: error: cannot find symbol
+  		String name = world.getLevelData().getWorldName();
+  		                                  ^
+    symbol:   method getWorldName()
+    location: interface LevelData
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:146: error: cannot find symbol
+  		String name = world.getLevelData().getWorldName();
+  		                                  ^
+    symbol:   method getWorldName()
+    location: interface LevelData
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:491: error: cannot find symbol
+  					storm.hailSize > 0.7f ? SoundEvents.ITEM_BREAK.value() : SoundEvents.SNOWBALL_THROW.value(),
+  					                                              ^
+    symbol:   method value()
+    location: variable ITEM_BREAK of type SoundEvent
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:491: error: cannot find symbol
+  					storm.hailSize > 0.7f ? SoundEvents.ITEM_BREAK.value() : SoundEvents.SNOWBALL_THROW.value(),
+  					                                                                                   ^
+    symbol:   method value()
+    location: variable SNOWBALL_THROW of type SoundEvent
+  27 errors
 
 * Try:
 > Check your code and dependencies to fix the compilation error(s)
@@ -409,189 +345,126 @@ org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':compile
 	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:328)
 	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.execute(DefaultPlanExecutor.java:459)
 	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.run(DefaultPlanExecutor.java:376)
-	at org.gradle.execution.plan.DefaultPlanExecutor.process(DefaultPlanExecutor.java:111)
-	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph.executeWithServices(DefaultTaskExecutionGraph.java:146)
-	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph.execute(DefaultTaskExecutionGraph.java:131)
-	at org.gradle.execution.SelectedTaskExecutionAction.execute(SelectedTaskExecutionAction.java:35)
-	at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor$ExecuteTasks.call(BuildOperationFiringBuildWorkerExecutor.java:54)
-	at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor$ExecuteTasks.call(BuildOperationFiringBuildWorkerExecutor.java:43)
-	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:210)
-	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:205)
-	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:67)
-	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:60)
-	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:167)
-	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:60)
-	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:54)
-	at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor.execute(BuildOperationFiringBuildWorkerExecutor.java:40)
-	at org.gradle.internal.build.DefaultBuildLifecycleController.lambda$executeTasks$11(DefaultBuildLifecycleController.java:323)
-	at org.gradle.internal.model.StateTransitionController.doTransition(StateTransitionController.java:304)
-	at org.gradle.internal.model.StateTransitionController.lambda$tryTransition$9(StateTransitionController.java:215)
-	at org.gradle.internal.work.DefaultSynchronizer.withLock(DefaultSynchronizer.java:45)
-	at org.gradle.internal.model.StateTransitionController.tryTransition(StateTransitionController.java:215)
-	at org.gradle.internal.build.DefaultBuildLifecycleController.executeTasks(DefaultBuildLifecycleController.java:314)
-	at org.gradle.internal.build.DefaultBuildWorkGraphController$DefaultBuildWorkGraph.runWork(DefaultBuildWorkGraphController.java:220)
-	at org.gradle.internal.work.DefaultWorkerLeaseService.lambda$runAndReleaseLocks$0(DefaultWorkerLeaseService.java:300)
-	at org.gradle.internal.work.ResourceLockStatistics$1.measure(ResourceLockStatistics.java:43)
-	at org.gradle.internal.work.DefaultWorkerLeaseService.runAndReleaseLocks(DefaultWorkerLeaseService.java:298)
-	at org.gradle.internal.work.DefaultWorkerLeaseService.withLocksAcquired(DefaultWorkerLeaseService.java:294)
-	at org.gradle.internal.work.DefaultWorkerLeaseService.withLocks(DefaultWorkerLeaseService.java:286)
-	at org.gradle.internal.work.DefaultWorkerLeaseService.runAsWorkerThread(DefaultWorkerLeaseService.java:130)
-	at org.gradle.composite.internal.DefaultBuildController.doRun(DefaultBuildController.java:182)
-	at org.gradle.composite.internal.DefaultBuildController$BuildOpRunnable.lambda$run$0(DefaultBuildController.java:199)
-	at org.gradle.internal.operations.CurrentBuildOperationRef.with(CurrentBuildOperationRef.java:84)
-	at org.gradle.composite.internal.DefaultBuildController$BuildOpRunnable.run(DefaultBuildController.java:199)
 	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
 	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
 Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler output below.
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/StormSyncPayload.java:9: error: cannot find symbol
-import com.tornadic.weather.StormType;
-                           ^
-  symbol:   class StormType
-  location: package com.tornadic.weather
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:5: error: cannot find symbol
-import net.minecraft.network.protocol.game.ClientboundCustomPayloadPacket;
-                                          ^
-  symbol:   class ClientboundCustomPayloadPacket
-  location: package net.minecraft.network.protocol.game
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/entity/ChaserVehicleEntity.java:81: error: method does not override or implement a method from a supertype
-	@Override
-	^
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/entity/ChaserVehicleEntity.java:83: error: cannot find symbol
-		return distance < 4096; // persist a bit past the default so it isn't yanked mid-chase
-		       ^
-  symbol:   variable distance
-  location: class ChaserVehicleEntity
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/command/TornadicCommands.java:118: error: cannot find symbol
-			return ((net.minecraft.world.level.storage.ServerLevelData) world.getLevelData()).getWorldGenSettings().getSeed();
-			                                                                                 ^
-  symbol:   method getWorldGenSettings()
-  location: interface ServerLevelData
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoEntity.java:42: error: method does not override or implement a method from a supertype
-	@Override
-	^
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/TornadicMod.java:77: error: package net.fabricmc.fabric.api.registry.v1 does not exist
-		TORNADO_TYPE = net.fabricmc.fabric.api.registry.v1.Registry.register(net.minecraft.core.registries.Registries.ENTITY_TYPE, MOD_ID + ":tornado",
-		                                                  ^
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/TornadicMod.java:86: error: package net.fabricmc.fabric.api.registry.v1 does not exist
-		CHASER_VEHICLE_TYPE = net.fabricmc.fabric.api.registry.v1.Registry.register(net.minecraft.core.registries.Registries.ENTITY_TYPE, MOD_ID + ":chaser_vehicle",
-		                                                         ^
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:77: error: cannot infer type arguments for Factory<>
-			new SavedData.Factory<>(TornadicSavedData::new, TornadicSavedData::load), NAME);
-			^
-  reason: cannot infer type-variable(s) T
-    (actual and formal argument lists differ in length)
-  where T is a type-variable:
-    T extends SavedData declared in record Factory
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:144: error: cannot find symbol
-			return ((net.minecraft.world.level.storage.ServerLevelData) world.getLevelData()).getWorldGenSettings().getSeed();
-			                                                                                 ^
-  symbol:   method getWorldGenSettings()
-  location: interface ServerLevelData
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:400: error: incompatible types: EntityType<CAP#1> cannot be converted to EntityType<? extends LightningBolt>
-			net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE.get(
-			                                                               ^
-  where CAP#1 is a fresh type-variable:
-    CAP#1 extends Entity from capture of ?
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:422: error: cannot find symbol
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/command/TornadicCommands.java:119: error: cannot find symbol
+		String name = world.getLevelData().getWorldName();
+		                                  ^
+  symbol:   method getWorldName()
+  location: interface LevelData
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/TornadicMod.java:77: error: package net.minecraft.registry does not exist
+		TORNADO_TYPE = net.minecraft.registry.Registry.register(net.minecraft.core.registries.Registries.ENTITY_TYPE, net.minecraft.util.Identifier.of(MOD_ID, "tornado"),
+		                                     ^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/TornadicMod.java:77: error: cannot find symbol
+		TORNADO_TYPE = net.minecraft.registry.Registry.register(net.minecraft.core.registries.Registries.ENTITY_TYPE, net.minecraft.util.Identifier.of(MOD_ID, "tornado"),
+		                                                                                                                                ^
+  symbol:   class Identifier
+  location: package net.minecraft.util
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/TornadicMod.java:86: error: package net.minecraft.registry does not exist
+		CHASER_VEHICLE_TYPE = net.minecraft.registry.Registry.register(net.minecraft.core.registries.Registries.ENTITY_TYPE, net.minecraft.util.Identifier.of(MOD_ID, "chaser_vehicle"),
+		                                            ^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/TornadicMod.java:86: error: cannot find symbol
+		CHASER_VEHICLE_TYPE = net.minecraft.registry.Registry.register(net.minecraft.core.registries.Registries.ENTITY_TYPE, net.minecraft.util.Identifier.of(MOD_ID, "chaser_vehicle"),
+		                                                                                                                                       ^
+  symbol:   class Identifier
+  location: package net.minecraft.util
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:77: error: package net.minecraft.data.fixes does not exist
+			new SavedData.Factory<>(TornadicSavedData::new, TornadicSavedData::load, net.minecraft.data.fixes.DataFixTypes.LEVEL), NAME);
+			                                                                                                 ^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:146: error: cannot find symbol
+		String name = world.getLevelData().getWorldName();
+		                                  ^
+  symbol:   method getWorldName()
+  location: interface LevelData
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:425: error: cannot find symbol
 			p.connection.send(new net.minecraft.network.protocol.game.ClientboundCustomPayloadPacket(
 			                                                         ^
   symbol:   class ClientboundCustomPayloadPacket
   location: package net.minecraft.network.protocol.game
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:630: error: cannot find symbol
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:490: error: reference to playSound is ambiguous
+				world.playSound(null, hx, groundY + 1, hz,
+				     ^
+  both method playSound(Player,double,double,double,SoundEvent,SoundSource,float,float) in Level and method playSound(Player,double,double,double,Holder<SoundEvent>,SoundSource,float,float) in Level match
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:491: error: cannot find symbol
+					storm.hailSize > 0.7f ? SoundEvents.ITEM_BREAK.value() : SoundEvents.SNOWBALL_THROW.value(),
+					                                              ^
+  symbol:   method value()
+  location: variable ITEM_BREAK of type SoundEvent
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:491: error: cannot find symbol
+					storm.hailSize > 0.7f ? SoundEvents.ITEM_BREAK.value() : SoundEvents.SNOWBALL_THROW.value(),
+					                                                                                   ^
+  symbol:   method value()
+  location: variable SNOWBALL_THROW of type SoundEvent
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:652: error: cannot find symbol
 						p.connection.send(new net.minecraft.network.protocol.game.ClientboundCustomPayloadPacket(
 						                                                         ^
   symbol:   class ClientboundCustomPayloadPacket
   location: package net.minecraft.network.protocol.game
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:771: error: cannot find symbol
-				new ClientboundGameEventPacket(ClientboundGameEventPacket.GameEventId.RAIN_LEVEL_CHANGE, rain);
-				                                                         ^
-  symbol:   variable GameEventId
-  location: class ClientboundGameEventPacket
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:773: error: cannot find symbol
-				new ClientboundGameEventPacket(ClientboundGameEventPacket.GameEventId.THUNDER_LEVEL_CHANGE, thunder);
-				                                                         ^
-  symbol:   variable GameEventId
-  location: class ClientboundGameEventPacket
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:778: error: cannot find symbol
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:800: error: cannot find symbol
 					p.connection.send(new net.minecraft.network.protocol.game.ClientboundCustomPayloadPacket(
 					                                                         ^
   symbol:   class ClientboundCustomPayloadPacket
   location: package net.minecraft.network.protocol.game
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:797: error: cannot find symbol
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:819: error: cannot find symbol
 						p.connection.send(new net.minecraft.network.protocol.game.ClientboundCustomPayloadPacket(payload));
 						                                                         ^
   symbol:   class ClientboundCustomPayloadPacket
   location: package net.minecraft.network.protocol.game
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:807: error: cannot find symbol
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:829: error: cannot find symbol
 		player.connection.send(new net.minecraft.network.protocol.game.ClientboundCustomPayloadPacket(
 		                                                              ^
   symbol:   class ClientboundCustomPayloadPacket
   location: package net.minecraft.network.protocol.game
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:819: error: cannot find symbol
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:841: error: cannot find symbol
 				player.connection.send(new net.minecraft.network.protocol.game.ClientboundCustomPayloadPacket(
 				                                                              ^
   symbol:   class ClientboundCustomPayloadPacket
   location: package net.minecraft.network.protocol.game
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:825: error: cannot find symbol
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:847: error: cannot find symbol
 				player.connection.send(new net.minecraft.network.protocol.game.ClientboundCustomPayloadPacket(
 				                                                              ^
   symbol:   class ClientboundCustomPayloadPacket
   location: package net.minecraft.network.protocol.game
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:30: error: package net.fabricmc.fabric.api.registry.v1 does not exist
-		return net.fabricmc.fabric.api.registry.v1.Registry.register(Registries.ENTITY_TYPE,
-		                                          ^
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:36: error: cannot find symbol
-		p.connection.send(new ClientboundCustomPayloadPacket(new TornadoSyncProbe()));
-		                      ^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:19: error: package net.minecraft.registry does not exist
+		return net.minecraft.registry.Registry.register(Registries.ENTITY_TYPE,
+		                             ^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:20: error: cannot find symbol
+			net.minecraft.util.Identifier.of("tornadic", "probe"), EntityType.MINECART);
+			                  ^
+  symbol:   class Identifier
+  location: package net.minecraft.util
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:25: error: cannot find symbol
+		p.connection.send(new net.minecraft.network.protocol.common.custom.ClientboundCustomPayloadPacket(
+		                                                                  ^
   symbol:   class ClientboundCustomPayloadPacket
-  location: class ApiProbe
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:53: error: no suitable constructor found for ClientboundGameEventPacket(String,String,String)
-		return new ClientboundGameEventPacket("a", "b", "c");
-		       ^
-    constructor ClientboundGameEventPacket.ClientboundGameEventPacket(Type,float) is not applicable
-      (actual and formal argument lists differ in length)
-    constructor ClientboundGameEventPacket.ClientboundGameEventPacket(FriendlyByteBuf) is not applicable
-      (actual and formal argument lists differ in length)
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:59: error: incompatible types: String cannot be converted to DataFixTypes
-			() -> null, (t, p) -> null, "a");
-			                            ^
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:64: error: cannot find symbol
-		return w.getWorldGenSettings().getSeed();
-		        ^
-  symbol:   method getWorldGenSettings()
-  location: variable w of type ServerLevel
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:83: error: ProbeEntA is not abstract and does not override abstract method addAdditionalSaveData(CompoundTag) in Entity
-	static class ProbeEntA extends Entity {
+  location: package net.minecraft.network.protocol.common.custom
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:43: error: package net.minecraft.data.fixes does not exist
+		return net.minecraft.data.fixes.DataFixTypes.LEVEL;
+		                               ^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:56: error: ProbeEntE is not abstract and does not override abstract method defineSynchedData(Builder) in Entity
+	static class ProbeEntE extends Entity {
 	       ^
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:88: error: method does not override or implement a method from a supertype
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:61: error: method does not override or implement a method from a supertype
 		@Override
 		^
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:94: error: ProbeEntB is not abstract and does not override abstract method addAdditionalSaveData(CompoundTag) in Entity
-	static class ProbeEntB extends Entity {
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:75: error: ProbeEntF is not abstract and does not override abstract method defineSynchedData(Builder) in Entity
+	static class ProbeEntF extends Entity {
 	       ^
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:99: error: method does not override or implement a method from a supertype
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:80: error: method does not override or implement a method from a supertype
 		@Override
 		^
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:105: error: ProbeEntC is not abstract and does not override abstract method addAdditionalSaveData(CompoundTag) in Entity
-	static class ProbeEntC extends Entity {
-	       ^
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:110: error: method does not override or implement a method from a supertype
-		@Override
-		^
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:116: error: ProbeEntD is not abstract and does not override abstract method addAdditionalSaveData(CompoundTag) in Entity
-	static class ProbeEntD extends Entity {
-	       ^
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:121: error: method does not override or implement a method from a supertype
-		@Override
-		^
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/item/WeatherRadioItem.java:61: error: incompatible types: Reference<SoundEvent> cannot be converted to SoundEvent
-			sp.playSound(SoundEvents.NOTE_BLOCK_PLING, 0.3f, 1.4f);
-			                        ^
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/item/TornadicItems.java:38: error: package net.fabricmc.fabric.api.registry.v1 does not exist
-		return net.fabricmc.fabric.api.registry.v1.Registry.register(net.minecraft.core.registries.Registries.ITEM, TornadicMod.MOD_ID + ":" + name, item);
-		                                          ^
-Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
-35 errors
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/item/TornadicItems.java:38: error: package net.minecraft.registry does not exist
+		return net.minecraft.registry.Registry.register(net.minecraft.core.registries.Registries.ITEM, net.minecraft.util.Identifier.of(TornadicMod.MOD_ID, name), item);
+		                             ^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/item/TornadicItems.java:38: error: cannot find symbol
+		return net.minecraft.registry.Registry.register(net.minecraft.core.registries.Registries.ITEM, net.minecraft.util.Identifier.of(TornadicMod.MOD_ID, name), item);
+		                                                                                                                 ^
+  symbol:   class Identifier
+  location: package net.minecraft.util
+Note: /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+27 errors
 	at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:89)
 	at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:50)
 	at org.gradle.api.internal.tasks.compile.NormalizingJavaCompiler.delegateAndHandleErrors(NormalizingJavaCompiler.java:98)
@@ -723,9 +596,9 @@ Note: Some messages have been simplified; recompile with -Xdiags:verbose to get 
 	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:38)
 	at org.gradle.internal.execution.impl.DefaultExecutionEngine$1.execute(DefaultExecutionEngine.java:68)
 	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:132)
-	... 61 more
+	... 30 more
 
 
-BUILD FAILED in 49s
+BUILD FAILED in 48s
 1 actionable task: 1 executed
 gradle-build-exit=1
