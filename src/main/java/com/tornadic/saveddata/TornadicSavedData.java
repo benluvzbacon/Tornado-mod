@@ -237,7 +237,7 @@ public class TornadicSavedData extends SavedData {
 		List<ServerPlayer> players = world.getServer().getPlayerList().getPlayers();
 		double ax, az;
 		if (players.isEmpty()) {
-			BlockPos sp = world.getSpawnPoint();
+			BlockPos sp = world.getSharedSpawnPos();
 			ax = sp.getX();
 			az = sp.getZ();
 		} else {
