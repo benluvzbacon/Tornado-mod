@@ -4,6 +4,9 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
+import java.io.File;
+import java.util.jar.JarFile;
+import java.util.zip.ZipEntry;
 
 /**
  * TEMPORARY CI diagnostic: dumps real 1.21.1 signatures via reflection
@@ -61,6 +64,7 @@ public final class ApiDump {
 	}
 
 	public static void main(String[] args) throws Exception {
+		scanJars();
 		ClassLoader loader = ApiDump.class.getClassLoader();
 		for (String name : CLASSES) {
 			try {
@@ -91,6 +95,46 @@ public final class ApiDump {
 			}
 		}
 	}
+
+	private static void scanJars() {
+		String[] filters = {
+			"CustomPayload",
+			"DataFixTypes",
+			"WorldGenSettings",
+			"net/minecraft/core/registries/Registry",
+			"net/minecraft/core/registries/DefaultedRegistry",
+			"net/minecraft/core/registries/Registries",
+			"net/minecraft/registry/",
+			"net/minecraft/util/Identifier",
+			"LevelStorageSource",
+			"ServerLevelData",
+			"net/minecraft/world/level/storage/LevelData",
+			"net/minecraft/world/level/storage/WorldData"
+		};
+		for (String part : System.getProperty("java.class.path").split(File.pathSeparator)) {
+			if (!part.endsWith(".jar")) {
+				continue;
+			}
+			try (JarFile zf = new JarFile(part)) {
+				var entries = zf.entries();
+				while (entries.hasMoreElements()) {
+					ZipEntry entry = entries.nextElement();
+					String n = entry.getName();
+					if (!n.endsWith(".class") || n.contains("$")) {
+						continue;
+					}
+					for (String f : filters) {
+						if (n.contains(f)) {
+							System.out.println("JARCLASS " + n.substring(0, n.length() - 6).replace('/', '.'));
+							break;
+						}
+					}
+				}
+			} catch (Throwable t) {
+				System.out.println("SCAN-FAIL " + part + " : " + t);
+			}
+		}
+		System.out.println("== scan done");
 
 	private static String typeList(Class<?>[] types) {
 		StringBuilder sb = new StringBuilder("(");
