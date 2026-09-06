@@ -542,9 +542,9 @@ JARCLASS net.fabricmc.fabric.mixin.networking.CustomPayloadS2CPacketMixin
   getHolder(int) : java.util.Optional
   getHolder(net.minecraft.resources.ResourceLocation) : java.util.Optional
   getTagNames() : java.util.stream.Stream
+  getAny() : java.util.Optional
   getResourceKey(java.lang.Object) : java.util.Optional
   registrationInfo(net.minecraft.resources.ResourceKey) : java.util.Optional
-  getAny() : java.util.Optional
   registryKeySet() : java.util.Set
   registerForHolder(net.minecraft.core.Registry, net.minecraft.resources.ResourceLocation, java.lang.Object) : net.minecraft.core.Holder$Reference
   registerForHolder(net.minecraft.core.Registry, net.minecraft.resources.ResourceKey, java.lang.Object) : net.minecraft.core.Holder$Reference
@@ -1227,9 +1227,9 @@ JARCLASS net.fabricmc.fabric.mixin.networking.CustomPayloadS2CPacketMixin
   getChunkSource() : net.minecraft.world.level.chunk.ChunkSource
   getChunkSource() : net.minecraft.server.level.ServerChunkCache
   mayInteract(net.minecraft.world.entity.player.Player, net.minecraft.core.BlockPos) : boolean
-  players() : java.util.List
   getPlayers(java.util.function.Predicate) : java.util.List
   getPlayers(java.util.function.Predicate, int) : java.util.List
+  players() : java.util.List
   structureManager() : net.minecraft.world.level.StructureManager
   getStructureManager() : net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplateManager
   getDataStorage() : net.minecraft.world.level.storage.DimensionDataStorage
@@ -3014,8 +3014,8 @@ JARCLASS net.fabricmc.fabric.mixin.networking.CustomPayloadS2CPacketMixin
   type() : net.minecraft.network.protocol.PacketType
   handle(net.minecraft.network.protocol.game.ClientGamePacketListener) : void
   handle(net.minecraft.network.PacketListener) : void
-  getParam() : float
   getEvent() : net.minecraft.network.protocol.game.ClientboundGameEventPacket$Type
+  getParam() : float
 -- fields (static)
   STREAM_CODEC : net.minecraft.network.codec.StreamCodec
   NO_RESPAWN_BLOCK_AVAILABLE : net.minecraft.network.protocol.game.ClientboundGameEventPacket$Type
