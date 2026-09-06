@@ -13,15 +13,16 @@ public final class TornadicItems {
 	private TornadicItems() {
 	}
 
-	public static final Item WEATHER_RADIO;
-	public static final Item ANEMOMETER;
-	public static final Item THERMOMETER;
-	public static final Item BAROMETER;
-	public static final Item STORM_RADAR;
-	public static final Item STORM_NOTEBOOK;
-	public static final Item CHASER_VEHICLE;
+	public static Item WEATHER_RADIO;
+	public static Item ANEMOMETER;
+	public static Item THERMOMETER;
+	public static Item BAROMETER;
+	public static Item STORM_RADAR;
+	public static Item STORM_NOTEBOOK;
+	public static Item CHASER_VEHICLE;
 
-	static {
+	/** Called from the mod initializer, before any world loads. */
+	public static void register() {
 		WEATHER_RADIO = Registry.register(BuiltInRegistries.ITEM, "tornadic:weather_radio",
 			new WeatherRadioItem(new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));
 		ANEMOMETER = Registry.register(BuiltInRegistries.ITEM, "tornadic:anemometer",

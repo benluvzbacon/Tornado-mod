@@ -31,31 +31,16 @@ public class TornadicMod implements ModInitializer {
 	public static final String MOD_ID = "tornadic";
 	public static final Logger LOGGER = LoggerFactory.getLogger("Tornadic");
 
-	@SuppressWarnings("unchecked")
-	public static final EntityType<TornadoEntity> TORNADO_TYPE = (EntityType<TornadoEntity>) (EntityType<?>) net.minecraft.core.Registry.register(
-		net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE, "tornadic:tornado",
-		EntityType.Builder.of(TornadoEntity::new, MobCategory.MISC)
-			.sized(1.0F, 1.0F)
-			.clientTrackingRange(12)
-			.updateInterval(2)
-			.fireImmune()
-			.noSave()
-			.build("tornadic:tornado"));
-
-	@SuppressWarnings("unchecked")
-	public static final EntityType<ChaserVehicleEntity> CHASER_VEHICLE_TYPE = (EntityType<ChaserVehicleEntity>) (EntityType<?>) net.minecraft.core.Registry.register(
-		net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE, "tornadic:chaser_vehicle",
-		EntityType.Builder.of(ChaserVehicleEntity::new, MobCategory.MISC)
-			.sized(1.6F, 1.0F)
-			.clientTrackingRange(8)
-			.updateInterval(3)
-			.fireImmune()
-			.noSummon()
-			.build("tornadic:chaser_vehicle"));
+	// Registered in onInitialize (vanilla-registry registration must happen during mod
+	// initialization, matching the 1.21.1 pattern used by fabric's own testmods).
+	public static EntityType<TornadoEntity> TORNADO_TYPE;
+	public static EntityType<ChaserVehicleEntity> CHASER_VEHICLE_TYPE;
 
 	@Override
 	public void onInitialize() {
 		TornadicConfig.load();
+		registerEntities();
+		TornadicItems.register();
 		TornadicPayloads.register();
 
 		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
@@ -88,5 +73,27 @@ public class TornadicMod implements ModInitializer {
 		});
 
 		LOGGER.info("Tornadic loaded - may the winds be in your favor.");
+	}
+
+	@SuppressWarnings("unchecked")
+	private static void registerEntities() {
+		TORNADO_TYPE = (EntityType<TornadoEntity>) (EntityType<?>) net.minecraft.core.Registry.register(
+			net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE, "tornadic:tornado",
+			EntityType.Builder.of(TornadoEntity::new, MobCategory.MISC)
+				.sized(1.0F, 1.0F)
+				.clientTrackingRange(12)
+				.updateInterval(2)
+				.fireImmune()
+				.noSave()
+				.build("tornadic:tornado"));
+		CHASER_VEHICLE_TYPE = (EntityType<ChaserVehicleEntity>) (EntityType<?>) net.minecraft.core.Registry.register(
+			net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE, "tornadic:chaser_vehicle",
+			EntityType.Builder.of(ChaserVehicleEntity::new, MobCategory.MISC)
+				.sized(1.6F, 1.0F)
+				.clientTrackingRange(8)
+				.updateInterval(3)
+				.fireImmune()
+				.noSummon()
+				.build("tornadic:chaser_vehicle"));
 	}
 }
