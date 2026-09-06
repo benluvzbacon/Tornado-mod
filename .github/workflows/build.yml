@@ -29,11 +29,12 @@ jobs:
 
       - name: Build with Gradle
         run: |
-          set -o pipefail
-          ./gradlew build --no-daemon --stacktrace 2>&1 | tee build-output.log
+          set +e
+          ./gradlew --version 2>&1 | tee -a build-output.log
+          ./gradlew build --no-daemon --stacktrace 2>&1 | tee -a build-output.log
           status=${PIPESTATUS[0]}
+          set -e
           if [ "$status" -ne 0 ]; then
-            # Keep the tail of the log in the repo so failures are inspectable.
             tail -c 200000 build-output.log > ci-last-failure.log
             exit "$status"
           fi
@@ -64,6 +65,24 @@ jobs:
           if ! git diff --cached --quiet; then
             git commit -m "ci: last build failure log"
             git push || true
+          fi
+          # Fallback: also post the log as a commit comment so it is always visible.
+          if [ -f ci-last-failure.log ]; then
+            python3 - "$GITHUB_TOKEN" "$GITHUB_REPOSITORY" "$GITHUB_SHA" <<'PYEOF' || true
+import json, sys, urllib.request
+token, repo, sha = sys.argv[1], sys.argv[2], sys.argv[3]
+body = open("ci-last-failure.log", "r", errors="replace").read()[:50000]
+req = urllib.request.Request(
+    f"https://api.github.com/repos/{repo}/commits/{sha}/comments",
+    data=json.dumps({"body": "CI build failed. Log tail:\n\n```log\n" + body + "\n```"}).encode(),
+    headers={"Authorization": f"Bearer {token}", "Accept": "application/vnd.github+json",
+             "User-Agent": "tornadic-ci"},
+    method="POST")
+try:
+    urllib.request.urlopen(req, timeout=60)
+except Exception as e:
+    print("commit comment failed:", e)
+PYEOF
           fi
 
       - name: Upload mod jar artifact
