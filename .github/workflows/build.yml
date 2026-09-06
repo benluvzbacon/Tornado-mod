@@ -105,11 +105,12 @@ jobs:
           send_cmd list
           send_cmd thermos
           send_cmd "thermos tomorrow"
-          send_cmd "spawn_tornado ef2"
+          send_cmd "spawn_tornado"
           send_cmd tornado_info
           send_cmd storm_info
           send_cmd "weatherstorm supercell"
           send_cmd "thermos debug simtick 2000"
+          send_cmd "spawn_tornado ef5"
           send_cmd tornado_info
           send_cmd storm_info
           echo "stop" >&3
@@ -137,6 +138,8 @@ jobs:
           if grep -q "Tornadic simulation tick failed" "$SERVER_LOG"; then echo "FAIL: simulation tick exception"; FAIL=1; fi
           if grep -q "THERMOS" "$SERVER_LOG"; then echo "OK: /thermos output present"; else echo "FAIL: no /thermos output"; FAIL=1; fi
           if grep -q "forced simulation ticks" "$SERVER_LOG"; then echo "OK: forced simulation tick ran"; else echo "FAIL: simtick never ran"; FAIL=1; fi
+          if grep -q "Spawned EF2 tornado with tornadic supercell" "$SERVER_LOG"; then echo "OK: default /spawn_tornado created EF2"; else echo "FAIL: default tornado command did not create EF2"; FAIL=1; fi
+          if grep -q "Spawned EF5 tornado with tornadic supercell" "$SERVER_LOG"; then echo "OK: explicit EF5 tornado created"; else echo "FAIL: explicit EF5 command failed"; FAIL=1; fi
           grep "forced simulation ticks" "$SERVER_LOG" | tail -n 1
           if [ "$FAIL" != "0" ]; then
             {

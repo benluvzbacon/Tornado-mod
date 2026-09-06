@@ -14,6 +14,8 @@ import com.tornadic.weather.DailyForecast;
 import com.tornadic.weather.RiskRating;
 
 import net.minecraft.ChatFormatting;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.phys.Vec3;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.commands.SharedSuggestionProvider;
@@ -258,19 +260,21 @@ public final class TornadicCommands {
 			source.sendFailure(Component.literal("Usage: /spawn_tornado ef0..ef5"));
 			return 0;
 		}
-		ServerPlayer player;
-		try {
-			player = source.getPlayerOrException();
-		} catch (Exception e) {
-			source.sendFailure(Component.literal("Requires a player."));
-			return 0;
-		}
 		ServerLevel world = source.getServer().overworld();
+		Vec3 origin;
+		try {
+			ServerPlayer player = source.getPlayerOrException();
+			origin = player.position();
+		} catch (Exception ignored) {
+			// Dedicated-server console testing anchors at the loaded world spawn.
+			BlockPos spawn = world.getSharedSpawnPos();
+			origin = new Vec3(spawn.getX() + 0.5, spawn.getY(), spawn.getZ() + 0.5);
+		}
 		double angle = world.getRandom().nextDouble() * Math.PI * 2.0;
-		// Keep the command tornado outside immediate contact, but inside the player's
-		// guaranteed loaded/tracked area so the entity and first visual sync cannot fail.
-		double x = player.getX() + Math.cos(angle) * 64;
-		double z = player.getZ() + Math.sin(angle) * 64;
+		// Keep the command tornado outside immediate contact, but inside the
+		// guaranteed loaded/tracked spawn area.
+		double x = origin.x + Math.cos(angle) * 48;
+		double z = origin.z + Math.sin(angle) * 48;
 		boolean spawned = TornadicSavedData.getOrLoad(source.getServer()).spawnTestTornado(world, x, z, ef);
 		if (!spawned) {
 			source.sendFailure(Component.literal("Could not spawn tornado: target chunk is not loaded."));
