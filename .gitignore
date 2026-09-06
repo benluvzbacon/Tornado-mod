@@ -37,3 +37,7 @@ ci-api-dump.txt
 gradle-server.log
 rcon-*.out
 gradle-tasks.log
+eula.txt
+server.properties
+latest.log
+logs/

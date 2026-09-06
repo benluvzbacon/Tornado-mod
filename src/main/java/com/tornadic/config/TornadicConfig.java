@@ -80,6 +80,11 @@ public final class TornadicConfig {
 				}
 				String key = trimmed.substring(0, eq).trim();
 				String value = trimmed.substring(eq + 1).trim();
+				// Strip inline comments ("1.0   # some note" -> "1.0") so values parse cleanly.
+				int hash = value.indexOf('#');
+				if (hash >= 0) {
+					value = value.substring(0, hash).trim();
+				}
 				apply(key, value);
 			}
 		} catch (IOException e) {

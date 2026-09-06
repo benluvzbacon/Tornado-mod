@@ -43,8 +43,8 @@ jobs:
         if: success()
         run: |
           set -x
-          mkdir -p .minecraft
-          printf 'eula=true\n' > .minecraft/eula.txt
+          # Loom's dev runServer uses the project root as the server working directory.
+          printf 'eula=true\n' > eula.txt
           {
             echo 'online-mode=false'
             echo 'enable-rcon=true'
@@ -57,7 +57,7 @@ jobs:
             echo 'generate-structures=false'
             echo 'level-seed=987654321'
             echo 'motd=tornadic-ci'
-          } > .minecraft/server.properties
+          } > server.properties
 
           # Split source sets make loom prefix the run task per mod (e.g. tornadic_runServer).
           ./gradlew tasks --all --no-daemon > gradle-tasks.log 2>&1 || true
@@ -80,7 +80,7 @@ jobs:
           if [ "$READY" != "1" ]; then
             echo "SERVER NEVER BECAME READY"
             tail -c 100000 gradle-server.log > ci-last-failure.log || true
-            [ -f .minecraft/latest.log ] && tail -c 100000 .minecraft/latest.log >> ci-last-failure.log || true
+            tail -c 100000 latest.log >> ci-last-failure.log 2>/dev/null || true
             pkill -f KnotServer 2>/dev/null || true
             pkill -f GradleDaemon 2>/dev/null || true
             kill "$GRADLE_PID" 2>/dev/null || true
@@ -120,18 +120,18 @@ jobs:
           echo "=== rcon outputs ==="
           cat rcon-list.out
           echo "=== server log assertions ==="
-          [ -f .minecraft/latest.log ] || { echo "NO LATEST LOG"; exit 1; }
+          [ -f latest.log ] || { echo "NO LATEST LOG"; ls -la; exit 1; }
           FAIL=0
-          grep -q "Tornadic loaded" .minecraft/latest.log || { echo "FAIL: mod never initialized"; FAIL=1; }
-          if grep -q "Crashed server" .minecraft/latest.log; then echo "FAIL: server crashed"; FAIL=1; fi
-          if grep -q "Tornadic simulation tick failed" .minecraft/latest.log; then echo "FAIL: simulation tick exception"; FAIL=1; fi
+          grep -q "Tornadic loaded" latest.log || { echo "FAIL: mod never initialized"; FAIL=1; }
+          if grep -q "Crashed server" latest.log; then echo "FAIL: server crashed"; FAIL=1; fi
+          if grep -q "Tornadic simulation tick failed" latest.log; then echo "FAIL: simulation tick exception"; FAIL=1; fi
           if grep -q "THERMOS" rcon-out-thermos.out 2>/dev/null; then echo "OK: /thermos produced output"; else echo "FAIL: no /thermos output"; FAIL=1; fi
           if grep -q "unknown command" rcon-out-thermos.out 2>/dev/null; then echo "FAIL: /thermos unknown command"; FAIL=1; fi
           if [ "$FAIL" != "0" ]; then
             {
               echo "=== runtime smoke test FAILED $(date -u) ==="
               for f in rcon-*.out; do echo "--- $f ---"; cat "$f" 2>/dev/null || true; done
-              echo "--- latest.log tail ---"; tail -c 120000 .minecraft/latest.log 2>/dev/null || true
+              echo "--- latest.log tail ---"; tail -c 120000 latest.log 2>/dev/null || true
               echo "--- gradle-server.log tail ---"; tail -c 60000 gradle-server.log 2>/dev/null || true
             } > ci-last-failure.log
             exit 1
