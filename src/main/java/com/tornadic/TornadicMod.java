@@ -74,7 +74,7 @@ public class TornadicMod implements ModInitializer {
 	}
 
 	private void registerEntities() {
-		TORNADO_TYPE = BuiltInRegistries.ENTITY_TYPE.register(ResourceLocation.fromNamespaceAndPath(MOD_ID, "tornado"),
+		TORNADO_TYPE = net.fabricmc.fabric.api.registry.v1.Registry.register(net.minecraft.core.registries.Registries.ENTITY_TYPE, MOD_ID + ":tornado",
 			EntityType.Builder.of(TornadoEntity::new, MobCategory.MISC)
 				.sized(1.0F, 1.0F)
 				.clientTrackingRange(12)
@@ -83,7 +83,7 @@ public class TornadicMod implements ModInitializer {
 				.noSave()
 				.build());
 
-		CHASER_VEHICLE_TYPE = BuiltInRegistries.ENTITY_TYPE.register(ResourceLocation.fromNamespaceAndPath(MOD_ID, "chaser_vehicle"),
+		CHASER_VEHICLE_TYPE = net.fabricmc.fabric.api.registry.v1.Registry.register(net.minecraft.core.registries.Registries.ENTITY_TYPE, MOD_ID + ":chaser_vehicle",
 			EntityType.Builder.of(ChaserVehicleEntity::new, MobCategory.MISC)
 				.sized(1.6F, 1.0F)
 				.clientTrackingRange(8)

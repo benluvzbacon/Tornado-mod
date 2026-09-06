@@ -34,7 +34,7 @@ public enum RiskRating {
 		return description;
 	}
 
-	public Component asComponent() {
+	public net.minecraft.network.chat.MutableComponent asComponent() {
 		return Component.literal(name()).withStyle(color);
 	}
 

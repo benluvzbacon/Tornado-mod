@@ -1,16 +1,13 @@
 package com.tornadic.network;
 
-import com.tornadic.storm.Storm;
-
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.ResourceLocation;
 
-/**
- * Per-storm state, broadcast to players near the storm. The client uses these to
- * render localized rain/hail, draw the radar and compute local wind.
- */
+import com.tornadic.storm.Storm;
+import com.tornadic.weather.StormType;
+
 public record StormSyncPayload(
 	long id,
 	double x,
@@ -29,34 +26,35 @@ public record StormSyncPayload(
 	public static final ResourceLocation ID = ResourceLocation.fromNamespaceAndPath("tornadic", "storm_sync");
 	public static final CustomPacketPayload.Type<StormSyncPayload> TYPE = new CustomPacketPayload.Type<>(ID);
 
-	public static final StreamCodec<FriendlyByteBuf, StormSyncPayload> STREAM_CODEC = StreamCodec.of(
-		StormSyncPayload::write, StormSyncPayload::read);
+	public static final StreamCodec<FriendlyByteBuf, StormSyncPayload> STREAM_CODEC = new StreamCodec<>() {
+		@Override
+		public void encode(FriendlyByteBuf buf, StormSyncPayload p) {
+			buf.writeVarLong(p.id());
+			buf.writeDouble(p.x());
+			buf.writeDouble(p.z());
+			buf.writeFloat(p.radius());
+			buf.writeVarInt(p.typeOrdinal());
+			buf.writeFloat(p.intensity());
+			buf.writeFloat(p.rotation());
+			buf.writeFloat(p.rainIntensity());
+			buf.writeBoolean(p.hail());
+			buf.writeFloat(p.hailSize());
+			buf.writeFloat(p.dir());
+			buf.writeFloat(p.speed());
+			buf.writeVarInt(p.tornadoEf());
+		}
 
-	private void write(FriendlyByteBuf buf) {
-		buf.writeVarLong(id);
-		buf.writeDouble(x);
-		buf.writeDouble(z);
-		buf.writeFloat(radius);
-		buf.writeVarInt(typeOrdinal);
-		buf.writeFloat(intensity);
-		buf.writeFloat(rotation);
-		buf.writeFloat(rainIntensity);
-		buf.writeBoolean(hail);
-		buf.writeFloat(hailSize);
-		buf.writeFloat(dir);
-		buf.writeFloat(speed);
-		buf.writeVarInt(tornadoEf);
-	}
-
-	private static StormSyncPayload read(FriendlyByteBuf buf) {
-		return new StormSyncPayload(
-			buf.readVarLong(), buf.readDouble(), buf.readDouble(),
-			buf.readFloat(), buf.readVarInt(),
-			buf.readFloat(), buf.readFloat(), buf.readFloat(),
-			buf.readBoolean(), buf.readFloat(),
-			buf.readFloat(), buf.readFloat(), buf.readVarInt()
-		);
-	}
+		@Override
+		public StormSyncPayload decode(FriendlyByteBuf buf) {
+			return new StormSyncPayload(
+				buf.readVarLong(), buf.readDouble(), buf.readDouble(),
+				buf.readFloat(), buf.readVarInt(),
+				buf.readFloat(), buf.readFloat(), buf.readFloat(),
+				buf.readBoolean(), buf.readFloat(),
+				buf.readFloat(), buf.readFloat(), buf.readVarInt()
+			);
+		}
+	};
 
 	@Override
 	public Type<? extends CustomPacketPayload> type() {

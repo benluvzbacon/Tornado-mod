@@ -15,14 +15,23 @@ public record ThunderPayload(double x, double z, float volume, float pitch, int 
 	public static final ResourceLocation ID = ResourceLocation.fromNamespaceAndPath("tornadic", "thunder");
 	public static final CustomPacketPayload.Type<ThunderPayload> TYPE = new CustomPacketPayload.Type<>(ID);
 
-	public static final StreamCodec<FriendlyByteBuf, ThunderPayload> STREAM_CODEC = StreamCodec.composite(
-		FriendlyByteBuf::writeDouble, ThunderPayload::x,
-		FriendlyByteBuf::writeDouble, ThunderPayload::z,
-		FriendlyByteBuf::writeFloat, ThunderPayload::volume,
-		FriendlyByteBuf::writeFloat, ThunderPayload::pitch,
-		FriendlyByteBuf::writeVarInt, ThunderPayload::delayTicks,
-		ThunderPayload::new
-	);
+	public static final StreamCodec<FriendlyByteBuf, ThunderPayload> STREAM_CODEC = new StreamCodec<>() {
+		@Override
+		public void encode(FriendlyByteBuf buf, ThunderPayload p) {
+			buf.writeDouble(p.x());
+			buf.writeDouble(p.z());
+			buf.writeFloat(p.volume());
+			buf.writeFloat(p.pitch());
+			buf.writeVarInt(p.delayTicks());
+		}
+
+		@Override
+		public ThunderPayload decode(FriendlyByteBuf buf) {
+			return new ThunderPayload(
+				buf.readDouble(), buf.readDouble(), buf.readFloat(), buf.readFloat(), buf.readVarInt()
+			);
+		}
+	};
 
 	@Override
 	public Type<? extends CustomPacketPayload> type() {

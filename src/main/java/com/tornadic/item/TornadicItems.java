@@ -35,6 +35,6 @@ public final class TornadicItems {
 		new ChaserVehicleItem(new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));
 
 	private static Item register(String name, Item item) {
-		return BuiltInRegistries.ITEM.register(ResourceLocation.fromNamespaceAndPath(TornadicMod.MOD_ID, name), item);
+		return net.fabricmc.fabric.api.registry.v1.Registry.register(net.minecraft.core.registries.Registries.ITEM, TornadicMod.MOD_ID + ":" + name, item);
 	}
 }

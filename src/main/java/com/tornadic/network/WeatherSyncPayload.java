@@ -32,39 +32,40 @@ public record WeatherSyncPayload(
 	public static final ResourceLocation ID = ResourceLocation.fromNamespaceAndPath("tornadic", "weather_sync");
 	public static final CustomPacketPayload.Type<WeatherSyncPayload> TYPE = new CustomPacketPayload.Type<>(ID);
 
-	public static final StreamCodec<FriendlyByteBuf, WeatherSyncPayload> STREAM_CODEC = StreamCodec.of(
-		WeatherSyncPayload::write, WeatherSyncPayload::read);
+	public static final StreamCodec<FriendlyByteBuf, WeatherSyncPayload> STREAM_CODEC = new StreamCodec<>() {
+		@Override
+		public void encode(FriendlyByteBuf buf, WeatherSyncPayload p) {
+			buf.writeVarInt(p.day());
+			buf.writeFloat(p.tempF());
+			buf.writeFloat(p.dewPointF());
+			buf.writeVarInt(p.humidity());
+			buf.writeFloat(p.pressureMb());
+			buf.writeFloat(p.windMph());
+			buf.writeFloat(p.windDir());
+			buf.writeVarInt(p.cape());
+			buf.writeFloat(p.shear());
+			buf.writeVarInt(p.stormProbability());
+			buf.writeVarInt(p.tornadoProbability());
+			buf.writeVarInt(p.riskOrdinal());
+			buf.writeFloat(p.rainLevel());
+			buf.writeFloat(p.thunderLevel());
+			buf.writeVarInt(p.stormsToday());
+			buf.writeVarInt(p.tornadoesToday());
+			buf.writeVarInt(p.maxEfToday());
+		}
 
-	private void write(FriendlyByteBuf buf) {
-		buf.writeVarInt(day);
-		buf.writeFloat(tempF);
-		buf.writeFloat(dewPointF);
-		buf.writeVarInt(humidity);
-		buf.writeFloat(pressureMb);
-		buf.writeFloat(windMph);
-		buf.writeFloat(windDir);
-		buf.writeVarInt(cape);
-		buf.writeFloat(shear);
-		buf.writeVarInt(stormProbability);
-		buf.writeVarInt(tornadoProbability);
-		buf.writeVarInt(riskOrdinal);
-		buf.writeFloat(rainLevel);
-		buf.writeFloat(thunderLevel);
-		buf.writeVarInt(stormsToday);
-		buf.writeVarInt(tornadoesToday);
-		buf.writeVarInt(maxEfToday);
-	}
-
-	private static WeatherSyncPayload read(FriendlyByteBuf buf) {
-		return new WeatherSyncPayload(
-			buf.readVarInt(), buf.readFloat(), buf.readFloat(),
-			buf.readVarInt(), buf.readFloat(), buf.readFloat(), buf.readFloat(),
-			buf.readVarInt(), buf.readFloat(),
-			buf.readVarInt(), buf.readVarInt(), buf.readVarInt(),
-			buf.readFloat(), buf.readFloat(),
-			buf.readVarInt(), buf.readVarInt(), buf.readVarInt()
-		);
-	}
+		@Override
+		public WeatherSyncPayload decode(FriendlyByteBuf buf) {
+			return new WeatherSyncPayload(
+				buf.readVarInt(), buf.readFloat(), buf.readFloat(),
+				buf.readVarInt(), buf.readFloat(), buf.readFloat(), buf.readFloat(),
+				buf.readVarInt(), buf.readFloat(),
+				buf.readVarInt(), buf.readVarInt(), buf.readVarInt(),
+				buf.readFloat(), buf.readFloat(),
+				buf.readVarInt(), buf.readVarInt(), buf.readVarInt()
+			);
+		}
+	};
 
 	@Override
 	public Type<? extends CustomPacketPayload> type() {

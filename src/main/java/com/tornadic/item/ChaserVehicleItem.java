@@ -48,7 +48,7 @@ public class ChaserVehicleItem extends Item {
 		if (!state.canBeReplaced()) {
 			return InteractionResult.FAIL;
 		}
-		if (world.getBlockState(pos.above()).getCollisionShape(world, pos.above()).boundingBox().maxY > 0) {
+		if (world.getBlockState(pos.above()).getCollisionShape(world, pos.above()).bounds().maxY > 0) {
 			return InteractionResult.FAIL;
 		}
 		// Don't stack vehicles.

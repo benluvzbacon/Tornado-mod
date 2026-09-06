@@ -70,13 +70,13 @@ public final class ApiProbeClient {
 
 	// C05: local sound
 	static void c05(Level level) {
-		level.playLocalSound(0, 1, 2, SoundEvents.ENTITY_LIGHTNING_BOLT_THUNDER,
-			net.minecraft.sounds.SoundSource.WEATHER, 1f, 1f);
-		level.playSound(null, 0, 1, 2, SoundEvents.ENTITY_SNOWBALL_THROW,
-			net.minecraft.sounds.SoundSource.BLOCK, 1f, 1f);
-		level.playSound(null, 0, 1, 2, SoundEvents.ENTITY_ITEM_BREAK,
-			net.minecraft.sounds.SoundSource.BLOCK, 1f, 1f);
-		level.playSound(null, 0, 1, 2, SoundEvents.BLOCK_NOTE_BLOCK_PLING,
+		level.playLocalSound(0, 1, 2, SoundEvents.LIGHTNING_BOLT_THUNDER,
+			net.minecraft.sounds.SoundSource.WEATHER, 1f, 1f, false);
+		level.playSound(null, 0, 1, 2, SoundEvents.SNOWBALL_THROW,
+			net.minecraft.sounds.SoundSource.BLOCKS, 1f, 1f);
+		level.playSound(null, 0, 1, 2, SoundEvents.ITEM_BREAK,
+			net.minecraft.sounds.SoundSource.BLOCKS, 1f, 1f);
+		level.playSound(null, 0, 1, 2, SoundEvents.NOTE_BLOCK_PLING,
 			net.minecraft.sounds.SoundSource.NEUTRAL, 1f, 1f);
 	}
 

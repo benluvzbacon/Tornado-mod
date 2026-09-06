@@ -1,160 +1,126 @@
 package com.tornadic;
 
-import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.network.protocol.game.ClientboundCustomPayloadPacket;
 import net.minecraft.network.protocol.game.ClientboundGameEventPacket;
-import net.minecraft.server.MinecraftServer;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.sounds.SoundEvent;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.ItemEntity;
-import net.minecraft.world.entity.LightningBolt;
-import net.minecraft.world.level.storage.ServerLevelData;
-import net.minecraft.world.phys.AABB;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.level.Level;
 
 /**
- * TEMPORARY compile-time API probe, round 2. Wrong-type calls make javac list
- * every candidate signature; failing lines are the answer. Delete when done.
+ * TEMPORARY compile-time API probe, round 3 (final). Delete when done.
  */
 public final class ApiProbe {
-	record TestRecord(int a) {
-	}
-
 	private ApiProbe() {
 	}
 
-	// Q01: registry register overloads
-	static Object q01() {
-		return BuiltInRegistries.ENTITY_TYPE.register("a", "b");
+	// R3A: registry value lookup via Map#get(ResourceKey)
+	static EntityType<?> r3a() {
+		return BuiltInRegistries.ENTITY_TYPE.get(ResourceKey.create(Registries.ENTITY_TYPE,
+			ResourceLocation.parse("tornadic:probe")));
 	}
 
-	// Q02: registry getValue overloads
-	static Object q02() {
-		return BuiltInRegistries.ENTITY_TYPE.getValue("a");
+	// R3B: fabric registry helper registration
+	static Object r3b() {
+		return net.fabricmc.fabric.api.registry.v1.Registry.register(Registries.ENTITY_TYPE,
+			"tornadic:probe", EntityType.MINECART);
 	}
 
-	// Q03: SavedData.Factory constructor arity
-	static Object q03() {
-		return new net.minecraft.world.level.saveddata.SavedData.Factory<>("a", "b", "c");
-	}
-
-	// Q04: how to send a custom payload to a player
-	static Object q04(ServerPlayer p) {
-		p.connection.sendCustomPayload("a");
+	// R3C: custom payload packet wrapping
+	static Object r3c(ServerPlayer p) {
+		p.connection.send(new ClientboundCustomPayloadPacket(new TornadoSyncProbe()));
 		return p;
 	}
 
-	// Q05: ClientboundGameEventPacket ctor
-	static Object q05() {
-		return new ClientboundGameEventPacket("a", "b");
+	record TornadoSyncProbe() implements net.minecraft.network.protocol.common.custom.CustomPacketPayload {
+		public static final net.minecraft.network.protocol.common.custom.CustomPacketPayload.Type<TornadoSyncProbe> TYPE =
+			new net.minecraft.network.protocol.common.custom.CustomPacketPayload.Type<>(
+				ResourceLocation.parse("tornadic:probe2"));
+
+		@Override
+		public net.minecraft.network.protocol.common.custom.CustomPacketPayload.Type<? extends net.minecraft.network.protocol.common.custom.CustomPacketPayload> type() {
+			return TYPE;
+		}
 	}
 
-	// Q06: far-removal, name candidate A
-	static boolean q06(Entity e) {
-		return e.removeWhenFarAway("a");
+	// R3D: game event packet ctor candidates (wrong arity lists them all)
+	static Object r3d() {
+		return new ClientboundGameEventPacket("a", "b", "c");
 	}
 
-	// Q07: far-removal, name candidate B
-	static boolean q07(Entity e) {
-		return e.shouldRemove("a");
+	// R3E: saved data factory third arg type
+	static Object r3e() {
+		return new net.minecraft.world.level.saveddata.SavedData.Factory<>(
+			() -> null, (t, p) -> null, "a");
 	}
 
-	// Q08: bounded nextFloat candidates
-	static float q08(RandomSource r) {
-		return r.nextFloat("a");
+	// R3F: server level world gen settings
+	static long r3f(ServerLevel w) {
+		return w.getWorldGenSettings().getSeed();
 	}
 
-	// Q09: ItemEntity age accessors
-	static int q09(ItemEntity it) {
-		return it.getAge();
+	// R3G: crop block age property
+	static Object r3g() {
+		return net.minecraft.world.level.block.CropBlock.AGE;
 	}
 
-	static void q09b(ItemEntity it) {
-		it.setAge(1);
+	// R3H: note block pling
+	static Object r3h() {
+		return net.minecraft.sounds.SoundEvents.NOTE_BLOCK_PLING;
 	}
 
-	// Q10: player playSound 4-arg overloads
-	static void q10(ServerPlayer p) {
-		p.playSound("a", "b", 1f, 1f);
+	// R3I: style empty
+	static Object r3i() {
+		return net.minecraft.network.chat.Style.EMPTY.withBold(true);
 	}
 
-	// Q11: AABB ctor candidates
-	static Object q11() {
-		return new AABB(new BlockPos(0, 0, 0));
+	// R3J: far-removal override candidates — four probe entities
+	static class ProbeEntA extends Entity {
+		ProbeEntA(EntityType<? extends Entity> t, Level l) {
+			super(t, l);
+		}
+
+		@Override
+		public boolean removeWhenFarAway(double d) {
+			return false;
+		}
 	}
 
-	// Q12: ServerLevelData world gen settings
-	static long q12(ServerLevelData d) {
-		return d.getWorldGenSettings().getSeed();
+	static class ProbeEntB extends Entity {
+		ProbeEntB(EntityType<? extends Entity> t, Level l) {
+			super(t, l);
+		}
+
+		@Override
+		public boolean shouldRemove(double x, double z) {
+			return false;
+		}
 	}
 
-	// Q13: MinecraftServer world gen settings
-	static long q13(MinecraftServer s) {
-		return s.getWorldGenSettings().getSeed();
+	static class ProbeEntC extends Entity {
+		ProbeEntC(EntityType<? extends Entity> t, Level l) {
+			super(t, l);
+		}
+
+		@Override
+		public boolean canRemove() {
+			return false;
+		}
 	}
 
-	// Q14: crops age property
-	static Object q14() {
-		return net.minecraft.world.level.block.CropsBlock.AGE;
-	}
+	static class ProbeEntD extends Entity {
+		ProbeEntD(EntityType<? extends Entity> t, Level l) {
+			super(t, l);
+		}
 
-	// Q15: sound source blocks
-	static Object q15() {
-		return net.minecraft.sounds.SoundSource.BLOCKS;
-	}
-
-	// Q16: sound events (1.21.1 naming)
-	static SoundEvent q16() {
-		return net.minecraft.sounds.SoundEvents.LIGHTNING_BOLT_THUNDER;
-	}
-
-	static SoundEvent q16b() {
-		return net.minecraft.sounds.SoundEvents.LIGHTNING_BOLT_IMPACT;
-	}
-
-	static SoundEvent q16c() {
-		return net.minecraft.sounds.SoundEvents.SNOWBALL_THROW;
-	}
-
-	// Q16d: interaction result holder factories
-	static Object q16d() {
-		return net.minecraft.world.InteractionResultHolder.sidedSuccess(net.minecraft.world.item.ItemStack.EMPTY, true);
-	}
-
-	// Q17: lightning bolt ctor candidates
-	static Object q17(ServerLevel w) {
-		return new LightningBolt("a");
-	}
-
-	// Q18: item entity ctor candidates
-	static Object q18(ServerLevel w) {
-		return new ItemEntity("a");
-	}
-
-	// Q19: level playLocalSound candidates
-	static void q19(ServerLevel w) {
-		w.playLocalSound("a", "b", "c", "d", "e", "f", "g");
-	}
-
-	// Q20: stream codec shape via anonymous class
-	static Object q20() {
-		return new net.minecraft.network.codec.StreamCodec<FriendlyByteBuf, TestRecord>() {
-			@Override
-			public void encode(FriendlyByteBuf buf, TestRecord v) {
-			}
-
-			@Override
-			public TestRecord decode(FriendlyByteBuf buf) {
-				return null;
-			}
-		};
-	}
-
-	// Q21: byte buf codecs
-	static Object q21() {
-		return net.minecraft.network.protocol.ByteBufCodecs.DOUBLE;
+		@Override
+		public boolean isBeyondRemoveDistance(double d) {
+			return false;
+		}
 	}
 }

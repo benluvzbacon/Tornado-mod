@@ -300,7 +300,7 @@ public final class TornadoPhysics {
 		for (ServerPlayer p : world.getServer().getPlayerList().getPlayers()) {
 			if (p.distanceToSqr(new Vec3(state.x, p.getY(), state.z)) <= (double) TornadicConfig.warningRadius * TornadicConfig.warningRadius) {
 				p.sendSystemMessage(warning);
-				p.playSound(SoundSource.WEATHER, SoundEvents.PLAYER_LEVELUP, 0.7f, 1.0f);
+				p.playSound(SoundEvents.PLAYER_LEVELUP, 0.7f, 1.0f);
 			}
 		}
 	}

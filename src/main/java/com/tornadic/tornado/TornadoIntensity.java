@@ -41,7 +41,7 @@ public enum TornadoIntensity {
 		return funnelRadius;
 	}
 
-	public Component asComponent() {
+	public net.minecraft.network.chat.MutableComponent asComponent() {
 		return Component.literal(label).withStyle(color);
 	}
 

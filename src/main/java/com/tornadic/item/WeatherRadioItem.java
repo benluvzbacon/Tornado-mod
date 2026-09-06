@@ -36,7 +36,7 @@ public class WeatherRadioItem extends Item {
 		if (!world.isClientSide && player instanceof ServerPlayer sp) {
 			TornadicSavedData data = TornadicSavedData.getOrLoad(sp.getServer());
 			DailyForecast forecast = data.currentForecast(sp.serverLevel());
-			Component msg = Component.empty()
+			net.minecraft.network.chat.MutableComponent msg = Component.empty()
 				.append(Component.literal("WEATHER RADIO - DAY ").withStyle(ChatFormatting.AQUA, ChatFormatting.BOLD))
 				.append(Component.literal(String.valueOf(forecast.day() + 1)).withStyle(ChatFormatting.AQUA))
 				.append(Component.literal("\nRisk: ").withStyle(ChatFormatting.GRAY))
@@ -58,7 +58,7 @@ public class WeatherRadioItem extends Item {
 				}
 			}
 			sp.sendSystemMessage(msg);
-			sp.playSound(SoundEvents.BLOCK_NOTE_BLOCK_PLING, SoundSource.NEUTRAL, 0.3f, 1.4f);
+			sp.playSound(SoundEvents.NOTE_BLOCK_PLING, 0.3f, 1.4f);
 		}
 		return net.minecraft.world.InteractionResultHolder.sidedSuccess(player.getItemInHand(hand), world.isClientSide);
 	}

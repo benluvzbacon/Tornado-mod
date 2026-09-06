@@ -45,7 +45,7 @@ public enum StormType {
 		return this == TORNADIC_SUPERCELL;
 	}
 
-	public Component asComponent() {
+	public net.minecraft.network.chat.MutableComponent asComponent() {
 		return Component.literal(displayName).withStyle(color);
 	}
 
