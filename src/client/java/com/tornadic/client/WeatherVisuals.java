@@ -141,8 +141,12 @@ public final class WeatherVisuals {
 				continue; // frame skip for far tornadoes
 			}
 			float funnel = Math.max(2f, t.funnelRadius());
-			float cloud = Math.max(funnel * 2f, t.cloudRadius());
-			float height = 48f + t.ef() * 8f;
+			float matureWind = com.tornadic.tornado.TornadoIntensity.fromEf(t.ef()).windMs();
+			float maturity = Math.max(0.08f, Math.min(1f, t.windMs() / Math.max(1f, matureWind)));
+			boolean wedge = t.ef() >= 3 && maturity > 0.62f;
+			boolean rope = maturity < 0.34f;
+			float cloud = rope ? funnel * 2.2f : wedge ? funnel * 1.38f : funnel * 2.75f;
+			float height = (rope ? 62f : 48f) + t.ef() * 7f;
 			// Ground tone: 0 default, 1 desert, 2 snow, 3 forest.
 			float r = 0.42f, g = 0.42f, b = 0.44f;
 			if (t.groundTone() == 1) {
@@ -156,11 +160,16 @@ public final class WeatherVisuals {
 			int rings = 3 + t.ef();
 			for (int i = 0; i < rings && spawned < budget; i++) {
 				float fr = i / (float) rings;
-				float radius = funnel + (cloud - funnel) * (float) Math.pow(fr, 0.75);
+				float profile = rope ? (0.30f + 0.70f * fr) : wedge
+					? (0.82f + 0.18f * fr) : (0.42f + 0.58f * (float) Math.pow(fr, 0.72));
+				float radius = cloud * profile;
 				float y = (float) (t.y() + fr * height);
 				float angle = (rotBase + i * 37) * 0.35f;
-				double ax = t.x() + Math.cos(angle) * radius;
-				double az = t.z() + Math.sin(angle) * radius;
+				// A small, slowly changing down-shear tilt avoids a perfectly vertical
+				// cylinder and becomes pronounced during rope-out.
+				double tilt = fr * fr * (rope ? 13.0 : 5.0) * Math.sin(time * 0.00035 + t.entityId());
+				double ax = t.x() + Math.cos(t.heading()) * tilt + Math.cos(angle) * radius;
+				double az = t.z() + Math.sin(t.heading()) * tilt + Math.sin(angle) * radius;
 				// Funnel body.
 				client.level.addParticle(
 					new DustParticleOptions(new org.joml.Vector3f(r, g, b),
@@ -190,7 +199,27 @@ public final class WeatherVisuals {
 					spawned++;
 				}
 			}
-			// Debris sparks on the outer edge.
+			// EF3+ tornadoes can have intermittent suction vortices orbiting inside
+			// the main circulation. The id-based gate is deterministic for all clients.
+			boolean multi = t.ef() >= 3 && Math.floorMod(t.entityId() * 31, 100)
+				< (t.ef() == 3 ? 28 : t.ef() == 4 ? 52 : 72);
+			if (multi && maturity > 0.55f) {
+				int subvortices = t.ef() >= 5 ? 3 : 2;
+				for (int sv = 0; sv < subvortices && spawned < budget; sv++) {
+					double sa = time * (0.0045 + sv * 0.0007) + sv * Math.PI * 2 / subvortices + t.entityId();
+					double orbit = funnel * 0.58;
+					double sx = t.x() + Math.cos(sa) * orbit;
+					double sz = t.z() + Math.sin(sa) * orbit;
+					double spin = sa * 4.0;
+					client.level.addParticle(ParticleTypes.LARGE_SMOKE,
+						sx + Math.cos(spin) * funnel * 0.16, t.y() + 1.5 + RNG.nextFloat() * 13,
+						sz + Math.sin(spin) * funnel * 0.16,
+						-Math.sin(spin) * 0.08, 0.12, Math.cos(spin) * 0.08);
+					spawned++;
+				}
+			}
+
+			// Debris sparks on the irregular outer edge.
 			if (t.ef() >= 1 && spawned < budget && RNG.nextInt(3) == 0) {
 				float da = RNG.nextFloat() * (float) Math.PI * 2;
 				client.level.addParticle(ParticleTypes.CRIT,

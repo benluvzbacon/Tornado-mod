@@ -84,6 +84,12 @@ public class TornadoState {
 		return TornadoIntensity.fromEf(currentEf()).windMs() * intensity;
 	}
 
+	/** Simplified central pressure deficit in hPa, derived from current wind. */
+	public float pressureDeficitHpa() {
+		float wind = windMs();
+		return Math.min(115.0F, 2.0F + wind * wind * 0.0105F);
+	}
+
 	public void tickLifecycle() {
 		age++;
 		if (dissipating) {

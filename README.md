@@ -96,7 +96,7 @@ toggles, and whether natural tornadoes occur at all.
 ./gradlew build
 ```
 
-Produces `build/libs/tornadic-1.5.0.jar` (Fabric, Minecraft 1.21.1, Java 21, Fabric API
+Produces `build/libs/tornadic-2.0.0.jar` (Fabric, Minecraft 1.21.1, Java 21, Fabric API
 0.115.6+1.21.1). GitHub Actions runs the same build on push and uploads the artifact.
 
 ## Testing checklist (runtime)

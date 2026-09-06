@@ -4,6 +4,8 @@ import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
+import net.minecraft.world.item.CreativeModeTabs;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 
 /**
  * Storm-chasing equipment. Items are simple, no-recipe tools - the point is the
@@ -37,5 +39,18 @@ public final class TornadicItems {
 			new StormNotebookItem(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON)));
 		CHASER_VEHICLE = Registry.register(BuiltInRegistries.ITEM, "tornadic:chaser_vehicle",
 			new ChaserVehicleItem(new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));
+
+		// Make every instrument genuinely obtainable from the vanilla creative UI.
+		// The anemometer also has a survival crafting recipe under data/tornadic/recipe.
+		ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.TOOLS_AND_UTILITIES).register(entries -> {
+			entries.accept(ANEMOMETER);
+			entries.accept(THERMOMETER);
+			entries.accept(BAROMETER);
+			entries.accept(WEATHER_RADIO);
+			entries.accept(STORM_RADAR);
+			entries.accept(STORM_NOTEBOOK);
+		});
+		ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(entries ->
+			entries.accept(CHASER_VEHICLE));
 	}
 }

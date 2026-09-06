@@ -63,25 +63,44 @@ public final class WindField {
 			double dx = x - t.x;
 			double dz = z - t.z;
 			double dist = Math.sqrt(dx * dx + dz * dz);
-			double reach = t.funnelRadius() * 3.0 + 12.0;
-			if (dist > reach) {
-				continue;
-			}
-			double norm = dist / reach;
-			double core = Math.min(1.0, dist / Math.max(1.0, t.funnelRadius() * 0.5));
-			double v = t.windMs() * 0.055 * TornadicConfig.windStrength * (0.35 + 0.65 * core) * (1.0 - norm * 0.75);
-			// Tangential (counter-clockwise).
-			double tx = -dz / (dist + 0.001);
-			double tz = dx / (dist + 0.001);
+			double coreRadius = Math.max(3.0, t.funnelRadius());
+			double reach = coreRadius * 8.0 + 80.0;
+			if (dist > reach) continue;
+
+			// Modified Rankine vortex: velocity rises toward the radius of maximum
+			// wind, then decays through the broad outer circulation.
+			double rankine = dist < coreRadius ? dist / coreRadius
+				: Math.pow(coreRadius / Math.max(coreRadius, dist), 0.72);
+			double edgeFade = Math.max(0.0, 1.0 - Math.pow(dist / reach, 3.0));
+			double v = t.windMs() * 0.055 * TornadicConfig.windStrength * rankine * edgeFade;
+			double tx = -dz / (dist + 0.001), tz = dx / (dist + 0.001);
 			wx += tx * v;
 			wz += tz * v;
-			// Inward suction toward the core.
-			double inward = v * 0.22;
-			wx -= dx / (dist + 0.001) * inward;
-			wz -= dz / (dist + 0.001) * inward;
-			// Lift near the core.
-			if (dist < t.funnelRadius()) {
-				wy += v * 0.35;
+
+			// Low-level pressure deficit draws air inward; rising air dominates inside
+			// the condensation funnel, with weak compensating outflow aloft/at the edge.
+			double inflow = v * (dist < coreRadius * 2.5 ? 0.30 : 0.16);
+			wx -= dx / (dist + 0.001) * inflow;
+			wz -= dz / (dist + 0.001) * inflow;
+			if (dist < coreRadius * 1.25) wy += v * 0.38 * (1.0 - dist / (coreRadius * 1.25));
+
+			// Uncommon EF3+ suction vortices create intermittent localized wind maxima.
+			int ef = t.currentEf();
+			boolean multi = ef >= 3 && Math.floorMod((int) t.id * 31, 100) < (ef == 3 ? 28 : ef == 4 ? 52 : 72);
+			if (multi) {
+				int count = ef >= 5 ? 3 : 2;
+				for (int sv = 0; sv < count; sv++) {
+					double a = level.getGameTime() * (0.045 + sv * 0.008) + sv * Math.PI * 2.0 / count + t.id;
+					double orbit = coreRadius * 0.58;
+					double sx = t.x + Math.cos(a) * orbit, sz = t.z + Math.sin(a) * orbit;
+					double sdx = x - sx, sdz = z - sz, sd = Math.sqrt(sdx * sdx + sdz * sdz);
+					double sr = Math.max(2.0, coreRadius * 0.22);
+					if (sd < sr * 3.0) {
+						double boost = v * 0.42 * Math.max(0.0, 1.0 - sd / (sr * 3.0));
+						wx += -sdz / (sd + 0.001) * boost;
+						wz += sdx / (sd + 0.001) * boost;
+					}
+				}
 			}
 		}
 

@@ -311,6 +311,8 @@ public final class TornadicCommands {
 			.append(Component.literal(compass).withStyle(ChatFormatting.WHITE))
 			.append(Component.literal("\nCore wind: ").withStyle(ChatFormatting.GRAY))
 			.append(Component.literal(String.format("%.0f m/s", t.windMs())).withStyle(ChatFormatting.WHITE))
+			.append(Component.literal("\nPressure deficit: ").withStyle(ChatFormatting.GRAY))
+			.append(Component.literal(String.format("%.0f hPa", t.pressureDeficitHpa())).withStyle(ChatFormatting.WHITE))
 			.append(Component.literal("\nFunnel radius: ").withStyle(ChatFormatting.GRAY))
 			.append(Component.literal(String.format("%.0f blocks", t.funnelRadius())).withStyle(ChatFormatting.WHITE))
 			.append(Component.literal("\nAge: ").withStyle(ChatFormatting.GRAY))

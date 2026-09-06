@@ -55,6 +55,6 @@ public record TornadoSyncPayload(
 	public static TornadoSyncPayload of(TornadoState state, int entityId, int groundTone) {
 		return new TornadoSyncPayload(entityId, state.x, state.y, state.z,
 			state.funnelRadius(), state.cloudRadius(), state.currentEf(),
-			state.intensityScale().windMs(), state.heading, groundTone);
+			state.windMs(), state.heading, groundTone);
 	}
 }

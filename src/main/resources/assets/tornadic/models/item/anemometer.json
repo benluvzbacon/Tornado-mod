@@ -1,6 +1,26 @@
 {
-  "parent": "minecraft:item/generated",
+  "credit": "Tornadic custom three-dimensional cup anemometer",
   "textures": {
-    "layer0": "tornadic:item/anemometer"
+    "instrument": "tornadic:item/anemometer",
+    "particle": "tornadic:item/anemometer"
+  },
+  "elements": [
+    {"from":[7,0,7],"to":[9,9,9],"faces":{"north":{"texture":"#instrument"},"east":{"texture":"#instrument"},"south":{"texture":"#instrument"},"west":{"texture":"#instrument"},"up":{"texture":"#instrument"},"down":{"texture":"#instrument"}}},
+    {"from":[6.5,8.5,6.5],"to":[9.5,11.5,9.5],"faces":{"north":{"texture":"#instrument"},"east":{"texture":"#instrument"},"south":{"texture":"#instrument"},"west":{"texture":"#instrument"},"up":{"texture":"#instrument"},"down":{"texture":"#instrument"}}},
+    {"from":[1,9.5,7.5],"to":[15,10.5,8.5],"faces":{"north":{"texture":"#instrument"},"east":{"texture":"#instrument"},"south":{"texture":"#instrument"},"west":{"texture":"#instrument"},"up":{"texture":"#instrument"},"down":{"texture":"#instrument"}}},
+    {"from":[7.5,9.5,1],"to":[8.5,10.5,15],"faces":{"north":{"texture":"#instrument"},"east":{"texture":"#instrument"},"south":{"texture":"#instrument"},"west":{"texture":"#instrument"},"up":{"texture":"#instrument"},"down":{"texture":"#instrument"}}},
+    {"from":[0,8.5,6.5],"to":[3,12.5,9.5],"faces":{"north":{"texture":"#instrument"},"east":{"texture":"#instrument"},"south":{"texture":"#instrument"},"west":{"texture":"#instrument"},"up":{"texture":"#instrument"},"down":{"texture":"#instrument"}}},
+    {"from":[13,7.5,6.5],"to":[16,11.5,9.5],"faces":{"north":{"texture":"#instrument"},"east":{"texture":"#instrument"},"south":{"texture":"#instrument"},"west":{"texture":"#instrument"},"up":{"texture":"#instrument"},"down":{"texture":"#instrument"}}},
+    {"from":[6.5,8.5,0],"to":[9.5,12.5,3],"faces":{"north":{"texture":"#instrument"},"east":{"texture":"#instrument"},"south":{"texture":"#instrument"},"west":{"texture":"#instrument"},"up":{"texture":"#instrument"},"down":{"texture":"#instrument"}}},
+    {"from":[6.5,7.5,13],"to":[9.5,11.5,16],"faces":{"north":{"texture":"#instrument"},"east":{"texture":"#instrument"},"south":{"texture":"#instrument"},"west":{"texture":"#instrument"},"up":{"texture":"#instrument"},"down":{"texture":"#instrument"}}}
+  ],
+  "display": {
+    "thirdperson_righthand":{"rotation":[65,0,0],"translation":[0,2,1],"scale":[0.65,0.65,0.65]},
+    "thirdperson_lefthand":{"rotation":[65,0,0],"translation":[0,2,1],"scale":[0.65,0.65,0.65]},
+    "firstperson_righthand":{"rotation":[15,-25,0],"translation":[1,1,0],"scale":[0.8,0.8,0.8]},
+    "firstperson_lefthand":{"rotation":[15,25,0],"translation":[-1,1,0],"scale":[0.8,0.8,0.8]},
+    "gui":{"rotation":[25,35,0],"translation":[0,0,0],"scale":[0.8,0.8,0.8]},
+    "ground":{"translation":[0,3,0],"scale":[0.55,0.55,0.55]},
+    "fixed":{"rotation":[0,180,0],"scale":[0.7,0.7,0.7]}
   }
 }

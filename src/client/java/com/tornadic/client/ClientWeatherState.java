@@ -131,22 +131,20 @@ public final class ClientWeatherState {
 			double dx = x - t2.x();
 			double dz = z - t2.z();
 			double dist = Math.sqrt(dx * dx + dz * dz);
-			double reach = t2.funnelRadius() * 3.0 + 12.0;
-			if (dist > reach) {
-				continue;
-			}
-			double norm = dist / reach;
-			double core = Math.min(1.0, dist / Math.max(1.0, t2.funnelRadius() * 0.5));
-			double v = t2.windMs() * 0.055 * TornadicConfig.windStrength * (0.35 + 0.65 * core) * (1.0 - norm * 0.75);
-			double tx = -dz / (dist + 0.001);
-			double tz = dx / (dist + 0.001);
+			double coreRadius = Math.max(3.0, t2.funnelRadius());
+			double reach = coreRadius * 8.0 + 80.0;
+			if (dist > reach) continue;
+			double rankine = dist < coreRadius ? dist / coreRadius
+				: Math.pow(coreRadius / Math.max(coreRadius, dist), 0.72);
+			double edgeFade = Math.max(0.0, 1.0 - Math.pow(dist / reach, 3.0));
+			double v = t2.windMs() * 0.055 * TornadicConfig.windStrength * rankine * edgeFade;
+			double tx = -dz / (dist + 0.001), tz = dx / (dist + 0.001);
 			wx += tx * v;
 			wz += tz * v;
-			wx -= dx / (dist + 0.001) * v * 0.22;
-			wz -= dz / (dist + 0.001) * v * 0.22;
-			if (dist < t2.funnelRadius()) {
-				wy += v * 0.35;
-			}
+			double inflow = v * (dist < coreRadius * 2.5 ? 0.30 : 0.16);
+			wx -= dx / (dist + 0.001) * inflow;
+			wz -= dz / (dist + 0.001) * inflow;
+			if (dist < coreRadius * 1.25) wy += v * 0.38 * (1.0 - dist / (coreRadius * 1.25));
 		}
 		return new Vec3(wx, wy, wz);
 	}
