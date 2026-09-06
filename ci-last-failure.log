@@ -1,27 +1,27 @@
-=== tornadic-ci diagnostics Sun Sep  6 19:12:00 UTC 2026 ===
+=== tornadic-ci diagnostics Sun Sep  6 19:16:32 UTC 2026 ===
 Linux runnervmejwal 6.17.0-1022-azure #22-Ubuntu SMP Mon Jul 27 17:24:03 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux
 --- java -version ---
 openjdk version "21.0.12.1" 2026-08-18 LTS
 OpenJDK Runtime Environment Temurin-21.0.12.1+1 (build 21.0.12.1+1-LTS)
 OpenJDK 64-Bit Server VM Temurin-21.0.12.1+1 (build 21.0.12.1+1-LTS, mixed mode, sharing)
 --- ls -la ---
-total 236
-drwxr-xr-x 6 runner runner   4096 Sep  6 19:12 .
-drwxr-xr-x 3 runner runner   4096 Sep  6 19:11 ..
-drwxr-xr-x 7 runner runner   4096 Sep  6 19:12 .git
-drwxr-xr-x 3 runner runner   4096 Sep  6 19:12 .github
--rw-r--r-- 1 runner runner    217 Sep  6 19:12 .gitignore
--rw-r--r-- 1 runner runner   1070 Sep  6 19:12 LICENSE
--rw-r--r-- 1 runner runner   5730 Sep  6 19:12 README.md
--rw-r--r-- 1 runner runner    416 Sep  6 19:12 build-output.log
--rw-r--r-- 1 runner runner   1078 Sep  6 19:12 build.gradle
--rw-r--r-- 1 runner runner 167405 Sep  6 19:12 ci-last-failure.log
-drwxr-xr-x 3 runner runner   4096 Sep  6 19:12 gradle
--rw-r--r-- 1 runner runner    284 Sep  6 19:12 gradle.properties
--rwxr-xr-x 1 runner runner   8654 Sep  6 19:12 gradlew
--rw-r--r-- 1 runner runner   2846 Sep  6 19:12 gradlew.bat
--rw-r--r-- 1 runner runner    200 Sep  6 19:12 settings.gradle
-drwxr-xr-x 4 runner runner   4096 Sep  6 19:12 src
+total 200
+drwxr-xr-x 6 runner runner   4096 Sep  6 19:16 .
+drwxr-xr-x 3 runner runner   4096 Sep  6 19:16 ..
+drwxr-xr-x 7 runner runner   4096 Sep  6 19:16 .git
+drwxr-xr-x 3 runner runner   4096 Sep  6 19:16 .github
+-rw-r--r-- 1 runner runner    217 Sep  6 19:16 .gitignore
+-rw-r--r-- 1 runner runner   1070 Sep  6 19:16 LICENSE
+-rw-r--r-- 1 runner runner   5730 Sep  6 19:16 README.md
+-rw-r--r-- 1 runner runner    416 Sep  6 19:16 build-output.log
+-rw-r--r-- 1 runner runner   1078 Sep  6 19:16 build.gradle
+-rw-r--r-- 1 runner runner 130267 Sep  6 19:16 ci-last-failure.log
+drwxr-xr-x 3 runner runner   4096 Sep  6 19:16 gradle
+-rw-r--r-- 1 runner runner    284 Sep  6 19:16 gradle.properties
+-rwxr-xr-x 1 runner runner   8654 Sep  6 19:16 gradlew
+-rw-r--r-- 1 runner runner   2846 Sep  6 19:16 gradlew.bat
+-rw-r--r-- 1 runner runner    200 Sep  6 19:16 settings.gradle
+drwxr-xr-x 4 runner runner   4096 Sep  6 19:16 src
 Fetching distribution.
 Downloading https://services.gradle.org/distributions/gradle-9.5.1-bin.zip
 .............10%.............20%..............30%.............40%.............50%..............60%.............70%..............80%.............90%.............100%
@@ -63,21 +63,16 @@ Please make sure to read and understand the following license:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 > Task :compileJava
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:13: error: cannot find symbol
-import net.minecraft.world.entity.ItemEntity;
-                                 ^
-  symbol:   class ItemEntity
-  location: package net.minecraft.world.entity
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:71: error: cannot find symbol
-	static int q09(ItemEntity it) {
-	               ^
-  symbol:   class ItemEntity
-  location: class ApiProbe
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:75: error: cannot find symbol
-	static void q09b(ItemEntity it) {
-	                 ^
-  symbol:   class ItemEntity
-  location: class ApiProbe
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/StormSyncPayload.java:9: error: cannot find symbol
+import com.tornadic.weather.StormType;
+                           ^
+  symbol:   class StormType
+  location: package com.tornadic.weather
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:5: error: cannot find symbol
+import net.minecraft.network.protocol.game.ClientboundCustomPayloadPacket;
+                                          ^
+  symbol:   class ClientboundCustomPayloadPacket
+  location: package net.minecraft.network.protocol.game
 /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/entity/ChaserVehicleEntity.java:81: error: method does not override or implement a method from a supertype
 	@Override
 	^
@@ -86,136 +81,20 @@ import net.minecraft.world.entity.ItemEntity;
 		       ^
   symbol:   variable distance
   location: class ChaserVehicleEntity
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/command/TornadicCommands.java:100: error: cannot find symbol
-			.append(" ").append(risk.asComponent().withStyle(net.minecraft.network.chat.Style.EMPTY.withBold(true))));
-			                                      ^
-  symbol:   method withStyle(Style)
-  location: interface Component
 /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/command/TornadicCommands.java:118: error: cannot find symbol
 			return ((net.minecraft.world.level.storage.ServerLevelData) world.getLevelData()).getWorldGenSettings().getSeed();
 			                                                                                 ^
   symbol:   method getWorldGenSettings()
   location: interface ServerLevelData
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/command/TornadicCommands.java:312: error: cannot find symbol
-			.append(s.type.asComponent().withStyle(net.minecraft.network.chat.Style.EMPTY.withBold(true)))
-			                            ^
-  symbol:   method withStyle(Style)
-  location: interface Component
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/TornadoSyncPayload.java:28: error: method of in interface StreamCodec<B#2,V#2> cannot be applied to given types;
-	public static final StreamCodec<FriendlyByteBuf, TornadoSyncPayload> STREAM_CODEC = StreamCodec.of(
-	                                                                                               ^
-  required: StreamEncoder<B#1,V#1>,StreamDecoder<B#1,V#1>
-  found:    TornadoSyn[...]write,TornadoSyn[...]:read
-  reason: inference variable V#1 has incompatible bounds
-    upper bounds: FriendlyByteBuf,Object
-    lower bounds: TornadoSyncPayload
-  where B#1,V#1,B#2,V#2 are type-variables:
-    B#1 extends Object declared in method <B#1,V#1>of(StreamEncoder<B#1,V#1>,StreamDecoder<B#1,V#1>)
-    V#1 extends Object declared in method <B#1,V#1>of(StreamEncoder<B#1,V#1>,StreamDecoder<B#1,V#1>)
-    B#2 extends Object declared in interface StreamCodec
-    V#2 extends Object declared in interface StreamCodec
 /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoEntity.java:42: error: method does not override or implement a method from a supertype
 	@Override
 	^
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/StormSyncPayload.java:32: error: method of in interface StreamCodec<B#2,V#2> cannot be applied to given types;
-	public static final StreamCodec<FriendlyByteBuf, StormSyncPayload> STREAM_CODEC = StreamCodec.of(
-	                                                                                             ^
-  required: StreamEncoder<B#1,V#1>,StreamDecoder<B#1,V#1>
-  found:    StormSyncP[...]write,StormSyncP[...]:read
-  reason: inference variable V#1 has incompatible bounds
-    upper bounds: FriendlyByteBuf,Object
-    lower bounds: StormSyncPayload
-  where B#1,V#1,B#2,V#2 are type-variables:
-    B#1 extends Object declared in method <B#1,V#1>of(StreamEncoder<B#1,V#1>,StreamDecoder<B#1,V#1>)
-    V#1 extends Object declared in method <B#1,V#1>of(StreamEncoder<B#1,V#1>,StreamDecoder<B#1,V#1>)
-    B#2 extends Object declared in interface StreamCodec
-    V#2 extends Object declared in interface StreamCodec
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/ThunderPayload.java:18: error: no suitable method found for composite(FriendlyBy[...]ouble,ThunderPayload::x,FriendlyBy[...]ouble,ThunderPayload::z,FriendlyBy[...]Float,ThunderPay[...]olume,FriendlyBy[...]Float,ThunderPay[...]pitch,FriendlyBy[...]arInt,ThunderPay[...]Ticks,ThunderPayload::new)
-	public static final StreamCodec<FriendlyByteBuf, ThunderPayload> STREAM_CODEC = StreamCodec.composite(
-	                                                                                           ^
-    method StreamCodec.<B#1,C#1,T1#1>composite(StreamCodec<? super B#1,T1#1>,Function<C#1,T1#1>,Function<T1#1,C#1>) is not applicable
-      (cannot infer type-variable(s) B#1,C#1,T1#1
-        (actual and formal argument lists differ in length))
-    method StreamCodec.<B#2,C#2,T1#2,T2#1>composite(StreamCodec<? super B#2,T1#2>,Function<C#2,T1#2>,StreamCodec<? super B#2,T2#1>,Function<C#2,T2#1>,BiFunction<T1#2,T2#1,C#2>) is not applicable
-      (cannot infer type-variable(s) B#2,C#2,T1#2,T2#1
-        (actual and formal argument lists differ in length))
-    method StreamCodec.<B#3,C#3,T1#3,T2#2,T3#1>composite(StreamCodec<? super B#3,T1#3>,Function<C#3,T1#3>,StreamCodec<? super B#3,T2#2>,Function<C#3,T2#2>,StreamCodec<? super B#3,T3#1>,Function<C#3,T3#1>,Function3<T1#3,T2#2,T3#1,C#3>) is not applicable
-      (cannot infer type-variable(s) B#3,C#3,T1#3,T2#2,T3#1
-        (actual and formal argument lists differ in length))
-    method StreamCodec.<B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>) is not applicable
-      (cannot infer type-variable(s) B#4,C#4,T1#4,T2#3,T3#2,T4#1
-        (actual and formal argument lists differ in length))
-    method StreamCodec.<B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>) is not applicable
-      (cannot infer type-variable(s) B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1
-        (argument mismatch; StreamCodec is not a functional interface
-          multiple non-overriding abstract methods found in interface StreamCodec))
-    method StreamCodec.<B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>) is not applicable
-      (cannot infer type-variable(s) B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6
-        (actual and formal argument lists differ in length))
-  where B#1,C#1,T1#1,B#2,C#2,T1#2,T2#1,B#3,C#3,T1#3,T2#2,T3#1,B#4,C#4,T1#4,T2#3,T3#2,T4#1,B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1,B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6 are type-variables:
-    B#1 extends Object declared in method <B#1,C#1,T1#1>composite(StreamCodec<? super B#1,T1#1>,Function<C#1,T1#1>,Function<T1#1,C#1>)
-    C#1 extends Object declared in method <B#1,C#1,T1#1>composite(StreamCodec<? super B#1,T1#1>,Function<C#1,T1#1>,Function<T1#1,C#1>)
-    T1#1 extends Object declared in method <B#1,C#1,T1#1>composite(StreamCodec<? super B#1,T1#1>,Function<C#1,T1#1>,Function<T1#1,C#1>)
-    B#2 extends Object declared in method <B#2,C#2,T1#2,T2#1>composite(StreamCodec<? super B#2,T1#2>,Function<C#2,T1#2>,StreamCodec<? super B#2,T2#1>,Function<C#2,T2#1>,BiFunction<T1#2,T2#1,C#2>)
-    C#2 extends Object declared in method <B#2,C#2,T1#2,T2#1>composite(StreamCodec<? super B#2,T1#2>,Function<C#2,T1#2>,StreamCodec<? super B#2,T2#1>,Function<C#2,T2#1>,BiFunction<T1#2,T2#1,C#2>)
-    T1#2 extends Object declared in method <B#2,C#2,T1#2,T2#1>composite(StreamCodec<? super B#2,T1#2>,Function<C#2,T1#2>,StreamCodec<? super B#2,T2#1>,Function<C#2,T2#1>,BiFunction<T1#2,T2#1,C#2>)
-    T2#1 extends Object declared in method <B#2,C#2,T1#2,T2#1>composite(StreamCodec<? super B#2,T1#2>,Function<C#2,T1#2>,StreamCodec<? super B#2,T2#1>,Function<C#2,T2#1>,BiFunction<T1#2,T2#1,C#2>)
-    B#3 extends Object declared in method <B#3,C#3,T1#3,T2#2,T3#1>composite(StreamCodec<? super B#3,T1#3>,Function<C#3,T1#3>,StreamCodec<? super B#3,T2#2>,Function<C#3,T2#2>,StreamCodec<? super B#3,T3#1>,Function<C#3,T3#1>,Function3<T1#3,T2#2,T3#1,C#3>)
-    C#3 extends Object declared in method <B#3,C#3,T1#3,T2#2,T3#1>composite(StreamCodec<? super B#3,T1#3>,Function<C#3,T1#3>,StreamCodec<? super B#3,T2#2>,Function<C#3,T2#2>,StreamCodec<? super B#3,T3#1>,Function<C#3,T3#1>,Function3<T1#3,T2#2,T3#1,C#3>)
-    T1#3 extends Object declared in method <B#3,C#3,T1#3,T2#2,T3#1>composite(StreamCodec<? super B#3,T1#3>,Function<C#3,T1#3>,StreamCodec<? super B#3,T2#2>,Function<C#3,T2#2>,StreamCodec<? super B#3,T3#1>,Function<C#3,T3#1>,Function3<T1#3,T2#2,T3#1,C#3>)
-    T2#2 extends Object declared in method <B#3,C#3,T1#3,T2#2,T3#1>composite(StreamCodec<? super B#3,T1#3>,Function<C#3,T1#3>,StreamCodec<? super B#3,T2#2>,Function<C#3,T2#2>,StreamCodec<? super B#3,T3#1>,Function<C#3,T3#1>,Function3<T1#3,T2#2,T3#1,C#3>)
-    T3#1 extends Object declared in method <B#3,C#3,T1#3,T2#2,T3#1>composite(StreamCodec<? super B#3,T1#3>,Function<C#3,T1#3>,StreamCodec<? super B#3,T2#2>,Function<C#3,T2#2>,StreamCodec<? super B#3,T3#1>,Function<C#3,T3#1>,Function3<T1#3,T2#2,T3#1,C#3>)
-    B#4 extends Object declared in method <B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>)
-    C#4 extends Object declared in method <B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>)
-    T1#4 extends Object declared in method <B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>)
-    T2#3 extends Object declared in method <B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>)
-    T3#2 extends Object declared in method <B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>)
-    T4#1 extends Object declared in method <B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>)
-    B#5 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
-    C#5 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
-    T1#5 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
-    T2#4 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
-    T3#3 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
-    T4#2 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
-    T5#1 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
-    B#6 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
-    C#6 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
-    T1#6 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
-    T2#5 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
-    T3#4 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
-    T4#3 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
-    T5#2 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
-    T6 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/WeatherSyncPayload.java:35: error: method of in interface StreamCodec<B#2,V#2> cannot be applied to given types;
-	public static final StreamCodec<FriendlyByteBuf, WeatherSyncPayload> STREAM_CODEC = StreamCodec.of(
-	                                                                                               ^
-  required: StreamEncoder<B#1,V#1>,StreamDecoder<B#1,V#1>
-  found:    WeatherSyn[...]write,WeatherSyn[...]:read
-  reason: inference variable V#1 has incompatible bounds
-    upper bounds: FriendlyByteBuf,Object
-    lower bounds: WeatherSyncPayload
-  where B#1,V#1,B#2,V#2 are type-variables:
-    B#1 extends Object declared in method <B#1,V#1>of(StreamEncoder<B#1,V#1>,StreamDecoder<B#1,V#1>)
-    V#1 extends Object declared in method <B#1,V#1>of(StreamEncoder<B#1,V#1>,StreamDecoder<B#1,V#1>)
-    B#2 extends Object declared in interface StreamCodec
-    V#2 extends Object declared in interface StreamCodec
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/TornadicMod.java:77: error: cannot find symbol
-		TORNADO_TYPE = BuiltInRegistries.ENTITY_TYPE.register(ResourceLocation.fromNamespaceAndPath(MOD_ID, "tornado"),
-		                                            ^
-  symbol:   method register(ResourceLocation,EntityType<TornadoEntity>)
-  location: variable ENTITY_TYPE of type DefaultedRegistry<EntityType<?>>
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/TornadicMod.java:86: error: cannot find symbol
-		CHASER_VEHICLE_TYPE = BuiltInRegistries.ENTITY_TYPE.register(ResourceLocation.fromNamespaceAndPath(MOD_ID, "chaser_vehicle"),
-		                                                   ^
-  symbol:   method register(ResourceLocation,EntityType<ChaserVehicleEntity>)
-  location: variable ENTITY_TYPE of type DefaultedRegistry<EntityType<?>>
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:303: error: no suitable method found for playSound(SoundSource,SoundEvent,float,float)
-				p.playSound(SoundSource.WEATHER, SoundEvents.PLAYER_LEVELUP, 0.7f, 1.0f);
-				 ^
-    method Entity.playSound(SoundEvent) is not applicable
-      (actual and formal argument lists differ in length)
-    method Player.playSound(SoundEvent,float,float) is not applicable
-      (actual and formal argument lists differ in length)
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/TornadicMod.java:77: error: package net.fabricmc.fabric.api.registry.v1 does not exist
+		TORNADO_TYPE = net.fabricmc.fabric.api.registry.v1.Registry.register(net.minecraft.core.registries.Registries.ENTITY_TYPE, MOD_ID + ":tornado",
+		                                                  ^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/TornadicMod.java:86: error: package net.fabricmc.fabric.api.registry.v1 does not exist
+		CHASER_VEHICLE_TYPE = net.fabricmc.fabric.api.registry.v1.Registry.register(net.minecraft.core.registries.Registries.ENTITY_TYPE, MOD_ID + ":chaser_vehicle",
+		                                                         ^
 /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:77: error: cannot infer type arguments for Factory<>
 			new SavedData.Factory<>(TornadicSavedData::new, TornadicSavedData::load), NAME);
 			^
@@ -228,206 +107,111 @@ import net.minecraft.world.entity.ItemEntity;
 			                                                                                 ^
   symbol:   method getWorldGenSettings()
   location: interface ServerLevelData
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:357: error: method nextFloat in interface RandomSource cannot be applied to given types;
-		if (storm.lightningCooldown <= 0 && world.getRandom().nextFloat(lightningRate)) {
-		                                                     ^
-  required: no arguments
-  found:    float
-  reason: actual and formal argument lists differ in length
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:398: error: no suitable method found for getHeight(Types,BlockPos)
-		int groundY = world.getHeight(Heightmap.Types.MOTION_BLOCKING, pos);
-		                   ^
-    method LevelReader.getHeight() is not applicable
-      (actual and formal argument lists differ in length)
-    method Level.getHeight(Types,int,int) is not applicable
-      (actual and formal argument lists differ in length)
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:400: error: cannot find symbol
-			net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE.getValue(
-			                                                           ^
-  symbol:   method getValue(ResourceKey<EntityType<?>>)
-  location: variable ENTITY_TYPE of type DefaultedRegistry<EntityType<?>>
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:400: error: incompatible types: EntityType<CAP#1> cannot be converted to EntityType<? extends LightningBolt>
+			net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE.get(
+			                                                               ^
+  where CAP#1 is a fresh type-variable:
+    CAP#1 extends Entity from capture of ?
 /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:422: error: cannot find symbol
-			p.connection.sendCustomPayload(new ThunderPayload(lx, lz, Math.min(1.0f, volume), pitch, delay));
-			            ^
-  symbol:   method sendCustomPayload(ThunderPayload)
-  location: variable connection of type ServerGamePacketListenerImpl
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:448: error: no suitable method found for getHeight(Types,BlockPos)
-			int groundY = world.getHeight(Heightmap.Types.MOTION_BLOCKING, pos);
-			                   ^
-    method LevelReader.getHeight() is not applicable
-      (actual and formal argument lists differ in length)
-    method Level.getHeight(Types,int,int) is not applicable
-      (actual and formal argument lists differ in length)
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:454: error: cannot find symbol
-				&& surface.hasProperty(net.minecraft.world.level.block.CropsBlock.AGE)) {
-				                                                      ^
-  symbol:   class CropsBlock
-  location: package net.minecraft.world.level.block
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:456: error: cannot find symbol
-					surface.setValue(net.minecraft.world.level.block.CropsBlock.AGE, 0),
-					                                                ^
-  symbol:   class CropsBlock
-  location: package net.minecraft.world.level.block
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:629: error: cannot find symbol
-						p.connection.sendCustomPayload(TornadoSyncPayload.of(state, (int) state.id, groundTone));
-						            ^
-  symbol:   method sendCustomPayload(TornadoSyncPayload)
-  location: variable connection of type ServerGamePacketListenerImpl
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:769: error: cannot find symbol
+			p.connection.send(new net.minecraft.network.protocol.game.ClientboundCustomPayloadPacket(
+			                                                         ^
+  symbol:   class ClientboundCustomPayloadPacket
+  location: package net.minecraft.network.protocol.game
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:630: error: cannot find symbol
+						p.connection.send(new net.minecraft.network.protocol.game.ClientboundCustomPayloadPacket(
+						                                                         ^
+  symbol:   class ClientboundCustomPayloadPacket
+  location: package net.minecraft.network.protocol.game
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:771: error: cannot find symbol
 				new ClientboundGameEventPacket(ClientboundGameEventPacket.GameEventId.RAIN_LEVEL_CHANGE, rain);
 				                                                         ^
   symbol:   variable GameEventId
   location: class ClientboundGameEventPacket
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:771: error: cannot find symbol
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:773: error: cannot find symbol
 				new ClientboundGameEventPacket(ClientboundGameEventPacket.GameEventId.THUNDER_LEVEL_CHANGE, thunder);
 				                                                         ^
   symbol:   variable GameEventId
   location: class ClientboundGameEventPacket
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:776: error: cannot find symbol
-					p.connection.sendCustomPayload(WeatherSyncPayload.of(forecast, rain, thunder,
-					            ^
-  symbol:   method sendCustomPayload(WeatherSyncPayload)
-  location: variable connection of type ServerGamePacketListenerImpl
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:795: error: cannot find symbol
-						p.connection.sendCustomPayload(payload);
-						            ^
-  symbol:   method sendCustomPayload(StormSyncPayload)
-  location: variable connection of type ServerGamePacketListenerImpl
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:805: error: cannot find symbol
-		player.connection.sendCustomPayload(WeatherSyncPayload.of(forecast, lastRain < 0 ? 0 : lastRain,
-		                 ^
-  symbol:   method sendCustomPayload(WeatherSyncPayload)
-  location: variable connection of type ServerGamePacketListenerImpl
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:816: error: cannot find symbol
-				player.connection.sendCustomPayload(StormSyncPayload.of(storm, tornadoEf));
-				                 ^
-  symbol:   method sendCustomPayload(StormSyncPayload)
-  location: variable connection of type ServerGamePacketListenerImpl
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:821: error: cannot find symbol
-				player.connection.sendCustomPayload(TornadoSyncPayload.of(t, (int) t.id, sampleGroundTone(world, t)));
-				                 ^
-  symbol:   method sendCustomPayload(TornadoSyncPayload)
-  location: variable connection of type ServerGamePacketListenerImpl
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:31: error: cannot find symbol
-		return BuiltInRegistries.ENTITY_TYPE.register("a", "b");
-		                                    ^
-  symbol:   method register(String,String)
-  location: variable ENTITY_TYPE of type DefaultedRegistry<EntityType<?>>
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:778: error: cannot find symbol
+					p.connection.send(new net.minecraft.network.protocol.game.ClientboundCustomPayloadPacket(
+					                                                         ^
+  symbol:   class ClientboundCustomPayloadPacket
+  location: package net.minecraft.network.protocol.game
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:797: error: cannot find symbol
+						p.connection.send(new net.minecraft.network.protocol.game.ClientboundCustomPayloadPacket(payload));
+						                                                         ^
+  symbol:   class ClientboundCustomPayloadPacket
+  location: package net.minecraft.network.protocol.game
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:807: error: cannot find symbol
+		player.connection.send(new net.minecraft.network.protocol.game.ClientboundCustomPayloadPacket(
+		                                                              ^
+  symbol:   class ClientboundCustomPayloadPacket
+  location: package net.minecraft.network.protocol.game
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:819: error: cannot find symbol
+				player.connection.send(new net.minecraft.network.protocol.game.ClientboundCustomPayloadPacket(
+				                                                              ^
+  symbol:   class ClientboundCustomPayloadPacket
+  location: package net.minecraft.network.protocol.game
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:825: error: cannot find symbol
+				player.connection.send(new net.minecraft.network.protocol.game.ClientboundCustomPayloadPacket(
+				                                                              ^
+  symbol:   class ClientboundCustomPayloadPacket
+  location: package net.minecraft.network.protocol.game
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:30: error: package net.fabricmc.fabric.api.registry.v1 does not exist
+		return net.fabricmc.fabric.api.registry.v1.Registry.register(Registries.ENTITY_TYPE,
+		                                          ^
 /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:36: error: cannot find symbol
-		return BuiltInRegistries.ENTITY_TYPE.getValue("a");
-		                                    ^
-  symbol:   method getValue(String)
-  location: variable ENTITY_TYPE of type DefaultedRegistry<EntityType<?>>
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:41: error: cannot infer type arguments for Factory<>
-		return new net.minecraft.world.level.saveddata.SavedData.Factory<>("a", "b", "c");
-		       ^
-  reason: cannot infer type-variable(s) T
-    (argument mismatch; String cannot be converted to Supplier<T>)
-  where T is a type-variable:
-    T extends SavedData declared in record Factory
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:46: error: cannot find symbol
-		p.connection.sendCustomPayload("a");
-		            ^
-  symbol:   method sendCustomPayload(String)
-  location: variable connection of type ServerGamePacketListenerImpl
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:52: error: incompatible types: String cannot be converted to Type
-		return new ClientboundGameEventPacket("a", "b");
-		                                      ^
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:57: error: cannot find symbol
-		return e.removeWhenFarAway("a");
-		        ^
-  symbol:   method removeWhenFarAway(String)
-  location: variable e of type Entity
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:62: error: cannot find symbol
-		return e.shouldRemove("a");
-		        ^
-  symbol:   method shouldRemove(String)
-  location: variable e of type Entity
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:67: error: method nextFloat in interface RandomSource cannot be applied to given types;
-		return r.nextFloat("a");
-		        ^
-  required: no arguments
-  found:    String
-  reason: actual and formal argument lists differ in length
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:81: error: no suitable method found for playSound(String,String,float,float)
-		p.playSound("a", "b", 1f, 1f);
-		 ^
-    method Entity.playSound(SoundEvent) is not applicable
-      (actual and formal argument lists differ in length)
-    method Player.playSound(SoundEvent,float,float) is not applicable
-      (actual and formal argument lists differ in length)
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:91: error: cannot find symbol
-		return d.getWorldGenSettings().getSeed();
-		        ^
-  symbol:   method getWorldGenSettings()
-  location: variable d of type ServerLevelData
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:96: error: cannot find symbol
-		return s.getWorldGenSettings().getSeed();
-		        ^
-  symbol:   method getWorldGenSettings()
-  location: variable s of type MinecraftServer
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:101: error: cannot find symbol
-		return net.minecraft.world.level.block.CropsBlock.AGE;
-		                                      ^
-  symbol:   class CropsBlock
-  location: package net.minecraft.world.level.block
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:129: error: constructor LightningBolt in class LightningBolt cannot be applied to given types;
-		return new LightningBolt("a");
-		       ^
-  required: EntityType<? extends LightningBolt>,Level
-  found:    String
-  reason: actual and formal argument lists differ in length
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:134: error: cannot find symbol
-		return new ItemEntity("a");
-		           ^
-  symbol:   class ItemEntity
+		p.connection.send(new ClientboundCustomPayloadPacket(new TornadoSyncProbe()));
+		                      ^
+  symbol:   class ClientboundCustomPayloadPacket
   location: class ApiProbe
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:139: error: no suitable method found for playLocalSound(String,String,String,String,String,String,String)
-		w.playLocalSound("a", "b", "c", "d", "e", "f", "g");
-		 ^
-    method Level.playLocalSound(BlockPos,SoundEvent,SoundSource,float,float,boolean) is not applicable
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:53: error: no suitable constructor found for ClientboundGameEventPacket(String,String,String)
+		return new ClientboundGameEventPacket("a", "b", "c");
+		       ^
+    constructor ClientboundGameEventPacket.ClientboundGameEventPacket(Type,float) is not applicable
       (actual and formal argument lists differ in length)
-    method Level.playLocalSound(Entity,SoundEvent,SoundSource,float,float) is not applicable
+    constructor ClientboundGameEventPacket.ClientboundGameEventPacket(FriendlyByteBuf) is not applicable
       (actual and formal argument lists differ in length)
-    method Level.playLocalSound(double,double,double,SoundEvent,SoundSource,float,float,boolean) is not applicable
-      (actual and formal argument lists differ in length)
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:158: error: cannot find symbol
-		return net.minecraft.network.protocol.ByteBufCodecs.DOUBLE;
-		                                     ^
-  symbol:   class ByteBufCodecs
-  location: package net.minecraft.network.protocol
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/item/ChaserVehicleItem.java:51: error: cannot find symbol
-		if (world.getBlockState(pos.above()).getCollisionShape(world, pos.above()).boundingBox().maxY > 0) {
-		                                                                          ^
-  symbol:   method boundingBox()
-  location: class VoxelShape
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/item/WeatherRadioItem.java:43: error: cannot find symbol
-				.append(forecast.risk().asComponent().withStyle(ChatFormatting.BOLD))
-				                                     ^
-  symbol:   method withStyle(ChatFormatting)
-  location: interface Component
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/item/WeatherRadioItem.java:46: error: cannot find symbol
-				msg = msg.append(Component.literal("\n" + line).withStyle(ChatFormatting.WHITE));
-				         ^
-  symbol:   method append(MutableComponent)
-  location: variable msg of type Component
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/item/WeatherRadioItem.java:55: error: cannot find symbol
-					msg = msg.append(Component.literal("\nTORNADO WARNING in effect: ").withStyle(ChatFormatting.RED, ChatFormatting.BOLD))
-					         ^
-  symbol:   method append(MutableComponent)
-  location: variable msg of type Component
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/item/WeatherRadioItem.java:61: error: cannot find symbol
-			sp.playSound(SoundEvents.BLOCK_NOTE_BLOCK_PLING, SoundSource.NEUTRAL, 0.3f, 1.4f);
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:59: error: incompatible types: String cannot be converted to DataFixTypes
+			() -> null, (t, p) -> null, "a");
+			                            ^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:64: error: cannot find symbol
+		return w.getWorldGenSettings().getSeed();
+		        ^
+  symbol:   method getWorldGenSettings()
+  location: variable w of type ServerLevel
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:83: error: ProbeEntA is not abstract and does not override abstract method addAdditionalSaveData(CompoundTag) in Entity
+	static class ProbeEntA extends Entity {
+	       ^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:88: error: method does not override or implement a method from a supertype
+		@Override
+		^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:94: error: ProbeEntB is not abstract and does not override abstract method addAdditionalSaveData(CompoundTag) in Entity
+	static class ProbeEntB extends Entity {
+	       ^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:99: error: method does not override or implement a method from a supertype
+		@Override
+		^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:105: error: ProbeEntC is not abstract and does not override abstract method addAdditionalSaveData(CompoundTag) in Entity
+	static class ProbeEntC extends Entity {
+	       ^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:110: error: method does not override or implement a method from a supertype
+		@Override
+		^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:116: error: ProbeEntD is not abstract and does not override abstract method addAdditionalSaveData(CompoundTag) in Entity
+	static class ProbeEntD extends Entity {
+	       ^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:121: error: method does not override or implement a method from a supertype
+		@Override
+		^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/item/WeatherRadioItem.java:61: error: incompatible types: Reference<SoundEvent> cannot be converted to SoundEvent
+			sp.playSound(SoundEvents.NOTE_BLOCK_PLING, 0.3f, 1.4f);
 			                        ^
-  symbol:   variable BLOCK_NOTE_BLOCK_PLING
-  location: class SoundEvents
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/item/TornadicItems.java:38: error: cannot find symbol
-		return BuiltInRegistries.ITEM.register(ResourceLocation.fromNamespaceAndPath(TornadicMod.MOD_ID, name), item);
-		                             ^
-  symbol:   method register(ResourceLocation,Item)
-  location: variable ITEM of type DefaultedRegistry<Item>
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/item/TornadicItems.java:38: error: package net.fabricmc.fabric.api.registry.v1 does not exist
+		return net.fabricmc.fabric.api.registry.v1.Registry.register(net.minecraft.core.registries.Registries.ITEM, TornadicMod.MOD_ID + ":" + name, item);
+		                                          ^
 Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
-55 errors
+35 errors
 
 > Task :compileJava FAILED
 
@@ -438,225 +222,119 @@ FAILURE: Build failed with an exception.
 * What went wrong:
 Execution failed for task ':compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
 > Compilation failed; see the compiler output below.
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/TornadoSyncPayload.java:28: error: method of in interface StreamCodec<B#2,V#2> cannot be applied to given types;
-  	public static final StreamCodec<FriendlyByteBuf, TornadoSyncPayload> STREAM_CODEC = StreamCodec.of(
-  	                                                                                               ^
-    required: StreamEncoder<B#1,V#1>,StreamDecoder<B#1,V#1>
-    found:    TornadoSyn[...]write,TornadoSyn[...]:read
-    reason: inference variable V#1 has incompatible bounds
-      upper bounds: FriendlyByteBuf,Object
-      lower bounds: TornadoSyncPayload
-    where B#1,V#1,B#2,V#2 are type-variables:
-      B#1 extends Object declared in method <B#1,V#1>of(StreamEncoder<B#1,V#1>,StreamDecoder<B#1,V#1>)
-      V#1 extends Object declared in method <B#1,V#1>of(StreamEncoder<B#1,V#1>,StreamDecoder<B#1,V#1>)
-      B#2 extends Object declared in interface StreamCodec
-      V#2 extends Object declared in interface StreamCodec
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/StormSyncPayload.java:32: error: method of in interface StreamCodec<B#2,V#2> cannot be applied to given types;
-  	public static final StreamCodec<FriendlyByteBuf, StormSyncPayload> STREAM_CODEC = StreamCodec.of(
-  	                                                                                             ^
-    required: StreamEncoder<B#1,V#1>,StreamDecoder<B#1,V#1>
-    found:    StormSyncP[...]write,StormSyncP[...]:read
-    reason: inference variable V#1 has incompatible bounds
-      upper bounds: FriendlyByteBuf,Object
-      lower bounds: StormSyncPayload
-    where B#1,V#1,B#2,V#2 are type-variables:
-      B#1 extends Object declared in method <B#1,V#1>of(StreamEncoder<B#1,V#1>,StreamDecoder<B#1,V#1>)
-      V#1 extends Object declared in method <B#1,V#1>of(StreamEncoder<B#1,V#1>,StreamDecoder<B#1,V#1>)
-      B#2 extends Object declared in interface StreamCodec
-      V#2 extends Object declared in interface StreamCodec
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/WeatherSyncPayload.java:35: error: method of in interface StreamCodec<B#2,V#2> cannot be applied to given types;
-  	public static final StreamCodec<FriendlyByteBuf, WeatherSyncPayload> STREAM_CODEC = StreamCodec.of(
-  	                                                                                               ^
-    required: StreamEncoder<B#1,V#1>,StreamDecoder<B#1,V#1>
-    found:    WeatherSyn[...]write,WeatherSyn[...]:read
-    reason: inference variable V#1 has incompatible bounds
-      upper bounds: FriendlyByteBuf,Object
-      lower bounds: WeatherSyncPayload
-    where B#1,V#1,B#2,V#2 are type-variables:
-      B#1 extends Object declared in method <B#1,V#1>of(StreamEncoder<B#1,V#1>,StreamDecoder<B#1,V#1>)
-      V#1 extends Object declared in method <B#1,V#1>of(StreamEncoder<B#1,V#1>,StreamDecoder<B#1,V#1>)
-      B#2 extends Object declared in interface StreamCodec
-      V#2 extends Object declared in interface StreamCodec
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:357: error: method nextFloat in interface RandomSource cannot be applied to given types;
-  		if (storm.lightningCooldown <= 0 && world.getRandom().nextFloat(lightningRate)) {
-  		                                                     ^
-    required: no arguments
-    found:    float
-    reason: actual and formal argument lists differ in length
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:67: error: method nextFloat in interface RandomSource cannot be applied to given types;
-  		return r.nextFloat("a");
-  		        ^
-    required: no arguments
-    found:    String
-    reason: actual and formal argument lists differ in length
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:129: error: constructor LightningBolt in class LightningBolt cannot be applied to given types;
-  		return new LightningBolt("a");
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:53: error: no suitable constructor found for ClientboundGameEventPacket(String,String,String)
+  		return new ClientboundGameEventPacket("a", "b", "c");
   		       ^
-    required: EntityType<? extends LightningBolt>,Level
-    found:    String
-    reason: actual and formal argument lists differ in length
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/ThunderPayload.java:18: error: no suitable method found for composite(FriendlyBy[...]ouble,ThunderPayload::x,FriendlyBy[...]ouble,ThunderPayload::z,FriendlyBy[...]Float,ThunderPay[...]olume,FriendlyBy[...]Float,ThunderPay[...]pitch,FriendlyBy[...]arInt,ThunderPay[...]Ticks,ThunderPayload::new)
-  	public static final StreamCodec<FriendlyByteBuf, ThunderPayload> STREAM_CODEC = StreamCodec.composite(
-  	                                                                                           ^
-      method StreamCodec.<B#1,C#1,T1#1>composite(StreamCodec<? super B#1,T1#1>,Function<C#1,T1#1>,Function<T1#1,C#1>) is not applicable
-        (cannot infer type-variable(s) B#1,C#1,T1#1
-          (actual and formal argument lists differ in length))
-      method StreamCodec.<B#2,C#2,T1#2,T2#1>composite(StreamCodec<? super B#2,T1#2>,Function<C#2,T1#2>,StreamCodec<? super B#2,T2#1>,Function<C#2,T2#1>,BiFunction<T1#2,T2#1,C#2>) is not applicable
-        (cannot infer type-variable(s) B#2,C#2,T1#2,T2#1
-          (actual and formal argument lists differ in length))
-      method StreamCodec.<B#3,C#3,T1#3,T2#2,T3#1>composite(StreamCodec<? super B#3,T1#3>,Function<C#3,T1#3>,StreamCodec<? super B#3,T2#2>,Function<C#3,T2#2>,StreamCodec<? super B#3,T3#1>,Function<C#3,T3#1>,Function3<T1#3,T2#2,T3#1,C#3>) is not applicable
-        (cannot infer type-variable(s) B#3,C#3,T1#3,T2#2,T3#1
-          (actual and formal argument lists differ in length))
-      method StreamCodec.<B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>) is not applicable
-        (cannot infer type-variable(s) B#4,C#4,T1#4,T2#3,T3#2,T4#1
-          (actual and formal argument lists differ in length))
-      method StreamCodec.<B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>) is not applicable
-        (cannot infer type-variable(s) B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1
-          (argument mismatch; StreamCodec is not a functional interface
-            multiple non-overriding abstract methods found in interface StreamCodec))
-      method StreamCodec.<B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>) is not applicable
-        (cannot infer type-variable(s) B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6
-          (actual and formal argument lists differ in length))
-    where B#1,C#1,T1#1,B#2,C#2,T1#2,T2#1,B#3,C#3,T1#3,T2#2,T3#1,B#4,C#4,T1#4,T2#3,T3#2,T4#1,B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1,B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6 are type-variables:
-      B#1 extends Object declared in method <B#1,C#1,T1#1>composite(StreamCodec<? super B#1,T1#1>,Function<C#1,T1#1>,Function<T1#1,C#1>)
-      C#1 extends Object declared in method <B#1,C#1,T1#1>composite(StreamCodec<? super B#1,T1#1>,Function<C#1,T1#1>,Function<T1#1,C#1>)
-      T1#1 extends Object declared in method <B#1,C#1,T1#1>composite(StreamCodec<? super B#1,T1#1>,Function<C#1,T1#1>,Function<T1#1,C#1>)
-      B#2 extends Object declared in method <B#2,C#2,T1#2,T2#1>composite(StreamCodec<? super B#2,T1#2>,Function<C#2,T1#2>,StreamCodec<? super B#2,T2#1>,Function<C#2,T2#1>,BiFunction<T1#2,T2#1,C#2>)
-      C#2 extends Object declared in method <B#2,C#2,T1#2,T2#1>composite(StreamCodec<? super B#2,T1#2>,Function<C#2,T1#2>,StreamCodec<? super B#2,T2#1>,Function<C#2,T2#1>,BiFunction<T1#2,T2#1,C#2>)
-      T1#2 extends Object declared in method <B#2,C#2,T1#2,T2#1>composite(StreamCodec<? super B#2,T1#2>,Function<C#2,T1#2>,StreamCodec<? super B#2,T2#1>,Function<C#2,T2#1>,BiFunction<T1#2,T2#1,C#2>)
-      T2#1 extends Object declared in method <B#2,C#2,T1#2,T2#1>composite(StreamCodec<? super B#2,T1#2>,Function<C#2,T1#2>,StreamCodec<? super B#2,T2#1>,Function<C#2,T2#1>,BiFunction<T1#2,T2#1,C#2>)
-      B#3 extends Object declared in method <B#3,C#3,T1#3,T2#2,T3#1>composite(StreamCodec<? super B#3,T1#3>,Function<C#3,T1#3>,StreamCodec<? super B#3,T2#2>,Function<C#3,T2#2>,StreamCodec<? super B#3,T3#1>,Function<C#3,T3#1>,Function3<T1#3,T2#2,T3#1,C#3>)
-      C#3 extends Object declared in method <B#3,C#3,T1#3,T2#2,T3#1>composite(StreamCodec<? super B#3,T1#3>,Function<C#3,T1#3>,StreamCodec<? super B#3,T2#2>,Function<C#3,T2#2>,StreamCodec<? super B#3,T3#1>,Function<C#3,T3#1>,Function3<T1#3,T2#2,T3#1,C#3>)
-      T1#3 extends Object declared in method <B#3,C#3,T1#3,T2#2,T3#1>composite(StreamCodec<? super B#3,T1#3>,Function<C#3,T1#3>,StreamCodec<? super B#3,T2#2>,Function<C#3,T2#2>,StreamCodec<? super B#3,T3#1>,Function<C#3,T3#1>,Function3<T1#3,T2#2,T3#1,C#3>)
-      T2#2 extends Object declared in method <B#3,C#3,T1#3,T2#2,T3#1>composite(StreamCodec<? super B#3,T1#3>,Function<C#3,T1#3>,StreamCodec<? super B#3,T2#2>,Function<C#3,T2#2>,StreamCodec<? super B#3,T3#1>,Function<C#3,T3#1>,Function3<T1#3,T2#2,T3#1,C#3>)
-      T3#1 extends Object declared in method <B#3,C#3,T1#3,T2#2,T3#1>composite(StreamCodec<? super B#3,T1#3>,Function<C#3,T1#3>,StreamCodec<? super B#3,T2#2>,Function<C#3,T2#2>,StreamCodec<? super B#3,T3#1>,Function<C#3,T3#1>,Function3<T1#3,T2#2,T3#1,C#3>)
-      B#4 extends Object declared in method <B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>)
-      C#4 extends Object declared in method <B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>)
-      T1#4 extends Object declared in method <B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>)
-      T2#3 extends Object declared in method <B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>)
-      T3#2 extends Object declared in method <B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>)
-      T4#1 extends Object declared in method <B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>)
-      B#5 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
-      C#5 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
-      T1#5 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
-      T2#4 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
-      T3#3 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
-      T4#2 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
-      T5#1 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
-      B#6 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
-      C#6 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
-      T1#6 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
-      T2#5 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
-      T3#4 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
-      T4#3 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
-      T5#2 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
-      T6 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:303: error: no suitable method found for playSound(SoundSource,SoundEvent,float,float)
-  				p.playSound(SoundSource.WEATHER, SoundEvents.PLAYER_LEVELUP, 0.7f, 1.0f);
-  				 ^
-      method Entity.playSound(SoundEvent) is not applicable
+      constructor ClientboundGameEventPacket.ClientboundGameEventPacket(Type,float) is not applicable
         (actual and formal argument lists differ in length)
-      method Player.playSound(SoundEvent,float,float) is not applicable
+      constructor ClientboundGameEventPacket.ClientboundGameEventPacket(FriendlyByteBuf) is not applicable
         (actual and formal argument lists differ in length)
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:398: error: no suitable method found for getHeight(Types,BlockPos)
-  		int groundY = world.getHeight(Heightmap.Types.MOTION_BLOCKING, pos);
-  		                   ^
-      method LevelReader.getHeight() is not applicable
-        (actual and formal argument lists differ in length)
-      method Level.getHeight(Types,int,int) is not applicable
-        (actual and formal argument lists differ in length)
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:448: error: no suitable method found for getHeight(Types,BlockPos)
-  			int groundY = world.getHeight(Heightmap.Types.MOTION_BLOCKING, pos);
-  			                   ^
-      method LevelReader.getHeight() is not applicable
-        (actual and formal argument lists differ in length)
-      method Level.getHeight(Types,int,int) is not applicable
-        (actual and formal argument lists differ in length)
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:81: error: no suitable method found for playSound(String,String,float,float)
-  		p.playSound("a", "b", 1f, 1f);
-  		 ^
-      method Entity.playSound(SoundEvent) is not applicable
-        (actual and formal argument lists differ in length)
-      method Player.playSound(SoundEvent,float,float) is not applicable
-        (actual and formal argument lists differ in length)
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:139: error: no suitable method found for playLocalSound(String,String,String,String,String,String,String)
-  		w.playLocalSound("a", "b", "c", "d", "e", "f", "g");
-  		 ^
-      method Level.playLocalSound(BlockPos,SoundEvent,SoundSource,float,float,boolean) is not applicable
-        (actual and formal argument lists differ in length)
-      method Level.playLocalSound(Entity,SoundEvent,SoundSource,float,float) is not applicable
-        (actual and formal argument lists differ in length)
-      method Level.playLocalSound(double,double,double,SoundEvent,SoundSource,float,float,boolean) is not applicable
-        (actual and formal argument lists differ in length)
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:52: error: incompatible types: String cannot be converted to Type
-  		return new ClientboundGameEventPacket("a", "b");
-  		                                      ^
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:13: error: cannot find symbol
-  import net.minecraft.world.entity.ItemEntity;
-                                   ^
-    symbol:   class ItemEntity
-    location: package net.minecraft.world.entity
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:71: error: cannot find symbol
-  	static int q09(ItemEntity it) {
-  	               ^
-    symbol:   class ItemEntity
-    location: class ApiProbe
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:75: error: cannot find symbol
-  	static void q09b(ItemEntity it) {
-  	                 ^
-    symbol:   class ItemEntity
-    location: class ApiProbe
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:83: error: ProbeEntA is not abstract and does not override abstract method addAdditionalSaveData(CompoundTag) in Entity
+  	static class ProbeEntA extends Entity {
+  	       ^
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:94: error: ProbeEntB is not abstract and does not override abstract method addAdditionalSaveData(CompoundTag) in Entity
+  	static class ProbeEntB extends Entity {
+  	       ^
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:105: error: ProbeEntC is not abstract and does not override abstract method addAdditionalSaveData(CompoundTag) in Entity
+  	static class ProbeEntC extends Entity {
+  	       ^
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:116: error: ProbeEntD is not abstract and does not override abstract method addAdditionalSaveData(CompoundTag) in Entity
+  	static class ProbeEntD extends Entity {
+  	       ^
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:400: error: incompatible types: EntityType<CAP#1> cannot be converted to EntityType<? extends LightningBolt>
+  			net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE.get(
+  			                                                               ^
+    where CAP#1 is a fresh type-variable:
+      CAP#1 extends Entity from capture of ?
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:59: error: incompatible types: String cannot be converted to DataFixTypes
+  			() -> null, (t, p) -> null, "a");
+  			                            ^
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/item/WeatherRadioItem.java:61: error: incompatible types: Reference<SoundEvent> cannot be converted to SoundEvent
+  			sp.playSound(SoundEvents.NOTE_BLOCK_PLING, 0.3f, 1.4f);
+  			                        ^
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/StormSyncPayload.java:9: error: cannot find symbol
+  import com.tornadic.weather.StormType;
+                             ^
+    symbol:   class StormType
+    location: package com.tornadic.weather
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:5: error: cannot find symbol
+  import net.minecraft.network.protocol.game.ClientboundCustomPayloadPacket;
+                                            ^
+    symbol:   class ClientboundCustomPayloadPacket
+    location: package net.minecraft.network.protocol.game
   /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/entity/ChaserVehicleEntity.java:83: error: cannot find symbol
   		return distance < 4096; // persist a bit past the default so it isn't yanked mid-chase
   		       ^
     symbol:   variable distance
     location: class ChaserVehicleEntity
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:454: error: cannot find symbol
-  				&& surface.hasProperty(net.minecraft.world.level.block.CropsBlock.AGE)) {
-  				                                                      ^
-    symbol:   class CropsBlock
-    location: package net.minecraft.world.level.block
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:456: error: cannot find symbol
-  					surface.setValue(net.minecraft.world.level.block.CropsBlock.AGE, 0),
-  					                                                ^
-    symbol:   class CropsBlock
-    location: package net.minecraft.world.level.block
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:769: error: cannot find symbol
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:422: error: cannot find symbol
+  			p.connection.send(new net.minecraft.network.protocol.game.ClientboundCustomPayloadPacket(
+  			                                                         ^
+    symbol:   class ClientboundCustomPayloadPacket
+    location: package net.minecraft.network.protocol.game
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:630: error: cannot find symbol
+  						p.connection.send(new net.minecraft.network.protocol.game.ClientboundCustomPayloadPacket(
+  						                                                         ^
+    symbol:   class ClientboundCustomPayloadPacket
+    location: package net.minecraft.network.protocol.game
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:771: error: cannot find symbol
   				new ClientboundGameEventPacket(ClientboundGameEventPacket.GameEventId.RAIN_LEVEL_CHANGE, rain);
   				                                                         ^
     symbol:   variable GameEventId
     location: class ClientboundGameEventPacket
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:771: error: cannot find symbol
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:773: error: cannot find symbol
   				new ClientboundGameEventPacket(ClientboundGameEventPacket.GameEventId.THUNDER_LEVEL_CHANGE, thunder);
   				                                                         ^
     symbol:   variable GameEventId
     location: class ClientboundGameEventPacket
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:101: error: cannot find symbol
-  		return net.minecraft.world.level.block.CropsBlock.AGE;
-  		                                      ^
-    symbol:   class CropsBlock
-    location: package net.minecraft.world.level.block
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:134: error: cannot find symbol
-  		return new ItemEntity("a");
-  		           ^
-    symbol:   class ItemEntity
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:778: error: cannot find symbol
+  					p.connection.send(new net.minecraft.network.protocol.game.ClientboundCustomPayloadPacket(
+  					                                                         ^
+    symbol:   class ClientboundCustomPayloadPacket
+    location: package net.minecraft.network.protocol.game
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:797: error: cannot find symbol
+  						p.connection.send(new net.minecraft.network.protocol.game.ClientboundCustomPayloadPacket(payload));
+  						                                                         ^
+    symbol:   class ClientboundCustomPayloadPacket
+    location: package net.minecraft.network.protocol.game
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:807: error: cannot find symbol
+  		player.connection.send(new net.minecraft.network.protocol.game.ClientboundCustomPayloadPacket(
+  		                                                              ^
+    symbol:   class ClientboundCustomPayloadPacket
+    location: package net.minecraft.network.protocol.game
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:819: error: cannot find symbol
+  				player.connection.send(new net.minecraft.network.protocol.game.ClientboundCustomPayloadPacket(
+  				                                                              ^
+    symbol:   class ClientboundCustomPayloadPacket
+    location: package net.minecraft.network.protocol.game
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:825: error: cannot find symbol
+  				player.connection.send(new net.minecraft.network.protocol.game.ClientboundCustomPayloadPacket(
+  				                                                              ^
+    symbol:   class ClientboundCustomPayloadPacket
+    location: package net.minecraft.network.protocol.game
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:36: error: cannot find symbol
+  		p.connection.send(new ClientboundCustomPayloadPacket(new TornadoSyncProbe()));
+  		                      ^
+    symbol:   class ClientboundCustomPayloadPacket
     location: class ApiProbe
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:158: error: cannot find symbol
-  		return net.minecraft.network.protocol.ByteBufCodecs.DOUBLE;
-  		                                     ^
-    symbol:   class ByteBufCodecs
-    location: package net.minecraft.network.protocol
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/item/WeatherRadioItem.java:61: error: cannot find symbol
-  			sp.playSound(SoundEvents.BLOCK_NOTE_BLOCK_PLING, SoundSource.NEUTRAL, 0.3f, 1.4f);
-  			                        ^
-    symbol:   variable BLOCK_NOTE_BLOCK_PLING
-    location: class SoundEvents
   /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/entity/ChaserVehicleEntity.java:81: error: method does not override or implement a method from a supertype
   	@Override
   	^
   /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoEntity.java:42: error: method does not override or implement a method from a supertype
   	@Override
   	^
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:88: error: method does not override or implement a method from a supertype
+  		@Override
+  		^
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:99: error: method does not override or implement a method from a supertype
+  		@Override
+  		^
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:110: error: method does not override or implement a method from a supertype
+  		@Override
+  		^
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:121: error: method does not override or implement a method from a supertype
+  		@Override
+  		^
   Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
   /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:77: error: cannot infer type arguments for Factory<>
   			new SavedData.Factory<>(TornadicSavedData::new, TornadicSavedData::load), NAME);
@@ -665,144 +343,34 @@ Execution failed for task ':compileJava' (registered by plugin class 'org.gradle
       (actual and formal argument lists differ in length)
     where T is a type-variable:
       T extends SavedData declared in record Factory
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:41: error: cannot infer type arguments for Factory<>
-  		return new net.minecraft.world.level.saveddata.SavedData.Factory<>("a", "b", "c");
-  		       ^
-    reason: cannot infer type-variable(s) T
-      (argument mismatch; String cannot be converted to Supplier<T>)
-    where T is a type-variable:
-      T extends SavedData declared in record Factory
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/command/TornadicCommands.java:100: error: cannot find symbol
-  			.append(" ").append(risk.asComponent().withStyle(net.minecraft.network.chat.Style.EMPTY.withBold(true))));
-  			                                      ^
-    symbol:   method withStyle(Style)
-    location: interface Component
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/TornadicMod.java:77: error: package net.fabricmc.fabric.api.registry.v1 does not exist
+  		TORNADO_TYPE = net.fabricmc.fabric.api.registry.v1.Registry.register(net.minecraft.core.registries.Registries.ENTITY_TYPE, MOD_ID + ":tornado",
+  		                                                  ^
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/TornadicMod.java:86: error: package net.fabricmc.fabric.api.registry.v1 does not exist
+  		CHASER_VEHICLE_TYPE = net.fabricmc.fabric.api.registry.v1.Registry.register(net.minecraft.core.registries.Registries.ENTITY_TYPE, MOD_ID + ":chaser_vehicle",
+  		                                                         ^
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:30: error: package net.fabricmc.fabric.api.registry.v1 does not exist
+  		return net.fabricmc.fabric.api.registry.v1.Registry.register(Registries.ENTITY_TYPE,
+  		                                          ^
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/item/TornadicItems.java:38: error: package net.fabricmc.fabric.api.registry.v1 does not exist
+  		return net.fabricmc.fabric.api.registry.v1.Registry.register(net.minecraft.core.registries.Registries.ITEM, TornadicMod.MOD_ID + ":" + name, item);
+  		                                          ^
   /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/command/TornadicCommands.java:118: error: cannot find symbol
   			return ((net.minecraft.world.level.storage.ServerLevelData) world.getLevelData()).getWorldGenSettings().getSeed();
   			                                                                                 ^
     symbol:   method getWorldGenSettings()
     location: interface ServerLevelData
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/command/TornadicCommands.java:312: error: cannot find symbol
-  			.append(s.type.asComponent().withStyle(net.minecraft.network.chat.Style.EMPTY.withBold(true)))
-  			                            ^
-    symbol:   method withStyle(Style)
-    location: interface Component
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/TornadicMod.java:77: error: cannot find symbol
-  		TORNADO_TYPE = BuiltInRegistries.ENTITY_TYPE.register(ResourceLocation.fromNamespaceAndPath(MOD_ID, "tornado"),
-  		                                            ^
-    symbol:   method register(ResourceLocation,EntityType<TornadoEntity>)
-    location: variable ENTITY_TYPE of type DefaultedRegistry<EntityType<?>>
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/TornadicMod.java:86: error: cannot find symbol
-  		CHASER_VEHICLE_TYPE = BuiltInRegistries.ENTITY_TYPE.register(ResourceLocation.fromNamespaceAndPath(MOD_ID, "chaser_vehicle"),
-  		                                                   ^
-    symbol:   method register(ResourceLocation,EntityType<ChaserVehicleEntity>)
-    location: variable ENTITY_TYPE of type DefaultedRegistry<EntityType<?>>
   /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:144: error: cannot find symbol
   			return ((net.minecraft.world.level.storage.ServerLevelData) world.getLevelData()).getWorldGenSettings().getSeed();
   			                                                                                 ^
     symbol:   method getWorldGenSettings()
     location: interface ServerLevelData
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:400: error: cannot find symbol
-  			net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE.getValue(
-  			                                                           ^
-    symbol:   method getValue(ResourceKey<EntityType<?>>)
-    location: variable ENTITY_TYPE of type DefaultedRegistry<EntityType<?>>
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:422: error: cannot find symbol
-  			p.connection.sendCustomPayload(new ThunderPayload(lx, lz, Math.min(1.0f, volume), pitch, delay));
-  			            ^
-    symbol:   method sendCustomPayload(ThunderPayload)
-    location: variable connection of type ServerGamePacketListenerImpl
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:629: error: cannot find symbol
-  						p.connection.sendCustomPayload(TornadoSyncPayload.of(state, (int) state.id, groundTone));
-  						            ^
-    symbol:   method sendCustomPayload(TornadoSyncPayload)
-    location: variable connection of type ServerGamePacketListenerImpl
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:776: error: cannot find symbol
-  					p.connection.sendCustomPayload(WeatherSyncPayload.of(forecast, rain, thunder,
-  					            ^
-    symbol:   method sendCustomPayload(WeatherSyncPayload)
-    location: variable connection of type ServerGamePacketListenerImpl
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:795: error: cannot find symbol
-  						p.connection.sendCustomPayload(payload);
-  						            ^
-    symbol:   method sendCustomPayload(StormSyncPayload)
-    location: variable connection of type ServerGamePacketListenerImpl
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:805: error: cannot find symbol
-  		player.connection.sendCustomPayload(WeatherSyncPayload.of(forecast, lastRain < 0 ? 0 : lastRain,
-  		                 ^
-    symbol:   method sendCustomPayload(WeatherSyncPayload)
-    location: variable connection of type ServerGamePacketListenerImpl
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:816: error: cannot find symbol
-  				player.connection.sendCustomPayload(StormSyncPayload.of(storm, tornadoEf));
-  				                 ^
-    symbol:   method sendCustomPayload(StormSyncPayload)
-    location: variable connection of type ServerGamePacketListenerImpl
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:821: error: cannot find symbol
-  				player.connection.sendCustomPayload(TornadoSyncPayload.of(t, (int) t.id, sampleGroundTone(world, t)));
-  				                 ^
-    symbol:   method sendCustomPayload(TornadoSyncPayload)
-    location: variable connection of type ServerGamePacketListenerImpl
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:31: error: cannot find symbol
-  		return BuiltInRegistries.ENTITY_TYPE.register("a", "b");
-  		                                    ^
-    symbol:   method register(String,String)
-    location: variable ENTITY_TYPE of type DefaultedRegistry<EntityType<?>>
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:36: error: cannot find symbol
-  		return BuiltInRegistries.ENTITY_TYPE.getValue("a");
-  		                                    ^
-    symbol:   method getValue(String)
-    location: variable ENTITY_TYPE of type DefaultedRegistry<EntityType<?>>
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:46: error: cannot find symbol
-  		p.connection.sendCustomPayload("a");
-  		            ^
-    symbol:   method sendCustomPayload(String)
-    location: variable connection of type ServerGamePacketListenerImpl
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:57: error: cannot find symbol
-  		return e.removeWhenFarAway("a");
-  		        ^
-    symbol:   method removeWhenFarAway(String)
-    location: variable e of type Entity
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:62: error: cannot find symbol
-  		return e.shouldRemove("a");
-  		        ^
-    symbol:   method shouldRemove(String)
-    location: variable e of type Entity
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:91: error: cannot find symbol
-  		return d.getWorldGenSettings().getSeed();
+  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:64: error: cannot find symbol
+  		return w.getWorldGenSettings().getSeed();
   		        ^
     symbol:   method getWorldGenSettings()
-    location: variable d of type ServerLevelData
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:96: error: cannot find symbol
-  		return s.getWorldGenSettings().getSeed();
-  		        ^
-    symbol:   method getWorldGenSettings()
-    location: variable s of type MinecraftServer
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/item/ChaserVehicleItem.java:51: error: cannot find symbol
-  		if (world.getBlockState(pos.above()).getCollisionShape(world, pos.above()).boundingBox().maxY > 0) {
-  		                                                                          ^
-    symbol:   method boundingBox()
-    location: class VoxelShape
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/item/WeatherRadioItem.java:43: error: cannot find symbol
-  				.append(forecast.risk().asComponent().withStyle(ChatFormatting.BOLD))
-  				                                     ^
-    symbol:   method withStyle(ChatFormatting)
-    location: interface Component
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/item/WeatherRadioItem.java:46: error: cannot find symbol
-  				msg = msg.append(Component.literal("\n" + line).withStyle(ChatFormatting.WHITE));
-  				         ^
-    symbol:   method append(MutableComponent)
-    location: variable msg of type Component
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/item/WeatherRadioItem.java:55: error: cannot find symbol
-  					msg = msg.append(Component.literal("\nTORNADO WARNING in effect: ").withStyle(ChatFormatting.RED, ChatFormatting.BOLD))
-  					         ^
-    symbol:   method append(MutableComponent)
-    location: variable msg of type Component
-  /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/item/TornadicItems.java:38: error: cannot find symbol
-  		return BuiltInRegistries.ITEM.register(ResourceLocation.fromNamespaceAndPath(TornadicMod.MOD_ID, name), item);
-  		                             ^
-    symbol:   method register(ResourceLocation,Item)
-    location: variable ITEM of type DefaultedRegistry<Item>
-  55 errors
+    location: variable w of type ServerLevel
+  35 errors
 
 * Try:
 > Check your code and dependencies to fix the compilation error(s)
@@ -875,21 +443,16 @@ org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':compile
 	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
 	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
 Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler output below.
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:13: error: cannot find symbol
-import net.minecraft.world.entity.ItemEntity;
-                                 ^
-  symbol:   class ItemEntity
-  location: package net.minecraft.world.entity
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:71: error: cannot find symbol
-	static int q09(ItemEntity it) {
-	               ^
-  symbol:   class ItemEntity
-  location: class ApiProbe
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:75: error: cannot find symbol
-	static void q09b(ItemEntity it) {
-	                 ^
-  symbol:   class ItemEntity
-  location: class ApiProbe
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/StormSyncPayload.java:9: error: cannot find symbol
+import com.tornadic.weather.StormType;
+                           ^
+  symbol:   class StormType
+  location: package com.tornadic.weather
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:5: error: cannot find symbol
+import net.minecraft.network.protocol.game.ClientboundCustomPayloadPacket;
+                                          ^
+  symbol:   class ClientboundCustomPayloadPacket
+  location: package net.minecraft.network.protocol.game
 /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/entity/ChaserVehicleEntity.java:81: error: method does not override or implement a method from a supertype
 	@Override
 	^
@@ -898,136 +461,20 @@ import net.minecraft.world.entity.ItemEntity;
 		       ^
   symbol:   variable distance
   location: class ChaserVehicleEntity
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/command/TornadicCommands.java:100: error: cannot find symbol
-			.append(" ").append(risk.asComponent().withStyle(net.minecraft.network.chat.Style.EMPTY.withBold(true))));
-			                                      ^
-  symbol:   method withStyle(Style)
-  location: interface Component
 /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/command/TornadicCommands.java:118: error: cannot find symbol
 			return ((net.minecraft.world.level.storage.ServerLevelData) world.getLevelData()).getWorldGenSettings().getSeed();
 			                                                                                 ^
   symbol:   method getWorldGenSettings()
   location: interface ServerLevelData
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/command/TornadicCommands.java:312: error: cannot find symbol
-			.append(s.type.asComponent().withStyle(net.minecraft.network.chat.Style.EMPTY.withBold(true)))
-			                            ^
-  symbol:   method withStyle(Style)
-  location: interface Component
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/TornadoSyncPayload.java:28: error: method of in interface StreamCodec<B#2,V#2> cannot be applied to given types;
-	public static final StreamCodec<FriendlyByteBuf, TornadoSyncPayload> STREAM_CODEC = StreamCodec.of(
-	                                                                                               ^
-  required: StreamEncoder<B#1,V#1>,StreamDecoder<B#1,V#1>
-  found:    TornadoSyn[...]write,TornadoSyn[...]:read
-  reason: inference variable V#1 has incompatible bounds
-    upper bounds: FriendlyByteBuf,Object
-    lower bounds: TornadoSyncPayload
-  where B#1,V#1,B#2,V#2 are type-variables:
-    B#1 extends Object declared in method <B#1,V#1>of(StreamEncoder<B#1,V#1>,StreamDecoder<B#1,V#1>)
-    V#1 extends Object declared in method <B#1,V#1>of(StreamEncoder<B#1,V#1>,StreamDecoder<B#1,V#1>)
-    B#2 extends Object declared in interface StreamCodec
-    V#2 extends Object declared in interface StreamCodec
 /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoEntity.java:42: error: method does not override or implement a method from a supertype
 	@Override
 	^
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/StormSyncPayload.java:32: error: method of in interface StreamCodec<B#2,V#2> cannot be applied to given types;
-	public static final StreamCodec<FriendlyByteBuf, StormSyncPayload> STREAM_CODEC = StreamCodec.of(
-	                                                                                             ^
-  required: StreamEncoder<B#1,V#1>,StreamDecoder<B#1,V#1>
-  found:    StormSyncP[...]write,StormSyncP[...]:read
-  reason: inference variable V#1 has incompatible bounds
-    upper bounds: FriendlyByteBuf,Object
-    lower bounds: StormSyncPayload
-  where B#1,V#1,B#2,V#2 are type-variables:
-    B#1 extends Object declared in method <B#1,V#1>of(StreamEncoder<B#1,V#1>,StreamDecoder<B#1,V#1>)
-    V#1 extends Object declared in method <B#1,V#1>of(StreamEncoder<B#1,V#1>,StreamDecoder<B#1,V#1>)
-    B#2 extends Object declared in interface StreamCodec
-    V#2 extends Object declared in interface StreamCodec
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/ThunderPayload.java:18: error: no suitable method found for composite(FriendlyBy[...]ouble,ThunderPayload::x,FriendlyBy[...]ouble,ThunderPayload::z,FriendlyBy[...]Float,ThunderPay[...]olume,FriendlyBy[...]Float,ThunderPay[...]pitch,FriendlyBy[...]arInt,ThunderPay[...]Ticks,ThunderPayload::new)
-	public static final StreamCodec<FriendlyByteBuf, ThunderPayload> STREAM_CODEC = StreamCodec.composite(
-	                                                                                           ^
-    method StreamCodec.<B#1,C#1,T1#1>composite(StreamCodec<? super B#1,T1#1>,Function<C#1,T1#1>,Function<T1#1,C#1>) is not applicable
-      (cannot infer type-variable(s) B#1,C#1,T1#1
-        (actual and formal argument lists differ in length))
-    method StreamCodec.<B#2,C#2,T1#2,T2#1>composite(StreamCodec<? super B#2,T1#2>,Function<C#2,T1#2>,StreamCodec<? super B#2,T2#1>,Function<C#2,T2#1>,BiFunction<T1#2,T2#1,C#2>) is not applicable
-      (cannot infer type-variable(s) B#2,C#2,T1#2,T2#1
-        (actual and formal argument lists differ in length))
-    method StreamCodec.<B#3,C#3,T1#3,T2#2,T3#1>composite(StreamCodec<? super B#3,T1#3>,Function<C#3,T1#3>,StreamCodec<? super B#3,T2#2>,Function<C#3,T2#2>,StreamCodec<? super B#3,T3#1>,Function<C#3,T3#1>,Function3<T1#3,T2#2,T3#1,C#3>) is not applicable
-      (cannot infer type-variable(s) B#3,C#3,T1#3,T2#2,T3#1
-        (actual and formal argument lists differ in length))
-    method StreamCodec.<B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>) is not applicable
-      (cannot infer type-variable(s) B#4,C#4,T1#4,T2#3,T3#2,T4#1
-        (actual and formal argument lists differ in length))
-    method StreamCodec.<B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>) is not applicable
-      (cannot infer type-variable(s) B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1
-        (argument mismatch; StreamCodec is not a functional interface
-          multiple non-overriding abstract methods found in interface StreamCodec))
-    method StreamCodec.<B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>) is not applicable
-      (cannot infer type-variable(s) B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6
-        (actual and formal argument lists differ in length))
-  where B#1,C#1,T1#1,B#2,C#2,T1#2,T2#1,B#3,C#3,T1#3,T2#2,T3#1,B#4,C#4,T1#4,T2#3,T3#2,T4#1,B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1,B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6 are type-variables:
-    B#1 extends Object declared in method <B#1,C#1,T1#1>composite(StreamCodec<? super B#1,T1#1>,Function<C#1,T1#1>,Function<T1#1,C#1>)
-    C#1 extends Object declared in method <B#1,C#1,T1#1>composite(StreamCodec<? super B#1,T1#1>,Function<C#1,T1#1>,Function<T1#1,C#1>)
-    T1#1 extends Object declared in method <B#1,C#1,T1#1>composite(StreamCodec<? super B#1,T1#1>,Function<C#1,T1#1>,Function<T1#1,C#1>)
-    B#2 extends Object declared in method <B#2,C#2,T1#2,T2#1>composite(StreamCodec<? super B#2,T1#2>,Function<C#2,T1#2>,StreamCodec<? super B#2,T2#1>,Function<C#2,T2#1>,BiFunction<T1#2,T2#1,C#2>)
-    C#2 extends Object declared in method <B#2,C#2,T1#2,T2#1>composite(StreamCodec<? super B#2,T1#2>,Function<C#2,T1#2>,StreamCodec<? super B#2,T2#1>,Function<C#2,T2#1>,BiFunction<T1#2,T2#1,C#2>)
-    T1#2 extends Object declared in method <B#2,C#2,T1#2,T2#1>composite(StreamCodec<? super B#2,T1#2>,Function<C#2,T1#2>,StreamCodec<? super B#2,T2#1>,Function<C#2,T2#1>,BiFunction<T1#2,T2#1,C#2>)
-    T2#1 extends Object declared in method <B#2,C#2,T1#2,T2#1>composite(StreamCodec<? super B#2,T1#2>,Function<C#2,T1#2>,StreamCodec<? super B#2,T2#1>,Function<C#2,T2#1>,BiFunction<T1#2,T2#1,C#2>)
-    B#3 extends Object declared in method <B#3,C#3,T1#3,T2#2,T3#1>composite(StreamCodec<? super B#3,T1#3>,Function<C#3,T1#3>,StreamCodec<? super B#3,T2#2>,Function<C#3,T2#2>,StreamCodec<? super B#3,T3#1>,Function<C#3,T3#1>,Function3<T1#3,T2#2,T3#1,C#3>)
-    C#3 extends Object declared in method <B#3,C#3,T1#3,T2#2,T3#1>composite(StreamCodec<? super B#3,T1#3>,Function<C#3,T1#3>,StreamCodec<? super B#3,T2#2>,Function<C#3,T2#2>,StreamCodec<? super B#3,T3#1>,Function<C#3,T3#1>,Function3<T1#3,T2#2,T3#1,C#3>)
-    T1#3 extends Object declared in method <B#3,C#3,T1#3,T2#2,T3#1>composite(StreamCodec<? super B#3,T1#3>,Function<C#3,T1#3>,StreamCodec<? super B#3,T2#2>,Function<C#3,T2#2>,StreamCodec<? super B#3,T3#1>,Function<C#3,T3#1>,Function3<T1#3,T2#2,T3#1,C#3>)
-    T2#2 extends Object declared in method <B#3,C#3,T1#3,T2#2,T3#1>composite(StreamCodec<? super B#3,T1#3>,Function<C#3,T1#3>,StreamCodec<? super B#3,T2#2>,Function<C#3,T2#2>,StreamCodec<? super B#3,T3#1>,Function<C#3,T3#1>,Function3<T1#3,T2#2,T3#1,C#3>)
-    T3#1 extends Object declared in method <B#3,C#3,T1#3,T2#2,T3#1>composite(StreamCodec<? super B#3,T1#3>,Function<C#3,T1#3>,StreamCodec<? super B#3,T2#2>,Function<C#3,T2#2>,StreamCodec<? super B#3,T3#1>,Function<C#3,T3#1>,Function3<T1#3,T2#2,T3#1,C#3>)
-    B#4 extends Object declared in method <B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>)
-    C#4 extends Object declared in method <B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>)
-    T1#4 extends Object declared in method <B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>)
-    T2#3 extends Object declared in method <B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>)
-    T3#2 extends Object declared in method <B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>)
-    T4#1 extends Object declared in method <B#4,C#4,T1#4,T2#3,T3#2,T4#1>composite(StreamCodec<? super B#4,T1#4>,Function<C#4,T1#4>,StreamCodec<? super B#4,T2#3>,Function<C#4,T2#3>,StreamCodec<? super B#4,T3#2>,Function<C#4,T3#2>,StreamCodec<? super B#4,T4#1>,Function<C#4,T4#1>,Function4<T1#4,T2#3,T3#2,T4#1,C#4>)
-    B#5 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
-    C#5 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
-    T1#5 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
-    T2#4 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
-    T3#3 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
-    T4#2 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
-    T5#1 extends Object declared in method <B#5,C#5,T1#5,T2#4,T3#3,T4#2,T5#1>composite(StreamCodec<? super B#5,T1#5>,Function<C#5,T1#5>,StreamCodec<? super B#5,T2#4>,Function<C#5,T2#4>,StreamCodec<? super B#5,T3#3>,Function<C#5,T3#3>,StreamCodec<? super B#5,T4#2>,Function<C#5,T4#2>,StreamCodec<? super B#5,T5#1>,Function<C#5,T5#1>,Function5<T1#5,T2#4,T3#3,T4#2,T5#1,C#5>)
-    B#6 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
-    C#6 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
-    T1#6 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
-    T2#5 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
-    T3#4 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
-    T4#3 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
-    T5#2 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
-    T6 extends Object declared in method <B#6,C#6,T1#6,T2#5,T3#4,T4#3,T5#2,T6>composite(StreamCodec<? super B#6,T1#6>,Function<C#6,T1#6>,StreamCodec<? super B#6,T2#5>,Function<C#6,T2#5>,StreamCodec<? super B#6,T3#4>,Function<C#6,T3#4>,StreamCodec<? super B#6,T4#3>,Function<C#6,T4#3>,StreamCodec<? super B#6,T5#2>,Function<C#6,T5#2>,StreamCodec<? super B#6,T6>,Function<C#6,T6>,Function6<T1#6,T2#5,T3#4,T4#3,T5#2,T6,C#6>)
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/network/WeatherSyncPayload.java:35: error: method of in interface StreamCodec<B#2,V#2> cannot be applied to given types;
-	public static final StreamCodec<FriendlyByteBuf, WeatherSyncPayload> STREAM_CODEC = StreamCodec.of(
-	                                                                                               ^
-  required: StreamEncoder<B#1,V#1>,StreamDecoder<B#1,V#1>
-  found:    WeatherSyn[...]write,WeatherSyn[...]:read
-  reason: inference variable V#1 has incompatible bounds
-    upper bounds: FriendlyByteBuf,Object
-    lower bounds: WeatherSyncPayload
-  where B#1,V#1,B#2,V#2 are type-variables:
-    B#1 extends Object declared in method <B#1,V#1>of(StreamEncoder<B#1,V#1>,StreamDecoder<B#1,V#1>)
-    V#1 extends Object declared in method <B#1,V#1>of(StreamEncoder<B#1,V#1>,StreamDecoder<B#1,V#1>)
-    B#2 extends Object declared in interface StreamCodec
-    V#2 extends Object declared in interface StreamCodec
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/TornadicMod.java:77: error: cannot find symbol
-		TORNADO_TYPE = BuiltInRegistries.ENTITY_TYPE.register(ResourceLocation.fromNamespaceAndPath(MOD_ID, "tornado"),
-		                                            ^
-  symbol:   method register(ResourceLocation,EntityType<TornadoEntity>)
-  location: variable ENTITY_TYPE of type DefaultedRegistry<EntityType<?>>
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/TornadicMod.java:86: error: cannot find symbol
-		CHASER_VEHICLE_TYPE = BuiltInRegistries.ENTITY_TYPE.register(ResourceLocation.fromNamespaceAndPath(MOD_ID, "chaser_vehicle"),
-		                                                   ^
-  symbol:   method register(ResourceLocation,EntityType<ChaserVehicleEntity>)
-  location: variable ENTITY_TYPE of type DefaultedRegistry<EntityType<?>>
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/tornado/TornadoPhysics.java:303: error: no suitable method found for playSound(SoundSource,SoundEvent,float,float)
-				p.playSound(SoundSource.WEATHER, SoundEvents.PLAYER_LEVELUP, 0.7f, 1.0f);
-				 ^
-    method Entity.playSound(SoundEvent) is not applicable
-      (actual and formal argument lists differ in length)
-    method Player.playSound(SoundEvent,float,float) is not applicable
-      (actual and formal argument lists differ in length)
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/TornadicMod.java:77: error: package net.fabricmc.fabric.api.registry.v1 does not exist
+		TORNADO_TYPE = net.fabricmc.fabric.api.registry.v1.Registry.register(net.minecraft.core.registries.Registries.ENTITY_TYPE, MOD_ID + ":tornado",
+		                                                  ^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/TornadicMod.java:86: error: package net.fabricmc.fabric.api.registry.v1 does not exist
+		CHASER_VEHICLE_TYPE = net.fabricmc.fabric.api.registry.v1.Registry.register(net.minecraft.core.registries.Registries.ENTITY_TYPE, MOD_ID + ":chaser_vehicle",
+		                                                         ^
 /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:77: error: cannot infer type arguments for Factory<>
 			new SavedData.Factory<>(TornadicSavedData::new, TornadicSavedData::load), NAME);
 			^
@@ -1040,206 +487,111 @@ import net.minecraft.world.entity.ItemEntity;
 			                                                                                 ^
   symbol:   method getWorldGenSettings()
   location: interface ServerLevelData
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:357: error: method nextFloat in interface RandomSource cannot be applied to given types;
-		if (storm.lightningCooldown <= 0 && world.getRandom().nextFloat(lightningRate)) {
-		                                                     ^
-  required: no arguments
-  found:    float
-  reason: actual and formal argument lists differ in length
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:398: error: no suitable method found for getHeight(Types,BlockPos)
-		int groundY = world.getHeight(Heightmap.Types.MOTION_BLOCKING, pos);
-		                   ^
-    method LevelReader.getHeight() is not applicable
-      (actual and formal argument lists differ in length)
-    method Level.getHeight(Types,int,int) is not applicable
-      (actual and formal argument lists differ in length)
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:400: error: cannot find symbol
-			net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE.getValue(
-			                                                           ^
-  symbol:   method getValue(ResourceKey<EntityType<?>>)
-  location: variable ENTITY_TYPE of type DefaultedRegistry<EntityType<?>>
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:400: error: incompatible types: EntityType<CAP#1> cannot be converted to EntityType<? extends LightningBolt>
+			net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE.get(
+			                                                               ^
+  where CAP#1 is a fresh type-variable:
+    CAP#1 extends Entity from capture of ?
 /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:422: error: cannot find symbol
-			p.connection.sendCustomPayload(new ThunderPayload(lx, lz, Math.min(1.0f, volume), pitch, delay));
-			            ^
-  symbol:   method sendCustomPayload(ThunderPayload)
-  location: variable connection of type ServerGamePacketListenerImpl
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:448: error: no suitable method found for getHeight(Types,BlockPos)
-			int groundY = world.getHeight(Heightmap.Types.MOTION_BLOCKING, pos);
-			                   ^
-    method LevelReader.getHeight() is not applicable
-      (actual and formal argument lists differ in length)
-    method Level.getHeight(Types,int,int) is not applicable
-      (actual and formal argument lists differ in length)
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:454: error: cannot find symbol
-				&& surface.hasProperty(net.minecraft.world.level.block.CropsBlock.AGE)) {
-				                                                      ^
-  symbol:   class CropsBlock
-  location: package net.minecraft.world.level.block
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:456: error: cannot find symbol
-					surface.setValue(net.minecraft.world.level.block.CropsBlock.AGE, 0),
-					                                                ^
-  symbol:   class CropsBlock
-  location: package net.minecraft.world.level.block
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:629: error: cannot find symbol
-						p.connection.sendCustomPayload(TornadoSyncPayload.of(state, (int) state.id, groundTone));
-						            ^
-  symbol:   method sendCustomPayload(TornadoSyncPayload)
-  location: variable connection of type ServerGamePacketListenerImpl
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:769: error: cannot find symbol
+			p.connection.send(new net.minecraft.network.protocol.game.ClientboundCustomPayloadPacket(
+			                                                         ^
+  symbol:   class ClientboundCustomPayloadPacket
+  location: package net.minecraft.network.protocol.game
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:630: error: cannot find symbol
+						p.connection.send(new net.minecraft.network.protocol.game.ClientboundCustomPayloadPacket(
+						                                                         ^
+  symbol:   class ClientboundCustomPayloadPacket
+  location: package net.minecraft.network.protocol.game
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:771: error: cannot find symbol
 				new ClientboundGameEventPacket(ClientboundGameEventPacket.GameEventId.RAIN_LEVEL_CHANGE, rain);
 				                                                         ^
   symbol:   variable GameEventId
   location: class ClientboundGameEventPacket
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:771: error: cannot find symbol
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:773: error: cannot find symbol
 				new ClientboundGameEventPacket(ClientboundGameEventPacket.GameEventId.THUNDER_LEVEL_CHANGE, thunder);
 				                                                         ^
   symbol:   variable GameEventId
   location: class ClientboundGameEventPacket
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:776: error: cannot find symbol
-					p.connection.sendCustomPayload(WeatherSyncPayload.of(forecast, rain, thunder,
-					            ^
-  symbol:   method sendCustomPayload(WeatherSyncPayload)
-  location: variable connection of type ServerGamePacketListenerImpl
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:795: error: cannot find symbol
-						p.connection.sendCustomPayload(payload);
-						            ^
-  symbol:   method sendCustomPayload(StormSyncPayload)
-  location: variable connection of type ServerGamePacketListenerImpl
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:805: error: cannot find symbol
-		player.connection.sendCustomPayload(WeatherSyncPayload.of(forecast, lastRain < 0 ? 0 : lastRain,
-		                 ^
-  symbol:   method sendCustomPayload(WeatherSyncPayload)
-  location: variable connection of type ServerGamePacketListenerImpl
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:816: error: cannot find symbol
-				player.connection.sendCustomPayload(StormSyncPayload.of(storm, tornadoEf));
-				                 ^
-  symbol:   method sendCustomPayload(StormSyncPayload)
-  location: variable connection of type ServerGamePacketListenerImpl
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:821: error: cannot find symbol
-				player.connection.sendCustomPayload(TornadoSyncPayload.of(t, (int) t.id, sampleGroundTone(world, t)));
-				                 ^
-  symbol:   method sendCustomPayload(TornadoSyncPayload)
-  location: variable connection of type ServerGamePacketListenerImpl
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:31: error: cannot find symbol
-		return BuiltInRegistries.ENTITY_TYPE.register("a", "b");
-		                                    ^
-  symbol:   method register(String,String)
-  location: variable ENTITY_TYPE of type DefaultedRegistry<EntityType<?>>
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:778: error: cannot find symbol
+					p.connection.send(new net.minecraft.network.protocol.game.ClientboundCustomPayloadPacket(
+					                                                         ^
+  symbol:   class ClientboundCustomPayloadPacket
+  location: package net.minecraft.network.protocol.game
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:797: error: cannot find symbol
+						p.connection.send(new net.minecraft.network.protocol.game.ClientboundCustomPayloadPacket(payload));
+						                                                         ^
+  symbol:   class ClientboundCustomPayloadPacket
+  location: package net.minecraft.network.protocol.game
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:807: error: cannot find symbol
+		player.connection.send(new net.minecraft.network.protocol.game.ClientboundCustomPayloadPacket(
+		                                                              ^
+  symbol:   class ClientboundCustomPayloadPacket
+  location: package net.minecraft.network.protocol.game
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:819: error: cannot find symbol
+				player.connection.send(new net.minecraft.network.protocol.game.ClientboundCustomPayloadPacket(
+				                                                              ^
+  symbol:   class ClientboundCustomPayloadPacket
+  location: package net.minecraft.network.protocol.game
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/saveddata/TornadicSavedData.java:825: error: cannot find symbol
+				player.connection.send(new net.minecraft.network.protocol.game.ClientboundCustomPayloadPacket(
+				                                                              ^
+  symbol:   class ClientboundCustomPayloadPacket
+  location: package net.minecraft.network.protocol.game
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:30: error: package net.fabricmc.fabric.api.registry.v1 does not exist
+		return net.fabricmc.fabric.api.registry.v1.Registry.register(Registries.ENTITY_TYPE,
+		                                          ^
 /home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:36: error: cannot find symbol
-		return BuiltInRegistries.ENTITY_TYPE.getValue("a");
-		                                    ^
-  symbol:   method getValue(String)
-  location: variable ENTITY_TYPE of type DefaultedRegistry<EntityType<?>>
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:41: error: cannot infer type arguments for Factory<>
-		return new net.minecraft.world.level.saveddata.SavedData.Factory<>("a", "b", "c");
-		       ^
-  reason: cannot infer type-variable(s) T
-    (argument mismatch; String cannot be converted to Supplier<T>)
-  where T is a type-variable:
-    T extends SavedData declared in record Factory
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:46: error: cannot find symbol
-		p.connection.sendCustomPayload("a");
-		            ^
-  symbol:   method sendCustomPayload(String)
-  location: variable connection of type ServerGamePacketListenerImpl
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:52: error: incompatible types: String cannot be converted to Type
-		return new ClientboundGameEventPacket("a", "b");
-		                                      ^
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:57: error: cannot find symbol
-		return e.removeWhenFarAway("a");
-		        ^
-  symbol:   method removeWhenFarAway(String)
-  location: variable e of type Entity
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:62: error: cannot find symbol
-		return e.shouldRemove("a");
-		        ^
-  symbol:   method shouldRemove(String)
-  location: variable e of type Entity
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:67: error: method nextFloat in interface RandomSource cannot be applied to given types;
-		return r.nextFloat("a");
-		        ^
-  required: no arguments
-  found:    String
-  reason: actual and formal argument lists differ in length
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:81: error: no suitable method found for playSound(String,String,float,float)
-		p.playSound("a", "b", 1f, 1f);
-		 ^
-    method Entity.playSound(SoundEvent) is not applicable
-      (actual and formal argument lists differ in length)
-    method Player.playSound(SoundEvent,float,float) is not applicable
-      (actual and formal argument lists differ in length)
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:91: error: cannot find symbol
-		return d.getWorldGenSettings().getSeed();
-		        ^
-  symbol:   method getWorldGenSettings()
-  location: variable d of type ServerLevelData
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:96: error: cannot find symbol
-		return s.getWorldGenSettings().getSeed();
-		        ^
-  symbol:   method getWorldGenSettings()
-  location: variable s of type MinecraftServer
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:101: error: cannot find symbol
-		return net.minecraft.world.level.block.CropsBlock.AGE;
-		                                      ^
-  symbol:   class CropsBlock
-  location: package net.minecraft.world.level.block
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:129: error: constructor LightningBolt in class LightningBolt cannot be applied to given types;
-		return new LightningBolt("a");
-		       ^
-  required: EntityType<? extends LightningBolt>,Level
-  found:    String
-  reason: actual and formal argument lists differ in length
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:134: error: cannot find symbol
-		return new ItemEntity("a");
-		           ^
-  symbol:   class ItemEntity
+		p.connection.send(new ClientboundCustomPayloadPacket(new TornadoSyncProbe()));
+		                      ^
+  symbol:   class ClientboundCustomPayloadPacket
   location: class ApiProbe
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:139: error: no suitable method found for playLocalSound(String,String,String,String,String,String,String)
-		w.playLocalSound("a", "b", "c", "d", "e", "f", "g");
-		 ^
-    method Level.playLocalSound(BlockPos,SoundEvent,SoundSource,float,float,boolean) is not applicable
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:53: error: no suitable constructor found for ClientboundGameEventPacket(String,String,String)
+		return new ClientboundGameEventPacket("a", "b", "c");
+		       ^
+    constructor ClientboundGameEventPacket.ClientboundGameEventPacket(Type,float) is not applicable
       (actual and formal argument lists differ in length)
-    method Level.playLocalSound(Entity,SoundEvent,SoundSource,float,float) is not applicable
+    constructor ClientboundGameEventPacket.ClientboundGameEventPacket(FriendlyByteBuf) is not applicable
       (actual and formal argument lists differ in length)
-    method Level.playLocalSound(double,double,double,SoundEvent,SoundSource,float,float,boolean) is not applicable
-      (actual and formal argument lists differ in length)
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:158: error: cannot find symbol
-		return net.minecraft.network.protocol.ByteBufCodecs.DOUBLE;
-		                                     ^
-  symbol:   class ByteBufCodecs
-  location: package net.minecraft.network.protocol
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/item/ChaserVehicleItem.java:51: error: cannot find symbol
-		if (world.getBlockState(pos.above()).getCollisionShape(world, pos.above()).boundingBox().maxY > 0) {
-		                                                                          ^
-  symbol:   method boundingBox()
-  location: class VoxelShape
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/item/WeatherRadioItem.java:43: error: cannot find symbol
-				.append(forecast.risk().asComponent().withStyle(ChatFormatting.BOLD))
-				                                     ^
-  symbol:   method withStyle(ChatFormatting)
-  location: interface Component
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/item/WeatherRadioItem.java:46: error: cannot find symbol
-				msg = msg.append(Component.literal("\n" + line).withStyle(ChatFormatting.WHITE));
-				         ^
-  symbol:   method append(MutableComponent)
-  location: variable msg of type Component
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/item/WeatherRadioItem.java:55: error: cannot find symbol
-					msg = msg.append(Component.literal("\nTORNADO WARNING in effect: ").withStyle(ChatFormatting.RED, ChatFormatting.BOLD))
-					         ^
-  symbol:   method append(MutableComponent)
-  location: variable msg of type Component
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/item/WeatherRadioItem.java:61: error: cannot find symbol
-			sp.playSound(SoundEvents.BLOCK_NOTE_BLOCK_PLING, SoundSource.NEUTRAL, 0.3f, 1.4f);
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:59: error: incompatible types: String cannot be converted to DataFixTypes
+			() -> null, (t, p) -> null, "a");
+			                            ^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:64: error: cannot find symbol
+		return w.getWorldGenSettings().getSeed();
+		        ^
+  symbol:   method getWorldGenSettings()
+  location: variable w of type ServerLevel
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:83: error: ProbeEntA is not abstract and does not override abstract method addAdditionalSaveData(CompoundTag) in Entity
+	static class ProbeEntA extends Entity {
+	       ^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:88: error: method does not override or implement a method from a supertype
+		@Override
+		^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:94: error: ProbeEntB is not abstract and does not override abstract method addAdditionalSaveData(CompoundTag) in Entity
+	static class ProbeEntB extends Entity {
+	       ^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:99: error: method does not override or implement a method from a supertype
+		@Override
+		^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:105: error: ProbeEntC is not abstract and does not override abstract method addAdditionalSaveData(CompoundTag) in Entity
+	static class ProbeEntC extends Entity {
+	       ^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:110: error: method does not override or implement a method from a supertype
+		@Override
+		^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:116: error: ProbeEntD is not abstract and does not override abstract method addAdditionalSaveData(CompoundTag) in Entity
+	static class ProbeEntD extends Entity {
+	       ^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/ApiProbe.java:121: error: method does not override or implement a method from a supertype
+		@Override
+		^
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/item/WeatherRadioItem.java:61: error: incompatible types: Reference<SoundEvent> cannot be converted to SoundEvent
+			sp.playSound(SoundEvents.NOTE_BLOCK_PLING, 0.3f, 1.4f);
 			                        ^
-  symbol:   variable BLOCK_NOTE_BLOCK_PLING
-  location: class SoundEvents
-/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/item/TornadicItems.java:38: error: cannot find symbol
-		return BuiltInRegistries.ITEM.register(ResourceLocation.fromNamespaceAndPath(TornadicMod.MOD_ID, name), item);
-		                             ^
-  symbol:   method register(ResourceLocation,Item)
-  location: variable ITEM of type DefaultedRegistry<Item>
+/home/runner/work/Tornado-mod/Tornado-mod/src/main/java/com/tornadic/item/TornadicItems.java:38: error: package net.fabricmc.fabric.api.registry.v1 does not exist
+		return net.fabricmc.fabric.api.registry.v1.Registry.register(net.minecraft.core.registries.Registries.ITEM, TornadicMod.MOD_ID + ":" + name, item);
+		                                          ^
 Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
-55 errors
+35 errors
 	at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:89)
 	at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:50)
 	at org.gradle.api.internal.tasks.compile.NormalizingJavaCompiler.delegateAndHandleErrors(NormalizingJavaCompiler.java:98)
@@ -1374,6 +726,6 @@ Note: Some messages have been simplified; recompile with -Xdiags:verbose to get 
 	... 61 more
 
 
-BUILD FAILED in 46s
+BUILD FAILED in 49s
 1 actionable task: 1 executed
 gradle-build-exit=1
