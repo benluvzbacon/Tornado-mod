@@ -135,6 +135,7 @@ public final class ApiDump {
 			}
 		}
 		System.out.println("== scan done");
+	}
 
 	private static String typeList(Class<?>[] types) {
 		StringBuilder sb = new StringBuilder("(");
