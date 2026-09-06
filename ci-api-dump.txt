@@ -11,7 +11,12 @@
 /home/runner/.gradle/caches/fabric-loom/1.21.1/layered/loom.mappings-layered+hash.2198.jar
 /home/runner/.gradle/caches/fabric-loom/1.21.1/minecraft-client.jar
 /home/runner/.gradle/caches/fabric-loom/1.21.1/minecraft-server.jar
-jar-used=
-fabric-jar-used=/home/runner/.gradle/caches/modules-2/files-2.1/net.fabricmc.fabric-api/fabric-api-lookup-api-v1/1.6.70+b559734419/c0e775599a8c03315343e1f8ea777097cdf0b75c/fabric-api-lookup-api-v1-1.6.70+b559734419.jar
+mc-common=/home/runner/.gradle/caches/fabric-loom/minecraftMaven/net/minecraft/minecraft-common/1.21.1-loom.mappings.1_21_1.layered+hash.2198-v2/minecraft-common-1.21.1-loom.mappings.1_21_1.layered+hash.2198-v2.jar
+mc-client=/home/runner/.gradle/caches/fabric-loom/minecraftMaven/net/minecraft/minecraft-clientonly/1.21.1-loom.mappings.1_21_1.layered+hash.2198-v2/minecraft-clientonly-1.21.1-loom.mappings.1_21_1.layered+hash.2198-v2.jar
+fabric-jars-count=3
+apidump/ApiDump.java:139: error: illegal start of expression
+	private static String typeList(Class<?>[] types) {
+	^
+1 error
 api-dump-exit=0
-16 ci-api-dump.txt
+21 ci-api-dump.txt
