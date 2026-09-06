@@ -1,0 +1,24 @@
+{
+	"item.tornadic.weather_radio": "Weather Radio",
+	"item.tornadic.anemometer": "Anemometer",
+	"item.tornadic.thermometer": "Thermometer",
+	"item.tornadic.barometer": "Barometer",
+	"item.tornadic.storm_radar": "Storm Radar",
+	"item.tornadic.storm_notebook": "Storm Notebook",
+	"item.tornadic.chaser_vehicle": "Storm Chaser Vehicle",
+
+	"tooltip.tornadic.weather_radio": "Right-click to receive the current severe-weather bulletin.",
+	"tooltip.tornadic.anemometer": "Right-click to measure the local wind speed and direction.",
+	"tooltip.tornadic.thermometer": "Right-click to read the current temperature.",
+	"tooltip.tornadic.barometer": "Right-click to read atmospheric pressure and its trend.",
+	"tooltip.tornadic.storm_radar": "Right-click to open the storm radar (R).",
+	"tooltip.tornadic.storm_notebook": "Right-click to open your storm notebook.",
+	"tooltip.tornadic.chaser_vehicle": "Right-click the ground to deploy the vehicle. Right-click the vehicle to drive.",
+
+	"key.tornadic.radar": "Open Storm Radar",
+	"key.tornadic.debug": "Toggle Weather Debug HUD",
+	"key.category.tornadic": "Tornadic",
+
+	"entity.tornadic.tornado": "Tornado",
+	"entity.tornadic.chaser_vehicle": "Storm Chaser Vehicle"
+}

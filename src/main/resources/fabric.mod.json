@@ -1,0 +1,31 @@
+{
+	"schemaVersion": 1,
+	"id": "tornadic",
+	"version": "${version}",
+	"name": "Tornadic",
+	"description": "A realistic severe-weather simulation for Minecraft: thunderstorms, supercells, tornadoes, hail and storm chasing.",
+	"authors": [
+		"Tornadic Team"
+	],
+	"contact": {
+		"homepage": "https://github.com/benluvzbacon/Tornado-mod",
+		"sources": "https://github.com/benluvzbacon/Tornado-mod"
+	},
+	"license": "MIT",
+	"icon": "assets/tornadic/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.tornadic.TornadicMod"
+		],
+		"client": [
+			"com.tornadic.TornadicClientMod"
+		]
+	},
+	"depends": {
+		"fabricloader": ">=0.15.0",
+		"minecraft": ">=1.21.1 <1.21.2",
+		"java": ">=21",
+		"fabric-api": "*"
+	}
+}

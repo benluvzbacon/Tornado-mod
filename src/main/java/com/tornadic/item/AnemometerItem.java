@@ -1,0 +1,58 @@
+package com.tornadic.item;
+
+import com.tornadic.saveddata.TornadicSavedData;
+import com.tornadic.wind.WindField;
+
+import net.minecraft.ChatFormatting;
+import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.tooltip.TooltipContext;
+import net.minecraft.world.phys.Vec3;
+
+import java.util.List;
+
+/**
+ * Measures the local wind: speed (mph) and direction from the full wind field
+ * (daily wind + storms + tornado vortexes).
+ */
+public class AnemometerItem extends Item {
+	public AnemometerItem(Properties properties) {
+		super(properties);
+	}
+
+	@Override
+	public InteractionResult use(Level world, Player player, InteractionHand hand) {
+		if (!world.isClientSide && player instanceof ServerPlayer sp) {
+			TornadicSavedData data = TornadicSavedData.getOrLoad(sp.getServer());
+			Vec3 wind = WindField.windAt(sp.level(), data.currentForecast(sp.level()),
+				data.storms(), data.tornadoes(), sp.getX(), sp.getY(), sp.getZ());
+			double blocksPerSec = Math.sqrt(wind.x * wind.x + wind.z * wind.z) * 20.0;
+			double mph = blocksPerSec * 2.23694;
+			String dir = "calm";
+			if (mph > 0.5) {
+				double deg = Math.toDegrees(Math.atan2(wind.x, wind.z)) % 360;
+				if (deg < 0) {
+					deg += 360;
+				}
+				String[] dirs = {"E", "NE", "N", "NW", "W", "SW", "S", "SE"};
+				dir = "from " + dirs[((int) Math.round(deg / 45.0)) % 8];
+			}
+			sp.sendSystemMessage(Component.literal("Wind: ").withStyle(ChatFormatting.GRAY)
+				.append(Component.literal(String.format("%.1f mph", mph)).withStyle(ChatFormatting.CYAN))
+				.append(Component.literal("  " + dir).withStyle(ChatFormatting.GRAY)));
+		}
+		return InteractionResult.SUCCESS;
+	}
+
+	@Override
+	public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flag) {
+		tooltip.add(Component.translatable("tooltip.tornadic.anemometer").withStyle(ChatFormatting.GRAY));
+	}
+}
