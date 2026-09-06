@@ -46,7 +46,7 @@ def main() -> int:
         send_packet(2, password.encode())
         resp = recv_packet()
         if len(resp) < 12:
-            print("AUTH-FAILED: short response")
+            print(f"AUTH-FAILED: short response (len={len(resp)} hex={resp.hex()})")
             return 1
         resp_id, resp_type, err = struct.unpack("<iii", resp[:12])
         if resp_type != 2:
@@ -58,10 +58,11 @@ def main() -> int:
 
         send_packet(3, command.encode())
         resp = recv_packet()
-        if len(resp) < 12:
-            print("COMMAND-FAILED: short response")
+        if len(resp) < 8:
+            print(f"COMMAND-FAILED: short response (len={len(resp)} hex={resp.hex()})")
             return 1
-        _, resp_type, err = struct.unpack("<iii", resp[:12])
+        resp_id, resp_type = struct.unpack("<ii", resp[:8])
+        err = struct.unpack("<i", resp[8:12])[0] if len(resp) >= 12 else 0
         if resp_type != 3:
             print(f"COMMAND-FAILED: unexpected type {resp_type}")
             return 1

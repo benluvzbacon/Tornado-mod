@@ -60,6 +60,20 @@ jobs:
             echo 'motd=tornadic-ci'
           } > run/server.properties
 
+          # Inspect MC 1.21.1's RCON implementation (disassemble the classes).
+          MCJAR=$(find ~/.gradle/caches/fabric-loom/minecraftMaven -path "*minecraft-common/*" -name "*.jar" 2>/dev/null | grep -v intermediary | head -1)
+          echo "MC common jar: $MCJAR"
+          rm -rf /tmp/rconprobe && mkdir -p /tmp/rconprobe
+          (cd /tmp/rconprobe && unzip -o -q "$MCJAR" 2>/dev/null | true)
+          echo "--- RCON classes ---"
+          find /tmp/rconprobe -iname "*rcon*" -name "*.class" | head -12
+          for c in $(find /tmp/rconprobe -iname "*rcon*" -name "*.class" | head -8); do
+            echo "=== javap $(basename $c) ==="
+            javap -p -c "$c" 2>/dev/null | grep -B3 -A30 -iE "sendPacket|onAuth|password" | head -100
+          done > rcon-javap.txt 2>&1 || true
+          echo "--- rcon-javap excerpt ---"
+          head -c 6000 rcon-javap.txt || true
+
           # Split source sets make loom prefix the run task per mod (e.g. tornadic_runServer).
           ./gradlew tasks --all --no-daemon > gradle-tasks.log 2>&1 || true
           TASK=$(grep -oE '[a-zA-Z_]*runServer' gradle-tasks.log | head -1)
@@ -89,6 +103,7 @@ jobs:
               echo "--- rcon-list.out ---"; cat rcon-list.out 2>/dev/null || true
               echo "--- run/latest.log tail ---"; tail -c 60000 run/latest.log 2>/dev/null || true
               echo "--- gradle-server.log tail ---"; tail -c 80000 gradle-server.log 2>/dev/null || true
+              echo "--- rcon-javap excerpt ---"; head -c 12000 rcon-javap.txt 2>/dev/null || true
             } > ci-last-failure.log
             pkill -f KnotServer 2>/dev/null || true
             pkill -f GradleDaemon 2>/dev/null || true
