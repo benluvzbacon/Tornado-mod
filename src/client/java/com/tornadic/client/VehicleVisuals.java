@@ -5,8 +5,8 @@ import java.util.List;
 import com.tornadic.entity.ChaserVehicleEntity;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.particle.DustParticleOptions;
-import net.minecraft.client.particle.ParticleTypes;
+import net.minecraft.core.particles.DustParticleOptions;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.util.RandomSource;
 
 /**

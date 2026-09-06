@@ -26,65 +26,67 @@ public final class DebugHud {
 		Minecraft mc = Minecraft.getInstance();
 		Font font = mc.font;
 		int y = 4;
-		graphics.drawTextWithShadow(font, "TORNADIC DEBUG [V]", 4, y, 0xFF55FF55);
+		graphics.drawString(font, "TORNADIC DEBUG [V]", 4, y, 0xFF55FF55, true);
 		y += 10;
 		WeatherSyncPayload w = ClientWeatherState.weather;
 		if (w == null) {
-			graphics.drawTextWithShadow(font, "waiting for sync...", 4, y, 0xFFAAAAAA);
+			graphics.drawString(font, "waiting for sync...", 4, y, 0xFFAAAAAA, true);
 			return;
 		}
-		graphics.drawTextWithShadow(font, String.format(Locale.US,
+		graphics.drawString(font, String.format(Locale.US,
 			"Day %d | Risk: %s", w.day(),
-			com.tornadic.weather.RiskRating.fromOrdinal(w.riskOrdinal()).name()), 4, y, 0xFFEEEEEE);
+			com.tornadic.weather.RiskRating.fromOrdinal(w.riskOrdinal()).name()), 4, y, 0xFFEEEEEE, true);
 		y += 10;
-		graphics.drawTextWithShadow(font, String.format(Locale.US,
+		graphics.drawString(font, String.format(Locale.US,
 			"T %.0fF | Dew %.0fF | RH %d%% | P %.0fhPa",
-			w.tempF(), w.dewPointF(), w.humidity(), w.pressureMb()), 4, y, 0xFFEEEEEE);
+			w.tempF(), w.dewPointF(), w.humidity(), w.pressureMb()), 4, y, 0xFFEEEEEE, true);
 		y += 10;
-		graphics.drawTextWithShadow(font, String.format(Locale.US,
+		graphics.drawString(font, String.format(Locale.US,
 			"Wind %.0fmph @%.0fdeg | CAPE %d | Shear %dkt",
-			w.windMph(), w.windDir(), w.cape(), w.shear()), 4, y, 0xFFEEEEEE);
+			w.windMph(), w.windDir(), w.cape(), w.shear()), 4, y, 0xFFEEEEEE, true);
 		y += 10;
-		graphics.drawTextWithShadow(font, String.format(Locale.US,
+		graphics.drawString(font, String.format(Locale.US,
 			"StormP %d%% | TornadoP %d%% | Rain %.0f%%",
-			w.stormProbability(), w.tornadoProbability(), w.rainLevel() * 100), 4, y, 0xFFEEEEEE);
+			w.stormProbability(), w.tornadoProbability(), w.rainLevel() * 100), 4, y, 0xFFEEEEEE, true);
 		y += 10;
 
 		int x0 = 4;
 		if (!ClientWeatherState.storms.isEmpty()) {
-			graphics.drawTextWithShadow(font, "Storms:", x0, y, 0xFFFFAA55);
+			graphics.drawString(font, "Storms:", x0, y, 0xFFFFAA55, true);
 			y += 10;
 			int shown = 0;
-			for (StormSyncPayload s : ClientWeatherState.storms.values()) {
+			for (ClientWeatherState.Stamp<StormSyncPayload> stamp : ClientWeatherState.storms.values()) {
+			StormSyncPayload s = stamp.value;
 				if (shown++ >= 4) {
 					break;
 				}
-			graphics.drawTextWithShadow(font, String.format(Locale.US,
+			graphics.drawString(font, String.format(Locale.US,
 				"  %s @ %d,%d  r=%dm dir=%.0f rot=%.2f%s",
 				com.tornadic.storm.StormType.fromOrdinal(s.typeOrdinal()).displayName(),
 				(int) s.x(), (int) s.z(), s.radius(),
-				Math.toDegrees(s.dir()), s.rotation(), s.hail() ? " HAIL" : ""), x0, y, 0xFFDDDDDD);
+				Math.toDegrees(s.dir()), s.rotation(), s.hail() ? " HAIL" : ""), x0, y, 0xFFDDDDDD, true);
 				y += 10;
 			}
 		}
 		if (!ClientWeatherState.tornadoes.isEmpty()) {
-			graphics.drawTextWithShadow(font, "Tornadoes:", x0, y, 0xFFFF5555);
+			graphics.drawString(font, "Tornadoes:", x0, y, 0xFFFF5555, true);
 			y += 10;
 			int shown = 0;
-			for (TornadoSyncPayload t : ClientWeatherState.tornadoes.values()) {
+			for (ClientWeatherState.Stamp<TornadoSyncPayload> stamp : ClientWeatherState.tornadoes.values()) {
+			TornadoSyncPayload t = stamp.value;
 				if (shown++ >= 4) {
 					break;
 				}
-			graphics.drawTextWithShadow(font, String.format(Locale.US,
+			graphics.drawString(font, String.format(Locale.US,
 				"  EF%d @ %d,%d  wind=%.0fm/s funnel=%.0fm",
-				t.ef(), (int) t.x(), (int) t.z(), t.windMs(), t.funnelRadius()), x0, y, 0xFFF0D0D0);
+				t.ef(), (int) t.x(), (int) t.z(), t.windMs(), t.funnelRadius()), x0, y, 0xFFF0D0D0, true);
 				y += 10;
 			}
 		}
 		if (mc.player != null) {
-			graphics.drawTextWithShadow(font, String.format(Locale.US,
+			graphics.drawString(font, String.format(Locale.US,
 				"Local wind: %.0f mph",
-				ClientWeatherState.localWindMph(mc.player.getX(), mc.player.getY(), mc.player.getZ())), x0, y, 0xFF88FF88);
+				ClientWeatherState.localWindMph(mc.player.getX(), mc.player.getY(), mc.player.getZ())), x0, y, 0xFF88FF88, true);
 		}
 	}
 }

@@ -9,8 +9,8 @@ import com.tornadic.network.TornadoSyncPayload;
 import com.tornadic.network.WeatherSyncPayload;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.particle.DustParticleOptions;
-import net.minecraft.client.particle.ParticleTypes;
+import net.minecraft.core.particles.DustParticleOptions;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
@@ -108,7 +108,7 @@ public final class WeatherVisuals {
 			for (int i = 0; i < rings && spawned < budget; i++) {
 				float fr = i / (float) rings;
 				float radius = funnel + (cloud - funnel) * (float) Math.pow(fr, 0.75);
-				float y = t.y() + fr * height;
+				float y = (float) (t.y() + fr * height);
 				float angle = (rotBase + i * 37) * 0.35f;
 				double ax = t.x() + Math.cos(angle) * radius;
 				double az = t.z() + Math.sin(angle) * radius;
@@ -200,7 +200,7 @@ public final class WeatherVisuals {
 				}
 				if (s.hailSize() > 0.5 && RNG.nextInt(24) == 0) {
 					client.level.playLocalSound(px, client.player.getY(), pz,
-						s.hailSize() > 0.8 ? SoundEvents.ITEM_BREAK.value() : SoundEvents.SNOWBALL_THROW.value(),
+						s.hailSize() > 0.8 ? SoundEvents.ITEM_BREAK : SoundEvents.SNOWBALL_THROW,
 						SoundSource.BLOCKS, 0.3f * intensity, 0.8f + RNG.nextFloat() * 0.4f);
 				}
 			}

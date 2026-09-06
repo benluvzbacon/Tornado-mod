@@ -25,8 +25,8 @@ public class NotebookScreen extends Screen {
 	}
 
 	@Override
-	protected void render(GuiGraphics g, int mouseX, int mouseY, float partialTicks) {
-		renderBackground(g);
+	public void render(GuiGraphics g, int mouseX, int mouseY, float partialTicks) {
+		renderBackground(g, mouseX, mouseY, partialTicks);
 		int w = 250;
 		int h = 190;
 		int x0 = (this.width - w) / 2;
@@ -38,40 +38,40 @@ public class NotebookScreen extends Screen {
 		WeatherSyncPayload w2 = ClientWeatherState.weather;
 		int y = y0 + 8;
 		int x = x0 + 10;
-		g.drawTextWithShadow(font, "STORM NOTEBOOK", x0 + w / 2 - font.width("STORM NOTEBOOK") / 2, y0 - 10, 0xFFFFD080);
+		g.drawString(font, "STORM NOTEBOOK", x0 + w / 2 - font.width("STORM NOTEBOOK") / 2, y0 - 10, 0xFFFFD080, true);
 		if (w2 == null) {
-			g.drawTextWithShadow(font, "waiting for weather data...", x, y, 0xFF999999);
+			g.drawString(font, "waiting for weather data...", x, y, 0xFF999999, true);
 			y += 14;
-			g.drawTextWithShadow(font, "stand by for a sync packet", x, y, 0xFF666666);
+			g.drawString(font, "stand by for a sync packet", x, y, 0xFF666666, true);
 		} else {
-			g.drawTextWithShadow(font, "Day " + w2.day(), x, y, 0xFFEEEEEE);
+			g.drawString(font, "Day " + w2.day(), x, y, 0xFFEEEEEE, true);
 			y += 14;
-			g.drawTextWithShadow(font, "Risk rating: " + RiskRating.fromOrdinal(w2.riskOrdinal()), x, y,
-				w2.riskOrdinal() >= 4 ? 0xFFFF6644 : 0xFFCCDDCC);
+			g.drawString(font, "Risk rating: " + RiskRating.fromOrdinal(w2.riskOrdinal()), x, y,
+				w2.riskOrdinal() >= 4 ? 0xFFFF6644 : 0xFFCCDDCC, true);
 			y += 16;
-			g.drawTextWithShadow(font, String.format(Locale.US,
-				"Temp %.0fF   Dew point %.0fF   Humidity %d%%", w2.tempF(), w2.dewPointF(), w2.humidity()), x, y, 0xFFD0D0D0);
+			g.drawString(font, String.format(Locale.US,
+				"Temp %.0fF   Dew point %.0fF   Humidity %d%%", w2.tempF(), w2.dewPointF(), w2.humidity()), x, y, 0xFFD0D0D0, true);
 			y += 12;
-			g.drawTextWithShadow(font, String.format(Locale.US,
-				"Pressure %.0f hPa   Wind %.0f mph @ %.0f deg", w2.pressureMb(), w2.windMph(), w2.windDir()), x, y, 0xFFD0D0D0);
+			g.drawString(font, String.format(Locale.US,
+				"Pressure %.0f hPa   Wind %.0f mph @ %.0f deg", w2.pressureMb(), w2.windMph(), w2.windDir()), x, y, 0xFFD0D0D0, true);
 			y += 12;
-			g.drawTextWithShadow(font, String.format(Locale.US,
-				"CAPE %d J/kg   Shear %d kt", w2.cape(), w2.shear()), x, y, 0xFFD0D0D0);
+			g.drawString(font, String.format(Locale.US,
+				"CAPE %d J/kg   Shear %d kt", w2.cape(), w2.shear()), x, y, 0xFFD0D0D0, true);
 			y += 12;
-			g.drawTextWithShadow(font, String.format(Locale.US,
+			g.drawString(font, String.format(Locale.US,
 				"Storm probability %d%%   Tornado probability %d%%",
-				w2.stormProbability(), w2.tornadoProbability()), x, y, 0xFFD0D0D0);
+				w2.stormProbability(), w2.tornadoProbability()), x, y, 0xFFD0D0D0, true);
 			y += 16;
-			g.drawTextWithShadow(font, "--- Today so far ---", x, y, 0xFF80A0FF);
+			g.drawString(font, "--- Today so far ---", x, y, 0xFF80A0FF, true);
 			y += 12;
-			g.drawTextWithShadow(font, String.format(Locale.US,
+			g.drawString(font, String.format(Locale.US,
 				"Storms: %d   Tornadoes: %d   Max EF: %s",
 				w2.stormsToday(), w2.tornadoesToday(),
-				w2.maxEfToday() < 0 ? "none" : "EF" + w2.maxEfToday()), x, y, 0xFFD0D0D0);
+				w2.maxEfToday() < 0 ? "none" : "EF" + w2.maxEfToday()), x, y, 0xFFD0D0D0, true);
 			y += 12;
-			g.drawTextWithShadow(font, String.format(Locale.US,
-				"Active storms in range: %d", ClientWeatherState.storms.size()), x, y, 0xFFB0C0B0);
+			g.drawString(font, String.format(Locale.US,
+				"Active storms in range: %d", ClientWeatherState.storms.size()), x, y, 0xFFB0C0B0, true);
 		}
-		g.drawCenteredTextWithShadow(font, "[ESC] close", this.width / 2, y0 + h + 12, 0xFF777777);
+		g.drawCenteredString(font, "[ESC] close", this.width / 2, y0 + h + 12, 0xFF777777);
 	}
 }

@@ -34,8 +34,8 @@ public class RadarScreen extends Screen {
 	}
 
 	@Override
-	protected void render(GuiGraphics g, int mouseX, int mouseY, float partialTicks) {
-		renderBackground(g);
+	public void render(GuiGraphics g, int mouseX, int mouseY, float partialTicks) {
+		renderBackground(g, mouseX, mouseY, partialTicks);
 		int ox = (this.width - SCOPE) / 2;
 		int oy = (this.height - SCOPE) / 2 + 10;
 		int cx = ox + SCOPE / 2;
@@ -73,7 +73,8 @@ public class RadarScreen extends Screen {
 		if (Minecraft.getInstance().player != null) {
 			double px = Minecraft.getInstance().player.getX();
 			double pz = Minecraft.getInstance().player.getZ();
-			for (StormSyncPayload s : ClientWeatherState.storms.values()) {
+			for (ClientWeatherState.Stamp<StormSyncPayload> stamp : ClientWeatherState.storms.values()) {
+			StormSyncPayload s = stamp.value;
 				double dx = s.x() - px;
 				double dz = s.z() - pz;
 				double dist = Math.sqrt(dx * dx + dz * dz);
@@ -92,7 +93,8 @@ public class RadarScreen extends Screen {
 				Blip b = new Blip(cx + qx, cy + qz, color, s.rotation() > 0.5, dist);
 				blips.add(b);
 			}
-			for (TornadoSyncPayload t2 : ClientWeatherState.tornadoes.values()) {
+			for (ClientWeatherState.Stamp<TornadoSyncPayload> stamp2 : ClientWeatherState.tornadoes.values()) {
+			TornadoSyncPayload t2 = stamp2.value;
 				double dx = t2.x() - px;
 				double dz = t2.z() - pz;
 				double dist = Math.sqrt(dx * dx + dz * dz);
@@ -121,19 +123,19 @@ public class RadarScreen extends Screen {
 			}
 			if (b.tornado) {
 				Font f = this.font;
-				g.drawTextWithShadow(f, "EF" + b.ef, b.x + 6, b.y - 8, 0xFFFF6666);
+				g.drawString(f, "EF" + b.ef, b.x + 6, b.y - 8, 0xFFFF6666, true);
 			}
 		}
 
 		// Labels.
 		Font font = this.font;
-		g.drawCenteredTextWithShadow(font, this.title, this.width / 2, oy - 22, 0xFFDDDDDD);
-		g.drawCenteredTextWithShadow(font,
+		g.drawCenteredString(font, this.title, this.width / 2, oy - 22, 0xFFDDDDDD);
+		g.drawCenteredString(font,
 			String.format(Locale.US, "range %.0f km | sweep active", RANGE / 1000.0),
 			this.width / 2, oy + SCOPE + 14, 0xFF66FF66);
-		g.drawCenteredTextWithShadow(font, "green=cell  orange=supercell  red=tornado",
+		g.drawCenteredString(font, "green=cell  orange=supercell  red=tornado",
 			this.width / 2, oy + SCOPE + 24, 0xFF999999);
-		g.drawCenteredTextWithShadow(font, "[ESC] close", this.width / 2, oy + SCOPE + 34, 0xFF777777);
+		g.drawCenteredString(font, "[ESC] close", this.width / 2, oy + SCOPE + 34, 0xFF777777);
 	}
 
 	private void drawRing(GuiGraphics g, int cx, int cy, int radius, int color) {
