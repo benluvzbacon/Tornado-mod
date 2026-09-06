@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   build:
@@ -28,12 +28,46 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Build with Gradle
-        run: ./gradlew build --no-daemon --stacktrace
+        run: |
+          set -o pipefail
+          ./gradlew build --no-daemon --stacktrace 2>&1 | tee build-output.log
+          status=${PIPESTATUS[0]}
+          if [ "$status" -ne 0 ]; then
+            # Keep the tail of the log in the repo so failures are inspectable.
+            tail -c 200000 build-output.log > ci-last-failure.log
+            exit "$status"
+          fi
 
       - name: Verify jar exists
         run: ls -la build/libs/tornadic-1.0.0.jar
 
+      - name: Remove stale failure log
+        if: success()
+        run: |
+          git config user.name "tornadic-ci"
+          git config user.email "ci@tornadic.invalid"
+          if [ -f ci-last-failure.log ]; then
+            rm ci-last-failure.log
+            git add -A
+            if ! git diff --cached --quiet; then
+              git commit -m "ci: build fixed, drop last failure log"
+              git push || true
+            fi
+          fi
+
+      - name: Commit failure log
+        if: failure()
+        run: |
+          git config user.name "tornadic-ci"
+          git config user.email "ci@tornadic.invalid"
+          git add ci-last-failure.log 2>/dev/null || true
+          if ! git diff --cached --quiet; then
+            git commit -m "ci: last build failure log"
+            git push || true
+          fi
+
       - name: Upload mod jar artifact
+        if: success()
         uses: actions/upload-artifact@v4
         with:
           name: tornadic-1.0.0
