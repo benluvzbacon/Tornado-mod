@@ -104,8 +104,9 @@ jobs:
           send_cmd tornado_info
           send_cmd storm_info
           send_cmd "weatherstorm supercell"
-          sleep 25
+          send_cmd "thermos debug simtick 2000"
           send_cmd tornado_info
+          send_cmd storm_info
           echo "stop" >&3
           echo "stop sent"
 
@@ -130,6 +131,8 @@ jobs:
           if grep -q "Crashed server" "$SERVER_LOG"; then echo "FAIL: server crashed"; FAIL=1; fi
           if grep -q "Tornadic simulation tick failed" "$SERVER_LOG"; then echo "FAIL: simulation tick exception"; FAIL=1; fi
           if grep -q "THERMOS" "$SERVER_LOG"; then echo "OK: /thermos output present"; else echo "FAIL: no /thermos output"; FAIL=1; fi
+          if grep -q "forced simulation ticks" "$SERVER_LOG"; then echo "OK: forced simulation tick ran"; else echo "FAIL: simtick never ran"; FAIL=1; fi
+          grep "forced simulation ticks" "$SERVER_LOG" | tail -n 1
           if [ "$FAIL" != "0" ]; then
             {
               echo "=== runtime smoke test FAILED $(date -u) ==="

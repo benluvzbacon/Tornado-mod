@@ -157,6 +157,11 @@ public class TornadicSavedData extends SavedData {
 			return;
 		}
 
+			tickBody(world);
+	}
+
+	/** Runs the full simulation step (spawn storms, tick storms/tornadoes, broadcast). */
+	public void tickBody(ServerLevel world) {
 		// Recreate tornado entities after a world load.
 		if (!entitiesRecreated) {
 			entitiesRecreated = true;
@@ -190,6 +195,16 @@ public class TornadicSavedData extends SavedData {
 		setDirty();
 	}
 
+	/**
+	 * Debug/test hook (permission gated): runs the simulation body N times right now,
+	 * even without players online. Used to exercise the full storm/tornado pipeline.
+	 */
+	public void forceTick(ServerLevel world, int times) {
+		for (int i = 0; i < Math.max(1, Math.min(times, 2000)); i++) {
+			tickBody(world);
+		}
+	}
+
 	private void recreateTornadoEntities(ServerLevel world) {
 		for (TornadoState state : tornadoes) {
 			state.entity = null;
@@ -217,15 +232,26 @@ public class TornadicSavedData extends SavedData {
 		}
 
 		// Spawn relative to a random player, at a reasonable distance.
+		// Without players (e.g. /thermos debug simtick on a bare server) anchor to
+		// the world spawn instead.
 		List<ServerPlayer> players = world.getServer().getPlayerList().getPlayers();
-		ServerPlayer anchor = players.get(world.getRandom().nextInt(players.size()));
+		double ax, az;
+		if (players.isEmpty()) {
+			BlockPos sp = world.getSpawnPoint();
+			ax = sp.getX();
+			az = sp.getZ();
+		} else {
+			ServerPlayer anchor = players.get(world.getRandom().nextInt(players.size()));
+			ax = anchor.getX();
+			az = anchor.getZ();
+		}
 		for (int attempt = 0; attempt < 6; attempt++) {
 			double angle = world.getRandom().nextDouble() * Math.PI * 2.0;
 			double dist = TornadicConfig.stormMinPlayerDistance
 				+ world.getRandom().nextDouble()
 				* (TornadicConfig.stormMaxPlayerDistance - TornadicConfig.stormMinPlayerDistance);
-			double x = anchor.getX() + Math.cos(angle) * dist;
-			double z = anchor.getZ() + Math.sin(angle) * dist;
+			double x = ax + Math.cos(angle) * dist;
+			double z = az + Math.sin(angle) * dist;
 			if (!world.isLoaded(new BlockPos((int) x, 64, (int) z))) {
 				continue;
 			}

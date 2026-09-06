@@ -47,7 +47,12 @@ public final class TornadicCommands {
 				.requires(src -> src.hasPermission(2))
 				.executes(ctx -> toggleDebug(ctx.getSource()))
 				.then(Commands.literal("on").executes(ctx -> setDebug(ctx.getSource(), true)))
-				.then(Commands.literal("off").executes(ctx -> setDebug(ctx.getSource(), false)))));
+				.then(Commands.literal("off").executes(ctx -> setDebug(ctx.getSource(), false)))
+			.then(Commands.literal("simtick")
+				.executes(ctx -> simTick(ctx.getSource(), 200))
+				.then(Commands.argument("ticks", IntegerArgumentType.integer(1, 2000))
+					.executes(ctx -> simTick(ctx.getSource(), IntegerArgumentType.getInteger(ctx, "ticks")))))))
+;
 
 		dispatcher.register(Commands.literal("weatherstorm")
 			.requires(src -> src.hasPermission(2))
@@ -69,6 +74,25 @@ public final class TornadicCommands {
 
 		dispatcher.register(Commands.literal("tornado_info").executes(ctx -> tornadoInfo(ctx.getSource())));
 		dispatcher.register(Commands.literal("storm_info").executes(ctx -> stormInfo(ctx.getSource())));
+	}
+
+	private static int simTick(CommandSourceStack source, int ticks) {
+		if (source.getServer() == null || source.getServer().overworld() == null) {
+			return 0;
+		}
+		com.tornadic.saveddata.TornadicSavedData data =
+			com.tornadic.saveddata.TornadicSavedData.getOrLoad(source.getServer());
+		int stormsBefore = data.storms().size();
+		int tornadoesBefore = data.tornadoes().size();
+		data.forceTick(source.getServer().overworld(), ticks);
+		int storms = data.storms().size();
+		int tornadoes = data.tornadoes().size();
+		final int sb = stormsBefore, tb = tornadoesBefore;
+		source.sendSuccess(() -> Component.literal(
+			"Tornadic: ran " + ticks + " forced simulation ticks. Storms " + sb + " -> " + storms
+				+ ", tornadoes " + tb + " -> " + tornadoes + ".")
+			.withStyle(ChatFormatting.AQUA), true);
+		return 1;
 	}
 
 	// ------------------------------------------------------------------
@@ -173,6 +197,7 @@ public final class TornadicCommands {
 		return 1;
 	}
 
+
 	// ------------------------------------------------------------------
 
 	private static StormType parseStormType(String raw) {
@@ -249,6 +274,7 @@ public final class TornadicCommands {
 			.withStyle(ChatFormatting.GREEN), false);
 		return 1;
 	}
+
 
 	// ------------------------------------------------------------------
 
