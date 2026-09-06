@@ -36,3 +36,4 @@ ci-api-dump.txt
 .minecraft/
 gradle-server.log
 rcon-*.out
+gradle-tasks.log

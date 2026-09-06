@@ -59,7 +59,13 @@ jobs:
             echo 'motd=tornadic-ci'
           } > .minecraft/server.properties
 
-          ./gradlew runServer --no-daemon > gradle-server.log 2>&1 &
+          # Split source sets make loom prefix the run task per mod (e.g. tornadic_runServer).
+          ./gradlew tasks --all --no-daemon > gradle-tasks.log 2>&1 || true
+          TASK=$(grep -oE '[a-zA-Z_]*runServer' gradle-tasks.log | head -1)
+          [ -n "$TASK" ] || TASK=runServer
+          echo "run-server task: $TASK"
+
+          ./gradlew "$TASK" --no-daemon > gradle-server.log 2>&1 &
           GRADLE_PID=$!
 
           # Wait for the RCON port (world generation on first boot takes a while).
