@@ -33,6 +33,7 @@ public final class WeatherVisuals {
 		}
 		tickThunder(client);
 		int budget = TornadicConfig.maxSimParticles;
+		budget = Math.max(0, budget - spawnStormClouds(client, budget));
 		budget = Math.max(0, budget - spawnTornadoFunnel(client, budget));
 		budget = Math.max(0, budget - spawnStormRain(client, budget));
 		spawnWindStreaks(client, Math.max(0, budget));
@@ -58,6 +59,54 @@ public final class WeatherVisuals {
 			client.level.playLocalSound(t.x, 64, t.z, SoundEvents.LIGHTNING_BOLT_THUNDER,
 				SoundSource.WEATHER, t.volume, t.pitch, true);
 		}
+	}
+
+	// ------------------------------------------------------------------
+	// Volumetric storm clouds (particle-budgeted, server-positioned)
+	// ------------------------------------------------------------------
+
+	private static int spawnStormClouds(Minecraft client, int budget) {
+		int spawned = 0;
+		double px = client.player.getX();
+		double pz = client.player.getZ();
+		long time = client.level.getGameTime();
+		for (var stamp : ClientWeatherState.storms.values()) {
+			StormSyncPayload s = stamp.value;
+			if (s.typeOrdinal() < 1 || spawned >= budget) continue;
+			double dx = s.x() - px, dz = s.z() - pz;
+			double dist = Math.sqrt(dx * dx + dz * dz);
+			if (dist > 900.0) continue;
+
+			boolean supercell = s.typeOrdinal() >= 3;
+			boolean tornadic = s.typeOrdinal() >= 4;
+			int count = Math.min(budget - spawned, supercell ? 12 : 7);
+			// Broad dark deck plus an anvil canopy. Particles are long-lived and only a
+			// handful are emitted each frame, producing depth without cloud entities.
+			for (int i = 0; i < count; i++) {
+				double phase = time * (supercell ? 0.018 : 0.006) * Math.signum(s.rotation() == 0 ? 1 : s.rotation());
+				double a = phase + RNG.nextDouble() * Math.PI * 2.0;
+				double radial = Math.sqrt(RNG.nextDouble()) * s.radius() * (supercell ? 0.72 : 0.58);
+				double cx = s.x() + Math.cos(a) * radial;
+				double cz = s.z() + Math.sin(a) * radial;
+				double baseY = Math.max(client.level.getSeaLevel() + 58, client.player.getY() + 45);
+				double cy = baseY + RNG.nextDouble() * (supercell ? 20 : 12);
+				client.level.addParticle(supercell ? ParticleTypes.LARGE_SMOKE : ParticleTypes.CAMPFIRE_COSY_SMOKE,
+					cx, cy, cz, Math.cos(s.dir()) * s.speed() * 0.12, supercell ? 0.005 : 0.012,
+					Math.sin(s.dir()) * s.speed() * 0.12);
+				spawned++;
+			}
+			// Rotating lowered wall cloud directly above a tornadic circulation. This
+			// visually joins cloud base to the funnel produced below.
+			if (tornadic && spawned < budget) {
+				double a = time * 0.07 * Math.signum(s.rotation() == 0 ? 1 : s.rotation());
+				double r = Math.max(12.0, s.radius() * 0.16);
+				client.level.addParticle(ParticleTypes.LARGE_SMOKE,
+					s.x() + Math.cos(a) * r, Math.max(client.level.getSeaLevel() + 42, client.player.getY() + 32),
+					s.z() + Math.sin(a) * r, 0, -0.015, 0);
+				spawned++;
+			}
+		}
+		return spawned;
 	}
 
 	// ------------------------------------------------------------------

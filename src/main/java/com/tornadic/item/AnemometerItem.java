@@ -35,18 +35,17 @@ public class AnemometerItem extends Item {
 				data.storms(), data.tornadoes(), sp.getX(), sp.getY(), sp.getZ());
 			double blocksPerSec = Math.sqrt(wind.x * wind.x + wind.z * wind.z) * 20.0;
 			double mph = blocksPerSec * 2.23694;
-			String dir = "calm";
+			String dir = "--";
 			if (mph > 0.5) {
-				double deg = Math.toDegrees(Math.atan2(wind.x, wind.z)) % 360;
-				if (deg < 0) {
-					deg += 360;
-				}
+				double deg = Math.toDegrees(Math.atan2(wind.z, wind.x));
+				if (deg < 0) deg += 360;
 				String[] dirs = {"E", "NE", "N", "NW", "W", "SW", "S", "SE"};
-				dir = "from " + dirs[((int) Math.round(deg / 45.0)) % 8];
+				dir = dirs[((int) Math.round(deg / 45.0)) & 7];
 			}
-			sp.sendSystemMessage(Component.literal("Wind: ").withStyle(ChatFormatting.GRAY)
-				.append(Component.literal(String.format("%.1f mph", mph)).withStyle(ChatFormatting.AQUA))
-				.append(Component.literal("  " + dir).withStyle(ChatFormatting.GRAY)));
+			String condition = mph < 3 ? "Calm" : mph < 18 ? "Breezy" : mph < 45 ? "Strong" : mph < 90 ? "Severe" : "Extreme";
+			sp.sendSystemMessage(Component.literal("ANEMOMETER  ").withStyle(ChatFormatting.AQUA, ChatFormatting.BOLD)
+				.append(Component.literal(String.format("Wind %.1f mph  |  Direction %s  |  %s", mph, dir, condition))
+					.withStyle(ChatFormatting.WHITE)));
 		}
 		return net.minecraft.world.InteractionResultHolder.sidedSuccess(player.getItemInHand(hand), world.isClientSide);
 	}

@@ -584,16 +584,63 @@ public class TornadicSavedData extends SavedData {
 		// If every candidate is on/near a player, wait for next tick.
 	}
 
-	public void spawnTestTornado(ServerLevel world, double x, double z, int ef) {
+	/** Creates a command-spawned tornado and its visible parent mesocyclone. */
+	public boolean spawnTestTornado(ServerLevel world, double x, double z, int ef) {
+		BlockPos pos = new BlockPos((int) x, 64, (int) z);
+		if (!world.isLoaded(pos)) {
+			return false;
+		}
 		int groundY = world.getHeight(Heightmap.Types.MOTION_BLOCKING, (int) x, (int) z);
-		TornadoState state = new TornadoState(newId(), x, groundY, z, -1, Math.max(0, Math.min(5, ef)));
+		int clampedEf = Math.max(0, Math.min(5, ef));
+
+		// Test tornadoes used to be orphaned (stormId=-1). tickTornadoes immediately
+		// marked every orphan as dissipating while its intensity was near zero, so it
+		// vanished before the first client sync. Give it a real tornadic supercell.
+		Storm parent = new Storm(newId(), x, z, world.getRandom().nextFloat() * (float) (Math.PI * 2.0));
+		parent.type = StormType.TORNADIC_SUPERCELL;
+		parent.intensity = 1.0f;
+		parent.radius = 150.0f + clampedEf * 12.0f;
+		parent.speed = 0.08f;
+		parent.rotation = 0.85f;
+		parent.rainIntensity = 1.0f;
+		parent.hail = clampedEf >= 2;
+		parent.hailSize = 0.55f + clampedEf * 0.08f;
+		parent.lightningCooldown = 60;
+		storms.add(parent);
+		stormsToday++;
+
+		TornadoState state = new TornadoState(newId(), x, groundY, z, parent.id, clampedEf);
+		state.heading = parent.dir;
+		// Start command tornadoes visibly condensed while preserving their normal
+		// intensification, movement, physics and eventual dissipation lifecycle.
+		state.age = Math.max(1, state.rampTicks / 3);
+		state.intensity = state.age / (float) state.rampTicks;
 		tornadoes.add(state);
 		tornadoesToday++;
-		maxEfToday = Math.max(maxEfToday, (int) state.peakEf);
+		maxEfToday = Math.max(maxEfToday, clampedEf);
 		TornadoEntity entity = TornadoEntity.create(TornadicMod.TORNADO_TYPE, world, state.id, x, groundY, z);
-		world.addFreshEntity(entity);
+		if (!world.addFreshEntity(entity)) {
+			storms.remove(parent);
+			tornadoes.remove(state);
+			return false;
+		}
 		state.entity = entity;
 		setDirty();
+		// Do not wait for the periodic broadcaster: command feedback and visuals
+		// should be observable on the very next client frame.
+		syncToNearbyPlayers(world, parent, state);
+		return true;
+	}
+
+	private void syncToNearbyPlayers(ServerLevel world, Storm storm, TornadoState state) {
+		int groundTone = sampleGroundTone(world, state);
+		for (ServerPlayer player : world.getServer().getPlayerList().getPlayers()) {
+			if (player.distanceToSqr(new Vec3(state.x, player.getY(), state.z)) > 1600 * 1600) continue;
+			player.connection.send(new net.minecraft.network.protocol.common.ClientboundCustomPayloadPacket(
+				StormSyncPayload.of(storm, state.currentEf())));
+			player.connection.send(new net.minecraft.network.protocol.common.ClientboundCustomPayloadPacket(
+				TornadoSyncPayload.of(state, (int) state.id, groundTone)));
+		}
 	}
 
 	private void tickTornadoes(ServerLevel world, DailyForecast forecast) {

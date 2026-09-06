@@ -82,6 +82,7 @@ public class TornadicClientMod implements ClientModInitializer {
 		});
 
 		HudRenderCallback.EVENT.register((graphics, tickCounter) -> {
+			AnemometerHud.render(graphics);
 			DebugHud.render(graphics);
 		});
 	}

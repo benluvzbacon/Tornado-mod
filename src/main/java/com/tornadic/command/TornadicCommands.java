@@ -67,6 +67,7 @@ public final class TornadicCommands {
 
 		dispatcher.register(Commands.literal("spawn_tornado")
 			.requires(src -> src.hasPermission(2))
+			.executes(ctx -> spawnTornado(ctx.getSource(), 2))
 			.then(Commands.argument("ef", StringArgumentType.word())
 				.suggests((ctx, builder) -> SharedSuggestionProvider.suggest(
 					new String[]{"ef0", "ef1", "ef2", "ef3", "ef4", "ef5"}, builder))
@@ -265,12 +266,18 @@ public final class TornadicCommands {
 			return 0;
 		}
 		ServerLevel world = source.getServer().overworld();
-		double angle = Math.random() * Math.PI * 2.0;
-		double x = player.getX() + Math.cos(angle) * 96;
-		double z = player.getZ() + Math.sin(angle) * 96;
-		TornadicSavedData.getOrLoad(source.getServer()).spawnTestTornado(world, x, z, ef);
+		double angle = world.getRandom().nextDouble() * Math.PI * 2.0;
+		// Keep the command tornado outside immediate contact, but inside the player's
+		// guaranteed loaded/tracked area so the entity and first visual sync cannot fail.
+		double x = player.getX() + Math.cos(angle) * 64;
+		double z = player.getZ() + Math.sin(angle) * 64;
+		boolean spawned = TornadicSavedData.getOrLoad(source.getServer()).spawnTestTornado(world, x, z, ef);
+		if (!spawned) {
+			source.sendFailure(Component.literal("Could not spawn tornado: target chunk is not loaded."));
+			return 0;
+		}
 		source.sendSuccess(() -> Component.literal("Spawned " + com.tornadic.tornado.TornadoIntensity.fromEf(ef).label()
-				+ " tornado at " + (int) x + ", " + (int) z)
+				+ " tornado with tornadic supercell at " + (int) x + ", " + (int) z)
 			.withStyle(ChatFormatting.GREEN), false);
 		return 1;
 	}
