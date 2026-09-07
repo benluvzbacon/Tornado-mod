@@ -225,9 +225,13 @@ public class TornadicSavedData extends SavedData {
 		if (storms.size() >= TornadicConfig.maxStorms) {
 			return;
 		}
-		double perTick = 0.00035 * (forecast.stormProbability() / 100.0)
+		double perTick = 0.00055 * (forecast.stormProbability() / 100.0)
 			* forecast.risk().stormRateMultiplier() * TornadicConfig.stormFrequency;
-		if (world.getRandom().nextFloat() >= (perTick * intervalFactor())) {
+		// Ensure a new session demonstrates that Tornadic is alive without forcing
+		// severe weather: after 30 seconds an empty simulation may form one ordinary
+		// developing cumulonimbus. All later storms remain forecast-driven.
+		boolean initialDevelopingCell = storms.isEmpty() && tickCounter == 600;
+		if (!initialDevelopingCell && world.getRandom().nextFloat() >= (perTick * intervalFactor())) {
 			return;
 		}
 
@@ -247,14 +251,16 @@ public class TornadicSavedData extends SavedData {
 		}
 		for (int attempt = 0; attempt < 6; attempt++) {
 			double angle = world.getRandom().nextDouble() * Math.PI * 2.0;
+			// Storms are simulation objects, not block entities: they may safely form
+			// outside loaded chunks. The old loaded-chunk check made natural spawning
+			// mathematically impossible with the default 300-block minimum and common
+			// 8-10 chunk view distances. Bias new cells into a visible chasing range.
+			double visibleMax = Math.max(TornadicConfig.stormMinPlayerDistance + 80.0,
+				Math.min(TornadicConfig.stormMaxPlayerDistance, 720.0));
 			double dist = TornadicConfig.stormMinPlayerDistance
-				+ world.getRandom().nextDouble()
-				* (TornadicConfig.stormMaxPlayerDistance - TornadicConfig.stormMinPlayerDistance);
+				+ world.getRandom().nextDouble() * (visibleMax - TornadicConfig.stormMinPlayerDistance);
 			double x = ax + Math.cos(angle) * dist;
 			double z = az + Math.sin(angle) * dist;
-			if (!world.isLoaded(new BlockPos((int) x, 64, (int) z))) {
-				continue;
-			}
 			// Keep fresh storms away from every player.
 			boolean tooClose = false;
 			for (ServerPlayer p : players) {

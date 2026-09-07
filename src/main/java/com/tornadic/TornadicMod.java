@@ -67,6 +67,9 @@ public class TornadicMod implements ModInitializer {
 			ServerPlayer player = handler.player;
 			try {
 				TornadicSavedData.getOrLoad(server).syncToPlayer(server.overworld(), player);
+				player.sendSystemMessage(net.minecraft.network.chat.Component.literal(
+					"Tornadic 2.6 active — use /thermos for today's forecast.")
+					.withStyle(net.minecraft.ChatFormatting.AQUA));
 			} catch (Throwable t) {
 				LOGGER.error("Tornadic player sync failed", t);
 			}
