@@ -1,5 +1,7 @@
 {
 	"itemGroup.tornadic.weather": "Tornadic Weather",
+	"screen.tornadic.notebook": "Storm Notebook",
+	"screen.tornadic.radar": "Storm Radar",
 	"block.tornadic.anemometer": "Anemometer",
 	"item.tornadic.weather_radio": "Weather Radio",
 	"item.tornadic.anemometer": "Anemometer",

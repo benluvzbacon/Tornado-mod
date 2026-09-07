@@ -1,5 +1,8 @@
 {
   "variants": {
-    "": { "model": "tornadic:item/anemometer" }
+    "rotation=0": { "model": "tornadic:item/anemometer", "y": 0 },
+    "rotation=1": { "model": "tornadic:item/anemometer", "y": 90 },
+    "rotation=2": { "model": "tornadic:item/anemometer", "y": 180 },
+    "rotation=3": { "model": "tornadic:item/anemometer", "y": 270 }
   }
 }

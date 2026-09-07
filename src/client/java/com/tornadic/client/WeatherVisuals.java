@@ -82,7 +82,7 @@ public final class WeatherVisuals {
 
 			boolean supercell = s.typeOrdinal() >= 3;
 			boolean tornadic = s.typeOrdinal() >= 4;
-			int count = Math.min(budget - spawned, supercell ? 12 : 7);
+			int count = Math.min(budget - spawned, supercell ? 26 : 14);
 			// Broad dark deck plus an anvil canopy. Particles are long-lived and only a
 			// handful are emitted each frame, producing depth without cloud entities.
 			for (int i = 0; i < count; i++) {
@@ -98,6 +98,33 @@ public final class WeatherVisuals {
 					Math.sin(s.dir()) * s.speed() * 0.12);
 				spawned++;
 			}
+			// Custom towering updraft and spreading anvil. These are independent of
+			// Minecraft's vanilla cloud layer and remain attached to the storm track.
+			if (supercell) {
+				int towerPoints = Math.min(7, budget - spawned);
+				for (int p = 0; p < towerPoints; p++) {
+					double level = p / 6.0;
+					double spiral = time * 0.012 * Math.signum(s.rotation() == 0 ? 1 : s.rotation()) + p * 1.7;
+					double tr = (1.0 - level * 0.55) * s.radius() * 0.20;
+					client.level.addParticle(ParticleTypes.CLOUD,
+						s.x() - Math.cos(s.dir()) * s.radius() * 0.18 + Math.cos(spiral) * tr,
+						Math.max(client.level.getSeaLevel() + 56, client.player.getY() + 44) + p * 7.0,
+						s.z() - Math.sin(s.dir()) * s.radius() * 0.18 + Math.sin(spiral) * tr,
+						Math.cos(s.dir()) * 0.015, 0.025, Math.sin(s.dir()) * 0.015);
+					spawned++;
+				}
+				if (spawned < budget) {
+					double anvilAngle = time * 0.004 + RNG.nextDouble() * Math.PI * 2;
+					double ar = s.radius() * (0.55 + RNG.nextDouble() * 0.38);
+					client.level.addParticle(ParticleTypes.CLOUD,
+						s.x() + Math.cos(anvilAngle) * ar,
+						Math.max(client.level.getSeaLevel() + 98, client.player.getY() + 86),
+						s.z() + Math.sin(anvilAngle) * ar,
+						Math.cos(s.dir()) * 0.035, 0.0, Math.sin(s.dir()) * 0.035);
+					spawned++;
+				}
+			}
+
 			// Rotating lowered wall cloud directly above a tornadic circulation. This
 			// visually joins cloud base to the funnel produced below.
 			if (tornadic && spawned < budget) {

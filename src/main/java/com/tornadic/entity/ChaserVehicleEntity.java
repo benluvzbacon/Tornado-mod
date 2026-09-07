@@ -27,7 +27,7 @@ public class ChaserVehicleEntity extends Entity {
 
 	public ChaserVehicleEntity(EntityType<? extends ChaserVehicleEntity> type, Level level) {
 		super(type, level);
-		this.setNoGravity(true);
+		this.setNoGravity(false);
 	}
 
 	public static ChaserVehicleEntity create(EntityType<? extends ChaserVehicleEntity> type, Level level,
@@ -81,9 +81,9 @@ public class ChaserVehicleEntity extends Entity {
 		}
 		if (isDeployed()) {
 			setDeltaMovement(Vec3.ZERO);
-		} else if (!getPassengers().isEmpty()) {
-			Player driver = (Player) getControllingPassenger();
-		// Research vehicle handling: steady forward force, a little speed, no superpowers.
+		} else if (!getPassengers().isEmpty() && getPassengers().get(0) instanceof Player driver) {
+		// TIV 2 handling follows the driver's view and applies actual entity movement.
+		setYRot(driver.getYRot());
 		float yaw = (float) (driver.getYRot() * Math.PI / 180.0);
 		float sprintFactor = driver.isSprinting() ? 1.35f : 1.0f;
 		double forward = 0.06 * sprintFactor;
@@ -97,7 +97,12 @@ public class ChaserVehicleEntity extends Entity {
 	} else {
 			// Coasting friction.
 			Vec3 vel = getDeltaMovement();
-			setDeltaMovement(vel.multiply(0.9, 0.9, 0.9));
+			setDeltaMovement(vel.multiply(0.9, 0.98, 0.9));
+		}
+		if (!isDeployed()) {
+			if (!onGround()) setDeltaMovement(getDeltaMovement().add(0, -0.08, 0));
+			move(net.minecraft.world.entity.MoverType.SELF, getDeltaMovement());
+			if (horizontalCollision) setDeltaMovement(getDeltaMovement().multiply(0.25, 1.0, 0.25));
 		}
 		// Discard if it falls far out of the world.
 		if (getY() < (level() instanceof ServerLevel sl ? sl.getMinBuildHeight() : 0) - 64) {

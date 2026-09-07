@@ -48,7 +48,9 @@ public class ChaserVehicleItem extends Item {
 		if (!state.canBeReplaced()) {
 			return InteractionResult.FAIL;
 		}
-		if (world.getBlockState(pos.above()).getCollisionShape(world, pos.above()).bounds().maxY > 0) {
+		// Never call bounds() on an empty voxel shape (it throws). Require two
+		// genuinely clear blocks for the full-height TIV 2 model.
+		if (!world.getBlockState(pos.above()).getCollisionShape(world, pos.above()).isEmpty()) {
 			return InteractionResult.FAIL;
 		}
 		// Don't stack vehicles.
@@ -61,8 +63,15 @@ public class ChaserVehicleItem extends Item {
 		com.tornadic.entity.ChaserVehicleEntity vehicle =
 			com.tornadic.entity.ChaserVehicleEntity.create(TornadicMod.CHASER_VEHICLE_TYPE, world,
 				pos.getX() + 0.5, pos.getY() + 0.2, pos.getZ() + 0.5);
-		world.addFreshEntity(vehicle);
-		context.getItemInHand().shrink(1);
+		if (!world.addFreshEntity(vehicle)) {
+			if (context.getPlayer() instanceof ServerPlayer sp) {
+				sp.sendSystemMessage(Component.literal("TIV 2 deployment failed at this location.").withStyle(ChatFormatting.RED));
+			}
+			return InteractionResult.FAIL;
+		}
+		if (context.getPlayer() == null || !context.getPlayer().getAbilities().instabuild) {
+			context.getItemInHand().shrink(1);
+		}
 		return InteractionResult.CONSUME;
 	}
 

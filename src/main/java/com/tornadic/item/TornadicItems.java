@@ -29,7 +29,7 @@ public final class TornadicItems {
 
 	public static void register() {
 		ANEMOMETER_BLOCK = Registry.register(BuiltInRegistries.BLOCK, "tornadic:anemometer",
-			new AnemometerBlock(BlockBehaviour.Properties.of().strength(0.8f).noOcclusion()));
+			new AnemometerBlock(BlockBehaviour.Properties.of().strength(0.8f).noOcclusion().randomTicks()));
 		WEATHER_RADIO = Registry.register(BuiltInRegistries.ITEM, "tornadic:weather_radio",
 			new WeatherRadioItem(new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));
 		ANEMOMETER = Registry.register(BuiltInRegistries.ITEM, "tornadic:anemometer",
